@@ -1,0 +1,17 @@
+include ../includes/head
+link(rel='stylesheet', href='/stylesheets/users/login.css')
+block content
+    include ../includes/header
+    .container
+        form.form-signin(action='/users/register',method='post')
+            h2.form-signin-heading 请注册
+            label.sr-only(for="inputEmail") 用户名
+            input#inputEmail.form-control(type="text" placeholder="请输入用户名" required autofocus)
+            label.sr-only(for="inputEmail") 密码
+            input#inputPassword.form-control(type="password" placeholder="请输入密码" required)
+            label.sr-only(for="inputEmail") 密码
+            input#inputRePassword.form-control(type="password" placeholder="请再次输入密码" required)
+            button(class="btn btn-lg btn-primary btn-block" type="submit") 注册
+include ../includes/footer
+script.
+    seajs.use('javascript/users/login.js');
