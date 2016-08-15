@@ -1,9 +1,16 @@
 .col-sm-3.col-md-2.sidebar
   ul.nav.nav-sidebar
     li.active
-      a(href='#') 监控中心
-        span.sr-only (current)
+      a(href='/') 监控中心
+    li.list-group.slide-list-group
+      a(href='/member')  人员管理
+      li.list-group-item
+        a(href='/member/list') 人员列表
+        a(href='/member/edit') 编辑人员
+        a(href='/member/add') 添加人员
     li
-      a test1
+      a(href='/project')  项目管理
     li
-      a test2
+      a(href='/project')  项目管理
+    li
+      a(href='/project')  项目管理

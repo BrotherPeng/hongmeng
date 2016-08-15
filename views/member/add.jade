@@ -1,0 +1,26 @@
+include ../includes/head
+
+block content
+    include ../includes/header
+.container-fluid
+    .row
+        include ../includes/slide
+        .col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2.main
+            h1.page-header 添加人员
+            .row.placeholders
+                form.form-horizontal(role='form')
+                    div.form-group
+                        label.col-sm-2.control-label(for='username') 用户名
+                        div.col-sm-6
+                            input.form-control(id='username' name='username' type='text' placeholder='用户名')
+                    div.form-group
+                        label.col-sm-2.control-label(for='password') 密码
+                        div.col-sm-6
+                            input.form-control(id='password' name='password' type='text' placeholder='密码')
+                    div.form-group
+                        label.col-sm-2.control-label(for='role') 角色
+                        div.col-sm-6
+                            input.form-control(id='role' name='role' type='text' placeholder='角色')
+
+
+include ../includes/footer
