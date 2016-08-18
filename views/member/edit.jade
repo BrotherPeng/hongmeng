@@ -8,4 +8,39 @@ block content
         .col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2.main
             h1.page-header 编辑人员
             .row.placeholders
+                if(result)
+                    form.form-horizontal(role='form' action='/member/edit/#{result[0].id}' method='post')
+                        div.form-group
+                            label.col-sm-2.control-label(for='username') 用户名
+                            div.col-sm-10
+                                input.form-control(id='username' name='username' type='text' placeholder='用户名' required value='#{result[0].username}')
+                        div.form-group
+                            label.col-sm-2.control-label(for='password') 密码
+                            div.col-sm-10
+                                input.form-control(id='password' name='password' type='password' placeholder='密码' required)
+                        div.form-group
+                            label.col-sm-2.control-label(for='rePassword') 密码
+                            div.col-sm-10
+                                input.form-control(id='rePassword' name='rePassword' type='password' placeholder='密码' required)
+                        div.form-group
+                            label.col-sm-2.control-label(for='role') 角色
+                            div.col-sm-10
+                                select.form-control(id='role' name='role' type='text' placeholder='角色')
+                                    if(result[0].role_id==2)
+                                        option(value=2 selected) 超级管理员
+                                    else
+                                        option(value=2) 超级管理员
+                                    if(result[0].role_id==3)
+                                        option(value=3 selected) 超级用户
+                                    else
+                                        option(value=3) 超级用户
+                                    if(result[0].role_id==4)
+                                        option(value=4 selected) 管理员
+                                    else
+                                        option(value=4) 管理员
+                                    if(result[0].role_id==5)
+                                        option(value=5 selected) 用户
+                                    else
+                                        option(value=5) 用户
+                        button.btn.btn-primary.btn-lg#submitBtn(type='submit') 提交
 include ../includes/footer

@@ -7,5 +7,35 @@ block content
         include ../includes/slide
         .col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2.main
             h1.page-header 人员列表
-            .row.placeholders
+            .row
+                .table-responsive
+                    table.table.table-hover
+                        caption 下表为所有人员列表
+                        thead
+                            tr
+                                th  序号
+                                th  用户名
+                                th  密码
+                                th  角色
+                                th  操作
+                        if (result)
+                            each item in result
+                                if(item)
+                                    tr
+                                        td #{item.id}
+                                        td #{item.username}
+                                        td #{item.password}
+                                        case item.role_id
+                                            when 1: td admin
+                                            when 2: td 超级管理员
+                                            when 3: td 超级用户
+                                            when 4: td 项目管理员
+                                            default: td 普通用户
+                                        td
+                                            a.delBtn(href='javascript:void(0);' data-id='#{item.id}')  删除
+                                            a.editBtn(href='/member/edit/#{item.id}' data-id='#{item.id}')  编辑
+
+
 include ../includes/footer
+script.
+    seajs.use('javascript/member/list.js');
