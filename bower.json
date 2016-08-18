@@ -1,0 +1,22 @@
+{
+  "name": "hongmeng",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "luming"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/luming747/hongmeng",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "jquery": "^3.1.0"
+  }
+}
