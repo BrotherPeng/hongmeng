@@ -681,3 +681,687 @@
 [2016-08-21 15:31:59.880] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css.map HTTP/1.1" 304 - "" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
 [2016-08-21 15:31:59.922] [INFO] app - ::1 - - "GET /javascript/common/base.js HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
 [2016-08-21 15:32:00.037] [INFO] app - ::1 - - "GET /javascript/lib/jquery-1.11.1.min.js HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 15:54:17.251] [INFO] app - ::1 - - "GET /project/edit/4 HTTP/1.1" 302 56 "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 15:54:17.627] [INFO] app - ::1 - - "GET /login HTTP/1.1" 200 1778 "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 15:54:17.700] [INFO] app - ::1 - - "GET /stylesheets/style.css HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 15:54:17.700] [INFO] app - ::1 - - "GET /stylesheets/users/login.css HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 15:54:17.701] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 15:54:17.702] [INFO] app - ::1 - - "GET /jquery/dist/jquery.min.js HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 15:54:17.703] [INFO] app - ::1 - - "GET /bootstrap/dist/js/bootstrap.min.js HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 15:54:17.703] [INFO] app - ::1 - - "GET /seajs/dist/sea-debug.js HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 15:54:17.704] [INFO] app - ::1 - - "GET /javascript/config.js HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 15:54:17.728] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css.map HTTP/1.1" 304 - "" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 15:54:17.779] [INFO] app - ::1 - - "GET /javascript/common/base.js HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 15:54:17.779] [INFO] app - ::1 - - "GET /javascript/users/login.js HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 15:54:17.922] [INFO] app - ::1 - - "GET /javascript/lib/jquery-1.11.1.min.js HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 15:54:22.726] [INFO] app - ::1 - - "POST /login HTTP/1.1" 302 46 "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 15:54:22.822] [INFO] app - ::1 - - "GET / HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 15:54:22.886] [INFO] app - ::1 - - "GET /stylesheets/style.css HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 15:54:22.887] [INFO] app - ::1 - - "GET /javascript/config.js HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 15:54:22.888] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 15:54:22.888] [INFO] app - ::1 - - "GET /jquery/dist/jquery.min.js HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 15:54:22.889] [INFO] app - ::1 - - "GET /bootstrap/dist/js/bootstrap.min.js HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 15:54:22.889] [INFO] app - ::1 - - "GET /seajs/dist/sea-debug.js HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 15:54:22.913] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css.map HTTP/1.1" 304 - "" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 15:54:22.956] [INFO] app - ::1 - - "GET /javascript/common/base.js HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 15:54:23.082] [INFO] app - ::1 - - "GET /javascript/lib/jquery-1.11.1.min.js HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 15:54:24.202] [INFO] mysql - [ RowDataPacket {
+    id: 4,
+    name: '从测试时',
+    owner_company: '北京金时佰德科技有限公司',
+    manage_company: '北京时代凌宇股份科技有限公司',
+    create_name: 'admin',
+    email: 'songsong@love.com',
+    create_time: 2016-08-18T06:51:23.000Z,
+    comment: '本项目介绍需要很多的文字，很多的很多的文字，刚才外面有炮声，是有人放枪吗？这些够了吧，还不够。再来点，有迪欧少自乐，有多少字了。',
+    manage_name: 'aaa' } ]
+[2016-08-21 15:54:24.294] [INFO] app - ::1 - - "GET /project/list HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 15:54:24.356] [INFO] app - ::1 - - "GET /stylesheets/style.css HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 15:54:24.357] [INFO] app - ::1 - - "GET /javascript/config.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 15:54:24.358] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 15:54:24.359] [INFO] app - ::1 - - "GET /jquery/dist/jquery.min.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 15:54:24.360] [INFO] app - ::1 - - "GET /bootstrap/dist/js/bootstrap.min.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 15:54:24.362] [INFO] app - ::1 - - "GET /seajs/dist/sea-debug.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 15:54:24.386] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css.map HTTP/1.1" 304 - "" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 15:54:24.429] [INFO] app - ::1 - - "GET /javascript/common/base.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 15:54:24.430] [INFO] app - ::1 - - "GET /javascript/project/list.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 15:54:24.562] [INFO] app - ::1 - - "GET /javascript/lib/jquery-1.11.1.min.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 15:54:42.996] [INFO] mysql - [ RowDataPacket {
+    id: 4,
+    name: '从测试时',
+    owner_company: '北京金时佰德科技有限公司',
+    manage_company: '北京时代凌宇股份科技有限公司',
+    create_name: 'admin',
+    email: 'songsong@love.com',
+    create_time: 2016-08-18T06:51:23.000Z,
+    comment: '本项目介绍需要很多的文字，很多的很多的文字，刚才外面有炮声，是有人放枪吗？这些够了吧，还不够。再来点，有迪欧少自乐，有多少字了。',
+    manage_name: 'aaa' } ]
+[2016-08-21 15:54:43.124] [INFO] app - ::1 - - "GET /project/list HTTP/1.1" 200 2808 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 15:54:43.195] [INFO] app - ::1 - - "GET /stylesheets/style.css HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 15:54:43.196] [INFO] app - ::1 - - "GET /javascript/config.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 15:54:43.197] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 15:54:43.197] [INFO] app - ::1 - - "GET /jquery/dist/jquery.min.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 15:54:43.198] [INFO] app - ::1 - - "GET /bootstrap/dist/js/bootstrap.min.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 15:54:43.198] [INFO] app - ::1 - - "GET /seajs/dist/sea-debug.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 15:54:43.223] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css.map HTTP/1.1" 304 - "" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 15:54:43.272] [INFO] app - ::1 - - "GET /javascript/common/base.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 15:54:43.273] [INFO] app - ::1 - - "GET /javascript/project/list.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 15:54:43.409] [INFO] app - ::1 - - "GET /javascript/lib/jquery-1.11.1.min.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 15:54:52.894] [INFO] mysql - [ RowDataPacket {
+    id: 4,
+    name: '从测试时',
+    owner_company: '北京金时佰德科技有限公司',
+    manage_company: '北京时代凌宇股份科技有限公司',
+    create_name: 'admin',
+    manage_id: 15,
+    comment: '本项目介绍需要很多的文字，很多的很多的文字，刚才外面有炮声，是有人放枪吗？这些够了吧，还不够。再来点，有迪欧少自乐，有多少字了。',
+    create_time: 2016-08-18T06:51:23.000Z } ]
+[2016-08-21 15:54:52.971] [INFO] app - ::1 - - "GET /project/edit/4 HTTP/1.1" 200 2369 "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 15:54:53.034] [INFO] app - ::1 - - "GET /stylesheets/style.css HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 15:54:53.036] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 15:54:53.037] [INFO] app - ::1 - - "GET /jquery/dist/jquery.min.js HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 15:54:53.039] [INFO] app - ::1 - - "GET /bootstrap/dist/js/bootstrap.min.js HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 15:54:53.042] [INFO] app - ::1 - - "GET /javascript/config.js HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 15:54:53.042] [INFO] app - ::1 - - "GET /seajs/dist/sea-debug.js HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 15:54:53.063] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css.map HTTP/1.1" 304 - "" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 15:54:53.108] [INFO] app - ::1 - - "GET /javascript/common/base.js HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 15:54:53.254] [INFO] app - ::1 - - "GET /javascript/lib/jquery-1.11.1.min.js HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:34:12.006] [INFO] app - ::1 - - "GET /project/edit/4 HTTP/1.1" 302 56 "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:34:12.394] [INFO] app - ::1 - - "GET /login HTTP/1.1" 200 1778 "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:34:12.682] [INFO] app - ::1 - - "GET /stylesheets/style.css HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:34:12.683] [INFO] app - ::1 - - "GET /stylesheets/users/login.css HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:34:12.684] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:34:12.685] [INFO] app - ::1 - - "GET /jquery/dist/jquery.min.js HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:34:12.685] [INFO] app - ::1 - - "GET /bootstrap/dist/js/bootstrap.min.js HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:34:12.686] [INFO] app - ::1 - - "GET /javascript/config.js HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:34:12.687] [INFO] app - ::1 - - "GET /seajs/dist/sea-debug.js HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:34:12.712] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css.map HTTP/1.1" 304 - "" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:34:12.763] [INFO] app - ::1 - - "GET /javascript/common/base.js HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:34:12.764] [INFO] app - ::1 - - "GET /javascript/users/login.js HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:34:12.903] [INFO] app - ::1 - - "GET /javascript/lib/jquery-1.11.1.min.js HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:34:17.153] [INFO] app - ::1 - - "POST /login HTTP/1.1" 302 46 "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:34:17.251] [INFO] app - ::1 - - "GET / HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:34:17.316] [INFO] app - ::1 - - "GET /stylesheets/style.css HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:34:17.317] [INFO] app - ::1 - - "GET /javascript/config.js HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:34:17.318] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:34:17.319] [INFO] app - ::1 - - "GET /jquery/dist/jquery.min.js HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:34:17.319] [INFO] app - ::1 - - "GET /bootstrap/dist/js/bootstrap.min.js HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:34:17.320] [INFO] app - ::1 - - "GET /seajs/dist/sea-debug.js HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:34:17.343] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css.map HTTP/1.1" 304 - "" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:34:17.385] [INFO] app - ::1 - - "GET /javascript/common/base.js HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:34:17.519] [INFO] app - ::1 - - "GET /javascript/lib/jquery-1.11.1.min.js HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:34:20.324] [INFO] mysql - [ RowDataPacket {
+    id: 4,
+    name: '从测试时',
+    owner_company: '北京金时佰德科技有限公司',
+    manage_company: '北京时代凌宇股份科技有限公司',
+    create_name: 'admin',
+    email: 'songsong@love.com',
+    create_time: 2016-08-18T06:51:23.000Z,
+    comment: '本项目介绍需要很多的文字，很多的很多的文字，刚才外面有炮声，是有人放枪吗？这些够了吧，还不够。再来点，有迪欧少自乐，有多少字了。',
+    manage_name: 'aaa' } ]
+[2016-08-21 16:34:20.408] [INFO] app - ::1 - - "GET /project/list HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:34:20.470] [INFO] app - ::1 - - "GET /stylesheets/style.css HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:34:20.472] [INFO] app - ::1 - - "GET /javascript/config.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:34:20.473] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:34:20.476] [INFO] app - ::1 - - "GET /jquery/dist/jquery.min.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:34:20.477] [INFO] app - ::1 - - "GET /bootstrap/dist/js/bootstrap.min.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:34:20.480] [INFO] app - ::1 - - "GET /seajs/dist/sea-debug.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:34:20.502] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css.map HTTP/1.1" 304 - "" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:34:20.545] [INFO] app - ::1 - - "GET /javascript/common/base.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:34:20.545] [INFO] app - ::1 - - "GET /javascript/project/list.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:34:20.682] [INFO] app - ::1 - - "GET /javascript/lib/jquery-1.11.1.min.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:34:22.982] [INFO] mysql - [ RowDataPacket { id: 13, username: '管理员测试主账号' },
+  RowDataPacket { id: 15, username: 'aaa' } ]
+[2016-08-21 16:34:23.045] [INFO] app - ::1 - - "GET /project/add HTTP/1.1" 200 3423 "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:34:23.108] [INFO] app - ::1 - - "GET /stylesheets/style.css HTTP/1.1" 304 - "http://localhost:3000/project/add" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:34:23.109] [INFO] app - ::1 - - "GET /javascript/config.js HTTP/1.1" 304 - "http://localhost:3000/project/add" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:34:23.110] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css HTTP/1.1" 304 - "http://localhost:3000/project/add" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:34:23.110] [INFO] app - ::1 - - "GET /jquery/dist/jquery.min.js HTTP/1.1" 304 - "http://localhost:3000/project/add" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:34:23.111] [INFO] app - ::1 - - "GET /bootstrap/dist/js/bootstrap.min.js HTTP/1.1" 304 - "http://localhost:3000/project/add" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:34:23.111] [INFO] app - ::1 - - "GET /seajs/dist/sea-debug.js HTTP/1.1" 304 - "http://localhost:3000/project/add" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:34:23.136] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css.map HTTP/1.1" 304 - "" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:34:23.180] [INFO] app - ::1 - - "GET /javascript/common/base.js HTTP/1.1" 304 - "http://localhost:3000/project/add" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:34:23.308] [INFO] app - ::1 - - "GET /javascript/lib/jquery-1.11.1.min.js HTTP/1.1" 304 - "http://localhost:3000/project/add" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:34:24.012] [INFO] mysql - [ RowDataPacket {
+    id: 4,
+    name: '从测试时',
+    owner_company: '北京金时佰德科技有限公司',
+    manage_company: '北京时代凌宇股份科技有限公司',
+    create_name: 'admin',
+    email: 'songsong@love.com',
+    create_time: 2016-08-18T06:51:23.000Z,
+    comment: '本项目介绍需要很多的文字，很多的很多的文字，刚才外面有炮声，是有人放枪吗？这些够了吧，还不够。再来点，有迪欧少自乐，有多少字了。',
+    manage_name: 'aaa' } ]
+[2016-08-21 16:34:24.074] [INFO] app - ::1 - - "GET /project/list HTTP/1.1" 304 - "http://localhost:3000/project/add" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:34:24.139] [INFO] app - ::1 - - "GET /stylesheets/style.css HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:34:24.139] [INFO] app - ::1 - - "GET /javascript/config.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:34:24.140] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:34:24.140] [INFO] app - ::1 - - "GET /jquery/dist/jquery.min.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:34:24.141] [INFO] app - ::1 - - "GET /bootstrap/dist/js/bootstrap.min.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:34:24.142] [INFO] app - ::1 - - "GET /seajs/dist/sea-debug.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:34:24.166] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css.map HTTP/1.1" 304 - "" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:34:24.212] [INFO] app - ::1 - - "GET /javascript/common/base.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:34:24.212] [INFO] app - ::1 - - "GET /javascript/project/list.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:34:24.338] [INFO] app - ::1 - - "GET /javascript/lib/jquery-1.11.1.min.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:34:25.194] [INFO] app - ::1 - - "GET /project/edit/4 HTTP/1.1" 500 2031 "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:34:25.196] [INFO] mysql - [ RowDataPacket {
+    id: 4,
+    name: '从测试时',
+    owner_company: '北京金时佰德科技有限公司',
+    manage_company: '北京时代凌宇股份科技有限公司',
+    create_name: 'admin',
+    manage_id: 15,
+    comment: '本项目介绍需要很多的文字，很多的很多的文字，刚才外面有炮声，是有人放枪吗？这些够了吧，还不够。再来点，有迪欧少自乐，有多少字了。',
+    create_time: 2016-08-18T06:51:23.000Z } ]
+[2016-08-21 16:34:25.256] [INFO] app - ::1 - - "GET /stylesheets/style.css HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:34:25.257] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:34:25.401] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css.map HTTP/1.1" 304 - "" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:04.003] [INFO] app - ::1 - - "GET /project/edit/4 HTTP/1.1" 302 56 "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:04.356] [INFO] app - ::1 - - "GET /login HTTP/1.1" 200 1778 "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:04.427] [INFO] app - ::1 - - "GET /stylesheets/style.css HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:04.428] [INFO] app - ::1 - - "GET /stylesheets/users/login.css HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:04.429] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:04.430] [INFO] app - ::1 - - "GET /jquery/dist/jquery.min.js HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:04.431] [INFO] app - ::1 - - "GET /bootstrap/dist/js/bootstrap.min.js HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:04.431] [INFO] app - ::1 - - "GET /javascript/config.js HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:04.432] [INFO] app - ::1 - - "GET /seajs/dist/sea-debug.js HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:04.456] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css.map HTTP/1.1" 304 - "" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:04.505] [INFO] app - ::1 - - "GET /javascript/common/base.js HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:04.506] [INFO] app - ::1 - - "GET /javascript/users/login.js HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:04.650] [INFO] app - ::1 - - "GET /javascript/lib/jquery-1.11.1.min.js HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:08.976] [INFO] app - ::1 - - "POST /login HTTP/1.1" 302 46 "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:09.049] [INFO] app - ::1 - - "GET / HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:09.113] [INFO] app - ::1 - - "GET /stylesheets/style.css HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:09.115] [INFO] app - ::1 - - "GET /javascript/config.js HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:09.115] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:09.116] [INFO] app - ::1 - - "GET /jquery/dist/jquery.min.js HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:09.117] [INFO] app - ::1 - - "GET /bootstrap/dist/js/bootstrap.min.js HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:09.117] [INFO] app - ::1 - - "GET /seajs/dist/sea-debug.js HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:09.143] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css.map HTTP/1.1" 304 - "" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:09.186] [INFO] app - ::1 - - "GET /javascript/common/base.js HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:09.321] [INFO] app - ::1 - - "GET /javascript/lib/jquery-1.11.1.min.js HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:13.959] [INFO] mysql - [ RowDataPacket {
+    id: 4,
+    name: '从测试时',
+    owner_company: '北京金时佰德科技有限公司',
+    manage_company: '北京时代凌宇股份科技有限公司',
+    create_name: 'admin',
+    email: 'songsong@love.com',
+    create_time: 2016-08-18T06:51:23.000Z,
+    comment: '本项目介绍需要很多的文字，很多的很多的文字，刚才外面有炮声，是有人放枪吗？这些够了吧，还不够。再来点，有迪欧少自乐，有多少字了。',
+    manage_name: 'aaa' } ]
+[2016-08-21 16:52:14.093] [INFO] app - ::1 - - "GET /project/list HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:14.159] [INFO] app - ::1 - - "GET /stylesheets/style.css HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:14.161] [INFO] app - ::1 - - "GET /javascript/config.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:14.162] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:14.162] [INFO] app - ::1 - - "GET /jquery/dist/jquery.min.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:14.163] [INFO] app - ::1 - - "GET /bootstrap/dist/js/bootstrap.min.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:14.165] [INFO] app - ::1 - - "GET /seajs/dist/sea-debug.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:14.187] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css.map HTTP/1.1" 304 - "" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:14.231] [INFO] app - ::1 - - "GET /javascript/common/base.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:14.232] [INFO] app - ::1 - - "GET /javascript/project/list.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:14.363] [INFO] app - ::1 - - "GET /javascript/lib/jquery-1.11.1.min.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:15.752] [INFO] mysql - [ RowDataPacket {
+    id: 4,
+    name: '从测试时',
+    owner_company: '北京金时佰德科技有限公司',
+    manage_company: '北京时代凌宇股份科技有限公司',
+    create_name: 'admin',
+    manage_id: 15,
+    comment: '本项目介绍需要很多的文字，很多的很多的文字，刚才外面有炮声，是有人放枪吗？这些够了吧，还不够。再来点，有迪欧少自乐，有多少字了。',
+    create_time: 2016-08-18T06:51:23.000Z } ]
+[2016-08-21 16:52:15.754] [INFO] mysql - [ RowDataPacket { id: 13, username: '管理员测试主账号' },
+  RowDataPacket { id: 15, username: 'aaa' } ]
+[2016-08-21 16:52:15.813] [INFO] app - ::1 - - "GET /project/edit/4 HTTP/1.1" 200 3410 "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:15.874] [INFO] app - ::1 - - "GET /stylesheets/style.css HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:15.874] [INFO] app - ::1 - - "GET /javascript/config.js HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:15.875] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:15.875] [INFO] app - ::1 - - "GET /jquery/dist/jquery.min.js HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:15.876] [INFO] app - ::1 - - "GET /bootstrap/dist/js/bootstrap.min.js HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:15.877] [INFO] app - ::1 - - "GET /seajs/dist/sea-debug.js HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:15.915] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css.map HTTP/1.1" 304 - "" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:15.956] [INFO] app - ::1 - - "GET /javascript/common/base.js HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:16.090] [INFO] app - ::1 - - "GET /javascript/lib/jquery-1.11.1.min.js HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:23.993] [INFO] mysql - [ RowDataPacket {
+    id: 4,
+    name: '从测试时',
+    owner_company: '北京金时佰德科技有限公司',
+    manage_company: '北京时代凌宇股份科技有限公司',
+    create_name: 'admin',
+    email: 'songsong@love.com',
+    create_time: 2016-08-18T06:51:23.000Z,
+    comment: '本项目介绍需要很多的文字，很多的很多的文字，刚才外面有炮声，是有人放枪吗？这些够了吧，还不够。再来点，有迪欧少自乐，有多少字了。',
+    manage_name: 'aaa' } ]
+[2016-08-21 16:52:24.043] [INFO] app - ::1 - - "GET /project/list HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:24.106] [INFO] app - ::1 - - "GET /stylesheets/style.css HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:24.107] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:24.108] [INFO] app - ::1 - - "GET /jquery/dist/jquery.min.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:24.108] [INFO] app - ::1 - - "GET /bootstrap/dist/js/bootstrap.min.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:24.109] [INFO] app - ::1 - - "GET /javascript/config.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:24.109] [INFO] app - ::1 - - "GET /seajs/dist/sea-debug.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:24.134] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css.map HTTP/1.1" 304 - "" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:24.176] [INFO] app - ::1 - - "GET /javascript/common/base.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:24.176] [INFO] app - ::1 - - "GET /javascript/project/list.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:24.292] [INFO] app - ::1 - - "GET /javascript/lib/jquery-1.11.1.min.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:25.913] [INFO] mysql - [ RowDataPacket {
+    id: 4,
+    name: '从测试时',
+    owner_company: '北京金时佰德科技有限公司',
+    manage_company: '北京时代凌宇股份科技有限公司',
+    create_name: 'admin',
+    manage_id: 15,
+    comment: '本项目介绍需要很多的文字，很多的很多的文字，刚才外面有炮声，是有人放枪吗？这些够了吧，还不够。再来点，有迪欧少自乐，有多少字了。',
+    create_time: 2016-08-18T06:51:23.000Z } ]
+[2016-08-21 16:52:25.914] [INFO] mysql - [ RowDataPacket { id: 13, username: '管理员测试主账号' },
+  RowDataPacket { id: 15, username: 'aaa' } ]
+[2016-08-21 16:52:25.979] [INFO] app - ::1 - - "GET /project/edit/4 HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:26.042] [INFO] app - ::1 - - "GET /stylesheets/style.css HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:26.043] [INFO] app - ::1 - - "GET /javascript/config.js HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:26.044] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:26.046] [INFO] app - ::1 - - "GET /jquery/dist/jquery.min.js HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:26.046] [INFO] app - ::1 - - "GET /bootstrap/dist/js/bootstrap.min.js HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:26.047] [INFO] app - ::1 - - "GET /seajs/dist/sea-debug.js HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:26.070] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css.map HTTP/1.1" 304 - "" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:26.112] [INFO] app - ::1 - - "GET /javascript/common/base.js HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:26.228] [INFO] app - ::1 - - "GET /javascript/lib/jquery-1.11.1.min.js HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:40.797] [INFO] app - ::1 - - "GET /project/edit/4 HTTP/1.1" 302 56 "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:41.159] [INFO] app - ::1 - - "GET /login HTTP/1.1" 200 1778 "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:41.231] [INFO] app - ::1 - - "GET /stylesheets/style.css HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:41.233] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:41.234] [INFO] app - ::1 - - "GET /stylesheets/users/login.css HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:41.235] [INFO] app - ::1 - - "GET /javascript/config.js HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:41.236] [INFO] app - ::1 - - "GET /jquery/dist/jquery.min.js HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:41.236] [INFO] app - ::1 - - "GET /bootstrap/dist/js/bootstrap.min.js HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:41.237] [INFO] app - ::1 - - "GET /seajs/dist/sea-debug.js HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:41.266] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css.map HTTP/1.1" 304 - "" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:41.313] [INFO] app - ::1 - - "GET /javascript/common/base.js HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:41.314] [INFO] app - ::1 - - "GET /javascript/users/login.js HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:41.453] [INFO] app - ::1 - - "GET /javascript/lib/jquery-1.11.1.min.js HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:56.818] [INFO] app - ::1 - - "POST /login HTTP/1.1" 302 46 "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:56.911] [INFO] app - ::1 - - "GET / HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:56.981] [INFO] app - ::1 - - "GET /stylesheets/style.css HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:56.983] [INFO] app - ::1 - - "GET /javascript/config.js HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:56.984] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:56.985] [INFO] app - ::1 - - "GET /jquery/dist/jquery.min.js HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:56.985] [INFO] app - ::1 - - "GET /bootstrap/dist/js/bootstrap.min.js HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:56.985] [INFO] app - ::1 - - "GET /seajs/dist/sea-debug.js HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:57.020] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css.map HTTP/1.1" 304 - "" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:57.069] [INFO] app - ::1 - - "GET /javascript/common/base.js HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:57.193] [INFO] app - ::1 - - "GET /javascript/lib/jquery-1.11.1.min.js HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:58.502] [INFO] mysql - [ RowDataPacket {
+    id: 4,
+    name: '从测试时',
+    owner_company: '北京金时佰德科技有限公司',
+    manage_company: '北京时代凌宇股份科技有限公司',
+    create_name: 'admin',
+    email: 'songsong@love.com',
+    create_time: 2016-08-18T06:51:23.000Z,
+    comment: '本项目介绍需要很多的文字，很多的很多的文字，刚才外面有炮声，是有人放枪吗？这些够了吧，还不够。再来点，有迪欧少自乐，有多少字了。',
+    manage_name: 'aaa' } ]
+[2016-08-21 16:52:58.597] [INFO] app - ::1 - - "GET /project/list HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:58.660] [INFO] app - ::1 - - "GET /stylesheets/style.css HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:58.661] [INFO] app - ::1 - - "GET /javascript/config.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:58.663] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:58.663] [INFO] app - ::1 - - "GET /jquery/dist/jquery.min.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:58.665] [INFO] app - ::1 - - "GET /bootstrap/dist/js/bootstrap.min.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:58.667] [INFO] app - ::1 - - "GET /seajs/dist/sea-debug.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:58.697] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css.map HTTP/1.1" 304 - "" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:58.744] [INFO] app - ::1 - - "GET /javascript/common/base.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:58.745] [INFO] app - ::1 - - "GET /javascript/project/list.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:58.884] [INFO] app - ::1 - - "GET /javascript/lib/jquery-1.11.1.min.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:52:59.935] [INFO] mysql - [ RowDataPacket {
+    id: 4,
+    name: '从测试时',
+    owner_company: '北京金时佰德科技有限公司',
+    manage_company: '北京时代凌宇股份科技有限公司',
+    create_name: 'admin',
+    manage_id: 15,
+    comment: '本项目介绍需要很多的文字，很多的很多的文字，刚才外面有炮声，是有人放枪吗？这些够了吧，还不够。再来点，有迪欧少自乐，有多少字了。',
+    create_time: 2016-08-18T06:51:23.000Z } ]
+[2016-08-21 16:52:59.937] [INFO] mysql - [ RowDataPacket { id: 13, username: '管理员测试主账号' },
+  RowDataPacket { id: 15, username: 'aaa' } ]
+[2016-08-21 16:52:59.999] [INFO] app - ::1 - - "GET /project/edit/4 HTTP/1.1" 200 3410 "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:53:00.060] [INFO] app - ::1 - - "GET /stylesheets/style.css HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:53:00.060] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:53:00.063] [INFO] app - ::1 - - "GET /javascript/config.js HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:53:00.063] [INFO] app - ::1 - - "GET /jquery/dist/jquery.min.js HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:53:00.064] [INFO] app - ::1 - - "GET /bootstrap/dist/js/bootstrap.min.js HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:53:00.064] [INFO] app - ::1 - - "GET /seajs/dist/sea-debug.js HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:53:00.092] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css.map HTTP/1.1" 304 - "" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:53:00.136] [INFO] app - ::1 - - "GET /javascript/common/base.js HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:53:00.257] [INFO] app - ::1 - - "GET /javascript/lib/jquery-1.11.1.min.js HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:53:47.206] [INFO] app - ::1 - - "GET /project/edit/4 HTTP/1.1" 302 56 "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:53:47.575] [INFO] app - ::1 - - "GET /login HTTP/1.1" 200 1778 "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:53:47.646] [INFO] app - ::1 - - "GET /stylesheets/style.css HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:53:47.647] [INFO] app - ::1 - - "GET /stylesheets/users/login.css HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:53:47.649] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:53:47.649] [INFO] app - ::1 - - "GET /jquery/dist/jquery.min.js HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:53:47.650] [INFO] app - ::1 - - "GET /bootstrap/dist/js/bootstrap.min.js HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:53:47.651] [INFO] app - ::1 - - "GET /javascript/config.js HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:53:47.652] [INFO] app - ::1 - - "GET /seajs/dist/sea-debug.js HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:53:47.674] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css.map HTTP/1.1" 304 - "" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:53:47.722] [INFO] app - ::1 - - "GET /javascript/common/base.js HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:53:47.724] [INFO] app - ::1 - - "GET /javascript/users/login.js HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:53:47.867] [INFO] app - ::1 - - "GET /javascript/lib/jquery-1.11.1.min.js HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:53:51.495] [INFO] app - ::1 - - "POST /login HTTP/1.1" 302 46 "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:53:51.565] [INFO] app - ::1 - - "GET / HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:53:51.640] [INFO] app - ::1 - - "GET /stylesheets/style.css HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:53:51.642] [INFO] app - ::1 - - "GET /javascript/config.js HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:53:51.643] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:53:51.644] [INFO] app - ::1 - - "GET /jquery/dist/jquery.min.js HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:53:51.644] [INFO] app - ::1 - - "GET /bootstrap/dist/js/bootstrap.min.js HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:53:51.645] [INFO] app - ::1 - - "GET /seajs/dist/sea-debug.js HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:53:51.664] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css.map HTTP/1.1" 304 - "" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:53:51.713] [INFO] app - ::1 - - "GET /javascript/common/base.js HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:53:51.856] [INFO] app - ::1 - - "GET /javascript/lib/jquery-1.11.1.min.js HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:53:54.846] [INFO] mysql - [ RowDataPacket {
+    id: 4,
+    name: '从测试时',
+    owner_company: '北京金时佰德科技有限公司',
+    manage_company: '北京时代凌宇股份科技有限公司',
+    create_name: 'admin',
+    email: 'songsong@love.com',
+    create_time: 2016-08-18T06:51:23.000Z,
+    comment: '本项目介绍需要很多的文字，很多的很多的文字，刚才外面有炮声，是有人放枪吗？这些够了吧，还不够。再来点，有迪欧少自乐，有多少字了。',
+    manage_name: 'aaa' } ]
+[2016-08-21 16:53:54.981] [INFO] app - ::1 - - "GET /project/list HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:53:55.044] [INFO] app - ::1 - - "GET /stylesheets/style.css HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:53:55.044] [INFO] app - ::1 - - "GET /javascript/config.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:53:55.045] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:53:55.046] [INFO] app - ::1 - - "GET /jquery/dist/jquery.min.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:53:55.047] [INFO] app - ::1 - - "GET /bootstrap/dist/js/bootstrap.min.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:53:55.048] [INFO] app - ::1 - - "GET /seajs/dist/sea-debug.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:53:55.069] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css.map HTTP/1.1" 304 - "" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:53:55.112] [INFO] app - ::1 - - "GET /javascript/common/base.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:53:55.113] [INFO] app - ::1 - - "GET /javascript/project/list.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:53:55.253] [INFO] app - ::1 - - "GET /javascript/lib/jquery-1.11.1.min.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:53:56.411] [INFO] mysql - [ RowDataPacket {
+    id: 4,
+    name: '从测试时',
+    owner_company: '北京金时佰德科技有限公司',
+    manage_company: '北京时代凌宇股份科技有限公司',
+    create_name: 'admin',
+    manage_id: 15,
+    comment: '本项目介绍需要很多的文字，很多的很多的文字，刚才外面有炮声，是有人放枪吗？这些够了吧，还不够。再来点，有迪欧少自乐，有多少字了。',
+    create_time: 2016-08-18T06:51:23.000Z } ]
+[2016-08-21 16:53:56.413] [INFO] mysql - [ RowDataPacket { id: 13, username: '管理员测试主账号' },
+  RowDataPacket { id: 15, username: 'aaa' } ]
+[2016-08-21 16:53:56.470] [INFO] app - ::1 - - "GET /project/edit/4 HTTP/1.1" 200 3410 "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:53:56.532] [INFO] app - ::1 - - "GET /stylesheets/style.css HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:53:56.533] [INFO] app - ::1 - - "GET /javascript/config.js HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:53:56.533] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:53:56.534] [INFO] app - ::1 - - "GET /jquery/dist/jquery.min.js HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:53:56.534] [INFO] app - ::1 - - "GET /bootstrap/dist/js/bootstrap.min.js HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:53:56.535] [INFO] app - ::1 - - "GET /seajs/dist/sea-debug.js HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:53:56.558] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css.map HTTP/1.1" 304 - "" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:53:56.600] [INFO] app - ::1 - - "GET /javascript/common/base.js HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:53:56.720] [INFO] app - ::1 - - "GET /javascript/lib/jquery-1.11.1.min.js HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:54:42.769] [INFO] app - ::1 - - "GET /project/edit/4 HTTP/1.1" 302 56 "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:54:43.140] [INFO] app - ::1 - - "GET /login HTTP/1.1" 200 1778 "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:54:43.211] [INFO] app - ::1 - - "GET /stylesheets/style.css HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:54:43.212] [INFO] app - ::1 - - "GET /stylesheets/users/login.css HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:54:43.214] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:54:43.214] [INFO] app - ::1 - - "GET /jquery/dist/jquery.min.js HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:54:43.215] [INFO] app - ::1 - - "GET /bootstrap/dist/js/bootstrap.min.js HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:54:43.216] [INFO] app - ::1 - - "GET /seajs/dist/sea-debug.js HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:54:43.216] [INFO] app - ::1 - - "GET /javascript/config.js HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:54:43.247] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css.map HTTP/1.1" 304 - "" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:54:43.298] [INFO] app - ::1 - - "GET /javascript/common/base.js HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:54:43.299] [INFO] app - ::1 - - "GET /javascript/users/login.js HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:54:43.439] [INFO] app - ::1 - - "GET /javascript/lib/jquery-1.11.1.min.js HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:54:47.418] [INFO] app - ::1 - - "POST /login HTTP/1.1" 302 46 "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:54:47.485] [INFO] app - ::1 - - "GET / HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:54:47.554] [INFO] app - ::1 - - "GET /stylesheets/style.css HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:54:47.555] [INFO] app - ::1 - - "GET /javascript/config.js HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:54:47.556] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:54:47.556] [INFO] app - ::1 - - "GET /jquery/dist/jquery.min.js HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:54:47.557] [INFO] app - ::1 - - "GET /bootstrap/dist/js/bootstrap.min.js HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:54:47.557] [INFO] app - ::1 - - "GET /seajs/dist/sea-debug.js HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:54:47.577] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css.map HTTP/1.1" 304 - "" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:54:47.621] [INFO] app - ::1 - - "GET /javascript/common/base.js HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:54:47.752] [INFO] app - ::1 - - "GET /javascript/lib/jquery-1.11.1.min.js HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:54:48.553] [INFO] mysql - [ RowDataPacket {
+    id: 4,
+    name: '从测试时',
+    owner_company: '北京金时佰德科技有限公司',
+    manage_company: '北京时代凌宇股份科技有限公司',
+    create_name: 'admin',
+    email: 'songsong@love.com',
+    create_time: 2016-08-18T06:51:23.000Z,
+    comment: '本项目介绍需要很多的文字，很多的很多的文字，刚才外面有炮声，是有人放枪吗？这些够了吧，还不够。再来点，有迪欧少自乐，有多少字了。',
+    manage_name: 'aaa' } ]
+[2016-08-21 16:54:48.691] [INFO] app - ::1 - - "GET /project/list HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:54:48.753] [INFO] app - ::1 - - "GET /stylesheets/style.css HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:54:48.754] [INFO] app - ::1 - - "GET /javascript/config.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:54:48.755] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:54:48.756] [INFO] app - ::1 - - "GET /jquery/dist/jquery.min.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:54:48.757] [INFO] app - ::1 - - "GET /bootstrap/dist/js/bootstrap.min.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:54:48.759] [INFO] app - ::1 - - "GET /seajs/dist/sea-debug.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:54:48.784] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css.map HTTP/1.1" 304 - "" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:54:48.829] [INFO] app - ::1 - - "GET /javascript/common/base.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:54:48.830] [INFO] app - ::1 - - "GET /javascript/project/list.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:54:48.964] [INFO] app - ::1 - - "GET /javascript/lib/jquery-1.11.1.min.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:54:49.703] [INFO] mysql - [ RowDataPacket {
+    id: 4,
+    name: '从测试时',
+    owner_company: '北京金时佰德科技有限公司',
+    manage_company: '北京时代凌宇股份科技有限公司',
+    create_name: 'admin',
+    manage_id: 15,
+    comment: '本项目介绍需要很多的文字，很多的很多的文字，刚才外面有炮声，是有人放枪吗？这些够了吧，还不够。再来点，有迪欧少自乐，有多少字了。',
+    create_time: 2016-08-18T06:51:23.000Z } ]
+[2016-08-21 16:54:49.705] [INFO] mysql - [ RowDataPacket { id: 13, username: '管理员测试主账号' },
+  RowDataPacket { id: 15, username: 'aaa' } ]
+[2016-08-21 16:54:49.766] [INFO] app - ::1 - - "GET /project/edit/4 HTTP/1.1" 200 3410 "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:54:49.827] [INFO] app - ::1 - - "GET /stylesheets/style.css HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:54:49.828] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:54:49.829] [INFO] app - ::1 - - "GET /jquery/dist/jquery.min.js HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:54:49.829] [INFO] app - ::1 - - "GET /bootstrap/dist/js/bootstrap.min.js HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:54:49.830] [INFO] app - ::1 - - "GET /seajs/dist/sea-debug.js HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:54:49.830] [INFO] app - ::1 - - "GET /javascript/config.js HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:54:49.854] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css.map HTTP/1.1" 304 - "" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:54:49.899] [INFO] app - ::1 - - "GET /javascript/common/base.js HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:54:50.034] [INFO] app - ::1 - - "GET /javascript/lib/jquery-1.11.1.min.js HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:55:15.589] [INFO] mysql - [ RowDataPacket {
+    id: 4,
+    name: '从测试时',
+    owner_company: '北京金时佰德科技有限公司',
+    manage_company: '北京时代凌宇股份科技有限公司',
+    create_name: 'admin',
+    manage_id: 15,
+    comment: '本项目介绍需要很多的文字，很多的很多的文字，刚才外面有炮声，是有人放枪吗？这些够了吧，还不够。再来点，有迪欧少自乐，有多少字了。',
+    create_time: 2016-08-18T06:51:23.000Z } ]
+[2016-08-21 16:55:15.591] [INFO] mysql - [ RowDataPacket { id: 13, username: '管理员测试主账号' },
+  RowDataPacket { id: 15, username: 'aaa' } ]
+[2016-08-21 16:55:15.703] [INFO] app - ::1 - - "GET /project/edit/4 HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:55:15.771] [INFO] app - ::1 - - "GET /stylesheets/style.css HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:55:15.772] [INFO] app - ::1 - - "GET /javascript/config.js HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:55:15.772] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:55:15.773] [INFO] app - ::1 - - "GET /jquery/dist/jquery.min.js HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:55:15.773] [INFO] app - ::1 - - "GET /bootstrap/dist/js/bootstrap.min.js HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:55:15.774] [INFO] app - ::1 - - "GET /seajs/dist/sea-debug.js HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:55:15.797] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css.map HTTP/1.1" 304 - "" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:55:15.850] [INFO] app - ::1 - - "GET /javascript/common/base.js HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:55:15.987] [INFO] app - ::1 - - "GET /javascript/lib/jquery-1.11.1.min.js HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:55:17.334] [INFO] mysql - [ RowDataPacket {
+    id: 4,
+    name: '从测试时',
+    owner_company: '北京金时佰德科技有限公司',
+    manage_company: '北京时代凌宇股份科技有限公司',
+    create_name: 'admin',
+    manage_id: 15,
+    comment: '本项目介绍需要很多的文字，很多的很多的文字，刚才外面有炮声，是有人放枪吗？这些够了吧，还不够。再来点，有迪欧少自乐，有多少字了。',
+    create_time: 2016-08-18T06:51:23.000Z } ]
+[2016-08-21 16:55:17.335] [INFO] mysql - [ RowDataPacket { id: 13, username: '管理员测试主账号' },
+  RowDataPacket { id: 15, username: 'aaa' } ]
+[2016-08-21 16:55:17.388] [INFO] app - ::1 - - "GET /project/edit/4 HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:55:17.448] [INFO] app - ::1 - - "GET /stylesheets/style.css HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:55:17.448] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:55:17.451] [INFO] app - ::1 - - "GET /javascript/config.js HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:55:17.453] [INFO] app - ::1 - - "GET /jquery/dist/jquery.min.js HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:55:17.453] [INFO] app - ::1 - - "GET /bootstrap/dist/js/bootstrap.min.js HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:55:17.454] [INFO] app - ::1 - - "GET /seajs/dist/sea-debug.js HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:55:17.475] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css.map HTTP/1.1" 304 - "" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:55:17.519] [INFO] app - ::1 - - "GET /javascript/common/base.js HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:55:17.652] [INFO] app - ::1 - - "GET /javascript/lib/jquery-1.11.1.min.js HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:56:45.701] [INFO] mysql - [ RowDataPacket {
+    id: 4,
+    name: '从测试时',
+    owner_company: '北京金时佰德科技有限公司',
+    manage_company: '北京时代凌宇股份科技有限公司',
+    create_name: 'admin',
+    email: 'songsong@love.com',
+    create_time: 2016-08-18T06:51:23.000Z,
+    comment: '本项目介绍需要很多的文字，很多的很多的文字，刚才外面有炮声，是有人放枪吗？这些够了吧，还不够。再来点，有迪欧少自乐，有多少字了。',
+    manage_name: 'aaa' } ]
+[2016-08-21 16:56:45.765] [INFO] app - ::1 - - "GET /project/list HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:56:45.834] [INFO] app - ::1 - - "GET /stylesheets/style.css HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:56:45.835] [INFO] app - ::1 - - "GET /javascript/config.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:56:45.835] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:56:45.836] [INFO] app - ::1 - - "GET /jquery/dist/jquery.min.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:56:45.836] [INFO] app - ::1 - - "GET /bootstrap/dist/js/bootstrap.min.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:56:45.838] [INFO] app - ::1 - - "GET /seajs/dist/sea-debug.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:56:45.869] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css.map HTTP/1.1" 304 - "" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:56:45.919] [INFO] app - ::1 - - "GET /javascript/common/base.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:56:45.920] [INFO] app - ::1 - - "GET /javascript/project/list.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:56:46.060] [INFO] app - ::1 - - "GET /javascript/lib/jquery-1.11.1.min.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:57:02.870] [INFO] app - ::1 - - "GET /project/list HTTP/1.1" 302 56 "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:57:03.230] [INFO] app - ::1 - - "GET /login HTTP/1.1" 200 1778 "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:57:03.301] [INFO] app - ::1 - - "GET /stylesheets/style.css HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:57:03.302] [INFO] app - ::1 - - "GET /stylesheets/users/login.css HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:57:03.303] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:57:03.304] [INFO] app - ::1 - - "GET /jquery/dist/jquery.min.js HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:57:03.305] [INFO] app - ::1 - - "GET /bootstrap/dist/js/bootstrap.min.js HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:57:03.305] [INFO] app - ::1 - - "GET /seajs/dist/sea-debug.js HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:57:03.306] [INFO] app - ::1 - - "GET /javascript/config.js HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:57:03.337] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css.map HTTP/1.1" 304 - "" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:57:03.385] [INFO] app - ::1 - - "GET /javascript/common/base.js HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:57:03.386] [INFO] app - ::1 - - "GET /javascript/users/login.js HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:57:03.529] [INFO] app - ::1 - - "GET /javascript/lib/jquery-1.11.1.min.js HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:57:07.709] [INFO] app - ::1 - - "POST /login HTTP/1.1" 302 46 "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:57:07.782] [INFO] app - ::1 - - "GET / HTTP/1.1" 304 - "http://localhost:3000/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:57:07.845] [INFO] app - ::1 - - "GET /stylesheets/style.css HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:57:07.846] [INFO] app - ::1 - - "GET /javascript/config.js HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:57:07.847] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:57:07.848] [INFO] app - ::1 - - "GET /jquery/dist/jquery.min.js HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:57:07.848] [INFO] app - ::1 - - "GET /bootstrap/dist/js/bootstrap.min.js HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:57:07.849] [INFO] app - ::1 - - "GET /seajs/dist/sea-debug.js HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:57:07.872] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css.map HTTP/1.1" 304 - "" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:57:07.918] [INFO] app - ::1 - - "GET /javascript/common/base.js HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:57:08.046] [INFO] app - ::1 - - "GET /javascript/lib/jquery-1.11.1.min.js HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:57:09.250] [INFO] mysql - [ RowDataPacket {
+    id: 4,
+    name: '从测试时',
+    owner_company: '北京金时佰德科技有限公司',
+    manage_company: '北京时代凌宇股份科技有限公司',
+    create_name: 'admin',
+    email: 'songsong@love.com',
+    create_time: 2016-08-18T06:51:23.000Z,
+    comment: '本项目介绍需要很多的文字，很多的很多的文字，刚才外面有炮声，是有人放枪吗？这些够了吧，还不够。再来点，有迪欧少自乐，有多少字了。',
+    manage_name: 'aaa' } ]
+[2016-08-21 16:57:09.395] [INFO] app - ::1 - - "GET /project/list HTTP/1.1" 200 2808 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:57:09.455] [INFO] app - ::1 - - "GET /stylesheets/style.css HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:57:09.456] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:57:09.457] [INFO] app - ::1 - - "GET /jquery/dist/jquery.min.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:57:09.459] [INFO] app - ::1 - - "GET /bootstrap/dist/js/bootstrap.min.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:57:09.461] [INFO] app - ::1 - - "GET /seajs/dist/sea-debug.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:57:09.462] [INFO] app - ::1 - - "GET /javascript/config.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:57:09.482] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css.map HTTP/1.1" 304 - "" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:57:09.524] [INFO] app - ::1 - - "GET /javascript/common/base.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:57:09.525] [INFO] app - ::1 - - "GET /javascript/project/list.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:57:09.649] [INFO] app - ::1 - - "GET /javascript/lib/jquery-1.11.1.min.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:57:10.357] [INFO] mysql - [ RowDataPacket {
+    id: 4,
+    name: '从测试时',
+    owner_company: '北京金时佰德科技有限公司',
+    manage_company: '北京时代凌宇股份科技有限公司',
+    create_name: 'admin',
+    manage_id: 15,
+    comment: '本项目介绍需要很多的文字，很多的很多的文字，刚才外面有炮声，是有人放枪吗？这些够了吧，还不够。再来点，有迪欧少自乐，有多少字了。',
+    create_time: 2016-08-18T06:51:23.000Z } ]
+[2016-08-21 16:57:10.359] [INFO] mysql - [ RowDataPacket { id: 13, username: '管理员测试主账号' },
+  RowDataPacket { id: 15, username: 'aaa' } ]
+[2016-08-21 16:57:10.431] [INFO] app - ::1 - - "GET /project/edit/4 HTTP/1.1" 200 3773 "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:57:10.492] [INFO] app - ::1 - - "GET /stylesheets/style.css HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:57:10.493] [INFO] app - ::1 - - "GET /javascript/config.js HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:57:10.494] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:57:10.494] [INFO] app - ::1 - - "GET /jquery/dist/jquery.min.js HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:57:10.494] [INFO] app - ::1 - - "GET /bootstrap/dist/js/bootstrap.min.js HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:57:10.495] [INFO] app - ::1 - - "GET /seajs/dist/sea-debug.js HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:57:10.518] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css.map HTTP/1.1" 304 - "" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:57:10.560] [INFO] app - ::1 - - "GET /javascript/common/base.js HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:57:10.676] [INFO] app - ::1 - - "GET /javascript/lib/jquery-1.11.1.min.js HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:57:39.819] [INFO] mysql - [ RowDataPacket {
+    id: 4,
+    name: '从测试时',
+    owner_company: '北京金时佰德科技有限公司',
+    manage_company: '北京时代凌宇股份科技有限公司',
+    create_name: 'admin',
+    manage_id: 15,
+    comment: '本项目介绍需要很多的文字，很多的很多的文字，刚才外面有炮声，是有人放枪吗？这些够了吧，还不够。再来点，有迪欧少自乐，有多少字了。',
+    create_time: 2016-08-18T06:51:23.000Z } ]
+[2016-08-21 16:57:39.820] [INFO] mysql - [ RowDataPacket { id: 13, username: '管理员测试主账号' },
+  RowDataPacket { id: 15, username: 'aaa' } ]
+[2016-08-21 16:57:39.877] [INFO] app - ::1 - - "GET /project/edit/4 HTTP/1.1" 200 3786 "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:57:39.945] [INFO] app - ::1 - - "GET /stylesheets/style.css HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:57:39.946] [INFO] app - ::1 - - "GET /javascript/config.js HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:57:39.946] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:57:39.947] [INFO] app - ::1 - - "GET /jquery/dist/jquery.min.js HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:57:39.947] [INFO] app - ::1 - - "GET /bootstrap/dist/js/bootstrap.min.js HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:57:39.948] [INFO] app - ::1 - - "GET /seajs/dist/sea-debug.js HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:57:39.975] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css.map HTTP/1.1" 304 - "" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:57:40.024] [INFO] app - ::1 - - "GET /javascript/common/base.js HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:57:40.172] [INFO] app - ::1 - - "GET /javascript/lib/jquery-1.11.1.min.js HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:58:03.699] [INFO] app - ::1 - - "POST /project/edit/4 HTTP/1.1" 200 1936 "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:58:03.789] [INFO] app - ::1 - - "GET /stylesheets/style.css HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:58:03.791] [INFO] app - ::1 - - "GET /javascript/config.js HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:58:03.792] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:58:03.794] [INFO] app - ::1 - - "GET /jquery/dist/jquery.min.js HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:58:03.796] [INFO] app - ::1 - - "GET /bootstrap/dist/js/bootstrap.min.js HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:58:03.797] [INFO] app - ::1 - - "GET /seajs/dist/sea-debug.js HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:58:03.832] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css.map HTTP/1.1" 304 - "" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:58:03.892] [INFO] app - ::1 - - "GET /javascript/common/base.js HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:58:04.052] [INFO] app - ::1 - - "GET /javascript/lib/jquery-1.11.1.min.js HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:58:05.321] [INFO] mysql - [ RowDataPacket {
+    id: 4,
+    name: '修改项目名称',
+    owner_company: '北京金时佰德科技有限公司',
+    manage_company: '北京时代凌宇股份科技有限公司',
+    create_name: 'admin',
+    email: 'songsong@love.com',
+    create_time: 2016-08-18T06:51:23.000Z,
+    comment: '本项目介绍需要很多的文字，很多的很多的文字，刚才外面有炮声，是有人放枪吗？这些够了吧，还不够。再来点，有迪欧少自乐，有多少字了。',
+    manage_name: 'aaa' } ]
+[2016-08-21 16:58:05.415] [INFO] app - ::1 - - "GET /project/list HTTP/1.1" 200 2814 "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:58:05.475] [INFO] app - ::1 - - "GET /stylesheets/style.css HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:58:05.476] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:58:05.477] [INFO] app - ::1 - - "GET /jquery/dist/jquery.min.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:58:05.477] [INFO] app - ::1 - - "GET /bootstrap/dist/js/bootstrap.min.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:58:05.478] [INFO] app - ::1 - - "GET /seajs/dist/sea-debug.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:58:05.479] [INFO] app - ::1 - - "GET /javascript/config.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:58:05.504] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css.map HTTP/1.1" 304 - "" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:58:05.545] [INFO] app - ::1 - - "GET /javascript/common/base.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:58:05.546] [INFO] app - ::1 - - "GET /javascript/project/list.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:58:05.687] [INFO] app - ::1 - - "GET /javascript/lib/jquery-1.11.1.min.js HTTP/1.1" 304 - "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:58:09.015] [INFO] mysql - [ RowDataPacket {
+    id: 4,
+    name: '修改项目名称',
+    owner_company: '北京金时佰德科技有限公司',
+    manage_company: '北京时代凌宇股份科技有限公司',
+    create_name: 'admin',
+    manage_id: 15,
+    comment: '本项目介绍需要很多的文字，很多的很多的文字，刚才外面有炮声，是有人放枪吗？这些够了吧，还不够。再来点，有迪欧少自乐，有多少字了。',
+    create_time: 2016-08-18T06:51:23.000Z } ]
+[2016-08-21 16:58:09.017] [INFO] mysql - [ RowDataPacket { id: 13, username: '管理员测试主账号' },
+  RowDataPacket { id: 15, username: 'aaa' } ]
+[2016-08-21 16:58:09.136] [INFO] app - ::1 - - "GET /project/edit/4 HTTP/1.1" 200 3792 "http://localhost:3000/project/list" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:58:09.198] [INFO] app - ::1 - - "GET /stylesheets/style.css HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:58:09.199] [INFO] app - ::1 - - "GET /javascript/config.js HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:58:09.200] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:58:09.202] [INFO] app - ::1 - - "GET /jquery/dist/jquery.min.js HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:58:09.203] [INFO] app - ::1 - - "GET /bootstrap/dist/js/bootstrap.min.js HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:58:09.203] [INFO] app - ::1 - - "GET /seajs/dist/sea-debug.js HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:58:09.236] [INFO] app - ::1 - - "GET /bootstrap/dist/css/bootstrap.min.css.map HTTP/1.1" 304 - "" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:58:09.265] [INFO] app - ::1 - - "GET /javascript/common/base.js HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2016-08-21 16:58:09.403] [INFO] app - ::1 - - "GET /javascript/lib/jquery-1.11.1.min.js HTTP/1.1" 304 - "http://localhost:3000/project/edit/4" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"

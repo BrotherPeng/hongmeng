@@ -9,10 +9,30 @@ block content
             h1.page-header 编辑项目
             .row.placeholders
                 if(result)
-                    form.form-horizontal(role='form' action='/project/edit/#{result[0].id}' method='post')
+                    form.form-horizontal(role='form' action='/project/edit/#{result.project[0].id}' method='post')
                         div.form-group
                             label.col-sm-2.control-label(for='name') 项目名称
                             div.col-sm-10
-                                input.form-control(id='name' name='name' type='text' placeholder='用户名' required value='#{result[0].name}')
+                                input.form-control(id='name' name='name' type='text' placeholder='用户名' required value='#{result.project[0].name}')
+                        div.form-group
+                            label.col-sm-2.control-label(for='owner_company') 所属公司
+                            div.col-sm-10
+                                input.form-control(id='owner_company' name='owner_company' type='text' placeholder='所属公司' required value='#{result.project[0].owner_company}')
+                        div.form-group
+                            label.col-sm-2.control-label(for='manage_company') 所属公司
+                            div.col-sm-10
+                                input.form-control(id='manage_company' name='manage_company' type='text' placeholder='维护公司' required value='#{result.project[0].manage_company}')
+                        div.form-group
+                            label.col-sm-2.control-label(for='manage_id') 项目管理员
+                            div.col-sm-10
+                                select.form-control(id='manage_id' name='manage_id' type='text' placeholder='项目管理员' value='#{result.project[0].owner_company}')
+                                    if (result)
+                                        each item in result.manager
+                                            if(item)
+                                                option(value='#{item.id}') #{item.username}
+                        div.form-group
+                            label.col-sm-2.control-label(for='comment') 项目详情
+                            div.col-sm-10
+                                input.form-control(id='comment' name='comment' type='text' placeholder='项目详情' required value='#{result.project[0].comment}')
                         button.btn.btn-primary.btn-lg#submitBtn(type='submit') 提交
 include ../includes/footer

@@ -43,9 +43,28 @@ router.get('/add', function (req, res, next) {
 });
 /* 编辑项目 */
 router.get('/edit/:id', function(req, res, next) {
-    Project.getById(req.params.id,function (err,result) {
-        res.render('project/edit',{title: '监控中心',result:result})
+    let data={},id = req.user[0].id;
+    let promise = new Promise(function (resolve, reject) {
+        Project.getById(req.params.id,function (err,result) {
+            if (!err){
+                resolve(result);
+            } else {
+                reject(err);
+            }
+            // res.render('project/edit',{title: '监控中心',result:result})
+        });
     });
+    promise.then(function(value) {
+        data.project=value;
+        // success
+        Member.getIdAndNameByOwnerIdLimitRole(id,function (err,result) {
+            data.manager=result;
+            res.render('project/edit', {title: '监控中心',result:data});
+        })
+    }, function(value) {
+        // failure
+    })
+
 }).post('/edit/:id',function (req,res,next) {
     let id=req.params.id,
         name=req.body.name,
