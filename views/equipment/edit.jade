@@ -1,0 +1,18 @@
+include ../includes/head
+
+block content
+    include ../includes/header
+.container-fluid
+    .row
+        include ../includes/slide
+        .col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2.main
+            h1.page-header 编辑项目
+            .row.placeholders
+                if(result)
+                    form.form-horizontal(role='form' action='/project/edit/#{result[0].id}' method='post')
+                        div.form-group
+                            label.col-sm-2.control-label(for='name') 项目名称
+                            div.col-sm-10
+                                input.form-control(id='name' name='name' type='text' placeholder='用户名' required value='#{result[0].name}')
+                        button.btn.btn-primary.btn-lg#submitBtn(type='submit') 提交
+include ../includes/footer

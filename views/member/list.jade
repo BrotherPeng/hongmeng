@@ -15,7 +15,10 @@ block content
                             tr
                                 th  序号
                                 th  用户名
+                                th  创建人
                                 th  密码
+                                th  手机号
+                                th  邮箱
                                 th  角色
                                 th  操作
                         if (result)
@@ -24,7 +27,10 @@ block content
                                     tr
                                         td #{item.id}
                                         td #{item.username}
+                                        td #{item.ownername}
                                         td #{item.password}
+                                        td #{item.mobile}
+                                        td #{item.email}
                                         case item.role_id
                                             when 1: td admin
                                             when 2: td 超级管理员

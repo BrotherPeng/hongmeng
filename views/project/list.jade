@@ -14,7 +14,11 @@ block content
                             tr
                                 th  序号
                                 th  项目名称
+                                th  所属公司
+                                th  维护公司
+                                th  创建人
                                 th  项目管理员
+                                th  项目详情
                                 th  操作
                         if (result)
                             each item in result
@@ -22,7 +26,11 @@ block content
                                     tr
                                         td #{item.id}
                                         td #{item.name}
-                                        td #{item.user_id}
+                                        td #{item.owner_company}
+                                        td #{item.manage_company}
+                                        td #{item.create_name}
+                                        td #{item.manage_name}
+                                        td #{item.comment}
                                         td
                                             a.delBtn(href='javascript:void(0);' data-id='#{item.id}')  删除
                                             a.editBtn(href='/project/edit/#{item.id}' data-id='#{item.id}')  编辑

@@ -12,5 +12,25 @@ block content
                         label.col-sm-2.control-label(for='name') 项目名称
                         div.col-sm-10
                             input.form-control(id='name' name='name' type='text' placeholder='项目名称' required)
+                    div.form-group
+                        label.col-sm-2.control-label(for='owner_company') 所属公司
+                        div.col-sm-10
+                            input.form-control(id='owner_company' name='owner_company' type='text' placeholder='所属公司' required)
+                    div.form-group
+                        label.col-sm-2.control-label(for='manage_company') 所属公司
+                        div.col-sm-10
+                            input.form-control(id='manage_company' name='manage_company' type='text' placeholder='维护公司' required)
+                    div.form-group
+                        label.col-sm-2.control-label(for='manage_id') 项目管理员
+                        div.col-sm-10
+                            select.form-control(id='manage_id' name='manage_id' type='text' placeholder='项目管理员')
+                                if (result)
+                                    each item in result
+                                        if(item)
+                                            option(value='#{item.id}') #{item.username}
+                    div.form-group
+                        label.col-sm-2.control-label(for='comment') 项目详情
+                        div.col-sm-10
+                            input.form-control(id='comment' name='comment' type='text' placeholder='项目详情' required)
                     button.btn.btn-primary.btn-lg#submitBtn(type='submit') 提交
 include ../includes/footer

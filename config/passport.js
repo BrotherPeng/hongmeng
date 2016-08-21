@@ -3,7 +3,7 @@
  */
 var LocalStrategy   = require('passport-local').Strategy;
 var bcrypt = require('bcrypt-nodejs');
-var User = require('../model/users');
+var User = require('../model/member');
 var logger = require('../log').logger('mysql');
 module.exports = function(passport) {
 

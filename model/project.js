@@ -6,7 +6,9 @@ var logger = require('../log').logger('mysql');
 function Project() {
     this.get = function(res) {
         connection.acquire(function(err, con) {
-            con.query('select * from project', function(err, result) {
+            con.query('select ' +
+                'a.`id`,a.`name`,a.`owner_company`,a.`manage_company`,a.`create_name`,b.`email`,a.`create_time`,a.`comment`,b.`username` as `manage_name` ' +
+                'from `project` a,`users` b where a.`manage_id`=b.`id`', function(err, result) {
                 con.release();
                 logger.info(result);
                 res.render('project/list',{title:'监控中心',result:result});

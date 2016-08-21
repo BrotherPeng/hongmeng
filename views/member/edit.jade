@@ -15,6 +15,14 @@ block content
                             div.col-sm-10
                                 input.form-control(id='username' name='username' type='text' placeholder='用户名' required value='#{result[0].username}')
                         div.form-group
+                            label.col-sm-2.control-label(for='mobile') 手机号
+                            div.col-sm-10
+                                input.form-control(id='mobile' name='mobile' type='mobile' placeholder='手机号' required value='#{result[0].mobile}')
+                        div.form-group
+                            label.col-sm-2.control-label(for='email') 邮箱
+                            div.col-sm-10
+                                input.form-control(id='email' name='email' type='email' placeholder='邮箱' required value='#{result[0].email}')
+                        div.form-group
                             label.col-sm-2.control-label(for='password') 密码
                             div.col-sm-10
                                 input.form-control(id='password' name='password' type='password' placeholder='密码' required)

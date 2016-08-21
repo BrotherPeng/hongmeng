@@ -1,0 +1,28 @@
+include ../includes/head
+block content
+    include ../includes/header
+.container-fluid
+    .row
+        include ../includes/slide
+        .col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2.main
+            h1.page-header 添加设备
+            .row.placeholders
+                form.form-horizontal(role='form' action='/project/add' method='post')
+                    div.form-group
+                        label.col-sm-2.control-label(for='name') 设备名称
+                        div.col-sm-10
+                            input.form-control(id='name' name='name' type='text' placeholder='设备名称' required)
+                    div.form-group
+                        label.col-sm-2.control-label(for='equipID') 设备ID
+                        div.col-sm-10
+                            input.form-control(id='equipID' name='equipID' type='text' placeholder='设备ID' required)
+                    div.form-group
+                        label.col-sm-2.control-label(for='userName') 管理人
+                        div.col-sm-10
+                            input.form-control(id='userName' name='userName' type='text' placeholder='管理人' required)
+                    div.form-group
+                        label.col-sm-2.control-label(for='projectName') 所属项目
+                        div.col-sm-10
+                            input.form-control(id='projectName' name='projectName' type='text' placeholder='所属项目' required)
+                    button.btn.btn-primary.btn-lg#submitBtn(type='submit') 提交
+include ../includes/footer

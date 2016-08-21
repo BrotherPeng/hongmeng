@@ -1,0 +1,31 @@
+include ../includes/head
+block content
+    include ../includes/header
+.container-fluid
+    .row
+        include ../includes/slide
+        .col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2.main
+            h1.page-header 项目列表
+            .row
+                .table-responsive
+                    table.table.table-hover
+                        caption 下表为所有项目列表
+                        thead
+                            tr
+                                th  序号
+                                th  项目名称
+                                th  项目管理员
+                                th  操作
+                        if (result)
+                            each item in result
+                                if(item)
+                                    tr
+                                        td #{item.id}
+                                        td #{item.name}
+                                        td #{item.user_id}
+                                        td
+                                            a.delBtn(href='javascript:void(0);' data-id='#{item.id}')  删除
+                                            a.editBtn(href='/project/edit/#{item.id}' data-id='#{item.id}')  编辑
+include ../includes/footer
+script.
+    seajs.use('javascript/project/list.js');
