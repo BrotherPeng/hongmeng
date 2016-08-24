@@ -51,7 +51,7 @@ app.use(roles.middleware());//权限管理中间件
 /* 加载路由*/
 require('./routes/users')(app, passport);
 app.use('/', authority.isAuthenticated,require('./routes/index'));
-app.use('/nodeControl',authority.isAuthenticated,require('./routes/nodeControl'));
+app.use('/nodeControl',require('./routes/nodeControl'));
 app.use('/member',authority.isAuthenticated,roles.can('access user page'),require('./routes/member'));
 app.use('/project',authority.isAuthenticated,require('./routes/project'));
 app.use('/equipment',authority.isAuthenticated,require('./routes/equipment'));

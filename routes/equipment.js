@@ -21,10 +21,14 @@ router.get('/add', function (req, res, next) {
 }).post('/add', function (req, res, next) {
     let name=req.body.name,
         user_id=req.user[0].id,
-        project_id=req.body.projectId,
+        equip_id=req.body.equip_id,
+        key=req.body.key,
+        project_id=req.body.project_id,
         time=moment().format('YYYY-MM-DD HH:mm:ss'),
         equipment={
             name:name,
+            equip_id:equip_id,
+            key:key,
             user_id:user_id,
             project_id:project_id,
             create_time:time

@@ -7,22 +7,22 @@ block content
         .col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2.main
             h1.page-header 添加设备
             .row.placeholders
-                form.form-horizontal(role='form' action='/project/add' method='post')
+                form.form-horizontal(role='form' action='/equipment/add' method='post')
                     div.form-group
                         label.col-sm-2.control-label(for='name') 设备名称
                         div.col-sm-10
                             input.form-control(id='name' name='name' type='text' placeholder='设备名称' required)
                     div.form-group
-                        label.col-sm-2.control-label(for='equipID') 设备ID
+                        label.col-sm-2.control-label(for='equip_id') 设备ID
                         div.col-sm-10
-                            input.form-control(id='equipID' name='equipID' type='text' placeholder='设备ID' required)
+                            input.form-control(id='equip_id' name='equip_id' type='text' placeholder='设备ID' required)
                     div.form-group
-                        label.col-sm-2.control-label(for='userName') 管理人
+                        label.col-sm-2.control-label(for='key') 设备key
                         div.col-sm-10
-                            input.form-control(id='userName' name='userName' type='text' placeholder='管理人' required)
+                            input.form-control(id='key' name='key' type='text' placeholder='设备ID' required)
                     div.form-group
-                        label.col-sm-2.control-label(for='projectName') 所属项目
+                        label.col-sm-2.control-label(for='project_id') 所属项目
                         div.col-sm-10
-                            input.form-control(id='projectName' name='projectName' type='text' placeholder='所属项目' required)
+                            input.form-control(id='project_id' name='project_id' type='text' placeholder='所属项目' required)
                     button.btn.btn-primary.btn-lg#submitBtn(type='submit') 提交
 include ../includes/footer
