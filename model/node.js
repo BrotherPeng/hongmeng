@@ -17,7 +17,7 @@ function Node() {
     }
     this.getLastOneNodeById=function (id,res) {
         node.find({name:id}).sort({'_id':-1}).limit(1).exec(function (err,nodes) {
-            let json = ParseData.getJson(nodes[0].buffer);
+            let json = ParseData.mongoParse(nodes[0].buffer);
             res.send(json);
         })
     }
