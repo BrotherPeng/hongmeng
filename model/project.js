@@ -15,6 +15,14 @@ function Project() {
             });
         });
     };
+    this.getNameAndId = function (callback) {
+        connection.acquire(function(err, con) {
+            con.query('select id,name from project', function(err, result) {
+                con.release();
+                callback(err,result);
+            });
+        });
+    }
     this.getByName = function (name,callback) {
         connection.acquire(function(err, con) {
             con.query('select * from project where name = "'+name+'"', function(err, result) {

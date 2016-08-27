@@ -13,6 +13,14 @@ function Equipment() {
             });
         });
     };
+    this.getAllIdByProject=function (projectId,callback) {
+        connection.acquire(function(err, con) {
+            con.query('select equip_id from equipment where project_id = ?',[projectId], function(err, result) {
+                con.release();
+                callback(err,result);
+            });
+        });
+    };
     this.getByName = function (name,callback) {
         connection.acquire(function(err, con) {
             con.query('select * from equipment where name = "'+name+'"', function(err, result) {

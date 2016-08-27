@@ -1,19 +1,10 @@
 .col-sm-3.col-md-2.sidebar
   ul.nav.nav-sidebar
-    li.active
+    li.default
       a(href='/') 监控中心
-    li.list-group.slide-list-group
-      a(href='/member')  人员管理
-      li.list-group-item
-        a(href='/member/list') 人员列表
-        a(href='/member/add') 添加人员
-    li
-      a(href='/project')  项目管理
-      li.list-group-item
-        a(href='/project/list') 项目列表
-        a(href='/project/add') 添加项目
-    li
-      a(href='/equipment')  设备管理
-      li.list-group-item
-        a(href='/equipment/list') 设备列表
-        a(href='/equipment/add') 添加设备
+    li.member
+      a(href='/member/list')  人员管理
+    li.project
+      a(href='/project/list')  项目管理
+    li.equipment
+      a(href='/equipment/list')  设备管理

@@ -6,6 +6,7 @@ var router = express.Router();
 var logger = require("../log").logger('socket');
 var node = require("../module/db").node;
 var Node = require("../model/node");
+var InitData = require('../lib/socket/initData');
 /* GET home page. */
 router.get('/', function(req, res, next) {
     var clientList = require("../lib/socket/socketHandle").clientList;
@@ -16,8 +17,21 @@ router.get('/', function(req, res, next) {
 router.get('/all', function(req, res, next) {
     Node.getAll(res);
 });
-router.get('/id/:id', function(req, res, next) {
-    let id=req.params.id;
-    Node.getLastOneNodeById(id,res);
+router.get('/id', function(req, res, next) {
+    var projectId = req.query.projectId;
+    if(req.user[0].role_id===1){
+        Node.getAllLastOneInProject(projectId,res);
+    }else if(req.user[0].role_id===2||req.user[0].role_id===3){
+
+    }else{
+
+    }
+
+}).post('/id/:id', function(req, res, next) {
+    let data;
+    data=InitData.init();
+    var clientList = require("../lib/socket/socketHandle").clientList;
+    clientList["1001400234700001"].write(data);
+    res.send({data:data});
 });
 module.exports = router;

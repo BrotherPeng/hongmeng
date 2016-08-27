@@ -16,7 +16,9 @@ body {
   padding-bottom: 10px;
   border-bottom: 1px solid #eee;
 }
-
+.fn-hide{
+  display: none;
+}
 /*
  * Top navigation
  * Hide default border to remove 1px line.
@@ -24,7 +26,9 @@ body {
 .navbar-fixed-top {
   border: 0;
 }
-
+.nav>li>.fn-hide{
+    display: none;
+}
 /*
  * Sidebar
  */

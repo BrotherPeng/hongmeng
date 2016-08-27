@@ -1,11 +1,16 @@
 /**
  * Created by iqianjin-luming on 16/7/28.
  */
-define(function(require, exports, module) {
-
-    // 通过 require 引入依赖
-    var $ = require('jquery');
-    /* 删除*/
+requirejs.config({
+    baseUrl: '../',
+    paths: {
+        jquery: 'jquery/dist/jquery',
+    },
+    shim: {
+        jquery: { exports: 'jquery' }
+    }
+});
+require(['jquery'], function ($){
     $(document).on('click', '.delBtn', function(event){
         var id=$(this).data('id');
         $.ajax({
@@ -20,4 +25,4 @@ define(function(require, exports, module) {
             }
         })
     });
-});
+})

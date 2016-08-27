@@ -23,7 +23,16 @@ module.exports=function (app,passport) {
         });
     app.get('/logout', function(req, res){
         req.logout();
-        res.redirect('/');
+        res.redirect('/login');
     });
+    app.get('/getUserName',function (req,res,next) {
+        if(req.user){
+            let userName = req.user[0].username;
+            res.send({username:userName});
+        }else{
+            res.send({username:null});
+        }
+
+    })
 }
 

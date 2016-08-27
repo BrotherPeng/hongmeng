@@ -5,7 +5,11 @@ block content
     .row
         include ../includes/slide
         .col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2.main
-            h1.page-header 设备列表
+            .row
+                .col-sm-11
+                    h1.page-header 设备列表
+                .col-sm-1
+                    a.btn.btn-success(href='/equipment/add') 添加
             .row
                 .table-responsive
                     table.table.table-hover
@@ -31,5 +35,4 @@ block content
                                             a.delBtn(href='javascript:void(0);' data-id='#{item.id}')  删除
                                             a.editBtn(href='/equipment/edit/#{item.id}' data-id='#{item.id}')  编辑
 include ../includes/footer
-script.
-    seajs.use('javascript/equipment/list.js');
+script(src='/requirejs/require.js' data-main="/javascript/equipment/list")
