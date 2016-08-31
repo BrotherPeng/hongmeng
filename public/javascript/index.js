@@ -6,14 +6,17 @@ requirejs.config({
     paths: {
         jquery: 'jquery/dist/jquery',
         handlebars:'handlebars/handlebars.amd.min',
-        dialog:'artDialog/dist/dialog-min'
+        dialog:'artDialog/dist/dialog-min',
+        flatpickr:'flatpickr/dist/flatpickr.min'
     },
     shim: {
         jquery: { exports: 'jquery' },
-        dialog: { exports: 'dialog'}
+        dialog: { exports: 'dialog'},
+        flatpickr: { exports: 'flatpickr'}
+
     }
 });
-require(['jquery','handlebars','dialog'], function ($,handlebars,dialog){
+require(['jquery','handlebars','dialog','flatpickr'], function ($,handlebars,dialog,flatpickr){
     // some code here
     var nodeInfo = $('#nodeInfo').html();
     var template = handlebars.compile(nodeInfo);
@@ -52,13 +55,20 @@ require(['jquery','handlebars','dialog'], function ($,handlebars,dialog){
             $content='<div class="input-group"><label>id:</label><span>'+id+'</span></div>' +
                 '<label class="radio-inline"><input type="radio" name="optionsRadios" id="optionWeek" value="0" checked>周模式</label>' +
                 '<label class="radio-inline"><input type="radio" name="optionsRadios" id="optionDay" value="1">日模式</label>' +
-                '<div class="input-group"><label>周一:</label><div class="row"><label class="col-sm-2">开启时间:</label><input class="col-sm-3"><label class="col-sm-2">关闭时间:</label><input class="col-sm-3"></div>' +
-                '<div class="input-group"><label>周二:</label><div class="row"><label class="col-sm-2">开启时间:</label><input class="col-sm-3"><label class="col-sm-2">关闭时间:</label><input class="col-sm-3"></div>' +
-                '<div class="input-group"><label>周三:</label><div class="row"><label class="col-sm-2">开启时间:</label><input class="col-sm-3"><label class="col-sm-2">关闭时间:</label><input class="col-sm-3"></div>' +
-                '<div class="input-group"><label>周四:</label><div class="row"><label class="col-sm-2">开启时间:</label><input class="col-sm-3"><label class="col-sm-2">关闭时间:</label><input class="col-sm-3"></div>' +
-                '<div class="input-group"><label>周五:</label><div class="row"><label class="col-sm-2">开启时间:</label><input class="col-sm-3"><label class="col-sm-2">关闭时间:</label><input class="col-sm-3"></div>' +
-                '<div class="input-group"><label>周六:</label><div class="row"><label class="col-sm-2">开启时间:</label><input class="col-sm-3"><label class="col-sm-2">关闭时间:</label><input class="col-sm-3"></div>' +
-                '<div class="input-group"><label>周日:</label><div class="row"><label class="col-sm-2">开启时间:</label><input class="col-sm-3"><label class="col-sm-2">关闭时间:</label><input class="col-sm-3"></div>' +
+                '<div class="input-group"><label>周一:</label><div class="row"><label class="col-sm-2">开启时间:</label><input class="col-sm-3 openTime flatpickr" value="09:30">' +
+                '<label class="col-sm-2">关闭时间:</label><input class="col-sm-3 closeTime flatpickr" value="19:30"></div>' +
+                '<div class="input-group"><label>周二:</label><div class="row"><label class="col-sm-2">开启时间:</label><input class="col-sm-3 openTime flatpickr" value="09:30">' +
+                '<label class="col-sm-2">关闭时间:</label><input class="col-sm-3 closeTime flatpickr" value="19:30"></div>' +
+                '<div class="input-group"><label>周三:</label><div class="row"><label class="col-sm-2">开启时间:</label><input class="col-sm-3 openTime flatpickr" value="09:30">' +
+                '<label class="col-sm-2">关闭时间:</label><input class="col-sm-3 closeTime flatpickr" value="19:30"></div>' +
+                '<div class="input-group"><label>周四:</label><div class="row"><label class="col-sm-2">开启时间:</label><input class="col-sm-3 openTime flatpickr" value="09:30">' +
+                '<label class="col-sm-2">关闭时间:</label><input class="col-sm-3 closeTime flatpickr" value="19:30"></div>' +
+                '<div class="input-group"><label>周五:</label><div class="row"><label class="col-sm-2">开启时间:</label><input class="col-sm-3 openTime flatpickr" value="09:30">' +
+                '<label class="col-sm-2">关闭时间:</label><input class="col-sm-3 closeTime flatpickr" value="19:30"></div>' +
+                '<div class="input-group"><label>周六:</label><div class="row"><label class="col-sm-2">开启时间:</label><input class="col-sm-3 openTime flatpickr" value="09:30">' +
+                '<label class="col-sm-2">关闭时间:</label><input class="col-sm-3 closeTime flatpickr" value="19:30"></div>' +
+                '<div class="input-group"><label>周日:</label><div class="row"><label class="col-sm-2">开启时间:</label><input class="col-sm-3 openTime flatpickr" value="09:30">' +
+                '<label class="col-sm-2">关闭时间:</label><input class="col-sm-3 closeTime flatpickr" value="19:30"></div>' +
                 '<div class="input-group"></div>';
 
         var d = dialog({
@@ -66,14 +76,25 @@ require(['jquery','handlebars','dialog'], function ($,handlebars,dialog){
             content: $content,
             okValue: '确 定',
             ok: function () {
+                var type=$('[type=radio]:checked').val();
                 $.ajax({
                     method: "POST",
                     url: "/nodeControl/id/"+id,
                     dataType: "json",
+                    data:{id:id,type:type},
                     success: function (data) {
                         return false;
                     }
                 });
+            },
+            onshow:function () {
+                $.each($('.flatpickr'),function (i,v) {
+                    new flatpickr(v,{
+                        enableTime:true,
+                        noCalendar:true
+                    });
+                })
+
             },
             cancelValue: '取消'
         });

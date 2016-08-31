@@ -28,10 +28,20 @@ router.get('/id', function(req, res, next) {
     }
 
 }).post('/id/:id', function(req, res, next) {
-    let data;
-    data=InitData.init();
+    let data,
+        id=req.params.id,
+        type=req.params.type,
+        openTime=[9,30,9,30,9,30,9,30,9,30,9,30,9,30,9,30],
+        closeTime=[19,30,19,30,19,30,19,30,19,30,19,30,19,30,19,30],
+        config={
+            id:id,
+            type:type,
+            openTime:openTime,
+            closeTime:closeTime
+        };
+    data=InitData.initTimeConfigData(config);
     var clientList = require("../lib/socket/socketHandle").clientList;
-    clientList["1001400234700001"].write(data);
+    clientList[id].write(data);
     res.send({data:data});
 });
 module.exports = router;

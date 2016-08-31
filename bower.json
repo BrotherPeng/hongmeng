@@ -21,6 +21,7 @@
     "handlebars": "^4.0.5",
     "requirejs": "^2.2.0",
     "artDialog": "^6.0.4",
-    "echarts": "^3.2.3"
+    "echarts": "^3.2.3",
+    "flatpickr": "flatpickr-calendar#^1.9.1"
   }
 }
