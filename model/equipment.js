@@ -21,6 +21,15 @@ function Equipment() {
             });
         });
     };
+    /*获取项目下的设备数量*/
+    this.getCountByProject=function (projectId,callback) {
+        connection.acquire(function(err, con) {
+            con.query('select count(*) from equipment where project_id = ?',[projectId], function(err, result) {
+                con.release();
+                callback(err,result);
+            });
+        });
+    };
     this.getByName = function (name,callback) {
         connection.acquire(function(err, con) {
             con.query('select * from equipment where name = "'+name+'"', function(err, result) {

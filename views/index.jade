@@ -25,31 +25,30 @@ block content
           img(src='data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxkZWZzLz48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iIzM5REJBQyIvPjxnPjx0ZXh0IHg9Ijc0LjA1NDY4NzUiIHk9IjEwMCIgc3R5bGU9ImZpbGw6IzFFMjkyQztmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToxMHB0O2RvbWluYW50LWJhc2VsaW5lOmNlbnRyYWwiPjIwMHgyMDA8L3RleHQ+PC9nPjwvc3ZnPg==')
           h4 异常
           span.text-muted Something else
-      select.form-control.input-lg#projectId
+      ul.list-group#projectId
         if(result)
             each item in result
-                option(value='#{item.id}') #{item.name}
-      h2.sub-header 节点信息
-      .table-responsive
-        table.table.table-striped
-          thead
-            tr
-              th id
-              th 温度
-              th 电压1
-              th 电压2
-              th 电压3
-              th 电流1
-              th 电流2
-              th 电流3
-              th 震动
-              th 门磁
-              th 继电器
-              th 定时
-              th 变动时间
-              th
-          tbody#nodeInfoWrap
-
+                li.list-group-item(data-id='#{item.id}') #{item.name}
+                    span.badge 13
+                    .table-responsive.fn-hide
+                        table.table.table-striped
+                            thead
+                                tr
+                                    th id
+                                    th 温度
+                                    th 电压1
+                                    th 电压2
+                                    th 电压3
+                                    th 电流1
+                                    th 电流2
+                                    th 电流3
+                                    th 震动
+                                    th 门磁
+                                    th 继电器
+                                    th 定时
+                                    th 变动时间
+                                    th
+                            tbody.nodeInfoWrap
 include includes/footer
 script#nodeInfo(type="text/x-handlebars-template")
   tr
