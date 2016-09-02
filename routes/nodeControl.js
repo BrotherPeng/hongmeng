@@ -30,10 +30,12 @@ router.get('/id', function(req, res, next) {
 }).post('/id/:id', function(req, res, next) {
     let data,
         id=req.params.id,
-        type=req.params.type,
-        openTime=[9,30,9,30,9,30,9,30,9,30,9,30,9,30,9,30],
-        closeTime=[19,30,19,30,19,30,19,30,19,30,19,30,19,30,19,30],
-        config={
+        type=Number(req.body.type),
+        openTime=req.body.openTime,
+        closeTime=req.body.closeTime;
+    openTime=openTime.split(',');
+    closeTime=closeTime.split(',');
+    let config={
             id:id,
             type:type,
             openTime:openTime,
