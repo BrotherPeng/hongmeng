@@ -5,7 +5,7 @@
     },
     {
       "type": "dateFile",
-      "filename": "./logs/",
+      "filename": "logs/",
       "pattern": "yyyyMMdd.log",
       "absolute":true,
       "alwaysIncludePattern": true
