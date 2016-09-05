@@ -5,8 +5,8 @@
     },
     {
       "type": "dateFile",
-      "filename": "logs/access.log",
-      "pattern": "-yyyy-MM-dd",
+      "filename": "./logs/",
+      "pattern": "yyyyMMdd.log",
       "alwaysIncludePattern": true
     }
   ]
