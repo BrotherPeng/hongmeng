@@ -1,8 +1,7 @@
 {
   "appenders": [
     {
-      "type": "console",
-
+      "type": "console"
     },
     {
       "type": "dateFile",
