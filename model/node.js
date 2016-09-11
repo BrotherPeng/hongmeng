@@ -5,6 +5,7 @@ var logger = require("../log").logger('socket');
 var node = require("../module/db").node;
 var ParseData = require("../lib/socket/parseData");
 var equipment = require("../model/equipment");
+var Promise = require('bluebird');
 function Node() {
     let _this=this;
     this.getAll=function (res) {
@@ -14,38 +15,26 @@ function Node() {
     };
     /*按项目获取所有节点的最后一条数据*/
 
-    this.getAllLastOneInProject=function (projectId,res) {
-        let promise = new Promise(function (resolve, reject) {
-            equipment.getAllIdByProject(projectId,function (err,result) {
-                if (!err){
-                    resolve(result);
-                } else {
-                    reject(err);
-                }
-            });
-        });
-        promise.then(function(value) {
-            // success
-            let promise_1 = new Promise(function (resolve,reject) {
-                value.forEach(function (v) {
-                    _this.getLastOneNodeById(v.equip_id,function (err,result) {
-                        if (!err){
-                            resolve(result);
-                        } else {
-                            nodeList.push(null);
-                        }
+    this.getAllLastOneInProject = function (projectId, res) {
+        equipment.getAllIdByProject(projectId, function (err, result) {
+            if (!err) {
+                var actions = result.map(v => {
+                    return new Promise(resolve=> {
+                        _this.getLastOneNodeById(v.equip_id, function (err, value) {
+                            if (err) {
+                                return err;
+                            } else {
+                                resolve(value);
+                            }
+                        })
                     })
+
                 });
-            });
-            promise_1.then(function (value) {
-                res.send(value);
-            })
-
-        }, function(value) {
-            // failure
-        })
-
-
+                Promise.all(actions).then(v=>res.send(v));
+            } else {
+                throw err;
+            }
+        });
     };
 
     this.getNodeById=function (id,res) {

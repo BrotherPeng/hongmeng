@@ -3,44 +3,10 @@
  */
 var connection = require('../module/connection');
 var logger = require('../log').logger('mysql');
-function Equipment() {
-    this.get = function(res) {
+function weekTimeConfig() {
+    this.getByEquipId = function (equipId,callback) {
         connection.acquire(function(err, con) {
-            con.query('select * from equipment', function(err, result) {
-                con.release();
-                logger.info(result);
-                res.render('equipment/list',{title:'监控中心',result:result});
-            });
-        });
-    };
-    this.getAllIdByProject=function (projectId,callback) {
-        connection.acquire(function(err, con) {
-            con.query('select equip_id from equipment where project_id = ?',[projectId], function(err, result) {
-                con.release();
-                callback(err,result);
-            });
-        });
-    };
-    /*获取项目下的设备数量*/
-    this.getCountByProject=function (projectId,callback) {
-        connection.acquire(function(err, con) {
-            con.query('select count(*) from equipment where project_id = ?',[projectId], function(err, result) {
-                con.release();
-                callback(err,result);
-            });
-        });
-    };
-    this.getByName = function (name,callback) {
-        connection.acquire(function(err, con) {
-            con.query('select * from equipment where name = "'+name+'"', function(err, result) {
-                con.release();
-                callback(err,result);
-            });
-        });
-    };
-    this.getById = function (id,callback) {
-        connection.acquire(function(err, con) {
-            con.query('select * from equipment where id = "'+id+'"', function(err, result) {
+            con.query('select * from weekTimeConfig where equip_id =?',[equipId], function(err, result) {
                 con.release();
                 logger.info(result);
                 callback(err,result);
@@ -61,7 +27,6 @@ function Equipment() {
         });
     };
     this.update = function(equipment, res) {
-        console.log(equipment)
         connection.acquire(function(err, con) {
             con.query('update equipment set ? where id = ?', [equipment, equipment.id], function(err, result) {
                 con.release();
@@ -86,4 +51,4 @@ function Equipment() {
         });
     };
 }
-module.exports = new Equipment();
+module.exports = new weekTimeConfig();

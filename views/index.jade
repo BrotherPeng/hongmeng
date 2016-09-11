@@ -29,41 +29,92 @@ block content
         if(result)
             each item in result
                 li.list-group-item(data-id='#{item.id}') #{item.name}
+                    span.glyphicon.glyphicon-chevron-down.project-up-down
                     span.badge 13
-                    .table-responsive.fn-hide
-                        table.table.table-striped
-                            thead
-                                tr
-                                    th id
-                                    th 温度
-                                    th 电压1
-                                    th 电压2
-                                    th 电压3
-                                    th 电流1
-                                    th 电流2
-                                    th 电流3
-                                    th 震动
-                                    th 门磁
-                                    th 继电器
-                                    th 定时
-                                    th 变动时间
-                                    th
-                            tbody.nodeInfoWrap
+                    div(role='tabpanel').fn-hide
+                        ul.nav.nav-pills(role='tablist')
+                            li.active(role='presentation')
+                                a(href='#status' aria-controls='status' role='tab') 状态
+                            li(role='presentation')
+                                a(href='#weekTime' aria-controls='weekTime' role='tab') 周设置
+                            li(role='presentation')
+                                a(href='#dailyTime' aria-controls='dailyTime' role='tab') 日设置
+                        .tab-content
+                            .tab-pane.status.active(role='tabpanel')
+                                .table-responsive
+                                    table.table.table-striped
+                                        thead
+                                            tr
+                                                th 设备id
+                                                th 温度
+                                                th 3路电压
+                                                th 3路电流
+                                                th 震动
+                                                th 门磁
+                                                th 继电器
+                                                th 定时
+                                                th 变动时间
+                                                th
+                                        tbody.nodeInfoWrap
+                            .tab-pane.weekTime(role='tabpanel')
+                                .table-responsive
+                                    table.table.table-striped
+                                        thead
+                                            tr
+                                                th 设备id
+                                                th 周一
+                                                th 周二
+                                                th 周三
+                                                th 周四
+                                                th 周五
+                                                th 周六
+                                                th 周日
+                                                th
+                                        tbody.weekTimeWrap
+                            .tab-pane.dailyTime(role='tabpanel')
+                                .table-responsive
+                                    table.table.table-striped
+                                        thead
+                                            tr
+                                                th id
+                                                th 温度
+                                                th 3路电压
+                                                th 3路电流
+                                                th 震动
+                                                th 门磁
+                                                th 继电器
+                                                th 定时
+                                                th 变动时间
+                                                th
+                                        tbody.weekTimeWrap
 include includes/footer
 script#nodeInfo(type="text/x-handlebars-template")
-  tr
-    td {{id}}
-    td {{temperature}}
-    td {{voltage_1}}
-    td {{voltage_2}}
-    td {{voltage_3}}
-    td {{electric_1}}
-    td {{electric_2}}
-    td {{electric_3}}
-    td {{shakeStatus}}
-    td {{gateStatus}}
-    td {{relay}}
-    td {{timeConfig}}
-    td {{lastChangeTime}}
-    td <button type='button' class='btn btn-success' data-id='{{id}}' data-relay='{{relay}}' data-timeconfig='{{timeConfig}}'>操作</button>
+    {{#each this}}
+    tr
+        td {{id}}
+        td {{temperature}}
+        td {{voltage_1}}/{{voltage_2}}/{{voltage_3}}
+        td {{electric_1}}/{{electric_2}}/{{electric_3}}
+        td {{shakeStatus}}
+        td {{gateStatus}}
+        td {{relay}}
+        td {{timeConfig}}
+        td {{lastChangeTime}}
+        td <button type='button' class='btn btn-success' data-id='{{id}}' data-relay='{{relay}}' data-timeconfig='{{timeConfig}}'>操作</button>
+    {{/each}}
+script#weekTime(type="text/x-handlebars-template")
+    {{#each this}}
+    {{#if equip_id}}
+    tr
+        td {{equip_id}}
+        td {{open_time_1}}开启/{{close_time_1}}关闭
+        td {{open_time_2}}开启/{{close_time_2}}关闭
+        td {{open_time_3}}开启/{{close_time_3}}关闭
+        td {{open_time_4}}开启/{{close_time_4}}关闭
+        td {{open_time_5}}开启/{{close_time_5}}关闭
+        td {{open_time_6}}开启/{{close_time_6}}关闭
+        td {{open_time_7}}开启/{{close_time_7}}关闭
+        td <button type='button' class='btn btn-success' data-id='{{id}}' data-relay='{{relay}}' data-timeconfig='{{timeConfig}}'>操作</button>
+    {{/if}}
+    {{/each}}
 script(src='/requirejs/require.js' data-main="/javascript/index")

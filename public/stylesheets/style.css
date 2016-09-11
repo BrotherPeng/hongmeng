@@ -109,4 +109,7 @@ body {
   display: inline-block;
   border-radius: 50%;
 }
-
+.project-up-down{
+    float:right;
+    cursor: pointer;;
+}

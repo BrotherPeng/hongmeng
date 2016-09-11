@@ -43,13 +43,12 @@ router.get('/edit/:id', function(req, res, next) {
 }).post('/edit/:id',function (req,res,next) {
     let id=req.params.id,
         name=req.body.name,
-        project_id=req.body.projectId,
+        project_id=req.body.project_id,
         equipment={
             id:id,
             project_id:project_id,
             name:name
         };
-    console.log(req);
     Equipment.update(equipment,res);
 });
 module.exports = router;
