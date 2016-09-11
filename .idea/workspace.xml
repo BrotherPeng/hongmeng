@@ -1,19 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3e8e4950-4169-49c1-994c-b5b0491cc5a7" name="Default" comment="从页面下发数据">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/model/weekTimeConfig.js" />
+    <list default="true" id="3e8e4950-4169-49c1-994c-b5b0491cc5a7" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/socket/initData.js" afterPath="$PROJECT_DIR$/lib/socket/initData.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/equipment.js" afterPath="$PROJECT_DIR$/model/equipment.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/node.js" afterPath="$PROJECT_DIR$/model/node.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascript/index.js" afterPath="$PROJECT_DIR$/public/javascript/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/stylesheets/style.css" afterPath="$PROJECT_DIR$/public/stylesheets/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/equipment.js" afterPath="$PROJECT_DIR$/routes/equipment.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/nodeControl.js" afterPath="$PROJECT_DIR$/routes/nodeControl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/index.html" afterPath="$PROJECT_DIR$/views/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/index.jade" afterPath="$PROJECT_DIR$/views/index.jade" />
     </list>
     <ignored path="hongmeng.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -57,11 +46,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="initData.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="initData.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/socket/initData.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="578">
               <caret line="35" column="67" selection-start-line="35" selection-start-column="67" selection-end-line="35" selection-end-column="67" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="782">
+              <caret line="46" column="16" selection-start-line="46" selection-start-column="16" selection-end-line="46" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -557,7 +556,7 @@
       <workItem from="1473158689273" duration="348000" />
       <workItem from="1473303449275" duration="130000" />
       <workItem from="1473478132772" duration="6225000" />
-      <workItem from="1473560274421" duration="20464000" />
+      <workItem from="1473560274421" duration="20538000" />
     </task>
     <task id="LOCAL-00001" summary="添加mysql,mongodb,passport等">
       <created>1471187251356</created>
@@ -692,11 +691,18 @@
       <option name="project" value="LOCAL" />
       <updated>1473478707107</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="从页面下发日区间数据">
+      <created>1473588579877</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1473588579877</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="236136000" />
+    <option name="totallyTimeSpent" value="236210000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -716,7 +722,7 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4192771" sideWeight="0.5024665" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980973" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36626506" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36626506" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22168675" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24947146" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23012048" sideWeight="0.49753347" order="9" side_tool="false" content_ui="tabs" />
@@ -793,7 +799,8 @@
     <MESSAGE value=" 日志配置" />
     <MESSAGE value="从页面下发数据" />
     <MESSAGE value="设置git忽略文件" />
-    <option name="LAST_COMMIT_MESSAGE" value="设置git忽略文件" />
+    <MESSAGE value="从页面下发日区间数据" />
+    <option name="LAST_COMMIT_MESSAGE" value="从页面下发日区间数据" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1014,14 +1021,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="782">
-          <caret line="46" column="16" selection-start-line="46" selection-start-column="16" selection-end-line="46" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/users/login.jade">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -1161,6 +1160,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="578">
           <caret line="35" column="67" selection-start-line="35" selection-start-column="67" selection-end-line="35" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="782">
+          <caret line="46" column="16" selection-start-line="46" selection-start-column="16" selection-end-line="46" selection-end-column="16" />
           <folding />
         </state>
       </provider>
