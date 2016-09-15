@@ -98,55 +98,55 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr'], function ($, handlebars
                 '<div class="input-group"><label>周六:</label><div class="row"><label class="col-sm-2">开启时间:</label><input class="col-sm-3 openTime flatpickr" value="19:30">' +
                 '<label class="col-sm-2">关闭时间:</label><input class="col-sm-3 closeTime flatpickr" value="06:30"></div>' +
                 '<div class="input-group"><label>周日:</label><div class="row"><label class="col-sm-2">开启时间:</label><input class="col-sm-3 openTime flatpickr" value="19:30">' +
-                '<label class="col-sm-2">关闭时间:</label><input class="col-sm-3 closeTime flatpickr" value="06:30"></div>';
-        dailyPanel = '<div class="input-group">' +
-            '<label>区间一:</label>' +
-            '<div class="row">' +
-            '<label class="col-sm-2">开始日期:</label><input class="col-sm-3 startDay flatpickrDay">' +
-            '<label class="col-sm-2">结束日期:</label><input class="col-sm-3 endDay flatpickrDay"></div>' +
-            '<div class="input-group">' +
-            '<div class="row">' +
-            '<label class="col-sm-2">开启时间:</label><input class="col-sm-3 openTime flatpickr" value="19:30">' +
-            '<label class="col-sm-2">关闭时间:</label><input class="col-sm-3 closeTime flatpickr" value="06:30">' +
-            '</div>' +
-            '<label>区间二:</label>' +
-            '<div class="row">' +
-            '<label class="col-sm-2">开始日期:</label><input class="col-sm-3 startDay flatpickrDay">' +
-            '<label class="col-sm-2">结束日期:</label><input class="col-sm-3 endDay flatpickrDay"></div>' +
-            '<div class="input-group">' +
-            '<div class="row">' +
-            '<label class="col-sm-2">开启时间:</label><input class="col-sm-3 openTime flatpickr" value="19:30">' +
-            '<label class="col-sm-2">关闭时间:</label><input class="col-sm-3 closeTime flatpickr" value="06:30">' +
-            '</div>' +
-            '<label>区间三:</label>' +
-            '<div class="row">' +
-            '<label class="col-sm-2">开始日期:</label><input class="col-sm-3 startDay flatpickrDay">' +
-            '<label class="col-sm-2">结束日期:</label><input class="col-sm-3 endDay flatpickrDay"></div>' +
-            '<div class="input-group">' +
-            '<div class="row">' +
-            '<label class="col-sm-2">开启时间:</label><input class="col-sm-3 openTime flatpickr" value="19:30">' +
-            '<label class="col-sm-2">关闭时间:</label><input class="col-sm-3 closeTime flatpickr" value="06:30">' +
-            '</div>' +
-            '<label>区间四:</label>' +
-            '<div class="row">' +
-            '<label class="col-sm-2">开始日期:</label><input class="col-sm-3 startDay flatpickrDay">' +
-            '<label class="col-sm-2">结束日期:</label><input class="col-sm-3 endDay flatpickrDay"></div>' +
-            '<div class="input-group">' +
-            '<div class="row">' +
-            '<label class="col-sm-2">开启时间:</label><input class="col-sm-3 openTime flatpickr" value="19:30">' +
-            '<label class="col-sm-2">关闭时间:</label><input class="col-sm-3 closeTime flatpickr" value="06:30">' +
-            '</div>' +
-            '<label>区间五:</label>' +
-            '<div class="row">' +
-            '<label class="col-sm-2">开始日期:</label><input class="col-sm-3 startDay flatpickrDay">' +
-            '<label class="col-sm-2">结束日期:</label><input class="col-sm-3 endDay flatpickrDay"></div>' +
-            '<div class="input-group">' +
-            '<div class="row">' +
-            '<label class="col-sm-2">开启时间:</label><input class="col-sm-3 openTime flatpickr" value="19:30">' +
-            '<label class="col-sm-2">关闭时间:</label><input class="col-sm-3 closeTime flatpickr" value="06:30">' +
-            '</div>' +
-            '</div>';
-        timeConfig = $this.data('timeconfig'),
+                '<label class="col-sm-2">关闭时间:</label><input class="col-sm-3 closeTime flatpickr" value="06:30"></div>',
+            dailyPanel = '<div class="input-group">' +
+                '<label>区间一:</label>' +
+                '<div class="row">' +
+                '<label class="col-sm-2">开始日期:</label><input class="col-sm-3 startDay flatpickrDay">' +
+                '<label class="col-sm-2">结束日期:</label><input class="col-sm-3 endDay flatpickrDay"></div>' +
+                '<div class="input-group">' +
+                '<div class="row">' +
+                '<label class="col-sm-2">开启时间:</label><input class="col-sm-3 openTime flatpickr" value="19:30">' +
+                '<label class="col-sm-2">关闭时间:</label><input class="col-sm-3 closeTime flatpickr" value="06:30">' +
+                '</div>' +
+                '<label>区间二:</label>' +
+                '<div class="row">' +
+                '<label class="col-sm-2">开始日期:</label><input class="col-sm-3 startDay flatpickrDay">' +
+                '<label class="col-sm-2">结束日期:</label><input class="col-sm-3 endDay flatpickrDay"></div>' +
+                '<div class="input-group">' +
+                '<div class="row">' +
+                '<label class="col-sm-2">开启时间:</label><input class="col-sm-3 openTime flatpickr" value="19:30">' +
+                '<label class="col-sm-2">关闭时间:</label><input class="col-sm-3 closeTime flatpickr" value="06:30">' +
+                '</div>' +
+                '<label>区间三:</label>' +
+                '<div class="row">' +
+                '<label class="col-sm-2">开始日期:</label><input class="col-sm-3 startDay flatpickrDay">' +
+                '<label class="col-sm-2">结束日期:</label><input class="col-sm-3 endDay flatpickrDay"></div>' +
+                '<div class="input-group">' +
+                '<div class="row">' +
+                '<label class="col-sm-2">开启时间:</label><input class="col-sm-3 openTime flatpickr" value="19:30">' +
+                '<label class="col-sm-2">关闭时间:</label><input class="col-sm-3 closeTime flatpickr" value="06:30">' +
+                '</div>' +
+                '<label>区间四:</label>' +
+                '<div class="row">' +
+                '<label class="col-sm-2">开始日期:</label><input class="col-sm-3 startDay flatpickrDay">' +
+                '<label class="col-sm-2">结束日期:</label><input class="col-sm-3 endDay flatpickrDay"></div>' +
+                '<div class="input-group">' +
+                '<div class="row">' +
+                '<label class="col-sm-2">开启时间:</label><input class="col-sm-3 openTime flatpickr" value="19:30">' +
+                '<label class="col-sm-2">关闭时间:</label><input class="col-sm-3 closeTime flatpickr" value="06:30">' +
+                '</div>' +
+                '<label>区间五:</label>' +
+                '<div class="row">' +
+                '<label class="col-sm-2">开始日期:</label><input class="col-sm-3 startDay flatpickrDay">' +
+                '<label class="col-sm-2">结束日期:</label><input class="col-sm-3 endDay flatpickrDay"></div>' +
+                '<div class="input-group">' +
+                '<div class="row">' +
+                '<label class="col-sm-2">开启时间:</label><input class="col-sm-3 openTime flatpickr" value="19:30">' +
+                '<label class="col-sm-2">关闭时间:</label><input class="col-sm-3 closeTime flatpickr" value="06:30">' +
+                '</div>' +
+                '</div>',
+            timeConfig = $this.data('timeconfig'),
             $content = '<div class="input-group"><label>id:</label><span>' + id + '</span></div>' +
                 '<label class="radio-inline"><input type="radio" name="optionsRadios" id="optionWeek" value="0" checked>周模式</label>' +
                 '<label class="radio-inline"><input type="radio" name="optionsRadios" id="optionDay" value="1">日模式</label>' +
@@ -166,9 +166,9 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr'], function ($, handlebars
                         closeTime = timeArr.closeTime.toString();
                     $.ajax({
                         method: "POST",
-                        url: "/nodeControl/id/"+id,
+                        url: "/nodeControl/id/" + id,
                         dataType: "json",
-                        data:{id:id,type:type,openTime:openTime,closeTime:closeTime},
+                        data: {id: id, type: type, openTime: openTime, closeTime: closeTime},
                         success: function (data) {
                             return false;
                         }
@@ -182,9 +182,16 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr'], function ($, handlebars
                         endDay = dayArr.endDay.toString();
                     $.ajax({
                         method: "POST",
-                        url: "/nodeControl/id/"+id,
+                        url: "/nodeControl/id/" + id,
                         dataType: "json",
-                        data:{id:id,type:type,startDay:startDay,endDay:endDay,openTime:openTime,closeTime:closeTime},
+                        data: {
+                            id: id,
+                            type: type,
+                            startDay: startDay,
+                            endDay: endDay,
+                            openTime: openTime,
+                            closeTime: closeTime
+                        },
                         success: function (data) {
                             return false;
                         }

@@ -62,6 +62,10 @@ router.get('/id', function(req, res, next) {
             openTime:openTime,
             closeTime:closeTime
         };
+        data=InitData.initDayTimeConfigData(config);
+        var clientList = require("../lib/socket/socketHandle").clientList;
+        clientList[id].write(data);
+        res.send({data:data});
     }
 
 });
