@@ -9,6 +9,10 @@ var Node = require("../model/node");
 var InitData = require('../lib/socket/initData');
 var equipment = require("../model/equipment");
 var weekTime = require("../model/weekTimeConfig");
+var dailyTime = require("../model/dailyTimeConfig");
+var Promise = require('bluebird');
+let weekTimeServer = require('../server/weekTimeConfigServer');
+let dailyTimeServer = require('../server/dailyTimeConfigServer');
 /* GET home page. */
 router.get('/', function(req, res, next) {
     var clientList = require("../lib/socket/socketHandle").clientList;
@@ -35,10 +39,13 @@ router.get('/id', function(req, res, next) {
         id=req.params.id,
         type=Number(req.body.type),
         openTime=req.body.openTime,
-        closeTime=req.body.closeTime;
-    openTime=openTime.split(',');
-    closeTime=closeTime.split(',');
+        closeTime=req.body.closeTime,
+        code=1,
+        message='success';
+
     if(type===0){//周设置
+        openTime=openTime.split(',');
+        closeTime=closeTime.split(',');
         let config={
             id:id,
             type:type,
@@ -47,9 +54,18 @@ router.get('/id', function(req, res, next) {
         };
         data=InitData.initTimeConfigData(config);
         var clientList = require("../lib/socket/socketHandle").clientList;
-        clientList[id].write(data);
-        res.send({data:data});
-    }else{//日设置
+        if(clientList[id]){
+            clientList[id].write(data);
+            weekTimeServer.saveConfig(config);
+        }else{
+            code=-1;
+            message='false'
+        }
+
+        res.send({code:code,message:message});
+    }else if(type===1){//日设置
+        openTime=openTime.split(',');
+        closeTime=closeTime.split(',');
         let startDay=req.body.startDay,
             endDay=req.body.endDay;
         startDay=startDay.split(',');
@@ -64,8 +80,30 @@ router.get('/id', function(req, res, next) {
         };
         data=InitData.initDayTimeConfigData(config);
         var clientList = require("../lib/socket/socketHandle").clientList;
-        clientList[id].write(data);
-        res.send({data:data});
+        if(clientList[id]){
+            clientList[id].write(data);
+            dailyTimeServer.saveConfig(config);
+        }else{
+            code=-1;
+            message='false';
+        }
+        res.send({code:code,message:message});
+    }else{//继电器控制
+        let switchStatus=req.body.switchStatus;
+        let config = {
+            id:id,
+            type:type,
+            switchStatus:switchStatus
+        };
+        data=InitData.initSwitchControlData(config);
+        var clientList = require("../lib/socket/socketHandle").clientList;
+        if(clientList[id]){
+            clientList[id].write(data);
+        }else{
+            code=-1;
+            message='false';
+        }
+        res.send({code:code,message:message});
     }
 
 });
@@ -78,6 +116,30 @@ router.get('/weekTime/id', function(req, res, next) {
             var actions = result.map(v => {
                 return new Promise(resolve=> {
                     weekTime.getByEquipId(v.equip_id, function (err, value) {
+                        if (err) {
+                            return err;
+                        } else {
+                            resolve(value[0]);
+                        }
+                    })
+                })
+
+            });
+            Promise.all(actions).then(v=>res.send(v));
+        } else {
+            throw err;
+        }
+    });
+})
+
+//日模式查询
+router.get('/dailyTime/id', function(req, res, next) {
+    var projectId = req.query.projectId;
+    equipment.getAllIdByProject(projectId, function (err, result) {
+        if (!err) {
+            var actions = result.map(v => {
+                return new Promise(resolve=> {
+                    dailyTime.getByEquipId(v.equip_id, function (err, value) {
                         if (err) {
                             return err;
                         } else {

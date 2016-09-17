@@ -113,3 +113,6 @@ body {
     float:right;
     cursor: pointer;;
 }
+.btn-switch.active,.btn-switch.active.focus{
+  background-color: #b92c28;
+}

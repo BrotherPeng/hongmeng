@@ -6,46 +6,44 @@ var logger = require('../log').logger('mysql');
 function weekTimeConfig() {
     this.getByEquipId = function (equipId,callback) {
         connection.acquire(function(err, con) {
-            con.query('select * from weekTimeConfig where equip_id =?',[equipId], function(err, result) {
+            con.query('select * from weekTimeConfig where equip_id =?',equipId, function(err, result) {
                 con.release();
-                logger.info(result);
                 callback(err,result);
             });
         });
     }
-    this.create = function(equipment, res) {
+    this.create = function(weekTimeConfig, callback) {
         connection.acquire(function(err, con) {
-            con.query('insert into equipment set ?', equipment, function(err, result) {
+            con.query('insert into weekTimeConfig set ?', weekTimeConfig, function(err, result) {
                 con.release();
                 if (err) {
-                    res.render('equipment/error');
+                    callback(err,result);
                 } else {
-
-                    res.render('equipment/success',{title:'监控中心'});
+                    callback(err,result);
                 }
             });
         });
     };
-    this.update = function(equipment, res) {
+    this.update = function(weekTimeConfig, callback) {
         connection.acquire(function(err, con) {
-            con.query('update equipment set ? where id = ?', [equipment, equipment.id], function(err, result) {
+            con.query('update weekTimeConfig set ? where equip_id = ?', [weekTimeConfig, weekTimeConfig.equip_id], function(err, result) {
                 con.release();
                 if (err) {
-                    res.render('equipment/error');
+                    callback(err,result);
                 } else {
-                    res.render('equipment/success',{title:'监控中心'});
+                    callback(err,result);
                 }
             });
         });
     };
-    this.delete = function(id, res) {
+    this.delete = function(equip_id, callback) {
         connection.acquire(function(err, con) {
-            con.query('delete from equipment where id = ?', [id], function(err, result) {
+            con.query('delete from weekTimeConfig where equip_id = ?', [equip_id], function(err, result) {
                 con.release();
                 if (err) {
-                    res.send({status: -1, message: 'Failed to delete'});
+                    callback(err,result);
                 } else {
-                    res.send({status: 1, message: 'Deleted successfully'});
+                    callback(err,result);
                 }
             });
         });

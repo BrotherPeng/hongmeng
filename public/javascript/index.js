@@ -61,9 +61,12 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr'], function ($, handlebars
         $presentation.removeClass('active');
         $this.addClass('active');
         $tabpanel.hide();
-        weekTime(id);
+        if(name==='weekTime'){
+            weekTime(id);
+        }else{
+            dailyTime(id);
+        }
         $panel.show();
-
     });
 
     function weekTime(projectId) {
@@ -82,9 +85,35 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr'], function ($, handlebars
         });
     }
 
-    $('body').on('click', '.btn', function () {
+    function dailyTime(projectId) {
+        var dailyTimeTemp = $('#dailyTime').html(),
+            $dailyTimeWrap = $('.dailyTimeWrap'),
+            template = handlebars.compile(dailyTimeTemp);
+        $.ajax({
+            method: "GET",
+            url: "/nodeControl/dailyTime/id",
+            dataType: "json",
+            data: {projectId: projectId},
+            success: function (data) {
+                var result = template(data);
+                $dailyTimeWrap.html(result);
+            }
+        });
+    }
+
+    $('body').on('click', '.btn-dialog', function () {
         var $this = $(this),
             id = $this.data('id'),
+            swichPanel = '<div class="btn-group" data-toggle="buttons">' +
+                '<label class="btn btn-success btn-switch"><input type="checkbox" autocomplete="off" checked/>继电器1</label>' +
+                '<label class="btn btn-success btn-switch"><input type="checkbox" autocomplete="off" checked/>继电器2</label>' +
+                '<label class="btn btn-success btn-switch"><input type="checkbox" autocomplete="off" checked/>继电器3</label>' +
+                '<label class="btn btn-success btn-switch"><input type="checkbox" autocomplete="off" checked/>继电器4</label>' +
+                '<label class="btn btn-success btn-switch"><input type="checkbox" autocomplete="off" checked/>继电器5</label>' +
+                '<label class="btn btn-success btn-switch"><input type="checkbox" autocomplete="off" checked/>继电器6</label>' +
+                '<label class="btn btn-success btn-switch"><input type="checkbox" autocomplete="off" checked/>继电器7</label>' +
+                '<label class="btn btn-success btn-switch"><input type="checkbox" autocomplete="off" checked/>继电器8</label>' +
+                '</div>',
             weekPanel = '<div class="input-group"><label>周一:</label><div class="row"><label class="col-sm-2">开启时间:</label><input class="col-sm-3 openTime flatpickr" value="19:30">' +
                 '<label class="col-sm-2">关闭时间:</label><input class="col-sm-3 closeTime flatpickr" value="06:30"></div>' +
                 '<div class="input-group"><label>周二:</label><div class="row"><label class="col-sm-2">开启时间:</label><input class="col-sm-3 openTime flatpickr" value="19:30">' +
@@ -146,10 +175,10 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr'], function ($, handlebars
                 '<label class="col-sm-2">关闭时间:</label><input class="col-sm-3 closeTime flatpickr" value="06:30">' +
                 '</div>' +
                 '</div>',
-            timeConfig = $this.data('timeconfig'),
             $content = '<div class="input-group"><label>id:</label><span>' + id + '</span></div>' +
                 '<label class="radio-inline"><input type="radio" name="optionsRadios" id="optionWeek" value="0" checked>周模式</label>' +
                 '<label class="radio-inline"><input type="radio" name="optionsRadios" id="optionDay" value="1">日模式</label>' +
+                '<label class="radio-inline"><input type="radio" name="optionsRadios" id="optionDay" value="2">开关控制</label>' +
                 '<div class="control-content">' +
                 weekPanel +
                 '</div>';
@@ -158,12 +187,17 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr'], function ($, handlebars
             content: $content,
             okValue: '确 定',
             ok: function () {
-                var type = $('[type=radio]:checked').val();
+                var type = $('[type=radio]:checked').val(),
+                    timeArr = getTime(),
+                    dayArr,
+                    openTime = timeArr.openTime.toString(),
+                    closeTime = timeArr.closeTime.toString(),
+                    startDay,
+                    endDay,
+                    $switch=$('.btn-switch'),
+                    switchStatus='';
                 $('.flatpickr-wrapper').remove();
                 if (type === '0') {
-                    var timeArr = getTime(),
-                        openTime = timeArr.openTime.toString(),
-                        closeTime = timeArr.closeTime.toString();
                     $.ajax({
                         method: "POST",
                         url: "/nodeControl/id/" + id,
@@ -173,13 +207,10 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr'], function ($, handlebars
                             return false;
                         }
                     });
-                } else {
-                    var dayArr = getDay(),
-                        timeArr = getTime(),
-                        openTime = timeArr.openTime.toString(),
-                        closeTime = timeArr.closeTime.toString(),
-                        startDay = dayArr.startDay.toString(),
-                        endDay = dayArr.endDay.toString();
+                } else if(type === '1'){
+                    dayArr = getDay();
+                    startDay = dayArr.startDay.toString();
+                    endDay = dayArr.endDay.toString();
                     $.ajax({
                         method: "POST",
                         url: "/nodeControl/id/" + id,
@@ -191,6 +222,29 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr'], function ($, handlebars
                             endDay: endDay,
                             openTime: openTime,
                             closeTime: closeTime
+                        },
+                        success: function (data) {
+                            return false;
+                        }
+                    });
+                }else {
+                    $.each($switch,function (i,v) {
+                        if($(v).hasClass('active')){
+                            switchStatus+='0';
+                        }else{
+                            switchStatus+='1';
+                        }
+                    })
+                    switchStatus=parseInt(switchStatus,2);
+                    switchStatus=switchStatus.toString(16);
+                    $.ajax({
+                        method: "POST",
+                        url: "/nodeControl/id/" + id,
+                        dataType: "json",
+                        data: {
+                            id: id,
+                            type: type,
+                            switchStatus:switchStatus
                         },
                         success: function (data) {
                             return false;
@@ -210,8 +264,10 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr'], function ($, handlebars
                     $('.flatpickr-wrapper').remove();
                     if ($(this).val() === '0') {
                         $(".control-content").html(weekPanel);
-                    } else {
+                    } else if($(this).val() === '1'){
                         $(".control-content").html(dailyPanel);
+                    }else{
+                        $(".control-content").html(swichPanel);
                     }
                     $.each($('.flatpickr'), function (i, v) {
                         new flatpickr(v, {

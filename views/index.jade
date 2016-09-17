@@ -77,16 +77,18 @@ block content
                                         thead
                                             tr
                                                 th id
-                                                th 温度
-                                                th 3路电压
-                                                th 3路电流
-                                                th 震动
-                                                th 门磁
-                                                th 继电器
-                                                th 定时
-                                                th 变动时间
+                                                th 日期区间
+                                                th 开关时间
+                                                th 日期区间
+                                                th 开关时间
+                                                th 日期区间
+                                                th 开关时间
+                                                th 日期区间
+                                                th 开关时间
+                                                th 日期区间
+                                                th 开关时间
                                                 th
-                                        tbody.weekTimeWrap
+                                        tbody.dailyTimeWrap
 include includes/footer
 script#nodeInfo(type="text/x-handlebars-template")
     {{#each this}}
@@ -100,7 +102,7 @@ script#nodeInfo(type="text/x-handlebars-template")
         td {{relay}}
         td {{timeConfig}}
         td {{lastChangeTime}}
-        td <button type='button' class='btn btn-success' data-id='{{id}}' data-relay='{{relay}}' data-timeconfig='{{timeConfig}}'>操作</button>
+        td <button type='button' class='btn btn-success btn-dialog' data-id='{{id}}' data-relay='{{relay}}' data-timeconfig='{{timeConfig}}'>操作</button>
     {{/each}}
 script#weekTime(type="text/x-handlebars-template")
     {{#each this}}
@@ -114,7 +116,25 @@ script#weekTime(type="text/x-handlebars-template")
         td {{open_time_5}}开启/{{close_time_5}}关闭
         td {{open_time_6}}开启/{{close_time_6}}关闭
         td {{open_time_7}}开启/{{close_time_7}}关闭
-        td <button type='button' class='btn btn-success' data-id='{{id}}' data-relay='{{relay}}' data-timeconfig='{{timeConfig}}'>操作</button>
+        td <button type='button' class='btn btn-success btn-dialog' data-id='{{equip_id}}' data-relay='{{relay}}' data-timeconfig='{{timeConfig}}'>操作</button>
+    {{/if}}
+    {{/each}}
+script#dailyTime(type="text/x-handlebars-template")
+    {{#each this}}
+    {{#if equip_id}}
+    tr
+        td {{equip_id}}
+        td {{start_1}}/{{end_1}}
+        td {{open_1}}/{{close_1}}
+        td {{start_2}}/{{end_2}}
+        td {{#if start_2}}{{open_2}}{{/if}}/{{#if start_2}}{{close_2}}{{/if}}
+        td {{start_3}}/{{end_3}}
+        td {{#if start_3}}{{open_3}}{{/if}}/{{#if start_3}}{{close_3}}{{/if}}
+        td {{start_4}}/{{end_4}}
+        td {{#if start_4}}{{open_4}}{{/if}}/{{#if start_4}}{{close_4}}{{/if}}
+        td {{start_5}}/{{end_5}}
+        td {{#if start_5}}{{open_5}}{{/if}}/{{#if start_5}}{{close_5}}{{/if}}
+        td <button type='button' class='btn btn-success btn-dialog' data-id='{{equip_id}}' data-relay='{{relay}}' data-timeconfig='{{timeConfig}}'>操作</button>
     {{/if}}
     {{/each}}
 script(src='/requirejs/require.js' data-main="/javascript/index")
