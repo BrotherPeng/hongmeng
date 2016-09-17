@@ -4,7 +4,6 @@
 
 # IntelliJ project files
 .idea
-.idea/workspace.xml
 *.iml
 out
 gen### Node template
@@ -46,4 +45,3 @@ jspm_packages
 # Optional REPL history
 .node_repl_history
 bower_components
-public/images/
