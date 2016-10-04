@@ -14,102 +14,177 @@ var Promise = require('bluebird');
 let weekTimeServer = require('../server/weekTimeConfigServer');
 let dailyTimeServer = require('../server/dailyTimeConfigServer');
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/', function (req, res) {
     var clientList = require("../lib/socket/socketHandle").clientList;
     clientList["1001400234700001"].write("response/r/n");
     res.send("ok");
 });
 
-router.get('/all', function(req, res, next) {
+router.get('/all', function (req, res) {
     Node.getAll(res);
 });
 //节点状态
-router.get('/id', function(req, res, next) {
+router.get('/id', function (req, res) {
     var projectId = req.query.projectId;
     // if(req.user[0].role_id===1){
-        Node.getAllLastOneInProject(projectId,res);
+    Node.getAllLastOneInProject(projectId, res);
     // }else if(req.user[0].role_id===2||req.user[0].role_id===3){
     //
     // }else{
     //
     // }
 
-}).post('/id/:id', function(req, res, next) {
+}).post('/id/:id', function (req, res) {
     let data,
-        id=req.params.id,
-        type=Number(req.body.type),
-        openTime=req.body.openTime,
-        closeTime=req.body.closeTime,
-        code=1,
-        message='success';
-
-    if(type===0){//周设置
-        openTime=openTime.split(',');
-        closeTime=closeTime.split(',');
-        let config={
-            id:id,
-            type:type,
-            openTime:openTime,
-            closeTime:closeTime
-        };
-        data=InitData.initTimeConfigData(config);
-        var clientList = require("../lib/socket/socketHandle").clientList;
-        if(clientList[id]){
-            clientList[id].write(data);
-            weekTimeServer.saveConfig(config);
-        }else{
-            code=-1;
-            message='false'
-        }
-
-        res.send({code:code,message:message});
-    }else if(type===1){//日设置
-        openTime=openTime.split(',');
-        closeTime=closeTime.split(',');
-        let startDay=req.body.startDay,
-            endDay=req.body.endDay;
-        startDay=startDay.split(',');
-        endDay=endDay.split(',');
-        let config = {
-            id:id,
-            type:type,
-            startDay:startDay,
-            endDay:endDay,
-            openTime:openTime,
-            closeTime:closeTime
-        };
-        data=InitData.initDayTimeConfigData(config);
-        var clientList = require("../lib/socket/socketHandle").clientList;
-        if(clientList[id]){
-            clientList[id].write(data);
-            dailyTimeServer.saveConfig(config);
-        }else{
-            code=-1;
-            message='false';
-        }
-        res.send({code:code,message:message});
-    }else{//继电器控制
-        let switchStatus=req.body.switchStatus;
-        let config = {
-            id:id,
-            type:type,
-            switchStatus:switchStatus
-        };
-        data=InitData.initSwitchControlData(config);
-        var clientList = require("../lib/socket/socketHandle").clientList;
-        if(clientList[id]){
-            clientList[id].write(data);
-        }else{
-            code=-1;
-            message='false';
-        }
-        res.send({code:code,message:message});
+        id = req.params.id,
+        type = Number(req.body.type),
+        openTime = req.body.openTime,
+        closeTime = req.body.closeTime,
+        code = 1,
+        message = 'success',
+        config;
+    if (openTime && closeTime) {
+        openTime = openTime.split(',');
+        closeTime = closeTime.split(',');
     }
+    let sendData = require("../lib/socket/socketHandle").send;
+
+    switch (type){
+        case 0:
+            config = {
+                id: id,
+                type: type,
+                openTime: openTime,
+                closeTime: closeTime
+            };
+            data = InitData.initTimeConfigData(config);
+            break;
+        case 1:
+            let startDay = req.body.startDay,
+                endDay = req.body.endDay;
+            startDay = startDay.split(',');
+            endDay = endDay.split(',');
+            config = {
+                id: id,
+                type: type,
+                startDay: startDay,
+                endDay: endDay,
+                openTime: openTime,
+                closeTime: closeTime
+            };
+            data = InitData.initDayTimeConfigData(config);
+            break;
+        case 2:
+            let switchStatus = req.body.switchStatus;
+            config = {
+                id: id,
+                type: type,
+                switchStatus: switchStatus
+            };
+            data = InitData.initSwitchControlData(config);
+            break;
+    }
+
+
+    let sendFun = new Promise(function (resolve) {
+        sendData(id, data, function (result) {
+            resolve(result)
+        });
+    });
+    sendFun.timeout(5000).then(v=> {
+        res.send(v);
+    }).catch(Promise.TimeoutError, function () {
+        res.send({code: -2, message: "could not get response data within 2000ms",equip_id:id});//超时-2
+    });
+
+});
+router.post('/group/id/:id', (req, res) => {
+    let program_id = req.params.id,
+        type = Number(req.body.type),
+        openTime = req.body.openTime,
+        closeTime = req.body.closeTime,
+        code = 1,
+        message = 'success',
+        data,
+        config;
+    if (openTime && closeTime) {
+        openTime = openTime.split(',');
+        closeTime = closeTime.split(',');
+    }
+    let sendData = require("../lib/socket/socketHandle").send;
+
+    let getEquipId = ()=> {
+        return new Promise((resolve)=> {
+            equipment.getAllIdByProject(program_id, (err, result)=> {
+                if (err) {
+                    res.send({code: -1, message: err})
+                } else {
+                    resolve(result);
+                }
+            })
+        })
+    };
+
+    getEquipId().then(result=> {
+        let sendDataFun = result.map((v)=> {
+            return new Promise(resolve=> {
+                let sendFun = new Promise(resolve => {
+                    switch (type) {
+                        case 0:
+                            config = {
+                                id: v.equip_id,
+                                type: type,
+                                openTime: openTime,
+                                closeTime: closeTime
+                            };
+                            data = InitData.initTimeConfigData(config);
+                            break;
+                        case 1:
+                            let startDay = req.body.startDay,
+                                endDay = req.body.endDay;
+                            startDay = startDay.split(',');
+                            endDay = endDay.split(',');
+                            config = {
+                                id: v.equip_id,
+                                type: type,
+                                startDay: startDay,
+                                endDay: endDay,
+                                openTime: openTime,
+                                closeTime: closeTime
+                            };
+                            data = InitData.initDayTimeConfigData(config);
+                            break;
+                        case 2:
+                            let switchStatus = req.body.switchStatus;
+                            config = {
+                                id: v.equip_id,
+                                type: type,
+                                switchStatus: switchStatus
+                            };
+                            data = InitData.initSwitchControlData(config);
+                            break;
+                    }
+                    sendData(v.equip_id, data, function (result) {
+                        resolve(result)
+                    });
+                });
+                sendFun.timeout(5000).then(v=> {
+                    resolve(v);
+                }).catch(Promise.TimeoutError, function () {
+                    resolve({code: -2, message: "could not get response data within 2000ms",equip_id:v.equip_id});//超时-2
+                });
+            })
+        });
+
+        new Promise.all(sendDataFun).then(v=> {
+            res.send(v);
+        })
+    })
 
 });
 
 //周模式查询
-router.get('/weekTime/id', function(req, res, next) {
+router.get('/weekTime/id', function (req, res) {
     var projectId = req.query.projectId;
     equipment.getAllIdByProject(projectId, function (err, result) {
         if (!err) {
@@ -130,10 +205,10 @@ router.get('/weekTime/id', function(req, res, next) {
             throw err;
         }
     });
-})
+});
 
 //日模式查询
-router.get('/dailyTime/id', function(req, res, next) {
+router.get('/dailyTime/id', function (req, res) {
     var projectId = req.query.projectId;
     equipment.getAllIdByProject(projectId, function (err, result) {
         if (!err) {
@@ -154,5 +229,5 @@ router.get('/dailyTime/id', function(req, res, next) {
             throw err;
         }
     });
-})
+});
 module.exports = router;

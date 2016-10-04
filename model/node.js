@@ -6,6 +6,7 @@ var node = require("../module/db").node;
 var ParseData = require("../lib/socket/parseData");
 var equipment = require("../model/equipment");
 var Promise = require('bluebird');
+var clientList=require('../lib/socket/socketHandle').clientList;
 function Node() {
     let _this=this;
     this.getAll=function (res) {
@@ -24,6 +25,7 @@ function Node() {
                             if (err) {
                                 return err;
                             } else {
+                                clientList[v.equip_id]?value.offline=false:value.offline=true;
                                 resolve(value);
                             }
                         })

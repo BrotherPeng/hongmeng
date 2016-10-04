@@ -7,7 +7,9 @@ requirejs.config({
         jquery: 'jquery/dist/jquery',
         handlebars: 'handlebars/handlebars.amd.min',
         dialog: 'artDialog/dist/dialog-min',
-        flatpickr: 'flatpickr/dist/flatpickr.min'
+        flatpickr: 'flatpickr/dist/flatpickr.min',
+        chart:'javascript/index/chart',//首页图表
+        dialogTemplate:'javascript/index/template'//弹框模板
     },
     shim: {
         jquery: {exports: 'jquery'},
@@ -16,10 +18,14 @@ requirejs.config({
 
     }
 });
-require(['jquery', 'handlebars', 'dialog', 'flatpickr'], function ($, handlebars, dialog, flatpickr) {
+require(['jquery', 'handlebars', 'dialog', 'flatpickr','chart','dialogTemplate'], function ($, handlebars, dialog, flatpickr,chart,dialogTemplate) {
     // some code here
     var nodeInfo = $('#nodeInfo').html();
     var template = handlebars.compile(nodeInfo);
+    var swichPanel =dialogTemplate.swichPanel,
+        weekPanel = dialogTemplate.weekPanel,
+        dailyPanel = dialogTemplate.dailyPanel;
+    //下拉按钮单击事件，请求该项目下的所有设备
     $('body').on('click', '#projectId .project-up-down', function () {
         var $this = $(this),
             $li = $(this).parents('.list-group-item'),
@@ -48,7 +54,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr'], function ($, handlebars
             }
         });
     });
-
+    //设备查看tab页切换
     $('body').on('click', '[role=presentation]', function () {
         var $this = $(this),
             $tab = $this.parents('[role=tabpanel]'),
@@ -68,7 +74,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr'], function ($, handlebars
         }
         $panel.show();
     });
-
+    //请求周设置
     function weekTime(projectId) {
         var weekTimeTemp = $('#weekTime').html(),
             $weekTimeWrap = $('.weekTimeWrap'),
@@ -84,7 +90,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr'], function ($, handlebars
             }
         });
     }
-
+    //请求日设置
     function dailyTime(projectId) {
         var dailyTimeTemp = $('#dailyTime').html(),
             $dailyTimeWrap = $('.dailyTimeWrap'),
@@ -100,88 +106,22 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr'], function ($, handlebars
             }
         });
     }
-
+    //操作按钮
     $('body').on('click', '.btn-dialog', function () {
         var $this = $(this),
             id = $this.data('id'),
-            swichPanel = '<div class="btn-group" data-toggle="buttons">' +
-                '<label class="btn btn-success btn-switch"><input type="checkbox" autocomplete="off" checked/>继电器1</label>' +
-                '<label class="btn btn-success btn-switch"><input type="checkbox" autocomplete="off" checked/>继电器2</label>' +
-                '<label class="btn btn-success btn-switch"><input type="checkbox" autocomplete="off" checked/>继电器3</label>' +
-                '<label class="btn btn-success btn-switch"><input type="checkbox" autocomplete="off" checked/>继电器4</label>' +
-                '<label class="btn btn-success btn-switch"><input type="checkbox" autocomplete="off" checked/>继电器5</label>' +
-                '<label class="btn btn-success btn-switch"><input type="checkbox" autocomplete="off" checked/>继电器6</label>' +
-                '<label class="btn btn-success btn-switch"><input type="checkbox" autocomplete="off" checked/>继电器7</label>' +
-                '<label class="btn btn-success btn-switch"><input type="checkbox" autocomplete="off" checked/>继电器8</label>' +
-                '</div>',
-            weekPanel = '<div class="input-group"><label>周一:</label><div class="row"><label class="col-sm-2">开启时间:</label><input class="col-sm-3 openTime flatpickr" value="19:30">' +
-                '<label class="col-sm-2">关闭时间:</label><input class="col-sm-3 closeTime flatpickr" value="06:30"></div>' +
-                '<div class="input-group"><label>周二:</label><div class="row"><label class="col-sm-2">开启时间:</label><input class="col-sm-3 openTime flatpickr" value="19:30">' +
-                '<label class="col-sm-2">关闭时间:</label><input class="col-sm-3 closeTime flatpickr" value="06:30"></div>' +
-                '<div class="input-group"><label>周三:</label><div class="row"><label class="col-sm-2">开启时间:</label><input class="col-sm-3 openTime flatpickr" value="19:30">' +
-                '<label class="col-sm-2">关闭时间:</label><input class="col-sm-3 closeTime flatpickr" value="06:30"></div>' +
-                '<div class="input-group"><label>周四:</label><div class="row"><label class="col-sm-2">开启时间:</label><input class="col-sm-3 openTime flatpickr" value="19:30">' +
-                '<label class="col-sm-2">关闭时间:</label><input class="col-sm-3 closeTime flatpickr" value="06:30"></div>' +
-                '<div class="input-group"><label>周五:</label><div class="row"><label class="col-sm-2">开启时间:</label><input class="col-sm-3 openTime flatpickr" value="19:30">' +
-                '<label class="col-sm-2">关闭时间:</label><input class="col-sm-3 closeTime flatpickr" value="06:30"></div>' +
-                '<div class="input-group"><label>周六:</label><div class="row"><label class="col-sm-2">开启时间:</label><input class="col-sm-3 openTime flatpickr" value="19:30">' +
-                '<label class="col-sm-2">关闭时间:</label><input class="col-sm-3 closeTime flatpickr" value="06:30"></div>' +
-                '<div class="input-group"><label>周日:</label><div class="row"><label class="col-sm-2">开启时间:</label><input class="col-sm-3 openTime flatpickr" value="19:30">' +
-                '<label class="col-sm-2">关闭时间:</label><input class="col-sm-3 closeTime flatpickr" value="06:30"></div>',
-            dailyPanel = '<div class="input-group">' +
-                '<label>区间一:</label>' +
-                '<div class="row">' +
-                '<label class="col-sm-2">开始日期:</label><input class="col-sm-3 startDay flatpickrDay">' +
-                '<label class="col-sm-2">结束日期:</label><input class="col-sm-3 endDay flatpickrDay"></div>' +
-                '<div class="input-group">' +
-                '<div class="row">' +
-                '<label class="col-sm-2">开启时间:</label><input class="col-sm-3 openTime flatpickr" value="19:30">' +
-                '<label class="col-sm-2">关闭时间:</label><input class="col-sm-3 closeTime flatpickr" value="06:30">' +
-                '</div>' +
-                '<label>区间二:</label>' +
-                '<div class="row">' +
-                '<label class="col-sm-2">开始日期:</label><input class="col-sm-3 startDay flatpickrDay">' +
-                '<label class="col-sm-2">结束日期:</label><input class="col-sm-3 endDay flatpickrDay"></div>' +
-                '<div class="input-group">' +
-                '<div class="row">' +
-                '<label class="col-sm-2">开启时间:</label><input class="col-sm-3 openTime flatpickr" value="19:30">' +
-                '<label class="col-sm-2">关闭时间:</label><input class="col-sm-3 closeTime flatpickr" value="06:30">' +
-                '</div>' +
-                '<label>区间三:</label>' +
-                '<div class="row">' +
-                '<label class="col-sm-2">开始日期:</label><input class="col-sm-3 startDay flatpickrDay">' +
-                '<label class="col-sm-2">结束日期:</label><input class="col-sm-3 endDay flatpickrDay"></div>' +
-                '<div class="input-group">' +
-                '<div class="row">' +
-                '<label class="col-sm-2">开启时间:</label><input class="col-sm-3 openTime flatpickr" value="19:30">' +
-                '<label class="col-sm-2">关闭时间:</label><input class="col-sm-3 closeTime flatpickr" value="06:30">' +
-                '</div>' +
-                '<label>区间四:</label>' +
-                '<div class="row">' +
-                '<label class="col-sm-2">开始日期:</label><input class="col-sm-3 startDay flatpickrDay">' +
-                '<label class="col-sm-2">结束日期:</label><input class="col-sm-3 endDay flatpickrDay"></div>' +
-                '<div class="input-group">' +
-                '<div class="row">' +
-                '<label class="col-sm-2">开启时间:</label><input class="col-sm-3 openTime flatpickr" value="19:30">' +
-                '<label class="col-sm-2">关闭时间:</label><input class="col-sm-3 closeTime flatpickr" value="06:30">' +
-                '</div>' +
-                '<label>区间五:</label>' +
-                '<div class="row">' +
-                '<label class="col-sm-2">开始日期:</label><input class="col-sm-3 startDay flatpickrDay">' +
-                '<label class="col-sm-2">结束日期:</label><input class="col-sm-3 endDay flatpickrDay"></div>' +
-                '<div class="input-group">' +
-                '<div class="row">' +
-                '<label class="col-sm-2">开启时间:</label><input class="col-sm-3 openTime flatpickr" value="19:30">' +
-                '<label class="col-sm-2">关闭时间:</label><input class="col-sm-3 closeTime flatpickr" value="06:30">' +
-                '</div>' +
-                '</div>',
             $content = '<div class="input-group"><label>id:</label><span>' + id + '</span></div>' +
                 '<label class="radio-inline"><input type="radio" name="optionsRadios" id="optionWeek" value="0" checked>周模式</label>' +
                 '<label class="radio-inline"><input type="radio" name="optionsRadios" id="optionDay" value="1">日模式</label>' +
                 '<label class="radio-inline"><input type="radio" name="optionsRadios" id="optionDay" value="2">开关控制</label>' +
                 '<div class="control-content">' +
                 weekPanel +
-                '</div>';
+                '</div>',
+            isGroupBtn=false;
+        //判断是否是群发按钮
+        if($this.hasClass('btn-project-group')){
+            isGroupBtn=true;
+        }
         var d = dialog({
             title: '消息',
             content: $content,
@@ -196,37 +136,22 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr'], function ($, handlebars
                     endDay,
                     $switch=$('.btn-switch'),
                     switchStatus='';
+                isGroupBtn?url=("/nodeControl/group/id/" + id):url=("/nodeControl/id/" + id);
                 $('.flatpickr-wrapper').remove();
                 if (type === '0') {
-                    $.ajax({
-                        method: "POST",
-                        url: "/nodeControl/id/" + id,
-                        dataType: "json",
-                        data: {id: id, type: type, openTime: openTime, closeTime: closeTime},
-                        success: function (data) {
-                            return false;
-                        }
-                    });
+                    sendConfig({id: id, type: type, openTime: openTime, closeTime: closeTime},url);
                 } else if(type === '1'){
                     dayArr = getDay();
                     startDay = dayArr.startDay.toString();
                     endDay = dayArr.endDay.toString();
-                    $.ajax({
-                        method: "POST",
-                        url: "/nodeControl/id/" + id,
-                        dataType: "json",
-                        data: {
-                            id: id,
-                            type: type,
-                            startDay: startDay,
-                            endDay: endDay,
-                            openTime: openTime,
-                            closeTime: closeTime
-                        },
-                        success: function (data) {
-                            return false;
-                        }
-                    });
+                    sendConfig({
+                        id: id,
+                        type: type,
+                        startDay: startDay,
+                        endDay: endDay,
+                        openTime: openTime,
+                        closeTime: closeTime
+                    },url);
                 }else {
                     $.each($switch,function (i,v) {
                         if($(v).hasClass('active')){
@@ -237,19 +162,11 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr'], function ($, handlebars
                     })
                     switchStatus=parseInt(switchStatus,2);
                     switchStatus=switchStatus.toString(16);
-                    $.ajax({
-                        method: "POST",
-                        url: "/nodeControl/id/" + id,
-                        dataType: "json",
-                        data: {
-                            id: id,
-                            type: type,
-                            switchStatus:switchStatus
-                        },
-                        success: function (data) {
-                            return false;
-                        }
-                    });
+                    sendConfig({
+                        id: id,
+                        type: type,
+                        switchStatus:switchStatus
+                    },url)
                 }
 
             },
@@ -287,6 +204,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr'], function ($, handlebars
 
         d.show();
     });
+    //获取页面设置的开关时间并格式化
     function getTime() {
         var timeArr = {};
         timeArr['openTime'] = [];
@@ -317,7 +235,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr'], function ($, handlebars
         });
         return timeArr;
     }
-
+    //获取页面的日设置
     function getDay() {
         var dayArr = {};
         dayArr['startDay'] = [];
@@ -339,5 +257,39 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr'], function ($, handlebars
             }
         });
         return dayArr;
+    }
+    // 下发配置
+    function sendConfig(data,url) {
+        $.ajax({
+            method: "POST",
+            url: url,
+            dataType: "json",
+            data:data,
+            success: function (data) {
+                if(data.length){
+                    var $content='<div>';
+                    $.each(data,function (i,v) {
+                        $content+='<p>'+v.equip_id+':'+(v.code===1?'下发配置成功':'下发配置失败')+'</p>'
+                    });
+                    dialog({
+                        title:'信息',
+                        content:$content
+                    }).show();
+                }else{
+                    if(data.code===1){
+                        dialog({
+                            title:'信息',
+                            content:'下发配置成功'
+                        }).show();
+                    }else{
+                        dialog({
+                            title:'信息',
+                            content:'下发配置失败'
+                        }).show();
+                    }
+                }
+
+            }
+        });
     }
 });

@@ -110,8 +110,10 @@ body {
   border-radius: 50%;
 }
 .project-up-down{
-    float:right;
     cursor: pointer;;
+}
+.fn-right{
+  float:right;
 }
 .btn-switch.active,.btn-switch.active.focus{
   background-color: #b92c28;
