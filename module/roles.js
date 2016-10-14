@@ -18,18 +18,18 @@ var roles = new ConnectRoles({
 });
 //admin users can access all pages
 roles.use(function (req) {
-    if (req.user[0].role_id === 1) {
+    // if (req.user[0].role_id === 1) {
         return true;
-    }
+    // }
 });
-roles.use('access user page', function (req) {
-    if (req.user[0].role_id === 2||req.user[0].role_id === 4) {
-        return true;
-    }
-})
-roles.use('access member page', function (req) {
-    if (req.user[0].role_id === 2||req.user[0].role_id === 4) {
-        return true;
-    }
-})
+// roles.use('access user page', function (req) {
+//     if (req.user[0].role_id === 2||req.user[0].role_id === 4) {
+//         return true;
+//     }
+// })
+// roles.use('access member page', function (req) {
+//     if (req.user[0].role_id === 2||req.user[0].role_id === 4) {
+//         return true;
+//     }
+// })
 module.exports=roles;

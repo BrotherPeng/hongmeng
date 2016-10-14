@@ -26,14 +26,7 @@ router.get('/all', function (req, res) {
 //节点状态
 router.get('/id', function (req, res) {
     var projectId = req.query.projectId;
-    // if(req.user[0].role_id===1){
     Node.getAllLastOneInProject(projectId, res);
-    // }else if(req.user[0].role_id===2||req.user[0].role_id===3){
-    //
-    // }else{
-    //
-    // }
-
 }).post('/id/:id', function (req, res) {
     let data,
         id = req.params.id,
@@ -92,6 +85,11 @@ router.get('/id', function (req, res) {
         });
     });
     sendFun.timeout(5000).then(v=> {
+        if(type===0){
+            weekTimeServer.saveConfig(config);
+        }else if(type===1){
+            dailyTimeServer.saveConfig(config);
+        }
         res.send(v);
     }).catch(Promise.TimeoutError, function () {
         res.send({code: -2, message: "could not get response data within 2000ms",equip_id:id});//超时-2
@@ -169,6 +167,11 @@ router.post('/group/id/:id', (req, res) => {
                     });
                 });
                 sendFun.timeout(5000).then(v=> {
+                    if(type===0){
+                        weekTimeServer.saveConfig(config);
+                    }else if(type===1){
+                        dailyTimeServer.saveConfig(config);
+                    }
                     resolve(v);
                 }).catch(Promise.TimeoutError, function () {
                     resolve({code: -2, message: "could not get response data within 2000ms",equip_id:v.equip_id});//超时-2

@@ -8,7 +8,23 @@ var moment = require('moment');
 var Equipment = require('../model/equipment');
 /* 项目列表. */
 router.get('/list', function(req, res, next) {
-    Equipment.get(res);
+    switch(req.user[0].role_id){
+        case 1:
+            Equipment.get(res);
+            break;
+        case 2:
+            Equipment.get(res);
+            break;
+        case 3:
+            res.send('权限不足');
+            break;
+        case 4:
+            res.send('权限不足');
+            break;
+        case 5:
+            res.send('权限不足');
+            break;
+    };
 });
 /* 删除项目. */
 router.get('/del', function(req, res, next) {

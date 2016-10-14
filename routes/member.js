@@ -7,17 +7,43 @@ var logger = require('../log').logger('member');
 var moment = require('moment');
 var Member = require('../model/member');
 var roles = require('../module/roles');
+var Promise = require('bluebird');
 /* 人员列表. */
 router.get('/list',function(req, res, next) {
-    let ownerId = req.user[0].id;
-    if(req.user.is('admin')){
+    let ownerId = req.user[0].id,
+        roleId = req.user[0].role_id;
+    if(roleId===1){//admin可以获取所有得内容
         Member.getAll(res);
-    }else if(roles.can('access member page')){
+    }else if(roleId===2){//超级管理员只能获取自己创建的以及自己下面的管理员创建的内容
+        let promise=new Promise(resolve=>{
+            Member.getByOwnerId(ownerId,(err,result)=> {
+                resolve(result);
+            });
+        });
+        promise.then(v=>{
+            let getByOwnerId=v.map(item=>{
+                return new Promise(resolve=>{
+                    Member.getByOwnerId(item.id,(err,result)=>{
+                        resolve(result);
+                    })
+                })
+            });
+            Promise.all(getByOwnerId).then(result=>{
+                result.forEach(item=>{
+                    v=v.concat(item);
+                });
+                return v;
+            }).then(result=>{
+                res.render('member/list',{title:'监控中心',result:result});
+            });
+        })
+
+    }else if(roleId===4){//管理员可以获取自己创建的内容
         Member.getByOwnerId(ownerId,function (err,result) {
             res.render('member/list',{title:'监控中心',result:result});
         });
     }else{
-        res.render("只有admin才有此权限");
+        res.send('权限不足');
     }
 });
 /* 删除人员. */

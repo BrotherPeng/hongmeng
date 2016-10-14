@@ -1,37 +1,39 @@
 var express = require('express');
 var router = express.Router();
-var Project = require('../model/project');
-var Equipment = require('../model/equipment');
-var Promise = require('bluebird');
+var getProject=require('../server/getProject');
 /* GET home page. */
-router.get('/', function(req, res, next) {
-    let promise = new Promise(function (resolve, reject) {
-        Project.getNameAndId(function (err,result) {
-            if (!err){
-                resolve(result);
-            } else {
-                reject(err);
-            }
-        });
-    });
-    promise.then(function(result) {
-        // success
-        var getCount=result.map(function (v,i) {
-            return new Promise(function (resolve) {
-                Equipment.getCountByProject(v.id,function (err,value) {
-                    if(!err){
-                        resolve(value);
-                    }
-                })
-            })
-        });
-        Promise.all(getCount).then(count=>{
-            count.map(function (v,i) {
-               result[i].count=v[0]['count(*)']
+router.get('/', function(req, res) {
+    let role_id=req.user[0].role_id,
+        owner_id=req.user[0].owner_id,
+        user_id=req.user[0].id;
+    switch (role_id){
+        case 1:
+            getProject.getAllProject(function (result) {
+                res.render('index',result);
             });
-            res.render('index', {title: '监控中心',result:result});
-        })
-    })
+            break;
+        case 2:
+            getProject.getSuperAdminProject(user_id,function (result) {
+                res.render('index',result);
+            });
+            break;
+        case 3:
+            getProject.getSuperAdminProject(user_id,function (result) {
+                res.render('index',result);
+            });
+            break;
+        case 4:
+            getProject.getAdminProject(user_id,function (result) {
+                res.render('index',result);
+            });
+            break;
+        case 5:
+            getProject.getAdminProject(user_id,function (result) {
+                res.render('index',result);
+            });
+            break;
+    }
+
 
 });
 

@@ -10,8 +10,15 @@ function Project() {
                 'a.`id`,a.`name`,a.`owner_company`,a.`manage_company`,a.`create_name`,b.`email`,a.`create_time`,a.`comment`,b.`username` as `manage_name` ' +
                 'from `project` a,`users` b where a.`manage_id`=b.`id`', function(err, result) {
                 con.release();
-                logger.info(result);
                 res.render('project/list',{title:'监控中心',result:result});
+            });
+        });
+    };
+    this.getByCreateName = function (name,callback) {
+        connection.acquire(function(err, con) {
+            con.query('select * from project where create_name = "'+name+'"', function(err, result) {
+                con.release();
+                callback(err,result);
             });
         });
     };
@@ -22,7 +29,15 @@ function Project() {
                 callback(err,result);
             });
         });
-    }
+    };
+    this.getNameAndIdByManageId = function (manageId,callback) {
+        connection.acquire(function(err, con) {
+            con.query('select id,name from project where manage_id=?', manageId,function(err, result) {
+                con.release();
+                callback(err,result);
+            });
+        });
+    };
     this.getByName = function (name,callback) {
         connection.acquire(function(err, con) {
             con.query('select * from project where name = "'+name+'"', function(err, result) {
@@ -39,7 +54,7 @@ function Project() {
                 callback(err,result);
             });
         });
-    }
+    };
     this.create = function(project, res) {
         connection.acquire(function(err, con) {
             con.query('insert into project set ?', project, function(err, result) {

@@ -38,7 +38,6 @@ function Users() {
                 "a.`id`,a.`username`,a.`password`,a.`mobile`,a.`email`,a.`role_id`,a.`create_time`,b.`username` as `ownername` " +
                 "from users a,users b where a.`owner_id`=b.`id` and a.`owner_id`= ?", [ownerId],function(err, result) {
                 con.release();
-                logger.info(result);
                 callback(err,result);
             });
         });

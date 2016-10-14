@@ -9,7 +9,26 @@ var Member = require('../model/member');
 var Project = require('../model/project');
 /* 项目列表. */
 router.get('/list', function(req, res, next) {
-    Project.get(res);
+    switch(req.user[0].role_id){
+        case 1:
+            Project.get(res);
+            break;
+        case 2:
+            Project.getByCreateName(req.user[0].username,(err,result)=>{
+                res.render('project/list',{title:'监控中心',result:result});
+            });
+            break;
+        case 3:
+            res.send('权限不足');
+            break;
+        case 4:
+            res.send('权限不足');
+            break;
+        case 5:
+            res.send('权限不足');
+            break;
+    };
+
 });
 /* 删除项目. */
 router.get('/del', function(req, res, next) {
@@ -68,11 +87,18 @@ router.get('/edit/:id', function(req, res, next) {
 }).post('/edit/:id',function (req,res,next) {
     let id=req.params.id,
         name=req.body.name,
+        owner_company=req.body.owner_company,
+        manage_company=req.body.manage_company,
+        manage_id=req.body.manage_id,
+        comment=req.body.comment,
         project={
             id:id,
             name:name,
+            owner_company:owner_company,
+            manage_company:manage_company,
+            manage_id:manage_id,
+            comment:comment
         };
-    console.log(req);
     Project.update(project,res);
 });
 module.exports = router;
