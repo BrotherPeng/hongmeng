@@ -1,10 +1,19 @@
-.col-sm-3.col-md-2.sidebar
-  ul.nav.nav-sidebar
-    li.default
-      a(href='/') 监控中心
-    li.member
-      a(href='/member/list')  人员管理
-    li.project
-      a(href='/project/list')  项目管理
-    li.equipment
-      a(href='/equipment/list')  设备管理
+aside.main-sidebar
+  section.sidebar
+    .user-panel
+      .pull-left.image
+        img(src='/images/logo.jpeg')
+      .pull-left.info
+        p.header-username
+        a(href="javascript:void(0);")
+          i.fa.fa-circle.text-success
+          span 在线
+    ul.sidebar-menu
+      li.treeview
+        a(href='/') 监控中心
+      li.member
+        a(href='/member/list')  人员管理
+      li.project
+        a(href='/project/list')  项目管理
+      li.equipment
+        a(href='/equipment/list')  设备管理

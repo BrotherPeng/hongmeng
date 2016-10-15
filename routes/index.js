@@ -9,27 +9,27 @@ router.get('/', function(req, res) {
     switch (role_id){
         case 1:
             getProject.getAllProject(function (result) {
-                res.render('index',result);
+                res.render('index/control',result);
             });
             break;
         case 2:
             getProject.getSuperAdminProject(user_id,function (result) {
-                res.render('index',result);
+                res.render('index/control',result);
             });
             break;
         case 3:
             getProject.getSuperAdminProject(user_id,function (result) {
-                res.render('index',result);
+                res.render('index/control',result);
             });
             break;
         case 4:
             getProject.getAdminProject(user_id,function (result) {
-                res.render('index',result);
+                res.render('index/control',result);
             });
             break;
         case 5:
             getProject.getAdminProject(user_id,function (result) {
-                res.render('index',result);
+                res.render('index/control',result);
             });
             break;
     }

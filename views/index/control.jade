@@ -1,11 +1,11 @@
-include includes/head
+include ../includes/head
 link(rel='stylesheet', href='/flatpickr/dist/flatpickr.confetti.min.css')
 block content
-  include includes/header
+  include ../includes/header
   link(rel='stylesheet', href='/artDialog/css/ui-dialog.css')
 .container-fluid
   .row
-    include includes/slide
+    include ../includes/slide
     .col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2.main
       h1.page-header Dashboard
         .echarts-detail(style='height:600px;width:100%')
@@ -80,9 +80,10 @@ block content
                                                 th 开关时间
                                                 th
                                         tbody.dailyTimeWrap
-include includes/footer
+include ../includes/footer
 script#nodeInfo(type="text/x-handlebars-template")
     {{#each this}}
+    {{#if id}}
     tr
         td {{id}}
         td {{temperature}}
@@ -94,6 +95,7 @@ script#nodeInfo(type="text/x-handlebars-template")
         td {{timeConfig}}
         td {{lastChangeTime}}
         td <button type='button' {{#if offline}}disabled{{/if}} class='btn {{#if offline}}btn-default{{else}}btn-success{{/if}} btn-dialog' data-id='{{id}}' data-relay='{{relay}}' data-timeconfig='{{timeConfig}}'>操作</button>
+    {{/if}}
     {{/each}}
 script#weekTime(type="text/x-handlebars-template")
     {{#each this}}
