@@ -10,7 +10,15 @@ aside.main-sidebar
           span 在线
     ul.sidebar-menu
       li.treeview
-        a(href='/') 监控中心
+        a(href='javascript:void(0)')
+          i.fa.fa-hdd-o
+          span 监控中心
+          span.glyphicon.glyphicon-chevron-down.pull-right
+          ul.treeview-menu(style='display:none')
+            li
+              a(href='/monitor') 监测中心
+            li
+              a(href='/control') 控制中心
       li.member
         a(href='/member/list')  人员管理
       li.project

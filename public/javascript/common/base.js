@@ -15,8 +15,13 @@ $.ajax({
 getPath(location.pathname);
 function getPath(path) {
     switch (path) {
-        case '/':
-            $('.default').addClass('active');
+        case '/monitor':
+            $('.treeview').addClass('active');
+            $('.treeview').find('.treeview-menu').show();
+            break;
+        case '/control':
+            $('.treeview').addClass('active');
+            $('.treeview').find('.treeview-menu').show();
             break;
         case '/member/list':
             $('.member').addClass('active');
@@ -31,4 +36,14 @@ function getPath(path) {
             break;
     }
 }
+$('.treeview a').on('click',function () {
+    if($(this).parent().hasClass('active')){
+        $(this).parent().removeClass('active');
+        $(this).next().hide();
+    }else{
+        $(this).parent().addClass('active');
+        $(this).next().show();
+    }
+
+})
 

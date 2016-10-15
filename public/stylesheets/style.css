@@ -100,6 +100,50 @@ body {
   padding-right: 20px;
   padding-left: 20px;
 }
+.sidebar-menu li>a {
+  position: relative;
+}
+.sidebar-menu>li>a {
+  padding: 12px 5px 12px 15px;
+  display: block;
+  color: #b8c7ce;
+}
+.sidebar a {
+  color: #b8c7ce;
+}
+.sidebar-menu>li>a {
+  border-left: 3px solid transparent;
+}
+.sidebar-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.sidebar-menu>li.active>a,.sidebar-menu>li:hover>a {
+  color: #fff;
+  background: #1e282c;
+  border-left-color: #3c8dbc;
+}
+.fa-angle-left:before {
+  content: "\f104";
+}
+.sidebar-menu li>a>.pull-right {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  margin-top: -7px;
+}
+.sidebar-menu .treeview-menu>li>a {
+  padding: 5px 5px 5px 15px;
+  display: block;
+  font-size: 14px;
+}
+.sidebar-menu li>a>.fa-angle-left {
+  width: auto;
+  height: auto;
+  padding: 0;
+  margin-right: 10px;
+}
 .nav-sidebar > .active > a,
 .nav-sidebar > .active > a:hover,
 .nav-sidebar > .active > a:focus {
