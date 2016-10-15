@@ -57,13 +57,16 @@ router.get('/edit/:id', function(req, res, next) {
         res.render('equipment/edit',{title: '监控中心',result:result})
     });
 }).post('/edit/:id',function (req,res,next) {
+    console.log(req.body)
     let id=req.params.id,
         name=req.body.name,
         project_id=req.body.project_id,
+        equip_id=req.body.equip_id,
         equipment={
             id:id,
             project_id:project_id,
-            name:name
+            name:name,
+            equip_id:equip_id,
         };
     Equipment.update(equipment,res);
 });
