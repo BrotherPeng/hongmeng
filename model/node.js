@@ -25,7 +25,9 @@ function Node() {
                             if (err) {
                                 return err;
                             } else {
-                                clientList[v.equip_id]?value.offline=false:value.offline=true;
+                                if(value){
+                                    clientList[v.equip_id]?value.offline=false:value.offline=true;
+                                }
                                 resolve(value);
                             }
                         })
