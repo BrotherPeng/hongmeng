@@ -3,7 +3,9 @@
  */
 let weekTimeDao = require('../model/weekTimeConfig');
 let dailyTimeDao = require('../model/dailyTimeConfig');
+let logger = require("../log").logger('mysql');
 let Promise = require('bluebird');
+let moment=require('moment');
 function weekTimeServer() {
 
 }
@@ -15,12 +17,14 @@ weekTimeServer.prototype.saveConfig = function (config) {
     let equipId = config.id,
         timeConfig = {};
     timeConfig['equip_id'] = config.id;
+    logger.info("开始保存设备："+config.id+"的周设置");
     for (let i = 0; i < config.openTime.length; i += 2) {
-        timeConfig['open_time_' + (i / 2 + 1)] = config.openTime[i] + ':' + config.openTime[i + 1];
+        timeConfig['open_time_' + (i / 2 + 1)] = parseInt(config.openTime[i],16) + ':' + parseInt(config.openTime[i + 1],16);
     }
     for (let i = 0; i < config.closeTime.length; i += 2) {
-        timeConfig['close_time_' + (i / 2 + 1)] = config.closeTime[i] + ':' + config.closeTime[i + 1];
+        timeConfig['close_time_' + (i / 2 + 1)] = parseInt(config.closeTime[i],16) + ':' + parseInt(config.closeTime[i + 1],16);
     }
+    timeConfig.update_time=moment().format('YYYY-MM-DD HH:mm:ss');
     /*查询dailyTime表是否存在该id*/
     var saveFellow = new Promise((resolve)=> {
         dailyTimeDao.getByEquipId(equipId, (err, result)=> {
@@ -57,10 +61,12 @@ weekTimeServer.prototype.saveConfig = function (config) {
 
     }).then(result=> {/*存在则更新，不存在则新增*/
         if (result !== 0) {
+            logger.info("更新设备："+config.id+"的周设置"+timeConfig);
             weekTimeDao.update(timeConfig, function (err, result) {
                 return result;
             });
         } else {
+            logger.info("新增设备："+config.id+"的周设置"+timeConfig);
             weekTimeDao.create(timeConfig, function (err, result) {
                 return result;
             });
