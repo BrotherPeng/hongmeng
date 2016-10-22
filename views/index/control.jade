@@ -10,7 +10,7 @@ block content
       ul.list-group#projectId
         if(result)
             each item in result
-                li.list-group-item(data-id='#{item.id}') #{item.name}
+                li.list-group-item.mb15(data-id='#{item.id}') #{item.name}
                     span.badge #{item.count}
                     .fn-right
                         button.btn.btn-success.btn-dialog.btn-project-group(style='padding:0 12px;margin-right:10px' data-id='#{item.id}') 操作

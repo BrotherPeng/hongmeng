@@ -199,3 +199,6 @@ body {
 .btn-switch.active,.btn-switch.active.focus{
   background-color: #b92c28;
 }
+.mb15{
+  margin-bottom: 15px;
+}
