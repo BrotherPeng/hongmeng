@@ -84,7 +84,7 @@ router.get('/id', function (req, res) {
             resolve(result)
         });
     });
-    sendFun.timeout(5000).then(v=> {
+    sendFun.timeout(10000).then(v=> {
         if(type===0){
             weekTimeServer.saveConfig(config);
         }else if(type===1){
@@ -166,7 +166,7 @@ router.post('/group/id/:id', (req, res) => {
                         resolve(result)
                     });
                 });
-                sendFun.timeout(5000).then(v=> {
+                sendFun.timeout(10000).then(v=> {
                     if(type===0){
                         weekTimeServer.saveConfig(config);
                     }else if(type===1){
