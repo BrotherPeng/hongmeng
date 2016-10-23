@@ -3,16 +3,20 @@
  */
 define(function () {
    var template={};
-   template.swichPanel = '<div class="btn-group" data-toggle="buttons">' +
-       '<label class="btn btn-success btn-switch"><input type="checkbox" autocomplete="off" checked/>继电器1</label>' +
-       '<label class="btn btn-success btn-switch"><input type="checkbox" autocomplete="off" checked/>继电器2</label>' +
-       '<label class="btn btn-success btn-switch"><input type="checkbox" autocomplete="off" checked/>继电器3</label>' +
-       '<label class="btn btn-success btn-switch"><input type="checkbox" autocomplete="off" checked/>继电器4</label>' +
-       '<label class="btn btn-success btn-switch"><input type="checkbox" autocomplete="off" checked/>继电器5</label>' +
-       '<label class="btn btn-success btn-switch"><input type="checkbox" autocomplete="off" checked/>继电器6</label>' +
-       '<label class="btn btn-success btn-switch"><input type="checkbox" autocomplete="off" checked/>继电器7</label>' +
-       '<label class="btn btn-success btn-switch"><input type="checkbox" autocomplete="off" checked/>继电器8</label>' +
-       '</div>';
+   template.swichPanel = function (switchArr) {
+       var panel;
+       panel='<div class="btn-group" data-toggle="buttons">';
+       for(var i=0;i<switchArr.length;i++){
+           if(switchArr[i]===0){
+               panel+='<label class="btn btn-success btn-switch active"><input type="checkbox" autocomplete="off" checked/>继电器'+(i+1)+'</label>'
+           }else {
+               panel+='<label class="btn btn-success btn-switch"><input type="checkbox" autocomplete="off" checked/>继电器'+(i+1)+'</label>'
+           }
+       }
+       panel+='</div>';
+       return panel;
+   };
+
     template.weekPanel = '<div class="input-group"><label>周一:</label><div class="row"><label class="col-sm-2">开启时间:</label><input class="col-sm-3 openTime flatpickr" value="19:30">' +
         '<label class="col-sm-2">关闭时间:</label><input class="col-sm-3 closeTime flatpickr" value="06:30"></div>' +
         '<div class="input-group"><label>周二:</label><div class="row"><label class="col-sm-2">开启时间:</label><input class="col-sm-3 openTime flatpickr" value="19:30">' +

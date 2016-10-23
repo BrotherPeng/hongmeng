@@ -109,10 +109,11 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr','dialogTemplate'], functi
     $('body').on('click', '.btn-dialog', function () {
         var $this = $(this),
             id = $this.data('id'),
+            relay=$(this).data('relay'),
             $content = '<div class="input-group"><label>id:</label><span>' + id + '</span></div>' +
                 '<label class="radio-inline"><input type="radio" name="optionsRadios" id="optionWeek" value="0" checked>周模式</label>' +
                 '<label class="radio-inline"><input type="radio" name="optionsRadios" id="optionDay" value="1">日模式</label>' +
-                '<label class="radio-inline"><input type="radio" name="optionsRadios" id="optionDay" value="2">开关控制</label>' +
+                '<label class="radio-inline"><input type="radio" name="optionsRadios" id="optionDay" value="2" data-relay='+relay+'>开关控制</label>' +
                 '<div class="control-content">' +
                 weekPanel +
                 '</div>',
@@ -177,13 +178,21 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr','dialogTemplate'], functi
                     });
                 });
                 $('[name=optionsRadios]').on('click', function () {
+                    var switchArr=[];
                     $('.flatpickr-wrapper').remove();
                     if ($(this).val() === '0') {
                         $(".control-content").html(weekPanel);
                     } else if($(this).val() === '1'){
                         $(".control-content").html(dailyPanel);
                     }else{
-                        $(".control-content").html(swichPanel);
+                        $.each($(this).data('relay').split(','),function (i,v) {
+                            if(v==='关'){
+                                switchArr.push(0)
+                            }else{
+                                switchArr.push(1)
+                            }
+                        });
+                        $(".control-content").html(swichPanel(switchArr));
                     }
                     $.each($('.flatpickr'), function (i, v) {
                         new flatpickr(v, {

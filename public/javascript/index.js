@@ -113,7 +113,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr','chart','dialogTemplate']
             $content = '<div class="input-group"><label>id:</label><span>' + id + '</span></div>' +
                 '<label class="radio-inline"><input type="radio" name="optionsRadios" id="optionWeek" value="0" checked>周模式</label>' +
                 '<label class="radio-inline"><input type="radio" name="optionsRadios" id="optionDay" value="1">日模式</label>' +
-                '<label class="radio-inline"><input type="radio" name="optionsRadios" id="optionDay" value="2">开关控制</label>' +
+                '<label class="radio-inline"><input type="radio" name="optionsRadios" id="optionSwitch" value="2">开关控制</label>' +
                 '<div class="control-content">' +
                 weekPanel +
                 '</div>',
