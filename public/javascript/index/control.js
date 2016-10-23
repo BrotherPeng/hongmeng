@@ -281,13 +281,19 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr','dialogTemplate'], functi
                     });
                     dialog({
                         title:'信息',
-                        content:$content
+                        content:$content,
+                        onclose:function () {
+                            location.reload();
+                        }
                     }).show();
                 }else{
                     if(data.code===1){
                         dialog({
                             title:'信息',
-                            content:'下发配置成功'
+                            content:'下发配置成功',
+                            onclose:function () {
+                                location.reload();
+                            }
                         }).show();
                     }else{
                         dialog({
