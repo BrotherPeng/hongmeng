@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="3e8e4950-4169-49c1-994c-b5b0491cc5a7" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascript/index.js" afterPath="$PROJECT_DIR$/public/javascript/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/socket/socketHandle.js" afterPath="$PROJECT_DIR$/lib/socket/socketHandle.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascript/index/control.js" afterPath="$PROJECT_DIR$/public/javascript/index/control.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascript/index/template.js" afterPath="$PROJECT_DIR$/public/javascript/index/template.js" />
     </list>
     <ignored path="hongmeng.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -43,14 +42,14 @@
       <file leaf-file-name="nodeControl.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/nodeControl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="588">
+            <state relative-caret-position="357">
               <caret line="28" column="28" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="template.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="template.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/javascript/index/template.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="210">
@@ -60,16 +59,23 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="socketHandle.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/lib/socket/socketHandle.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="502">
+              <caret line="62" column="0" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="control.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/javascript/index/control.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="188" column="37" selection-start-line="188" selection-start-column="37" selection-end-line="188" selection-end-column="37" />
+            <state relative-caret-position="84">
+              <caret line="258" column="22" selection-start-line="258" selection-start-column="22" selection-end-line="258" selection-end-column="22" />
               <folding>
                 <element signature="e#0#49#0" expanded="false" />
-                <element signature="e#67#489#0" expanded="false" />
-                <element signature="e#100#351#0" expanded="false" />
-                <element signature="e#363#487#0" expanded="false" />
                 <element signature="e#977#1876#0" expanded="false" />
                 <element signature="e#1276#1419#0" expanded="false" />
                 <element signature="e#1425#1571#0" expanded="false" />
@@ -107,15 +113,6 @@
                 <element signature="e#9517#9697#0" expanded="false" />
                 <element signature="e#9755#10006#0" expanded="false" />
                 <element signature="e#9826#9996#0" expanded="false" />
-                <element signature="e#10084#11090#0" expanded="false" />
-                <element signature="e#10101#11082#0" expanded="false" />
-                <element signature="e#10243#11072#0" expanded="false" />
-                <element signature="e#10276#10640#0" expanded="false" />
-                <element signature="e#10367#10483#0" expanded="false" />
-                <element signature="e#10513#10613#0" expanded="false" />
-                <element signature="e#10644#11057#0" expanded="false" />
-                <element signature="e#10683#10859#0" expanded="false" />
-                <element signature="e#10716#10828#0" expanded="false" />
                 <element signature="e#10863#11039#0" expanded="false" />
                 <element signature="e#10896#11008#0" expanded="false" />
               </folding>
@@ -185,12 +182,12 @@
         <option value="$PROJECT_DIR$/lib/socket/parseData.js" />
         <option value="$PROJECT_DIR$/public/stylesheets/style.css" />
         <option value="$PROJECT_DIR$/views/index/control.jade" />
-        <option value="$PROJECT_DIR$/lib/socket/socketHandle.js" />
         <option value="$PROJECT_DIR$/routes/nodeControl.js" />
         <option value="$PROJECT_DIR$/server/weekTimeConfigServer.js" />
         <option value="$PROJECT_DIR$/public/javascript/index.js" />
-        <option value="$PROJECT_DIR$/public/javascript/index/control.js" />
         <option value="$PROJECT_DIR$/public/javascript/index/template.js" />
+        <option value="$PROJECT_DIR$/public/javascript/index/control.js" />
+        <option value="$PROJECT_DIR$/lib/socket/socketHandle.js" />
       </list>
     </option>
   </component>
@@ -351,6 +348,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="index" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hongmeng" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hongmeng" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="socket" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -550,28 +565,7 @@
       <workItem from="1476262591072" duration="6990000" />
       <workItem from="1476441360156" duration="15235000" />
       <workItem from="1476622070376" duration="3336000" />
-      <workItem from="1477103337595" duration="22351000" />
-    </task>
-    <task id="LOCAL-00008" summary="处理从mongo获取的数据">
-      <created>1472115029323</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1472115029323</updated>
-    </task>
-    <task id="LOCAL-00009" summary="处理从mongo获取的数据">
-      <created>1472115052243</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1472115052243</updated>
-    </task>
-    <task id="LOCAL-00010" summary="在首页查询项目下的节点最后数据信息,涉及到异步问题,目前只查询返回了一个">
-      <created>1472309037138</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1472309037138</updated>
+      <workItem from="1477103337595" duration="24188000" />
     </task>
     <task id="LOCAL-00011" summary="构建下发数据,监控首页改版">
       <created>1472634954061</created>
@@ -895,11 +889,32 @@
       <option name="project" value="LOCAL" />
       <updated>1477143497463</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="继电器配置面板保持上一次的状态">
+      <created>1477212692199</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1477212692199</updated>
+    </task>
+    <task id="LOCAL-00058" summary="继电器配置面板保持上一次的状态">
+      <created>1477215732043</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1477215732043</updated>
+    </task>
+    <task id="LOCAL-00059" summary="关闭反馈弹窗，刷新页面">
+      <created>1477216400659</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1477216400659</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="380927000" />
+    <option name="totallyTimeSpent" value="382764000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -984,8 +999,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="false" />
-    <MESSAGE value="在首页查询项目下的节点最后数据信息,涉及到异步问题,目前只查询返回了一个" />
-    <MESSAGE value="构建下发数据,监控首页改版" />
     <MESSAGE value="时间插件,从页面下发数据,模式还过不去" />
     <MESSAGE value=" 日志配置" />
     <MESSAGE value="从页面下发数据" />
@@ -1009,7 +1022,9 @@
     <MESSAGE value="传输超时时长修改为50s" />
     <MESSAGE value="传输超时时长修改为30s" />
     <MESSAGE value="周设置数据保存" />
-    <option name="LAST_COMMIT_MESSAGE" value="周设置数据保存" />
+    <MESSAGE value="继电器配置面板保持上一次的状态" />
+    <MESSAGE value="关闭反馈弹窗，刷新页面" />
+    <option name="LAST_COMMIT_MESSAGE" value="关闭反馈弹窗，刷新页面" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1287,14 +1302,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/socket/socketHandle.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="59" column="28" selection-start-line="59" selection-start-column="28" selection-end-line="59" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/socket/parseData.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
@@ -1411,6 +1418,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascript/index/template.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="10" column="70" selection-start-line="10" selection-start-column="70" selection-end-line="10" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/views/index/control.jade">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="592">
@@ -1419,23 +1434,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/nodeControl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="588">
-          <caret line="28" column="28" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/javascript/index/control.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="188" column="37" selection-start-line="188" selection-start-column="37" selection-end-line="188" selection-end-column="37" />
+        <state relative-caret-position="84">
+          <caret line="258" column="22" selection-start-line="258" selection-start-column="22" selection-end-line="258" selection-end-column="22" />
           <folding>
             <element signature="e#0#49#0" expanded="false" />
-            <element signature="e#67#489#0" expanded="false" />
-            <element signature="e#100#351#0" expanded="false" />
-            <element signature="e#363#487#0" expanded="false" />
             <element signature="e#977#1876#0" expanded="false" />
             <element signature="e#1276#1419#0" expanded="false" />
             <element signature="e#1425#1571#0" expanded="false" />
@@ -1473,25 +1477,24 @@
             <element signature="e#9517#9697#0" expanded="false" />
             <element signature="e#9755#10006#0" expanded="false" />
             <element signature="e#9826#9996#0" expanded="false" />
-            <element signature="e#10084#11090#0" expanded="false" />
-            <element signature="e#10101#11082#0" expanded="false" />
-            <element signature="e#10243#11072#0" expanded="false" />
-            <element signature="e#10276#10640#0" expanded="false" />
-            <element signature="e#10367#10483#0" expanded="false" />
-            <element signature="e#10513#10613#0" expanded="false" />
-            <element signature="e#10644#11057#0" expanded="false" />
-            <element signature="e#10683#10859#0" expanded="false" />
-            <element signature="e#10716#10828#0" expanded="false" />
             <element signature="e#10863#11039#0" expanded="false" />
             <element signature="e#10896#11008#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascript/index/template.js">
+    <entry file="file://$PROJECT_DIR$/routes/nodeControl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="10" column="70" selection-start-line="10" selection-start-column="70" selection-end-line="10" selection-end-column="70" />
+        <state relative-caret-position="357">
+          <caret line="28" column="28" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/socket/socketHandle.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="502">
+          <caret line="62" column="0" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
           <folding />
         </state>
       </provider>
