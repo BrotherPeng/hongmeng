@@ -115,7 +115,6 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr','dialogTemplate'], functi
                 '<label class="radio-inline"><input type="radio" name="optionsRadios" id="optionDay" value="1">日模式</label>' +
                 '<label class="radio-inline"><input type="radio" name="optionsRadios" id="optionDay" value="2" data-relay='+relay+'>开关控制</label>' +
                 '<div class="control-content">' +
-                weekPanel +
                 '</div>',
             isGroupBtn=false;
         //判断是否是群发按钮
@@ -124,6 +123,8 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr','dialogTemplate'], functi
         }
         var d = dialog({
             title: '消息',
+            height:400,
+            width:600,
             content: $content,
             okValue: '确 定',
             ok: function () {
@@ -174,15 +175,18 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr','dialogTemplate'], functi
                 $.each($('.flatpickr'), function (i, v) {
                     new flatpickr(v, {
                         enableTime: true,
-                        noCalendar: true
+                        noCalendar: true,
+                        time_24hr:true,
+                        dateFormat:'H:i'
                     });
                 });
                 $('[name=optionsRadios]').on('click', function () {
                     var switchArr=[];
                     $('.flatpickr-wrapper').remove();
                     if ($(this).val() === '0') {
-                        $(".control-content").html(weekPanel);
+                        getWeekTimeConfigFromServer(id,$('.control-content'),weekPanel);
                     } else if($(this).val() === '1'){
+                        // getDailyTimeConfigFromServer(id,$('.control-content'),weekPanel);
                         $(".control-content").html(dailyPanel);
                     }else{
                         $.each($(this).data('relay').split(','),function (i,v) {
@@ -197,7 +201,9 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr','dialogTemplate'], functi
                     $.each($('.flatpickr'), function (i, v) {
                         new flatpickr(v, {
                             enableTime: true,
-                            noCalendar: true
+                            noCalendar: true,
+                            time_24hr:true,
+                            dateFormat:'H:i'
                         });
                     });
                     $.each($('.flatpickrDay'), function (i, v) {
@@ -206,12 +212,26 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr','dialogTemplate'], functi
                         });
                     });
                 });
+                $('#optionWeek').click();
             },
             cancelValue: '取消'
         });
 
         d.show();
     });
+    /**
+     * 初始化时间控件
+     */
+    function initTimePlus() {
+        $.each($('.flatpickr'), function (i, v) {
+            new flatpickr(v, {
+                enableTime: true,
+                noCalendar: true,
+                time_24hr:true,
+                dateFormat:'H:i'
+            });
+        });
+    }
     //获取页面设置的开关时间并格式化
     function getTime() {
         var timeArr = {};
@@ -265,6 +285,35 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr','dialogTemplate'], functi
             }
         });
         return dayArr;
+    }
+
+    /**
+     * 从数据库获取周设置信息，方便操作的时候设置
+     * @param equipId
+     */
+    function getWeekTimeConfigFromServer(equipId,panel,callback) {
+        $.ajax({
+            method: "GET",
+            url: "/nodeControl/weekTime/"+equipId,
+            dataType: "json",
+            success: function (data) {
+                callback(panel,data,initTimePlus);
+            }
+        });
+    }
+    /**
+     * 从数据库获取日设置信息，方便操作的时候设置
+     * @param equipId
+     */
+    function getDailyTimeConfigFromServer(equipId,panel,callback) {
+        $.ajax({
+            method: "GET",
+            url: "/nodeControl/dailyTime/"+equipId,
+            dataType: "json",
+            success: function (data) {
+                callback(panel,data,initTimePlus);
+            }
+        });
     }
     // 下发配置
     function sendConfig(data,url) {

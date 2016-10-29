@@ -210,6 +210,26 @@ router.get('/weekTime/id', function (req, res) {
     });
 });
 
+//按设备id单个周模式查询
+router.get('/weekTime/:id',(req,res)=>{
+    let equipId=req.params.id;
+    weekTime.getByEquipId(equipId, function (err, value) {
+        if(!err){
+            res.send(value)
+        }
+    })
+});
+
+//按设备id单个日模式查询
+router.get('/dailyTime/:id',(req,res)=>{
+    let equipId=req.params.id;
+    dailyTime.getByEquipId(equipId, function (err, value) {
+        if(!err){
+            res.send(value)
+        }
+    })
+});
+
 //日模式查询
 router.get('/dailyTime/id', function (req, res) {
     var projectId = req.query.projectId;
