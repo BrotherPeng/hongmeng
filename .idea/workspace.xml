@@ -4,14 +4,6 @@
     <list default="true" id="3e8e4950-4169-49c1-994c-b5b0491cc5a7" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/socket/parseData.js" afterPath="$PROJECT_DIR$/lib/socket/parseData.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/node.js" afterPath="$PROJECT_DIR$/model/node.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascript/index/control.js" afterPath="$PROJECT_DIR$/public/javascript/index/control.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascript/index/template.js" afterPath="$PROJECT_DIR$/public/javascript/index/template.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/stylesheets/style.css" afterPath="$PROJECT_DIR$/public/stylesheets/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/nodeControl.js" afterPath="$PROJECT_DIR$/routes/nodeControl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/dailyTimeConfigServer.js" afterPath="$PROJECT_DIR$/server/dailyTimeConfigServer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/weekTimeConfigServer.js" afterPath="$PROJECT_DIR$/server/weekTimeConfigServer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/index/control.jade" afterPath="$PROJECT_DIR$/views/index/control.jade" />
     </list>
     <ignored path="hongmeng.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -79,8 +71,8 @@
       <file leaf-file-name="parseData.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/socket/parseData.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="63" column="61" selection-start-line="63" selection-start-column="61" selection-end-line="63" selection-end-column="61" />
+            <state relative-caret-position="78">
+              <caret line="56" column="49" selection-start-line="56" selection-start-column="49" selection-end-line="56" selection-end-column="49" />
               <folding />
             </state>
           </provider>
@@ -624,14 +616,7 @@
       <workItem from="1476622070376" duration="3336000" />
       <workItem from="1477103337595" duration="35674000" />
       <workItem from="1477707124859" duration="725000" />
-      <workItem from="1477727190332" duration="22145000" />
-    </task>
-    <task id="LOCAL-00023" summary="回复数据格式,长度减一,不包括校验值">
-      <created>1473648261055</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1473648261055</updated>
+      <workItem from="1477727190332" duration="22892000" />
     </task>
     <task id="LOCAL-00024" summary="回复数据格式,长度减一,不包括校验值">
       <created>1473648474828</created>
@@ -969,11 +954,18 @@
       <option name="project" value="LOCAL" />
       <updated>1477728591044</updated>
     </task>
-    <option name="localTasksCounter" value="72" />
+    <task id="LOCAL-00072" summary="日设置时的弹窗有上次的设置信息">
+      <created>1477838354592</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1477838354592</updated>
+    </task>
+    <option name="localTasksCounter" value="73" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="417120000" />
+    <option name="totallyTimeSpent" value="417867000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1058,7 +1050,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="false" />
-    <MESSAGE value="从页面下发数据" />
     <MESSAGE value="设置git忽略文件" />
     <MESSAGE value="从页面下发日区间数据" />
     <MESSAGE value="回复数据格式,长度减一,不包括校验值" />
@@ -1083,7 +1074,8 @@
     <MESSAGE value="关闭反馈弹窗，刷新页面" />
     <MESSAGE value="取消刷新页面，修复bug" />
     <MESSAGE value="周设置时的弹窗有上次的设置信息" />
-    <option name="LAST_COMMIT_MESSAGE" value="周设置时的弹窗有上次的设置信息" />
+    <MESSAGE value="日设置时的弹窗有上次的设置信息" />
+    <option name="LAST_COMMIT_MESSAGE" value="日设置时的弹窗有上次的设置信息" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1532,8 +1524,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/socket/parseData.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="63" column="61" selection-start-line="63" selection-start-column="61" selection-end-line="63" selection-end-column="61" />
+        <state relative-caret-position="78">
+          <caret line="56" column="49" selection-start-line="56" selection-start-column="49" selection-end-line="56" selection-end-column="49" />
           <folding />
         </state>
       </provider>
