@@ -205,3 +205,6 @@ body {
 .ui-dialog-content .input-group{
   width: 100%;
 }
+.flatpickr-calendar{
+  border: 1px solid #ffb866;
+}

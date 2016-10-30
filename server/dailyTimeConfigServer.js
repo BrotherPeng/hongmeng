@@ -22,8 +22,8 @@ dailyTimeServer.prototype.saveConfig = function (config) {
         timeConfig['end_' + (i / 2 + 1)] = config.endDay[i] + '-' + config.endDay[i + 1];
     }
     for (let i = 0; i < config.openTime.length; i += 2) {
-        let h=parseInt(config.openTime[i],16),
-            m=parseInt(config.openTime[i + 1],16);
+        let h=parseInt(config.openTime[i]),
+            m=parseInt(config.openTime[i + 1]);
         if(h<10){
             h='0'+h;
         }
@@ -33,8 +33,8 @@ dailyTimeServer.prototype.saveConfig = function (config) {
         timeConfig['open_' + (i / 2 + 1)] = h + ':' + m;
     }
     for (let i = 0; i < config.closeTime.length; i += 2) {
-        let h=parseInt(config.closeTime[i],16),
-            m=parseInt(config.closeTime[i + 1],16);
+        let h=parseInt(config.closeTime[i]),
+            m=parseInt(config.closeTime[i + 1]);
         if(h<10){
             h='0'+h;
         }
