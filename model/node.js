@@ -50,7 +50,7 @@ function Node() {
     this.getLastOneNodeById=function (id,callback) {
         node.find({name:id}).sort({'_id':-1}).limit(1).exec(function (err,nodes) {
             if(nodes[0]){
-                let json = ParseData.mongoParse(nodes[0].buffer);
+                let json = ParseData.mongoParse(nodes[0]);
                 callback&&callback(err,json);
             }else{
                 callback&&callback(err,null);

@@ -21,7 +21,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr','dialogTemplate'], functi
     // some code here
     var nodeInfo = $('#nodeInfo').html();
     var template = handlebars.compile(nodeInfo);
-    var swichPanel =dialogTemplate.swichPanel,
+    var switchPanel =dialogTemplate.switchPanel,
         weekPanel = dialogTemplate.weekPanel,
         dailyPanel = dialogTemplate.dailyPanel;
     //下拉按钮单击事件，请求该项目下的所有设备
@@ -172,22 +172,14 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr','dialogTemplate'], functi
 
             },
             onshow: function () {
-                $.each($('.flatpickr'), function (i, v) {
-                    new flatpickr(v, {
-                        enableTime: true,
-                        noCalendar: true,
-                        time_24hr:true,
-                        dateFormat:'H:i'
-                    });
-                });
+
                 $('[name=optionsRadios]').on('click', function () {
                     var switchArr=[];
                     $('.flatpickr-wrapper').remove();
                     if ($(this).val() === '0') {
                         getWeekTimeConfigFromServer(id,$('.control-content'),weekPanel);
                     } else if($(this).val() === '1'){
-                        // getDailyTimeConfigFromServer(id,$('.control-content'),weekPanel);
-                        $(".control-content").html(dailyPanel);
+                        getDailyTimeConfigFromServer(id,$('.control-content'),dailyPanel);
                     }else{
                         $.each($(this).data('relay').split(','),function (i,v) {
                             if(v==='关'){
@@ -196,21 +188,9 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr','dialogTemplate'], functi
                                 switchArr.push(1)
                             }
                         });
-                        $(".control-content").html(swichPanel(switchArr));
+                        $(".control-content").html(switchPanel(switchArr));
                     }
-                    $.each($('.flatpickr'), function (i, v) {
-                        new flatpickr(v, {
-                            enableTime: true,
-                            noCalendar: true,
-                            time_24hr:true,
-                            dateFormat:'H:i'
-                        });
-                    });
-                    $.each($('.flatpickrDay'), function (i, v) {
-                        new flatpickr(v, {
-                            dateFormat: 'm/d'
-                        });
-                    });
+
                 });
                 $('#optionWeek').click();
             },
@@ -241,11 +221,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr','dialogTemplate'], functi
             var _selectVal = $(v).val(),
                 _selectArr = _selectVal.split(':'),
                 h = _selectArr[0],
-                m = _selectArr[1].split(' ')[0],
-                apm = _selectArr[1].split(' ')[1];
-            if (apm === 'PM') {
-                h = 12 + Number(h);
-            }
+                m = _selectArr[1];
             timeArr['openTime'].push(h);
             timeArr['openTime'].push(m);
         });
@@ -253,11 +229,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr','dialogTemplate'], functi
             var _selectVal = $(v).val(),
                 _selectArr = _selectVal.split(':'),
                 h = _selectArr[0],
-                m = _selectArr[1].split(' ')[0],
-                apm = _selectArr[1].split(' ')[1];
-            if (apm === 'PM') {
-                h = 12 + Number(h);
-            }
+                m = _selectArr[1];
             timeArr['closeTime'].push(h);
             timeArr['closeTime'].push(m);
         });
@@ -268,25 +240,14 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr','dialogTemplate'], functi
         var dayArr = {};
         dayArr['startDay'] = [];
         dayArr['endDay'] = [];
-        $.each($('.startDay'), function (i, v) {
-            var _selectVal = $(v).val();
-            if (_selectVal) {
-                var startArr = ($(v).val()).split('\/');
-                dayArr['startDay'].push(startArr[0]);
-                dayArr['startDay'].push(startArr[1]);
-            }
+        $.each($('.ui-dialog-content .daily-start'), function (i, v) {
+            dayArr['startDay'].push($(v).val());
         });
-        $.each($('.endDay'), function (i, v) {
-            var _selectVal = $(v).val();
-            if (_selectVal) {
-                var endArr = ($(v).val()).split('\/');
-                dayArr['endDay'].push(endArr[0]);
-                dayArr['endDay'].push(endArr[1]);
-            }
+        $.each($('.ui-dialog-content .daily-end'), function (i, v) {
+            dayArr['endDay'].push($(v).val());
         });
         return dayArr;
     }
-
     /**
      * 从数据库获取周设置信息，方便操作的时候设置
      * @param equipId
@@ -312,6 +273,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr','dialogTemplate'], functi
             dataType: "json",
             success: function (data) {
                 callback(panel,data,initTimePlus);
+                getDay();
             }
         });
     }

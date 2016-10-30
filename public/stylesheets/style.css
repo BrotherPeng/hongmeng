@@ -202,3 +202,6 @@ body {
 .mb15{
   margin-bottom: 15px;
 }
+.ui-dialog-content .input-group{
+  width: 100%;
+}

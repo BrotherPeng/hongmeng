@@ -19,11 +19,28 @@ weekTimeServer.prototype.saveConfig = function (config) {
     timeConfig['equip_id'] = config.id;
     logger.info("开始保存设备："+config.id+"的周设置");
     for (let i = 0; i < config.openTime.length; i += 2) {
-        timeConfig['open_time_' + (i / 2 + 1)] = parseInt(config.openTime[i],16) + ':' + parseInt(config.openTime[i + 1],16);
+        let h=parseInt(config.openTime[i],16),
+            m=parseInt(config.openTime[i + 1],16);
+        if(h<10){
+            h='0'+h;
+        }
+        if(m<10){
+            m='0'+m;
+        }
+        timeConfig['open_time_' + (i / 2 + 1)] = h + ':' + m;
     }
     for (let i = 0; i < config.closeTime.length; i += 2) {
-        timeConfig['close_time_' + (i / 2 + 1)] = parseInt(config.closeTime[i],16) + ':' + parseInt(config.closeTime[i + 1],16);
+        let h=parseInt(config.closeTime[i],16),
+            m=parseInt(config.closeTime[i + 1],16);
+        if(h<10){
+            h='0'+h;
+        }
+        if(m<10){
+            m='0'+m;
+        }
+        timeConfig['close_time_' + (i / 2 + 1)] = h + ':' + m;
     }
+    console.log(timeConfig);
     timeConfig.update_time=moment().format('YYYY-MM-DD HH:mm:ss');
     /*查询dailyTime表是否存在该id*/
     var saveFellow = new Promise((resolve)=> {

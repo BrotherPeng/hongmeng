@@ -3,7 +3,7 @@
  */
 var express = require('express');
 var router = express.Router();
-var logger = require("../log").logger('socket');
+var logger = require("../log").logger('nodeControl');
 var node = require("../module/db").node;
 var Node = require("../model/node");
 var InitData = require('../lib/socket/initData');
@@ -220,15 +220,7 @@ router.get('/weekTime/:id',(req,res)=>{
     })
 });
 
-//按设备id单个日模式查询
-router.get('/dailyTime/:id',(req,res)=>{
-    let equipId=req.params.id;
-    dailyTime.getByEquipId(equipId, function (err, value) {
-        if(!err){
-            res.send(value)
-        }
-    })
-});
+
 
 //日模式查询
 router.get('/dailyTime/id', function (req, res) {
@@ -239,7 +231,7 @@ router.get('/dailyTime/id', function (req, res) {
                 return new Promise(resolve=> {
                     dailyTime.getByEquipId(v.equip_id, function (err, value) {
                         if (err) {
-                            return err;
+                            logger.info(err);
                         } else {
                             resolve(value[0]);
                         }
@@ -252,5 +244,14 @@ router.get('/dailyTime/id', function (req, res) {
             throw err;
         }
     });
+});
+//按设备id单个日模式查询
+router.get('/dailyTime/:id',(req,res)=>{
+    let equipId=req.params.id;
+    dailyTime.getByEquipId(equipId, function (err, value) {
+        if(!err){
+            res.send(value)
+        }
+    })
 });
 module.exports = router;

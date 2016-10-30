@@ -22,10 +22,26 @@ dailyTimeServer.prototype.saveConfig = function (config) {
         timeConfig['end_' + (i / 2 + 1)] = config.endDay[i] + '-' + config.endDay[i + 1];
     }
     for (let i = 0; i < config.openTime.length; i += 2) {
-        timeConfig['open_' + (i / 2 + 1)] = config.openTime[i] + ':' + config.openTime[i + 1];
+        let h=parseInt(config.openTime[i],16),
+            m=parseInt(config.openTime[i + 1],16);
+        if(h<10){
+            h='0'+h;
+        }
+        if(m<10){
+            m='0'+m;
+        }
+        timeConfig['open_' + (i / 2 + 1)] = h + ':' + m;
     }
     for (let i = 0; i < config.closeTime.length; i += 2) {
-        timeConfig['close_' + (i / 2 + 1)] = config.closeTime[i] + ':' + config.closeTime[i + 1];
+        let h=parseInt(config.closeTime[i],16),
+            m=parseInt(config.closeTime[i + 1],16);
+        if(h<10){
+            h='0'+h;
+        }
+        if(m<10){
+            m='0'+m;
+        }
+        timeConfig['close_' + (i / 2 + 1)] = h + ':' + m;
     }
     /*查询weekTime表是否存在该id*/
     var saveFellow = new Promise((resolve)=> {

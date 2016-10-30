@@ -86,7 +86,7 @@ script#nodeInfo(type="text/x-handlebars-template")
         td {{gateStatus}}
         td {{relay}}
         td {{timeConfig}}
-        td {{lastChangeTime}}
+        td {{updateTime}}
         td <button type='button' {{#if offline}}disabled{{/if}} class='btn {{#if offline}}btn-default{{else}}btn-success{{/if}} btn-dialog' data-id='{{id}}' data-relay='{{relay}}' data-timeconfig='{{timeConfig}}'>操作</button>
     {{/if}}
     {{/each}}
