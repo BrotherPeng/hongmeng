@@ -3,12 +3,18 @@ link(rel='stylesheet', href='/stylesheets/users/login.css')
 block content
     include ../includes/header
     .container
-        form.form-signin(action="login",method='post')
-            h2.form-signin-heading 请登录
-            label.sr-only(for="inputName") 用户名
-            input#inputName.form-control(type="text" placeholder="请输入用户名" name="username" required autofocus)
-            label.sr-only(for="inputName") 密码
-            input#inputPassword.form-control(type="password" placeholder="请输入密码" name="password" required)
+        form.form-signin(action="login",method='post' role='form').form-horizontal
+            .row.mb30
+                img(src='images/logo.jpg').col-xs-6
+                h2.form-signin-heading.col-xs-6 景观照明管理系统
+            .form-group
+                label.col-sm-2.control-label(for="inputName") 用户名
+                .col-sm-10
+                    input#inputName.form-control(type="text" placeholder="请输入用户名" name="username" required autofocus)
+            .form-group
+                label.col-sm-2.control-label(for="inputName") 密码
+                .col-sm-10
+                    input#inputPassword.form-control(type="password" placeholder="请输入密码" name="password" required)
             button(class="btn btn-lg btn-primary btn-block" type="submit") 登录
 include ../includes/footer
 script(src='requirejs/require.js' data-main="javascript/users/login")

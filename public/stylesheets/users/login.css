@@ -1,13 +1,27 @@
+html{
+    height:100%;
+}
 body {
     padding-top: 40px;
     padding-bottom: 40px;
-    background-color: #eee;
+    background-color: #dddddd;
+    height:100%;
+    position: relative;
 }
-
+.mb30{
+    margin-bottom: 30px;
+}
+.container{
+    height:100%;
+}
 .form-signin {
-    max-width: 330px;
+    width: 550px;
     padding: 15px;
-    margin: 0 auto;
+    position: absolute;
+    left: 50%;
+    margin-left: -275px;
+    top: 50%;
+    margin-top: -157px;
 }
 .form-signin .form-signin-heading,
 .form-signin .checkbox {
@@ -22,7 +36,6 @@ body {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    padding: 10px;
     font-size: 16px;
 }
 .form-signin .form-control:focus {
