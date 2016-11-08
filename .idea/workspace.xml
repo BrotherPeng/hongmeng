@@ -452,14 +452,7 @@
       <workItem from="1477707124859" duration="725000" />
       <workItem from="1477727190332" duration="24008000" />
       <workItem from="1478518631806" duration="3707000" />
-      <workItem from="1478594058655" duration="3599000" />
-    </task>
-    <task id="LOCAL-00027" summary="慢慢卖全球">
-      <created>1473932144951</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1473932144951</updated>
+      <workItem from="1478594058655" duration="3660000" />
     </task>
     <task id="LOCAL-00028" summary="时间控制存储，继电器控制">
       <created>1474082907590</created>
@@ -797,11 +790,18 @@
       <option name="project" value="LOCAL" />
       <updated>1478521251970</updated>
     </task>
-    <option name="localTasksCounter" value="76" />
+    <task id="LOCAL-00076" summary="首页20s自动更新数据">
+      <created>1478598950099</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1478598950102</updated>
+    </task>
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="426289000" />
+    <option name="totallyTimeSpent" value="426350000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -886,7 +886,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="false" />
-    <MESSAGE value="从页面下发日区间数据" />
     <MESSAGE value="回复数据格式,长度减一,不包括校验值" />
     <MESSAGE value="回复数据格式,t添加时间" />
     <MESSAGE value="日模式下发" />
@@ -911,7 +910,8 @@
     <MESSAGE value="周设置时的弹窗有上次的设置信息" />
     <MESSAGE value="日设置时的弹窗有上次的设置信息" />
     <MESSAGE value="首页样式修改" />
-    <option name="LAST_COMMIT_MESSAGE" value="首页样式修改" />
+    <MESSAGE value="首页20s自动更新数据" />
+    <option name="LAST_COMMIT_MESSAGE" value="首页20s自动更新数据" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
