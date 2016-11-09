@@ -32,7 +32,6 @@ block content
                                                 th 设备id
                                                 th 温度
                                                 th 3路电压
-                                                th 3路电流
                                                 th 震动
                                                 th 门磁
                                                 th 继电器
@@ -79,9 +78,8 @@ script#nodeInfo(type="text/x-handlebars-template")
     {{#if id}}
     tr
         td {{id}}
-        td {{temperature}}
-        td {{voltage_1}}/{{voltage_2}}/{{voltage_3}}
-        td {{electric_1}}/{{electric_2}}/{{electric_3}}
+        td {{temperature}}℃
+        td {{voltage_1}}v/{{voltage_2}}v/{{voltage_3}}v
         td {{shakeStatus}}
         td {{gateStatus}}
         td {{relay}}
