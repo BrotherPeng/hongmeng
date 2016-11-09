@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="3e8e4950-4169-49c1-994c-b5b0491cc5a7" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascript/index/control.js" afterPath="$PROJECT_DIR$/public/javascript/index/control.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascript/common/base.js" afterPath="$PROJECT_DIR$/public/javascript/common/base.js" />
     </list>
     <ignored path="hongmeng.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,95 +28,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="login.jade" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/users/login.jade">
+      <file leaf-file-name="base.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/javascript/common/base.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="6" column="21" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
+            <state relative-caret-position="510">
+              <caret line="39" column="56" selection-start-line="39" selection-start-column="56" selection-end-line="39" selection-end-column="56" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="login.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/stylesheets/users/login.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="6" column="28" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="control.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public/javascript/index/control.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#49#0" expanded="false" />
-                <element signature="e#67#489#0" expanded="false" />
-                <element signature="e#100#351#0" expanded="false" />
-                <element signature="e#363#487#0" expanded="false" />
-                <element signature="e#3613#4281#0" expanded="false" />
-                <element signature="e#4173#4210#0" expanded="false" />
-                <element signature="e#4214#4252#0" expanded="false" />
-                <element signature="e#4329#4806#0" expanded="false" />
-                <element signature="e#4501#4798#0" expanded="false" />
-                <element signature="e#4684#4788#0" expanded="false" />
-                <element signature="e#4853#5337#0" expanded="false" />
-                <element signature="e#5030#5329#0" expanded="false" />
-                <element signature="e#5214#5319#0" expanded="false" />
-                <element signature="e#5402#9282#0" expanded="false" />
-                <element signature="e#6191#6231#0" expanded="false" />
-                <element signature="e#6255#9255#0" expanded="false" />
-                <element signature="e#6416#8218#0" expanded="false" />
-                <element signature="e#6988#7107#0" expanded="false" />
-                <element signature="e#7129#7603#0" expanded="false" />
-                <element signature="e#7315#7579#0" expanded="false" />
-                <element signature="e#7608#8203#0" expanded="false" />
-                <element signature="e#7660#7887#0" expanded="false" />
-                <element signature="e#7713#7787#0" expanded="false" />
-                <element signature="e#7791#7865#0" expanded="false" />
-                <element signature="e#8039#8180#0" expanded="false" />
-                <element signature="e#8252#9214#0" expanded="false" />
-                <element signature="e#8321#9156#0" expanded="false" />
-                <element signature="e#8462#8574#0" expanded="false" />
-                <element signature="e#8605#8719#0" expanded="false" />
-                <element signature="e#8723#9137#0" expanded="false" />
-                <element signature="e#8804#9037#0" expanded="false" />
-                <element signature="e#8845#8926#0" expanded="false" />
-                <element signature="e#8930#9011#0" expanded="false" />
-                <element signature="e#9289#9315#0" expanded="false" />
-                <element signature="e#9344#9593#0" expanded="false" />
-                <element signature="e#9394#9585#0" expanded="false" />
-                <element signature="e#9425#9573#0" expanded="false" />
-                <element signature="e#9639#10380#0" expanded="false" />
-                <element signature="e#9783#10039#0" expanded="false" />
-                <element signature="e#10090#10348#0" expanded="false" />
-                <element signature="e#10418#10797#0" expanded="false" />
-                <element signature="e#10578#10638#0" expanded="false" />
-                <element signature="e#10708#10766#0" expanded="false" />
-                <element signature="e#10802#10864#0" expanded="false" />
-                <element signature="e#10930#11178#0" expanded="false" />
-                <element signature="e#10947#11170#0" expanded="false" />
-                <element signature="e#11094#11160#0" expanded="false" />
-                <element signature="e#11183#11245#0" expanded="false" />
-                <element signature="e#11312#11587#0" expanded="false" />
-                <element signature="e#11329#11579#0" expanded="false" />
-                <element signature="e#11477#11569#0" expanded="false" />
-                <marker date="1478598914000" expanded="false" signature="11634:12640" ph="{...}" />
-                <marker date="1478598914000" expanded="false" signature="11651:12632" ph="{&quot;method&quot;: &quot;POST&quot;...}" />
-                <marker date="1478598914000" expanded="false" signature="11793:12622" ph="{...}" />
-                <marker date="1478598914000" expanded="false" signature="11826:12190" ph="{...}" />
-                <marker date="1478598914000" expanded="false" signature="11917:12033" ph="{...}" />
-                <marker date="1478598914000" expanded="false" signature="12063:12163" ph="{&quot;title&quot;: '信息'...}" />
-                <marker date="1478598914000" expanded="false" signature="12194:12607" ph="{...}" />
-                <marker date="1478598914000" expanded="false" signature="12233:12409" ph="{...}" />
-                <marker date="1478598914000" expanded="false" signature="12266:12378" ph="{&quot;title&quot;: '信息'...}" />
-                <marker date="1478598914000" expanded="false" signature="12413:12589" ph="{...}" />
-                <marker date="1478598914000" expanded="false" signature="12446:12558" ph="{&quot;title&quot;: '信息'...}" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -172,7 +89,6 @@
         <option value="$PROJECT_DIR$/routes/index.js" />
         <option value="$PROJECT_DIR$/routes/users.js" />
         <option value="$PROJECT_DIR$/views/includes/slide.jade" />
-        <option value="$PROJECT_DIR$/public/javascript/common/base.js" />
         <option value="$PROJECT_DIR$/views/index/monitor.jade" />
         <option value="$PROJECT_DIR$/public/javascript/index/monitor.js" />
         <option value="$PROJECT_DIR$/routes/equipment.js" />
@@ -189,6 +105,7 @@
         <option value="$PROJECT_DIR$/views/users/login.jade" />
         <option value="$PROJECT_DIR$/public/stylesheets/users/login.css" />
         <option value="$PROJECT_DIR$/public/javascript/index/control.js" />
+        <option value="$PROJECT_DIR$/public/javascript/common/base.js" />
       </list>
     </option>
   </component>
@@ -204,9 +121,8 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
     <option name="width" value="1440" />
-    <option name="height" value="827" />
+    <option name="height" value="900" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -234,6 +150,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -252,9 +169,62 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hongmeng" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hongmeng" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hongmeng" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hongmeng" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="javascript" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hongmeng" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hongmeng" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="javascript" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -287,6 +257,7 @@
     <property name="ignore_missing_gitignore" value="true" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="FullScreen" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -452,14 +423,8 @@
       <workItem from="1477707124859" duration="725000" />
       <workItem from="1477727190332" duration="24008000" />
       <workItem from="1478518631806" duration="3707000" />
-      <workItem from="1478594058655" duration="3660000" />
-    </task>
-    <task id="LOCAL-00028" summary="时间控制存储，继电器控制">
-      <created>1474082907590</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1474082907590</updated>
+      <workItem from="1478594058655" duration="3917000" />
+      <workItem from="1478690300875" duration="853000" />
     </task>
     <task id="LOCAL-00029" summary="时间控制存储，继电器控制">
       <created>1474083034326</created>
@@ -797,11 +762,18 @@
       <option name="project" value="LOCAL" />
       <updated>1478598950102</updated>
     </task>
-    <option name="localTasksCounter" value="77" />
+    <task id="LOCAL-00077" summary="首页20s自动更新数据">
+      <created>1478599000373</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1478599000373</updated>
+    </task>
+    <option name="localTasksCounter" value="78" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="426350000" />
+    <option name="totallyTimeSpent" value="427460000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -813,21 +785,21 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="827" extended-state="0" />
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2015504" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2015504" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32918397" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35783133" sideWeight="0.5137421" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980973" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4068027" sideWeight="0.48625794" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2829932" sideWeight="0.48625794" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4060241" sideWeight="0.48625794" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24939759" sideWeight="0.48625794" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24947146" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4408163" sideWeight="0.4947146" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298611" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25180724" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1103,13 +1075,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascript/common/base.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="23" column="12" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/index/monitor.jade">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
@@ -1309,26 +1274,10 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/users/login.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="6" column="21" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/stylesheets/users/login.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="6" column="28" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/javascript/index/control.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+        <state relative-caret-position="294">
+          <caret line="62" column="35" selection-start-line="62" selection-start-column="35" selection-end-line="62" selection-end-column="35" />
           <folding>
             <element signature="e#0#49#0" expanded="false" />
             <element signature="e#67#489#0" expanded="false" />
@@ -1381,18 +1330,42 @@
             <element signature="e#11312#11587#0" expanded="false" />
             <element signature="e#11329#11579#0" expanded="false" />
             <element signature="e#11477#11569#0" expanded="false" />
-            <marker date="1478598914000" expanded="false" signature="11634:12640" ph="{...}" />
-            <marker date="1478598914000" expanded="false" signature="11651:12632" ph="{&quot;method&quot;: &quot;POST&quot;...}" />
-            <marker date="1478598914000" expanded="false" signature="11793:12622" ph="{...}" />
-            <marker date="1478598914000" expanded="false" signature="11826:12190" ph="{...}" />
-            <marker date="1478598914000" expanded="false" signature="11917:12033" ph="{...}" />
-            <marker date="1478598914000" expanded="false" signature="12063:12163" ph="{&quot;title&quot;: '信息'...}" />
-            <marker date="1478598914000" expanded="false" signature="12194:12607" ph="{...}" />
-            <marker date="1478598914000" expanded="false" signature="12233:12409" ph="{...}" />
-            <marker date="1478598914000" expanded="false" signature="12266:12378" ph="{&quot;title&quot;: '信息'...}" />
-            <marker date="1478598914000" expanded="false" signature="12413:12589" ph="{...}" />
-            <marker date="1478598914000" expanded="false" signature="12446:12558" ph="{&quot;title&quot;: '信息'...}" />
+            <element signature="e#11634#12640#0" expanded="false" />
+            <element signature="e#11651#12632#0" expanded="false" />
+            <element signature="e#11793#12622#0" expanded="false" />
+            <element signature="e#11826#12190#0" expanded="false" />
+            <element signature="e#11917#12033#0" expanded="false" />
+            <element signature="e#12063#12163#0" expanded="false" />
+            <element signature="e#12194#12607#0" expanded="false" />
+            <element signature="e#12233#12409#0" expanded="false" />
+            <element signature="e#12266#12378#0" expanded="false" />
+            <element signature="e#12413#12589#0" expanded="false" />
+            <element signature="e#12446#12558#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/stylesheets/users/login.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="6" column="28" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/users/login.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="6" column="21" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascript/common/base.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="39" column="56" selection-start-line="39" selection-start-column="56" selection-end-line="39" selection-end-column="56" />
+          <folding />
         </state>
       </provider>
     </entry>
