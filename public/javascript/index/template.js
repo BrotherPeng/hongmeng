@@ -96,6 +96,14 @@ define(function () {
                     open_time=dailyTime[0]['open_' + i];
                     close_time=dailyTime[0]['close_' + i];
                     panel+=template.buildDailyPanel(start_month,start_day,end_month,end_day,open_time,close_time,i);
+                }else {
+                    start_month = 0;
+                    start_day = 0;
+                    end_month = 0;
+                    end_day = 0;
+                    open_time='00:00';
+                    close_time='00:00';
+                    panel+=template.buildDailyPanel(start_month,start_day,end_month,end_day,open_time,close_time,i);
                 }
             }
             panel+='<button type="button" class="btn btn-default" id="addSection">新增区间</button></div>';
