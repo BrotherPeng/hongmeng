@@ -83,7 +83,7 @@ define(function () {
                 close_time='00:00';
                 panel+=template.buildDailyPanel(start_month,start_day,end_month,end_day,open_time,close_time,i);
             }
-            panel+='</div>';
+            panel+='<button type="button" class="btn btn-default" id="addSection">新增区间</button></div>';
         }else{
             for(i;i<6;i++){
                 if(dailyTime[0]['start_'+i]!=='00-00'){
@@ -98,15 +98,35 @@ define(function () {
                     panel+=template.buildDailyPanel(start_month,start_day,end_month,end_day,open_time,close_time,i);
                 }
             }
-            panel+='</div>';
+            panel+='<button type="button" class="btn btn-default" id="addSection">新增区间</button></div>';
         }
         target.html(panel);
         initTimePlus();//初始化时间插件
     };
     template.buildDailyPanel=function (start_month,start_day,end_month,end_day,open_time,close_time,i) {
-        var panel='';
-        panel += '<div class="input-group">' +
-            '<label>区间一:</label>' +
+        var panel='',section,display='';
+        switch (i){
+            case 1:
+                section='一';
+                break;
+            case 2:
+                section='二';
+                break;
+            case 3:
+                section='三';
+                break;
+            case 4:
+                section='四';
+                break;
+            case 5:
+                section='五';
+                break;
+        }
+        if(start_month===0&&i!==1){
+            display='daily-hide'
+        }
+        panel += '<div class="input-group '+display+'">' +
+            '<label>区间'+section+':</label>' +
             '<div class="row interval-'+i+'">' +
             '<label class="col-sm-2">开始日期:</label>' +
             '<select class="col-sm-1 startMonth daily-start">';
@@ -151,10 +171,11 @@ define(function () {
             '<label class="col-sm-1">日</label>' +
             '</div>' +
             '</div>' +
-            '<div class="input-group">' +
+            '<div class="input-group '+display+'">' +
             '<div class="row">' +
             '<label class="col-sm-2">开启时间:</label><input class="col-sm-3 openTime flatpickr" value="' + open_time + '">' +
             '<label class="col-sm-2">关闭时间:</label><input class="col-sm-3 closeTime flatpickr" value="' + close_time + '">' +
+            '<button type="button" class="btn btn-default btn-xs delSection">删除区间</button>' +
             '</div>' +
             '</div>';
         return panel;

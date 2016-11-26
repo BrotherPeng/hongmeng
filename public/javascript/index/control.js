@@ -257,6 +257,29 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr','dialogTemplate'], functi
 
         d.show();
     });
+    //日设置添加、删除区间事件
+    $('body').on('click','#addSection',function () {
+        var $hide=$('.control-content .daily-hide'),
+            $delSection=$('.control-content .delSection'),
+            hideNum=$hide.length;
+        if(hideNum===0)return;
+
+        $delSection.hide().eq(5-hideNum/2).show();
+        $hide.eq(0).removeClass('daily-hide');
+        $hide.eq(1).removeClass('daily-hide');
+
+    });
+    $('body').on('click','.delSection',function () {
+        var $hide=$('.control-content .daily-hide'),
+            $delSection=$('.control-content .delSection'),
+            hideNum=$hide.length;
+        $(this).parent().find('.flatpickr').val('00:00');
+        $(this).parents('.input-group').prev().find('select').val(1);
+        if(hideNum===8)return;
+        $(this).parents('.input-group').addClass('daily-hide');
+        $(this).parents('.input-group').prev().addClass('daily-hide');
+        $delSection.eq(3-hideNum/2).show();
+    });
     /**
      * 初始化时间控件
      */

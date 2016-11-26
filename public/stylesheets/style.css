@@ -208,3 +208,6 @@ body {
 .flatpickr-calendar{
   border: 1px solid #ffb866;
 }
+.daily-hide{
+  display: none;
+}
