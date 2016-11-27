@@ -11,7 +11,6 @@ block content
         if(result)
             each item in result
                 li.list-group-item.mb15(data-id='#{item.id}') #{item.name}
-                    span.badge #{item.count}
                     .fn-right
                         button.btn.btn-success.btn-dialog.btn-project-group(style='padding:0 12px;margin-right:10px' data-id='#{item.id}') 操作
                         span.glyphicon.glyphicon-chevron-down.project-up-down(style='margin-right:10px')
@@ -72,6 +71,8 @@ block content
                                                 th 开关时间
                                                 th
                                         tbody.dailyTimeWrap
+                    span.label.label-default.equip-belong-num 所属设备：#{item.count}
+                    span.label.label-success.equip-online-num 在线设备：
 include ../includes/footer
 script#nodeInfo(type="text/x-handlebars-template")
     {{#each this}}

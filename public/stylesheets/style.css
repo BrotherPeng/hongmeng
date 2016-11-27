@@ -211,3 +211,9 @@ body {
 .daily-hide{
   display: none;
 }
+.equip-belong-num{
+    margin-left:33%;
+}
+.equip-online-num{
+    margin-left:2%;
+}
