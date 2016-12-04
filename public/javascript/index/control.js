@@ -399,7 +399,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr','dialogTemplate','io'], f
      * 监听websocket
      */
     function listenOnWebSocekt() {
-        var socket = io('http://localhost:3002');
+        var socket = io('http://120.27.37.212:3002');
         socket.on('onlineList', function (data) {
             if(!data){
                 return;
