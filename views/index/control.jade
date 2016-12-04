@@ -14,6 +14,9 @@ block content
                     .fn-right
                         button.btn.btn-success.btn-dialog.btn-project-group(style='padding:0 12px;margin-right:10px' data-id='#{item.id}') 操作
                         span.glyphicon.glyphicon-chevron-down.project-up-down(style='margin-right:10px')
+                    span.label.label-success.equip-online-num 在线设备：
+                        b.equip-online-num-b 0
+                    span.label.label-default.equip-belong-num 所属设备：#{item.count}
                     div(role='tabpanel').fn-hide
                         ul.nav.nav-pills(role='tablist')
                             li.active(role='presentation')
@@ -71,9 +74,6 @@ block content
                                                 th 开关时间
                                                 th
                                         tbody.dailyTimeWrap
-                    span.label.label-success.equip-online-num 在线设备：
-                        b.equip-online-num-b 0
-                    span.label.label-default.equip-belong-num 所属设备：#{item.count}
 include ../includes/footer
 script#nodeInfo(type="text/x-handlebars-template")
     {{#each this}}
