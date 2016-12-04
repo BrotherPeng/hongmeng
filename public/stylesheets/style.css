@@ -212,8 +212,10 @@ body {
   display: none;
 }
 .equip-belong-num{
-    margin-left:33%;
+    float: right;
+    margin-right:2%;
 }
 .equip-online-num{
-    margin-left:2%;
+  float: right;
+    margin-right:37%;
 }

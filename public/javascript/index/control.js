@@ -8,16 +8,18 @@ requirejs.config({
         handlebars: 'handlebars/handlebars.amd.min',
         dialog: 'artDialog/dist/dialog-min',
         flatpickr: 'flatpickr/dist/flatpickr.min',
-        dialogTemplate:'javascript/index/template'//弹框模板
+        dialogTemplate:'javascript/index/template',//弹框模板
+        io:'socket.io-client/dist/socket.io.min'
     },
     shim: {
         jquery: {exports: 'jquery'},
         dialog: {exports: 'dialog'},
-        flatpickr: {exports: 'flatpickr'}
+        flatpickr: {exports: 'flatpickr'},
+        io:{exports:'io'}
 
     }
 });
-require(['jquery', 'handlebars', 'dialog', 'flatpickr','dialogTemplate'], function ($, handlebars, dialog, flatpickr,dialogTemplate) {
+require(['jquery', 'handlebars', 'dialog', 'flatpickr','dialogTemplate','io'], function ($, handlebars, dialog, flatpickr,dialogTemplate,io) {
     // some code here
     var nodeInfo = $('#nodeInfo').html();
     var template = handlebars.compile(nodeInfo);
@@ -393,5 +395,24 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr','dialogTemplate'], functi
         });
     }
 
+    /**
+     * 监听websocket
+     */
+    function listenOnWebSocekt() {
+        var socket = io('http://localhost:3002');
+        socket.on('onlineList', function (data) {
+            if(!data){
+                return;
+            }
+            $.each($('#projectId').find('.list-group-item'),function () {
+                if(data[$(this).data('id')]){
+                    $(this).find('.equip-online-num-b').html(data[$(this).data('id')])
+                }else{
+                    $(this).find('.equip-online-num-b').html(0)
+                }
+            });
+        });
+    }
+    listenOnWebSocekt();
 
 });

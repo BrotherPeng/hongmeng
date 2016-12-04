@@ -71,8 +71,9 @@ block content
                                                 th 开关时间
                                                 th
                                         tbody.dailyTimeWrap
-                    span.label.label-default.equip-belong-num 所属设备：#{item.count}
                     span.label.label-success.equip-online-num 在线设备：
+                        b.equip-online-num-b 0
+                    span.label.label-default.equip-belong-num 所属设备：#{item.count}
 include ../includes/footer
 script#nodeInfo(type="text/x-handlebars-template")
     {{#each this}}
