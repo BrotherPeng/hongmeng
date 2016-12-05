@@ -186,7 +186,8 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr','dialogTemplate','io'], f
             height:400,
             width:600,
             content: $content,
-            okValue: '确 定',
+            okValue: '配置',
+            cancel:'取消',
             ok: function () {
                 var type = $('[type=radio]:checked').val(),
                     timeArr = getTime(),
