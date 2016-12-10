@@ -13,6 +13,9 @@ requirejs.config({
 require(['jquery'], function ($){
     $(document).on('click', '.delBtn', function(event){
         var id=$(this).data('id');
+        if(!confirm('确认删除？')){
+            return;
+        }
         $.ajax({
             method: "GET",
             url: "/project/del",
