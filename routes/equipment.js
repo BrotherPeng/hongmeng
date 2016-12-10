@@ -6,6 +6,7 @@ var router = express.Router();
 var logger = require('../log').logger('member');
 var moment = require('moment');
 var Equipment = require('../model/equipment');
+var Project = require('../model/project');
 /* 项目列表. */
 router.get('/list', function(req, res, next) {
     switch(req.user[0].role_id){
@@ -33,7 +34,10 @@ router.get('/del', function(req, res, next) {
 });
 /* 添加项目*/
 router.get('/add', function (req, res, next) {
-    res.render('equipment/add', {title: '监控中心'});
+    Project.getNameAndId((err,result)=>{
+        console.log(result)
+        res.render('equipment/add',{result:result});
+    })
 }).post('/add', function (req, res, next) {
     let name=req.body.name,
         user_id=req.user[0].id,
