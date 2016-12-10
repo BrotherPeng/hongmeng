@@ -198,6 +198,9 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr','dialogTemplate','io'], f
                     endDay,
                     $switch=$('.btn-switch'),
                     switchStatus='';
+                if(!confirm("是否下发配置？")){
+                    return false;
+                }
                 isGroupBtn?url=("/nodeControl/group/id/" + id):url=("/nodeControl/id/" + id);
                 $('.flatpickr-wrapper').remove();
                 if (type === '0') {
