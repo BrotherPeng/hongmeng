@@ -220,9 +220,9 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr','dialogTemplate','io'], f
                 }else {
                     $.each($switch,function (i,v) {
                         if($(v).hasClass('active')){
-                            switchStatus+='0';
+                            switchStatus='0'+switchStatus;
                         }else{
-                            switchStatus+='1';
+                            switchStatus='1'+switchStatus;
                         }
                     })
                     switchStatus=parseInt(switchStatus,2);
