@@ -87,7 +87,7 @@ script#nodeInfo(type="text/x-handlebars-template")
         td {{relay}}
         td {{timeConfig}}
         td {{updateTime}}
-        td <button type='button' {{#if offline}}disabled{{/if}} class='btn {{#if offline}}btn-default{{else}}btn-success{{/if}} btn-dialog' data-id='{{id}}' data-relay='{{relay}}' data-timeconfig='{{timeConfig}}'>操作</button>
+        td <button type='button' {{#if offline}}disabled{{/if}} class='btn {{#if offline}}btn-default{{else}}btn-success{{/if}} btn-dialog' data-id='{{id}}' data-relay='{{relay}}' data-timeconfig='{{timeConfig}}'>{{#if offline}}离线{{else}}操作{{/if}}</button>
     {{/if}}
     {{/each}}
 script#weekTime(type="text/x-handlebars-template")
