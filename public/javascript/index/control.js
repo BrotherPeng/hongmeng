@@ -184,7 +184,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr','dialogTemplate','io'], f
         var d = dialog({
             title: '消息',
             height:400,
-            width:600,
+            width:680,
             content: $content,
             okValue: '配置',
             cancel:'取消',
