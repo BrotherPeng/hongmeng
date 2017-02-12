@@ -102,7 +102,7 @@ script#weekTime(type="text/x-handlebars-template")
         td {{open_time_5}}开启/{{close_time_5}}关闭
         td {{open_time_6}}开启/{{close_time_6}}关闭
         td {{open_time_7}}开启/{{close_time_7}}关闭
-        td <button type='button' {{#if offline}}disabled{{/if}} class='btn {{#if offline}}btn-default{{else}}btn-success{{/if}} btn-dialog' data-id='{{equip_id}}' data-relay='{{relay}}' data-timeconfig='{{timeConfig}}'>操作</button>
+        //td <button type='button' {{#if offline}}disabled{{/if}} class='btn {{#if offline}}btn-default{{else}}btn-success{{/if}} btn-dialog' data-id='{{equip_id}}' data-relay='{{relay}}' data-timeconfig='{{timeConfig}}'>操作</button>
     {{/if}}
     {{/each}}
 script#dailyTime(type="text/x-handlebars-template")
@@ -120,7 +120,7 @@ script#dailyTime(type="text/x-handlebars-template")
         td {{#if start_4}}{{open_4}}{{/if}}/{{#if start_4}}{{close_4}}{{/if}}
         td {{start_5}}/{{end_5}}
         td {{#if start_5}}{{open_5}}{{/if}}/{{#if start_5}}{{close_5}}{{/if}}
-        td <button type='button' {{#if offline}}disabled{{/if}} class='btn {{#if offline}}btn-default{{else}}btn-success{{/if}} btn-dialog' data-id='{{equip_id}}' data-relay='{{relay}}' data-timeconfig='{{timeConfig}}'>操作</button>
+        //td <button type='button' {{#if offline}}disabled{{/if}} class='btn {{#if offline}}btn-default{{else}}btn-success{{/if}} btn-dialog' data-id='{{equip_id}}' data-relay='{{relay}}' data-timeconfig='{{timeConfig}}'>操作</button>
     {{/if}}
     {{/each}}
 script(src='/requirejs/require.js' data-main="/javascript/index/control")

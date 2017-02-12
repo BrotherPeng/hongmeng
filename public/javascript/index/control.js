@@ -160,6 +160,17 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr','dialogTemplate','io'], f
             dataType: "json",
             data: {projectId: projectId},
             success: function (data) {
+                for(var l=0;l<data.length;l++){
+                    for(var ll=2;ll<6;ll++){
+                        if(data[l]&&data[l]['start_'+ll]==='1-1'&&data[l]['end_'+ll]==='1-1'){
+                            data[l]['start_'+ll]='无';
+                            data[l]['end_'+ll]='无';
+                            data[l]['open_'+ll]='无';
+                            data[l]['close_'+ll]='无';
+                        }
+                    }
+                }
+
                 var result = template(data);
                 $dailyTimeWrap.html(result);
             }

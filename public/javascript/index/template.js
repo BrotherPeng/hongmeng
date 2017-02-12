@@ -133,6 +133,9 @@ define(function () {
         if(start_month===0&&i!==1){
             display='daily-hide'
         }
+        if(start_month===end_month&&start_day===end_day){
+            display='daily-hide'
+        }
         panel += '<div class="input-group '+display+'">' +
             '<label>区间'+section+':</label>' +
             '<div class="row interval-'+i+'">' +
