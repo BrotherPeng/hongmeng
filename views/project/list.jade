@@ -9,10 +9,10 @@ block content
                 .col-sm-11
                     h1.page-header 项目列表
                 .col-sm-1
-                    a.btn.btn-success(href='/project/add') 添加
+                    a.btn.btn-success(href='/project/add') 添加项目
             .row
                 .table-responsive
-                    table.table.table-hover
+                    table.table.table-bordered
                         caption 下表为所有项目列表
                         thead
                             tr
@@ -23,7 +23,7 @@ block content
                                 th  创建人
                                 th  管理员
                                 th  项目详情
-                                th  操作
+                                th(style="min-width:110px")  操作
                         if (result)
                             each item in result
                                 if(item)
@@ -37,6 +37,8 @@ block content
                                         td #{item.comment}
                                         td
                                             a.delBtn(href='javascript:void(0);' data-id='#{item.id}')  删除
+                                                span.glyphicon.glyphicon-remove
                                             a.editBtn(href='/project/edit/#{item.id}' data-id='#{item.id}')  编辑
+                                                span.glyphicon.glyphicon-edit
 include ../includes/footer
 script(src='/requirejs/require.js' data-main="/javascript/project/list")

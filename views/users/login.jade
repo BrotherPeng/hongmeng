@@ -1,11 +1,11 @@
 include ../includes/head
 link(rel='stylesheet', href='/stylesheets/users/login.css')
 block content
-    include ../includes/header
+    //include ../includes/header
     .container
         form.form-signin(action="login",method='post' role='form').form-horizontal
             .row.mb30
-                img(src='images/logo.jpg').col-xs-6
+                img(src='images/logo1.png').col-xs-6
                 h2.form-signin-heading.col-xs-6 景观照明管理系统
             .form-group
                 label.col-sm-2.control-label(for="inputName") 用户名
@@ -15,6 +15,6 @@ block content
                 label.col-sm-2.control-label(for="inputName") 密码
                 .col-sm-10
                     input#inputPassword.form-control(type="password" placeholder="请输入密码" name="password" required)
-            button(class="btn btn-lg btn-primary btn-block" type="submit") 登录
+            button(class="login_btn" type="submit") 登录
 include ../includes/footer
 script(src='requirejs/require.js' data-main="javascript/users/login")

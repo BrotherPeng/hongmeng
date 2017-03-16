@@ -9,10 +9,10 @@ block content
                 .col-sm-11
                     h1.page-header 设备列表
                 .col-sm-1
-                    a.btn.btn-success(href='/equipment/add') 添加
+                    a.btn.btn-success(href='/equipment/add') 添加设备
             .row
                 .table-responsive
-                    table.table.table-hover
+                    table.table.table-bordered
                         caption 下表为所有设备列表
                         thead
                             tr
@@ -33,6 +33,8 @@ block content
                                         td #{item.project_id}
                                         td
                                             a.delBtn(href='javascript:void(0);' data-id='#{item.id}')  删除
+                                                span.glyphicon.glyphicon-remove
                                             a.editBtn(href='/equipment/edit/#{item.id}' data-id='#{item.id}')  编辑
+                                                span.glyphicon.glyphicon-edit
 include ../includes/footer
 script(src='/requirejs/require.js' data-main="/javascript/equipment/list")

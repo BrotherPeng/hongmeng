@@ -4,9 +4,12 @@ html{
 body {
     padding-top: 40px;
     padding-bottom: 40px;
-    background-color: #dddddd;
+    /*background-color: #dddddd;*/
+    background-image: url(../../images/bg2.png);
+    background-color: #fafafa;
     height:100%;
     position: relative;
+    font-family:-apple-system, BlinkMacSystemFont, 'Microsoft YaHei', sans-serif
 }
 .mb30{
     margin-bottom: 30px;
@@ -21,7 +24,9 @@ body {
     left: 50%;
     margin-left: -275px;
     top: 50%;
-    margin-top: -157px;
+    margin-top: -240px;
+    /*border: solid 1px #222d32;*/
+    border-radius: 5px;
 }
 .form-signin .form-signin-heading,
 .form-signin .checkbox {
@@ -50,4 +55,17 @@ body {
     margin-bottom: 10px;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
+}
+/*新增覆盖bootstarp的样式*/
+.login_btn{
+    background-color: #ffffff;
+    color: #333333;
+    border: solid 1px #ffffff;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 275px;
+    margin-left: 25%;
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
 }
