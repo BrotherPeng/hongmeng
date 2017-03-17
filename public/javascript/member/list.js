@@ -15,19 +15,22 @@ require(['jquery'], function ($){
     /* 删除*/
     $(document).on('click', '.delBtn', function(event){
         var id=$(this).data('id');
-        if(!confirm('确认删除？')){
-            return;
-        }
-        $.ajax({
-            method: "GET",
-            url: "/member/del",
-            dataType: "json",
-            data:{id:id},
-            success:function (data) {
-                if(data.status===1){
-                    location.reload();
-                }
-            }
-        })
+        // 这里改成自定义样式的确认删除
+        var type = $(this).data('type');
+        Tip.confirm(type,id);
+        // if(!confirm('确认删除？')){
+        //     return;
+        // }
+        // $.ajax({
+        //     method: "GET",
+        //     url: "/member/del",
+        //     dataType: "json",
+        //     data:{id:id},
+        //     success:function (data) {
+        //         if(data.status===1){
+        //             location.reload();
+        //         }
+        //     }
+        // })
     });
 });

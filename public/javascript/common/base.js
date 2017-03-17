@@ -112,8 +112,67 @@ var Tip = {
                 $("#tipBox").remove();
             });
         }
+    },
+    confirm: function (type,id) {
+        var t="";
+        if(type == 'equipment'){
+            t="设备"
+        }else if (type == 'member'){
+            t="人员"
+        }else if (type == 'project'){
+            t="项目"
+        }
+        var tip = "";
+        tip =
+            '<div class="tipBox" id="tipBox">' +
+            '<div style="margin-top: 80px">' + '确认删除此' + t + '吗?' + '</div>' +
+            '<button id="left_btn" class="tip_btn" style="margin-right: 20px">' + '取消' + '</button>' +
+            '<button id="right_btn" class="tip_btn" style="margin-right: 20px">' + '确定' + '</button>' +
+            '</div>';
+        $("body").append(tip);
+        $("#left_btn").click(function () {
+            $("#tipBox").remove();
+        });
+        $("#right_btn").click(function () {
+            if(type == 'equipment'){
+                $.ajax({
+                    method: "GET",
+                    url: "/equipment/del",
+                    dataType: "json",
+                    data: {id: id},
+                    success: function (data) {
+                        if (data.status === 1) {
+                            location.reload();
+                        }
+                    }
+                })
+            }else if(type == 'member'){
+                $.ajax({
+                    method: "GET",
+                    url: "/member/del",
+                    dataType: "json",
+                    data: {id: id},
+                    success: function (data) {
+                        if (data.status === 1) {
+                            location.reload();
+                        }
+                    }
+                })
+            }else if(type == 'project'){
+                $.ajax({
+                    method: "GET",
+                    url: "/project/del",
+                    dataType: "json",
+                    data: {id: id},
+                    success: function (data) {
+                        if (data.status === 1) {
+                            location.reload();
+                        }
+                    }
+                })
+            }
 
-
+        });
     }
 };
 //获得当前时间YY-MM-DD HH-MM-SS

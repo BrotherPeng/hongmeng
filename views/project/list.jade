@@ -36,7 +36,7 @@ block content
                                         td #{item.manage_id}
                                         td #{item.comment}
                                         td
-                                            a.delBtn(href='javascript:void(0);' data-id='#{item.id}')  删除
+                                            a.delBtn(href='javascript:void(0);' data-id='#{item.id}' data-type='project')  删除
                                                 span.glyphicon.glyphicon-remove
                                             a.editBtn(href='/project/edit/#{item.id}' data-id='#{item.id}') 编辑
                                                 span.glyphicon.glyphicon-edit
