@@ -457,4 +457,9 @@ table {
     background-color: #222d32;
     color: #ffffff;
 }
-
+.nav-pills>li>a {
+    padding: 5px 8px;
+}
+.nav-pills>li+li {
+    margin-left: 20px;
+}

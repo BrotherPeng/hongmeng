@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e8e4950-4169-49c1-994c-b5b0491cc5a7" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascript/common/base.js" afterPath="$PROJECT_DIR$/public/javascript/common/base.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/equipment/add.jade" afterPath="$PROJECT_DIR$/views/equipment/add.jade" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/equipment/edit.jade" afterPath="$PROJECT_DIR$/views/equipment/edit.jade" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/member/add.jade" afterPath="$PROJECT_DIR$/views/member/add.jade" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/member/edit.jade" afterPath="$PROJECT_DIR$/views/member/edit.jade" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/project/add.jade" afterPath="$PROJECT_DIR$/views/project/add.jade" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/project/edit.jade" afterPath="$PROJECT_DIR$/views/project/edit.jade" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/stylesheets/style.css" afterPath="$PROJECT_DIR$/public/stylesheets/style.css" />
     </list>
     <ignored path="hongmeng.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -83,11 +78,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="add.jade" pinned="false" current-in-tab="true">
+      <file leaf-file-name="add.jade" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/project/add.jade">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="920">
-              <caret line="74" column="12" selection-start-line="74" selection-start-column="12" selection-end-line="74" selection-end-column="12" />
+            <state relative-caret-position="623">
+              <caret line="63" column="9" selection-start-line="63" selection-start-column="9" selection-end-line="63" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/stylesheets/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="830">
+              <caret line="463" column="19" selection-start-line="463" selection-start-column="19" selection-end-line="463" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="control.jade" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/index/control.jade">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="395">
+              <caret line="21" column="37" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -126,7 +141,6 @@
         <option value="$PROJECT_DIR$/routes/equipment.js" />
         <option value="$PROJECT_DIR$/lib/socket/socketHandle.js" />
         <option value="$PROJECT_DIR$/public/javascript/index/template.js" />
-        <option value="$PROJECT_DIR$/views/index/control.jade" />
         <option value="$PROJECT_DIR$/module/connection.js" />
         <option value="$PROJECT_DIR$/views/users/login.html" />
         <option value="$PROJECT_DIR$/views/includes/head.jade" />
@@ -153,7 +167,6 @@
         <option value="$PROJECT_DIR$/routes/member.js" />
         <option value="$PROJECT_DIR$/model/member.js" />
         <option value="$PROJECT_DIR$/model/project.js" />
-        <option value="$PROJECT_DIR$/public/stylesheets/style.css" />
         <option value="$PROJECT_DIR$/public/javascript/common/base.js" />
         <option value="$PROJECT_DIR$/views/project/edit.jade" />
         <option value="$PROJECT_DIR$/views/equipment/add.jade" />
@@ -161,6 +174,8 @@
         <option value="$PROJECT_DIR$/views/member/add.jade" />
         <option value="$PROJECT_DIR$/views/member/edit.jade" />
         <option value="$PROJECT_DIR$/views/project/add.jade" />
+        <option value="$PROJECT_DIR$/views/index/control.jade" />
+        <option value="$PROJECT_DIR$/public/stylesheets/style.css" />
       </list>
     </option>
   </component>
@@ -704,7 +719,7 @@
       <workItem from="1489637400209" duration="13708000" />
       <workItem from="1489658569703" duration="609000" />
       <workItem from="1489659743536" duration="4974000" />
-      <workItem from="1489712587754" duration="19454000" />
+      <workItem from="1489712587754" duration="21226000" />
     </task>
     <task id="LOCAL-00044" summary="tcp bug fix">
       <created>1476518228770</created>
@@ -1053,7 +1068,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="528069000" />
+    <option name="totallyTimeSpent" value="529841000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1404,14 +1419,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/index/control.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/stylesheets/users/login.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
@@ -1505,14 +1512,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/stylesheets/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="406" column="14" selection-start-line="406" selection-start-column="11" selection-end-line="406" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/equipment/edit.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1576,8 +1575,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/project/add.jade">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="920">
-          <caret line="74" column="12" selection-start-line="74" selection-start-column="12" selection-end-line="74" selection-end-column="12" />
+        <state relative-caret-position="623">
+          <caret line="63" column="9" selection-start-line="63" selection-start-column="9" selection-end-line="63" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/index/control.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="395">
+          <caret line="21" column="37" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/stylesheets/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="830">
+          <caret line="463" column="19" selection-start-line="463" selection-start-column="19" selection-end-line="463" selection-end-column="19" />
           <folding />
         </state>
       </provider>
