@@ -348,10 +348,10 @@ thead th:nth-child(1){
     border-right: none;
 }
 /*表格行鼠标悬停效果*/
-tr{
+.list_tr{
     transition: 0.3s ease-out;
 }
-tr:hover{
+.list_tr:hover{
     transition: 0.3s ease-in;
     background-color: #222d32;
     color: #ffffff;
@@ -402,4 +402,3 @@ table{
 .sub_left_btn{
     /*margin-left: 60px;*/
 }
-/*icon和字的间距*/
