@@ -45,42 +45,20 @@ script(type='text/javascript').
         equipment.project_id = $("#project_id").val();
         equipment.name = $("#name").val();
         equipment.equip_id = $("#equip_id").val();
-        console.log(equipment);
         $.ajax({
             method: "POST",
             url: '/equipment/edit/' + id,
             data: equipment,
             dataType: "json",
             success: function (data) {
-                console.log(data);
-                Tip.alert("equipment");
+                if(data.success == true){
+                    Tip.alert("edit","equipment");
+                }else{
+                    alert("编辑设备失败请联系开发人员")
+                }
             },
             error: function (data) {
-                console.log(data);
                 alert("编辑设备失败请联系开发人员")
             }
         });
-
-        var Tip = {
-            alert: function (type) {
-                var t = "";
-                if (type == 'project') {
-                    t = "项目"
-                } else if (type == 'equipment') {
-                    t = "设备"
-                } else if (type == 'member') {
-                    t = "人员"
-                }
-                var tip = "";
-                tip =
-                        '<div class="tipBox">' +
-                        '<div style="margin-top: 80px">' + '修改' + t + '成功' + '</div>' +
-                        '<button id="tip_btn" class="tip_btn">' + '确定' + '</button>' +
-                        '</div>';
-                $("body").append(tip);
-                $("#tip_btn").click(function () {
-                    location.href = "/" + type + "/list";
-                });
-            }
-        };
     });

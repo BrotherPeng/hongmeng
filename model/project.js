@@ -60,10 +60,12 @@ function Project() {
             con.query('insert into project set ?', project, function(err, result) {
                 con.release();
                 if (err) {
-                    res.render('project/error');
+                    //res.render('project/error');
+                    res.send({success:false})
                 } else {
 
-                    res.render('project/success',{title:'监控中心'});
+                    //res.render('project/success',{title:'监控中心'});
+                    res.send({success:true})
                 }
             });
         });

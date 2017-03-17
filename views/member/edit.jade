@@ -83,44 +83,20 @@ script(type='text/javascript').
         users.username = $("#username").val();
         users.password = password;
         users.role = $("#role").val();
-        //console.log(users)
         $.ajax({
             method: "POST",
             url: '/member/edit/' + usersId,
             data: users,
             dataType: "json",
             success: function (data) {
-                console.log(data);
-                Tip.alert("member");
-                //location.href = "/member/list";
+                if(data.success == true){
+                    Tip.alert("edit","member");
+                }else{
+                    alert("编辑人员失败请联系开发人员")
+                }
             },
             error: function (data) {
-                console.log(data);
                 alert("编辑人员失败请联系开发人员")
             }
         });
     });
-
-
-    var Tip = {
-        alert: function (type) {
-            var t = "";
-            if (type == 'project') {
-                t = "项目"
-            } else if (type == 'equipment') {
-                t = "设备"
-            } else if (type == 'member') {
-                t = "人员"
-            }
-            var tip = "";
-            tip =
-                    '<div class="tipBox">' +
-                    '<div style="margin-top: 80px">' + '修改' + t + '成功' + '</div>' +
-                    '<button id="tip_btn" class="tip_btn">' + '确定' + '</button>' +
-                    '</div>';
-            $("body").append(tip);
-            $("#tip_btn").click(function () {
-                location.href = "/" + type + "/list";
-            });
-        }
-    };

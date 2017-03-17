@@ -6,8 +6,15 @@ $.ajax({
     url: "/getUserName",
     dataType: "json",
     success: function (data) {
-        if (data.username) {
-            $('.header-username').html(data.username).css({display: 'block'});
+        //if (data.username) {
+        if (data.user) {
+            var username = data.user.username;
+            //我改了一下后台，登录验证接口返回user全部信息，username显示在导航，userid存在本地localStorage
+            var userId = data.user.id;
+            putString("userId",userId);
+            putString("userName",username);
+            //$('.header-username').html(data.username).css({display: 'block'});
+            $('.header-username').html(username).css({display: 'block'});
             $('#logout').show();
         }
     }
@@ -53,5 +60,72 @@ $('.treeview a').on('click',function () {
         $(this).next().show();
     }
 
-})
+});
+
+//localStorage （key，value）存取
+function putString(key, value) {
+    var storage = window.localStorage;
+    storage[key] = value;
+}
+function getString(key) {
+    var storage = window.localStorage;
+    return storage[key];
+}
+//自定义弹出框样式
+var Tip = {
+    alert: function (value,type) {
+        var t = "";
+        var v = "";
+        if(value == "add"){
+            v = "添加"
+        }else if(value == 'edit'){
+            v = "编辑"
+        }else{
+            v = "操作"
+        }
+        if (type == 'project') {
+            t = "项目"
+        } else if (type == 'equipment') {
+            t = "设备"
+        } else if (type == 'member') {
+            t = "人员"
+        }
+        var tip = "";
+        tip =
+            '<div class="tipBox">' +
+            '<div style="margin-top: 80px">' + v + t + '成功' + '</div>' +
+            '<button id="tip_btn" class="tip_btn">' + '确定' + '</button>' +
+            '</div>';
+        $("body").append(tip);
+        $("#tip_btn").click(function () {
+            location.href = "/" + type + "/list";
+        });
+    }
+};
+//获得当前时间YY-MM-DD HH-MM-SS
+function getTime(){
+    var date = new Date();
+    var year = date.getFullYear();
+    var month = date.getMonth()+1;
+    if(month<10){
+        month = "0" + month
+    }
+    var day = date.getDate();
+    if (day < 10) {
+        day = "0" + day
+    }
+    var hour = date.getHours();
+    if (hour < 10) {
+        hour = "0" + hour
+    }
+    var min = date.getMinutes();
+    if (min < 10) {
+        min = "0" + min
+    }
+    var s = date.getSeconds();
+    if (s < 10) {
+        s = "0" + s
+    }
+    return year+'-'+month+'-'+day+" " +hour+':'+min+':'+s;
+}
 

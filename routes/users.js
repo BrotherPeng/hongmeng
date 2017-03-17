@@ -27,8 +27,11 @@ module.exports=function (app,passport) {
     });
     app.get('/getUserName',function (req,res,next) {
         if(req.user){
-            let userName = req.user[0].username;
-            res.send({username:userName});
+            //更改查询用户接口给前端反用户全部信息
+            //let userName = req.user[0].username;
+            let user = req.user[0];
+            //res.send({username:userName});
+            res.send({user:user});
         }else{
             res.send({username:null});
         }

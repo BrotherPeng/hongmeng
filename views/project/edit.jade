@@ -58,38 +58,19 @@ script(type='text/javascript').
         $.ajax({
             method: "POST",
             url: '/project/edit/' + proId,
-            data:project,
+            data: project,
             dataType: "json",
             success: function (data) {
-                console.log(data);
-                Tip.alert("project");
+                if (data.success == true) {
+                    Tip.alert("edit", "project");
+                } else {
+                    alert("编辑项目失败请联系开发人员")
+                }
+
             },
             error: function (data) {
-                console.log(data);
                 alert("修改项目失败请联系开发人员")
             }
         });
 
-        var Tip = {
-            alert: function (type) {
-                var t = "";
-                if (type == 'project') {
-                    t = "项目"
-                } else if (type == 'equipment') {
-                    t = "设备"
-                } else if (type == 'member') {
-                    t = "人员"
-                }
-                var tip = "";
-                tip =
-                        '<div class="tipBox">' +
-                        '<div style="margin-top: 80px">' + '修改' + t + '成功' + '</div>' +
-                        '<button id="tip_btn" class="tip_btn">' + '确定' + '</button>' +
-                        '</div>';
-                $("body").append(tip);
-                $("#tip_btn").click(function () {
-                    location.href = "/" + type + "/list";
-                });
-            }
-        };
     });

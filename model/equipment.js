@@ -61,11 +61,12 @@ function Equipment() {
             con.query('insert into equipment set ?', equipment, function(err, result) {
                 con.release();
                 if (err) {
-                    res.render('equipment/error');
+                    //res.render('equipment/error');
+                    res.send({success:false})
                 } else {
 
-                    res.render('equipment/success',{title:'监控中心'});
-
+                    //res.render('equipment/success',{title:'监控中心'});
+                    res.send({success:true})
                 }
             });
         });
