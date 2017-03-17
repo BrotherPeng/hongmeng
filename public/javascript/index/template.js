@@ -8,9 +8,9 @@ define(function () {
        panel='<div class="btn-group" data-toggle="buttons">';
        for(var i=0;i<switchArr.length;i++){
            if(switchArr[i]===0){
-               panel+='<label class="btn btn-success btn-switch active"><input type="checkbox" autocomplete="off" checked/>继电器'+(i+1)+'</label>'
+               panel+='<label class="btn btn-success btn-switch active on_off_btn"><input type="checkbox" autocomplete="off" checked/>继电器'+(i+1)+'</label>'
            }else {
-               panel+='<label class="btn btn-success btn-switch"><input type="checkbox" autocomplete="off" checked/>继电器'+(i+1)+'</label>'
+               panel+='<label class="btn btn-success btn-switch on_off_btn"><input type="checkbox" autocomplete="off" checked/>继电器'+(i+1)+'</label>'
            }
        }
        panel+='</div>';
@@ -83,7 +83,7 @@ define(function () {
                 close_time='00:00';
                 panel+=template.buildDailyPanel(start_month,start_day,end_month,end_day,open_time,close_time,i);
             }
-            panel+='<button type="button" class="btn btn-default" id="addSection">新增区间</button></div>';
+            panel+='<button type="button" class=" addSection" id="addSection">新增区间</button></div>';
         }else{
             for(i;i<6;i++){
                 if(dailyTime[0]['start_'+i]!=='00-00'){
@@ -185,8 +185,8 @@ define(function () {
             '<div class="input-group '+display+'">' +
             '<div class="row">' +
             '<label class="col-sm-2">开启时间:</label><input class="col-sm-3 openTime flatpickr" value="' + open_time + '">' +
-            '<label class="col-sm-2">关闭时间:</label><input class="col-sm-3 closeTime flatpickr" value="' + close_time + '">' +
-            '<button type="button" class="btn btn-default btn-xs delSection">删除区间</button>' +
+            '<label class="col-sm-2" style="margin-left: 59px">关闭时间:</label><input class="col-sm-3 closeTime flatpickr" value="' + close_time + '" >' +
+            '<button type="button" class="btn btn-default btn-xs delSection" style="margin-left: 14px">删除区间</button>' +
             '</div>' +
             '</div>';
         return panel;

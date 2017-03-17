@@ -464,3 +464,34 @@ table {
 .nav-pills>li+li {
     margin-left: 20px;
 }
+.delSection{
+    border: solid 1px #222d32;
+    transition: 0.5s ease-out;
+    border-radius: 4px;
+    margin-left: 30px;
+}
+.delSection:hover{
+    transition: 0.5s ease-in;
+    background-color: #222d32;
+    color: #ffffff;
+}
+.addSection{
+    border: solid 1px #222d32;
+    transition: 0.5s ease-out;
+    border-radius: 4px;
+    margin-top: 10px;
+    background-color: #ffffff;
+}
+.addSection:hover{
+    transition: 0.5s ease-in;
+    background-color: #222d32;
+    color: #ffffff;
+}
+.btn-group{
+    margin-top: 10px;
+}
+
+.btn-switch.active, .btn-switch.active.focus {
+    background-color: #e8e8e8;
+    color: #222d32;
+}
