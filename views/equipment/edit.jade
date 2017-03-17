@@ -15,7 +15,7 @@ block content
                             label.col-sm-5.control-label(for='name') 设备名称
                             div.col-sm-3
                                 input.form-control(id='name' name='name' type='text' placeholder='设备名称' required value='#{result[0].name}')
-                                input.form-control(id='id' name='id' type='text' placeholder='设备名称' required value='#{result[0].id}')
+                                input(style='display:none').form-control(id='id' name='id' type='text' placeholder='设备名称' required value='#{result[0].id}')
                         div.form-group
                             label.col-sm-5.control-label(for='equip_id') 设备ID
                             div.col-sm-3
@@ -53,12 +53,34 @@ script(type='text/javascript').
             dataType: "json",
             success: function (data) {
                 console.log(data);
-                alert("编辑设备成功");
-                location.href = "/equipment/list";
+                Tip.alert("equipment");
             },
             error: function (data) {
                 console.log(data);
                 alert("编辑设备失败请联系开发人员")
             }
         });
+
+        var Tip = {
+            alert: function (type) {
+                var t = "";
+                if (type == 'project') {
+                    t = "项目"
+                } else if (type == 'equipment') {
+                    t = "设备"
+                } else if (type == 'member') {
+                    t = "人员"
+                }
+                var tip = "";
+                tip =
+                        '<div class="tipBox">' +
+                        '<div style="margin-top: 80px">' + '修改' + t + '成功' + '</div>' +
+                        '<button id="tip_btn" class="tip_btn">' + '确定' + '</button>' +
+                        '</div>';
+                $("body").append(tip);
+                $("#tip_btn").click(function () {
+                    location.href = "/" + type + "/list";
+                });
+            }
+        };
     });

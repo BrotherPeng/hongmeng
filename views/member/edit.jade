@@ -36,19 +36,19 @@ block content
                             label.col-sm-5.control-label(for='role') 角色
                             div.col-sm-3
                                 select.form-control(id='role' name='role' type='text' placeholder='角色')
-                                    if(result[0].role_id==2)
+                                    if(result[0].role_id == 2)
                                         option(value=2 selected) 超级管理员
                                     else
                                         option(value=2) 超级管理员
-                                    if(result[0].role_id==3)
+                                    if(result[0].role_id == 3)
                                         option(value=3 selected) 超级用户
                                     else
                                         option(value=3) 超级用户
-                                    if(result[0].role_id==4)
+                                    if(result[0].role_id == 4)
                                         option(value=4 selected) 管理员
                                     else
                                         option(value=4) 管理员
-                                    if(result[0].role_id==5)
+                                    if(result[0].role_id == 5)
                                         option(value=5 selected) 用户
                                     else
                                         option(value=5) 用户
@@ -61,19 +61,20 @@ block content
                                 a(href='/member/list')
                                     button.sub_btn.sun_right_btn(type='button') 取消
 include ../includes/footer
+//script(src='../../public/javascript/common/alert.js')
     //AJAX调用编辑接口
 script(type='text/javascript').
     $("#submitBtn").click(function () {
 
         var password = $("#password").val();
         var rePassword = $("#rePassword").val();
-        if(!password){
+        if (!password) {
             return alert("请填写密码")
         }
         if (!rePassword) {
             return alert("请填写确认密码")
         }
-        if(password != rePassword){
+        if (password != rePassword) {
             return alert("密码和确认密码不一致")
         }
         var users = new Object();
@@ -90,8 +91,8 @@ script(type='text/javascript').
             dataType: "json",
             success: function (data) {
                 console.log(data);
-                alert("编辑人员成功");
-                location.href = "/member/list";
+                Tip.alert("member");
+                //location.href = "/member/list";
             },
             error: function (data) {
                 console.log(data);
@@ -99,3 +100,27 @@ script(type='text/javascript').
             }
         });
     });
+
+
+    var Tip = {
+        alert: function (type) {
+            var t = "";
+            if (type == 'project') {
+                t = "项目"
+            } else if (type == 'equipment') {
+                t = "设备"
+            } else if (type == 'member') {
+                t = "人员"
+            }
+            var tip = "";
+            tip =
+                    '<div class="tipBox">' +
+                    '<div style="margin-top: 80px">' + '修改' + t + '成功' + '</div>' +
+                    '<button id="tip_btn" class="tip_btn">' + '确定' + '</button>' +
+                    '</div>';
+            $("body").append(tip);
+            $("#tip_btn").click(function () {
+                location.href = "/" + type + "/list";
+            });
+        }
+    };

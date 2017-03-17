@@ -62,12 +62,34 @@ script(type='text/javascript').
             dataType: "json",
             success: function (data) {
                 console.log(data);
-                alert("修改项目成功");
-                location.href = "/project/list";
+                Tip.alert("project");
             },
             error: function (data) {
                 console.log(data);
                 alert("修改项目失败请联系开发人员")
             }
         });
+
+        var Tip = {
+            alert: function (type) {
+                var t = "";
+                if (type == 'project') {
+                    t = "项目"
+                } else if (type == 'equipment') {
+                    t = "设备"
+                } else if (type == 'member') {
+                    t = "人员"
+                }
+                var tip = "";
+                tip =
+                        '<div class="tipBox">' +
+                        '<div style="margin-top: 80px">' + '修改' + t + '成功' + '</div>' +
+                        '<button id="tip_btn" class="tip_btn">' + '确定' + '</button>' +
+                        '</div>';
+                $("body").append(tip);
+                $("#tip_btn").click(function () {
+                    location.href = "/" + type + "/list";
+                });
+            }
+        };
     });
