@@ -65,6 +65,7 @@ function Equipment() {
                 } else {
 
                     res.render('equipment/success',{title:'监控中心'});
+
                 }
             });
         });
@@ -75,9 +76,11 @@ function Equipment() {
             con.query('update equipment set ? where id = ?', [equipment, equipment.id], function(err, result) {
                 con.release();
                 if (err) {
-                    res.render('equipment/error');
+                    //res.render('equipment/error');
+                    res.send({success:false})
                 } else {
-                    res.render('equipment/success',{title:'监控中心'});
+                    //res.render('equipment/success',{title:'监控中心'});
+                    res.send({success:true})
                 }
             });
         });

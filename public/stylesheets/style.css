@@ -312,6 +312,8 @@ caption{
 }
 .editBtn{
     color: #337ab7;
+    margin-left: 5px;
+
 }
 .editBtn:hover{
     color: #ffffff;
@@ -381,11 +383,12 @@ table{
     border: solid 1px #222d32;
     border-radius: 5px;
     cursor: pointer;
-    width: 275px;
+    width: 100%;
     /*margin-left: 25%;*/
-    height: 40px;
-    line-height: 40px;
+    height: 30px;
+    line-height: 26px;
     font-size: 16px;
+    margin-top: 20px;
 }
 .sub_btn:hover{
     transition: 0.5s ease-in;
@@ -393,9 +396,10 @@ table{
     color: #ffffff;
     border: solid 1px #ffffff;
 }
-/*icon和字的间距*/
-.slide_glyphicon{
-    /*margin-right: 10px;*/
-    /*margin-top: 5px;*/
-    /*padding-top: 5px;*/
+.sun_right_btn{
+    /*margin-left: 60px;*/
 }
+.sub_left_btn{
+    /*margin-left: 60px;*/
+}
+/*icon和字的间距*/

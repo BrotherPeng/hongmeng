@@ -71,9 +71,11 @@ function Users() {
             con.query('update users set ? where id = ?', [users, users.id], function(err, result) {
                 con.release();
                 if (err) {
-                    res.render('member/error');
+                    //res.render('member/error');
+                    res.send({success:false})
                 } else {
-                    res.render('member/success',{title:'监控中心'});
+                    //res.render('member/success',{title:'监控中心'});
+                    res.send({success:true})
                 }
             });
         });

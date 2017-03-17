@@ -431,3 +431,4 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr','dialogTemplate','io'], f
     listenOnWebSocekt();
 
 });
+
