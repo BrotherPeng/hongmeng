@@ -495,3 +495,6 @@ table {
     background-color: #e8e8e8;
     color: #222d32;
 }
+.ui-dialog-content label{
+    font-weight: 100;
+}

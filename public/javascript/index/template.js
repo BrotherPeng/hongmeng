@@ -184,8 +184,8 @@ define(function () {
             '</div>' +
             '<div class="input-group '+display+'">' +
             '<div class="row">' +
-            '<label class="col-sm-2">开启时间:</label><input class="col-sm-3 openTime flatpickr" value="' + open_time + '">' +
-            '<label class="col-sm-2" style="margin-left: 59px">关闭时间:</label><input class="col-sm-3 closeTime flatpickr" value="' + close_time + '" >' +
+            '<label class="col-sm-2">开启时间:</label><input class="col-sm-2 openTime flatpickr" value="' + open_time + '">' +
+            '<label class="col-sm-2" style="margin-left: 118px">关闭时间:</label><input class="col-sm-2 closeTime flatpickr" value="' + close_time + '" >' +
             '<button type="button" class="btn btn-default btn-xs delSection" style="margin-left: 14px">删除区间</button>' +
             '</div>' +
             '</div>';
