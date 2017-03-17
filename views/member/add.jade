@@ -87,14 +87,14 @@ script(type='text/javascript').
             dataType: "json",
             success: function (data) {
                 if(data.success == true){
-                    Tip.alert("add", "member");
+                    Tip.alert("add", "member","success");
                 }else{
-                    alert("添加人员失败请联系开发人员")
+                    Tip.alert("add", "member","error");
                 }
 
             },
             error: function (data) {
-                alert("添加人员失败请联系开发人员")
+                Tip.alert("add", "member","error");
             }
         });
     });

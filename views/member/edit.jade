@@ -90,13 +90,13 @@ script(type='text/javascript').
             dataType: "json",
             success: function (data) {
                 if(data.success == true){
-                    Tip.alert("edit","member");
+                    Tip.alert("edit","member","success");
                 }else{
-                    alert("编辑人员失败请联系开发人员")
+                    Tip.alert("edit","member","error");
                 }
             },
             error: function (data) {
-                alert("编辑人员失败请联系开发人员")
+                Tip.alert("edit", "member", "error");
             }
         });
     });

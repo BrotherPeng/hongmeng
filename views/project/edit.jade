@@ -62,14 +62,14 @@ script(type='text/javascript').
             dataType: "json",
             success: function (data) {
                 if (data.success == true) {
-                    Tip.alert("edit", "project");
+                    Tip.alert("edit", "project", "success");
                 } else {
-                    alert("编辑项目失败请联系开发人员")
+                    Tip.alert("edit", "project", "error");
                 }
 
             },
             error: function (data) {
-                alert("修改项目失败请联系开发人员")
+                Tip.alert("edit", "project", "error");
             }
         });
 

@@ -52,13 +52,13 @@ script(type='text/javascript').
             dataType: "json",
             success: function (data) {
                 if(data.success == true){
-                    Tip.alert("edit","equipment");
+                    Tip.alert("edit","equipment","success");
                 }else{
-                    alert("编辑设备失败请联系开发人员")
+                    Tip.alert("edit", "equipment", "error");
                 }
             },
             error: function (data) {
-                alert("编辑设备失败请联系开发人员")
+                Tip.alert("edit", "equipment", "error");
             }
         });
     });

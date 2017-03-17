@@ -11,8 +11,8 @@ $.ajax({
             var username = data.user.username;
             //我改了一下后台，登录验证接口返回user全部信息，username显示在导航，userid存在本地localStorage
             var userId = data.user.id;
-            putString("userId",userId);
-            putString("userName",username);
+            putString("userId", userId);
+            putString("userName", username);
             //$('.header-username').html(data.username).css({display: 'block'});
             $('.header-username').html(username).css({display: 'block'});
             $('#logout').show();
@@ -51,11 +51,11 @@ function getPath(path) {
             break;
     }
 }
-$('.treeview a').on('click',function () {
-    if($(this).parent().hasClass('active')){
+$('.treeview a').on('click', function () {
+    if ($(this).parent().hasClass('active')) {
         $(this).parent().removeClass('active');
         $(this).next().hide();
-    }else{
+    } else {
         $(this).parent().addClass('active');
         $(this).next().show();
     }
@@ -73,14 +73,14 @@ function getString(key) {
 }
 //自定义弹出框样式
 var Tip = {
-    alert: function (value,type) {
+    alert: function (value, type, back) {
         var t = "";
         var v = "";
-        if(value == "add"){
+        if (value == "add") {
             v = "添加"
-        }else if(value == 'edit'){
+        } else if (value == 'edit') {
             v = "编辑"
-        }else{
+        } else {
             v = "操作"
         }
         if (type == 'project') {
@@ -91,23 +91,37 @@ var Tip = {
             t = "人员"
         }
         var tip = "";
-        tip =
-            '<div class="tipBox">' +
-            '<div style="margin-top: 80px">' + v + t + '成功' + '</div>' +
-            '<button id="tip_btn" class="tip_btn">' + '确定' + '</button>' +
-            '</div>';
-        $("body").append(tip);
-        $("#tip_btn").click(function () {
-            location.href = "/" + type + "/list";
-        });
+        if (back == "success") {
+            tip =
+                '<div class="tipBox" id="tipBox">' +
+                '<div style="margin-top: 80px">' + v + t + '成功' + '</div>' +
+                '<button id="tip_btn" class="tip_btn">' + '确定' + '</button>' +
+                '</div>';
+            $("body").append(tip);
+            $("#tip_btn").click(function () {
+                location.href = "/" + type + "/list";
+            });
+        } else {
+            tip =
+                '<div class="tipBox" id="tipBox">' +
+                '<div style="margin-top: 80px">' + v + t + '失败，请联系开发' + '</div>' +
+                '<button id="tip_btn" class="tip_btn">' + '确定' + '</button>' +
+                '</div>';
+            $("body").append(tip);
+            $("#tip_btn").click(function () {
+                $("#tipBox").remove();
+            });
+        }
+
+
     }
 };
 //获得当前时间YY-MM-DD HH-MM-SS
-function getTime(){
+function getTime() {
     var date = new Date();
     var year = date.getFullYear();
-    var month = date.getMonth()+1;
-    if(month<10){
+    var month = date.getMonth() + 1;
+    if (month < 10) {
         month = "0" + month
     }
     var day = date.getDate();
@@ -126,6 +140,6 @@ function getTime(){
     if (s < 10) {
         s = "0" + s
     }
-    return year+'-'+month+'-'+day+" " +hour+':'+min+':'+s;
+    return year + '-' + month + '-' + day + " " + hour + ':' + min + ':' + s;
 }
 

@@ -25,9 +25,9 @@ block content
                         label.col-sm-5.control-label(for='project_id') 所属项目
                         div.col-sm-3
                             select.form-control(id='project_id' name='project_id' type='text' placeholder='所属项目' required)
-                              if(result)
-                                each item in result
-                                  option(value='#{item.id}') #{item.name}
+                                if(result)
+                                    each item in result
+                                        option(value='#{item.id}') #{item.name}
                     div.form-group
                         label.col-sm-5.control-label
                         div.col-sm-1
@@ -48,8 +48,8 @@ script(type='text/javascript').
         equipment.project_id = $("#project_id").val();
         //处理时间
         equipment.create_time = getTime();
-        if($("#name").val() == ""){
-           return alert("请输入设备名称")
+        if ($("#name").val() == "") {
+            return alert("请输入设备名称")
         }
         if ($("#equip_id").val() == "") {
             return alert("请输入设备ID")
@@ -66,15 +66,15 @@ script(type='text/javascript').
             data: equipment,
             dataType: "json",
             success: function (data) {
-                if(data.success == true){
-                    Tip.alert("add","equipment");
-                }else{
-                    alert("添加设备失败请联系开发人员")
+                if (data.success == true) {
+                    Tip.alert("add", "equipment", "success");
+                } else {
+                    Tip.alert("add", "equipment", "error");
                 }
 
             },
             error: function (data) {
-                alert("添加设备失败请联系开发人员")
+                Tip.alert("add", "equipment", "error");
             }
         });
     });
