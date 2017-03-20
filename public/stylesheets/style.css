@@ -488,7 +488,8 @@ table {
     color: #ffffff;
 }
 .btn-group{
-    margin-top: 10px;
+    /*margin-top: 10px;*/
+    margin-top: 20px;
 }
 
 .btn-switch.active, .btn-switch.active.focus {
@@ -497,4 +498,68 @@ table {
 }
 .ui-dialog-content label{
     font-weight: 100;
+}
+/*开关*/
+.on_off_btn{
+    margin-left: 5px;
+}
+.disDiv{
+    display: inline-block;
+    position: relative;
+    top: 11px;
+}
+/*ios开关*/
+.ios i {
+    cursor: pointer;
+}
+
+.ios {
+    cursor: pointer;
+    width: 50px;
+    height: 25px;
+    border-radius: 25px;
+    border: 1px solid #d2d0d0;
+    background-color: #5cb85c;
+    transition: all 0.2s;
+    margin-top: 5px;
+    margin-top: 5px;
+    /*display: inline-block;*/
+}
+.iosBtn {
+    display: block;
+    width: 25px;
+    height: 25px;
+    margin-left: 25px;
+    border-radius: 25px;
+    border: 1px solid #d2d0d0;
+    background-color: #fff;
+    position: relative;
+    transition: all 0.2s;
+}
+
+.ios2 {
+    cursor: pointer;
+    width: 50px;
+    height: 25px;
+    border-radius: 25px;
+    border: 1px solid #d2d0d0;
+    background-color: #fff;
+    transition: all 0.2s;
+}
+
+.iosBtn2 {
+    display: block;
+    width: 25px;
+    height: 25px;
+    margin-left: 0;
+    border-radius: 25px;
+    border: 1px solid #d2d0d0;
+    background-color: #fff;
+    position: relative;
+    transition: all 0.2s;
+}
+/*操作弹出框*/
+.week_box{
+    border-top: solid 1px #e8e8e8;
+    margin-top: 10px;
 }
