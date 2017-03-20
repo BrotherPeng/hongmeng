@@ -53,25 +53,25 @@ script(type='text/javascript').
         var member = new Object();
         member.username = $("#username").val();
         if($("#username").val() == ""){
-           return alert("请输入用户名")
+           return Tip.warning("请输入用户名")
         }
         if ($("#role").val() == "") {
-            return alert("请选择一个身份")
+            return Tip.warning("请选择一个身份")
         }
         if ($("#mobile").val() == "") {
-            return alert("请输入手机号")
+            return Tip.warning("请输入手机号")
         }
         if ($("#email").val() == "") {
-            return alert("请输入邮箱")
+            return Tip.warning("请输入邮箱")
         }
         if ($("#password").val() == "") {
-            return alert("请输入密码")
+            return Tip.warning("请输入密码")
         }
         if ($("#rePassword").val() == "") {
-            return alert("请输入确认密码")
+            return Tip.warning("请输入确认密码")
         }
         if($("#password").val() != $("#rePassword").val()){
-            return alert("密码不一致")
+            return Tip.warning("密码不一致")
         }else{
             member.password = $("#password").val();
         }
