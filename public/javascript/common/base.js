@@ -73,6 +73,17 @@ function getString(key) {
 }
 //自定义弹出框样式
 var Tip = {
+    warning: function (n) {
+        tip =
+            '<div class="tipBox" id="tipBox">' +
+            '<div style="margin-top: 80px">' + n + '</div>' +
+            '<button id="tip_btn" class="tip_btn">' + '确定' + '</button>' +
+            '</div>';
+        $("body").append(tip);
+        $("#tip_btn").click(function () {
+            $("#tipBox").remove();
+        });
+    },
     alert: function (value, type, back) {
         var t = "";
         var v = "";
@@ -113,14 +124,14 @@ var Tip = {
             });
         }
     },
-    confirm: function (type,id) {
-        var t="";
-        if(type == 'equipment'){
-            t="设备"
-        }else if (type == 'member'){
-            t="人员"
-        }else if (type == 'project'){
-            t="项目"
+    confirm: function (type, id) {
+        var t = "";
+        if (type == 'equipment') {
+            t = "设备"
+        } else if (type == 'member') {
+            t = "人员"
+        } else if (type == 'project') {
+            t = "项目"
         }
         var tip = "";
         tip =
@@ -134,7 +145,7 @@ var Tip = {
             $("#tipBox").remove();
         });
         $("#right_btn").click(function () {
-            if(type == 'equipment'){
+            if (type == 'equipment') {
                 $.ajax({
                     method: "GET",
                     url: "/equipment/del",
@@ -146,7 +157,7 @@ var Tip = {
                         }
                     }
                 })
-            }else if(type == 'member'){
+            } else if (type == 'member') {
                 $.ajax({
                     method: "GET",
                     url: "/member/del",
@@ -158,7 +169,7 @@ var Tip = {
                         }
                     }
                 })
-            }else if(type == 'project'){
+            } else if (type == 'project') {
                 $.ajax({
                     method: "GET",
                     url: "/project/del",

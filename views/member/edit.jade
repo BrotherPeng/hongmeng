@@ -69,13 +69,13 @@ script(type='text/javascript').
         var password = $("#password").val();
         var rePassword = $("#rePassword").val();
         if (!password) {
-            return alert("请填写密码")
+            return Tip.warning("请填写密码")
         }
         if (!rePassword) {
-            return alert("请填写确认密码")
+            return Tip.warning("请填写确认密码")
         }
         if (password != rePassword) {
-            return alert("密码和确认密码不一致")
+            return Tip.warning("密码和确认密码不一致")
         }
         var users = new Object();
         var usersId = $("#id").val();

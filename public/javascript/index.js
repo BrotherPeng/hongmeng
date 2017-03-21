@@ -8,8 +8,8 @@ requirejs.config({
         handlebars: 'handlebars/handlebars.amd.min',
         dialog: 'artDialog/dist/dialog-min',
         flatpickr: 'flatpickr/dist/flatpickr.min',
-        chart:'javascript/index/chart',//首页图表
-        dialogTemplate:'javascript/index/template'//弹框模板
+        chart: 'javascript/index/chart',//首页图表
+        dialogTemplate: 'javascript/index/template'//弹框模板
     },
     shim: {
         jquery: {exports: 'jquery'},
@@ -18,11 +18,11 @@ requirejs.config({
 
     }
 });
-require(['jquery', 'handlebars', 'dialog', 'flatpickr','chart','dialogTemplate'], function ($, handlebars, dialog, flatpickr,chart,dialogTemplate) {
+require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'chart', 'dialogTemplate'], function ($, handlebars, dialog, flatpickr, chart, dialogTemplate) {
     // some code here
     var nodeInfo = $('#nodeInfo').html();
     var template = handlebars.compile(nodeInfo);
-    var swichPanel =dialogTemplate.swichPanel,
+    var swichPanel = dialogTemplate.swichPanel,
         weekPanel = dialogTemplate.weekPanel,
         dailyPanel = dialogTemplate.dailyPanel;
     //下拉按钮单击事件，请求该项目下的所有设备
@@ -67,9 +67,9 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr','chart','dialogTemplate']
         $presentation.removeClass('active');
         $this.addClass('active');
         $tabpanel.hide();
-        if(name==='weekTime'){
+        if (name === 'weekTime') {
             weekTime(id);
-        }else{
+        } else {
             dailyTime(id);
         }
         $panel.show();
@@ -90,6 +90,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr','chart','dialogTemplate']
             }
         });
     }
+
     //请求日设置
     function dailyTime(projectId) {
         var dailyTimeTemp = $('#dailyTime').html(),
@@ -106,8 +107,10 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr','chart','dialogTemplate']
             }
         });
     }
+
     //操作按钮
     $('body').on('click', '.btn-dialog', function () {
+        console.log($(this));
         var $this = $(this),
             id = $this.data('id'),
             $content = '<div class="input-group"><label>id:</label><span>' + id + '</span></div>' +
@@ -117,10 +120,10 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr','chart','dialogTemplate']
                 '<div class="control-content">' +
                 weekPanel +
                 '</div>',
-            isGroupBtn=false;
+            isGroupBtn = false;
         //判断是否是群发按钮
-        if($this.hasClass('btn-project-group')){
-            isGroupBtn=true;
+        if ($this.hasClass('btn-project-group')) {
+            isGroupBtn = true;
         }
         var d = dialog({
             title: '消息',
@@ -134,13 +137,13 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr','chart','dialogTemplate']
                     closeTime = timeArr.closeTime.toString(),
                     startDay,
                     endDay,
-                    $switch=$('.btn-switch'),
-                    switchStatus='';
-                isGroupBtn?url=("/nodeControl/group/id/" + id):url=("/nodeControl/id/" + id);
+                    $switch = $('.btn-switch'),
+                    switchStatus = '';
+                isGroupBtn ? url = ("/nodeControl/group/id/" + id) : url = ("/nodeControl/id/" + id);
                 $('.flatpickr-wrapper').remove();
                 if (type === '0') {
-                    sendConfig({id: id, type: type, openTime: openTime, closeTime: closeTime},url);
-                } else if(type === '1'){
+                    sendConfig({id: id, type: type, openTime: openTime, closeTime: closeTime}, url);
+                } else if (type === '1') {
                     dayArr = getDay();
                     startDay = dayArr.startDay.toString();
                     endDay = dayArr.endDay.toString();
@@ -151,22 +154,22 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr','chart','dialogTemplate']
                         endDay: endDay,
                         openTime: openTime,
                         closeTime: closeTime
-                    },url);
-                }else {
-                    $.each($switch,function (i,v) {
-                        if($(v).hasClass('active')){
-                            switchStatus+='0';
-                        }else{
-                            switchStatus+='1';
+                    }, url);
+                } else {
+                    $.each($switch, function (i, v) {
+                        if ($(v).hasClass('active')) {
+                            switchStatus += '0';
+                        } else {
+                            switchStatus += '1';
                         }
                     })
-                    switchStatus=parseInt(switchStatus,2);
-                    switchStatus=switchStatus.toString(16);
+                    switchStatus = parseInt(switchStatus, 2);
+                    switchStatus = switchStatus.toString(16);
                     sendConfig({
                         id: id,
                         type: type,
-                        switchStatus:switchStatus
-                    },url)
+                        switchStatus: switchStatus
+                    }, url)
                 }
 
             },
@@ -181,9 +184,9 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr','chart','dialogTemplate']
                     $('.flatpickr-wrapper').remove();
                     if ($(this).val() === '0') {
                         $(".control-content").html(weekPanel);
-                    } else if($(this).val() === '1'){
+                    } else if ($(this).val() === '1') {
                         $(".control-content").html(dailyPanel);
-                    }else{
+                    } else {
                         $(".control-content").html(swichPanel);
                     }
                     $.each($('.flatpickr'), function (i, v) {
@@ -203,6 +206,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr','chart','dialogTemplate']
         });
 
         d.show();
+
     });
     //获取页面设置的开关时间并格式化
     function getTime() {
@@ -235,6 +239,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr','chart','dialogTemplate']
         });
         return timeArr;
     }
+
     //获取页面的日设置
     function getDay() {
         var dayArr = {};
@@ -258,33 +263,34 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr','chart','dialogTemplate']
         });
         return dayArr;
     }
+
     // 下发配置
-    function sendConfig(data,url) {
+    function sendConfig(data, url) {
         $.ajax({
             method: "POST",
             url: url,
             dataType: "json",
-            data:data,
+            data: data,
             success: function (data) {
-                if(data.length){
-                    var $content='<div>';
-                    $.each(data,function (i,v) {
-                        $content+='<p>'+v.equip_id+':'+(v.code===1?'下发配置成功':'下发配置失败')+'</p>'
+                if (data.length) {
+                    var $content = '<div>';
+                    $.each(data, function (i, v) {
+                        $content += '<p>' + v.equip_id + ':' + (v.code === 1 ? '下发配置成功' : '下发配置失败') + '</p>'
                     });
                     dialog({
-                        title:'信息',
-                        content:$content
+                        title: '信息',
+                        content: $content
                     }).show();
-                }else{
-                    if(data.code===1){
+                } else {
+                    if (data.code === 1) {
                         dialog({
-                            title:'信息',
-                            content:'下发配置成功'
+                            title: '信息',
+                            content: '下发配置成功'
                         }).show();
-                    }else{
+                    } else {
                         dialog({
-                            title:'信息',
-                            content:'下发配置失败'
+                            title: '信息',
+                            content: '下发配置失败'
                         }).show();
                     }
                 }
