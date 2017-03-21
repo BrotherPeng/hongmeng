@@ -8,66 +8,66 @@ requirejs.config({
         handlebars: 'handlebars/handlebars.amd.min',
         dialog: 'artDialog/dist/dialog-min',
         flatpickr: 'flatpickr/dist/flatpickr.min',
-        dialogTemplate:'javascript/index/template',//弹框模板
-        io:'socket.io-client/dist/socket.io.min'
+        dialogTemplate: 'javascript/index/template',//弹框模板
+        io: 'socket.io-client/dist/socket.io.min'
     },
     shim: {
         jquery: {exports: 'jquery'},
         dialog: {exports: 'dialog'},
         flatpickr: {exports: 'flatpickr'},
-        io:{exports:'io'}
+        io: {exports: 'io'}
 
     }
 });
-require(['jquery', 'handlebars', 'dialog', 'flatpickr','dialogTemplate','io'], function ($, handlebars, dialog, flatpickr,dialogTemplate,io) {
+require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'], function ($, handlebars, dialog, flatpickr, dialogTemplate, io) {
     // some code here
     var nodeInfo = $('#nodeInfo').html();
     var template = handlebars.compile(nodeInfo);
-    var switchPanel =dialogTemplate.switchPanel,
+    var switchPanel = dialogTemplate.switchPanel,
         weekPanel = dialogTemplate.weekPanel,
         dailyPanel = dialogTemplate.dailyPanel;
-    var AutoRefresh=function () {
-        this.autoArr=[];
-        this.autoPanel={};
+    var AutoRefresh = function () {
+        this.autoArr = [];
+        this.autoPanel = {};
         this.run();
     };
-    AutoRefresh.prototype={
-        set:function (id,panel) {
-            var self=this;
+    AutoRefresh.prototype = {
+        set: function (id, panel) {
+            var self = this;
             self.autoArr.push(id);
-            self.autoPanel[id]=panel;
+            self.autoPanel[id] = panel;
         },
-        get:function (id) {
-            var self=this,
-                has=false;
-            $.each(self.autoArr,function (i,v) {
-                if(v==id){
-                    has=true;
+        get: function (id) {
+            var self = this,
+                has = false;
+            $.each(self.autoArr, function (i, v) {
+                if (v == id) {
+                    has = true;
                     return;
                 }
             });
             return has;
         },
-        remove:function (id) {
-            var self=this;
-            $.each(self.autoArr,function (i,v) {
-                if(v==id){
-                    self.autoArr.splice(i,1);
-                    self.autoPanel[id]=null;
+        remove: function (id) {
+            var self = this;
+            $.each(self.autoArr, function (i, v) {
+                if (v == id) {
+                    self.autoArr.splice(i, 1);
+                    self.autoPanel[id] = null;
                 }
             })
         },
-        run:function () {
-            var self=this;
-            $.each(self.autoArr,function (i,v) {
+        run: function () {
+            var self = this;
+            $.each(self.autoArr, function (i, v) {
                 self.render(v);
             });
             setTimeout(function () {
                 self.run();
-            },20000)
+            }, 20000)
         },
-        render:function (id) {
-            var self=this;
+        render: function (id) {
+            var self = this;
             $.ajax({
                 method: "GET",
                 url: "/nodeControl/id",
@@ -109,7 +109,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr','dialogTemplate','io'], f
             success: function (data) {
                 var result = template(data);
                 $statusWrap.html(result);
-                autoRefresh.set(id,$statusWrap);
+                autoRefresh.set(id, $statusWrap);
             }
         });
     });
@@ -126,9 +126,9 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr','dialogTemplate','io'], f
         $presentation.removeClass('active');
         $this.addClass('active');
         $tabpanel.hide();
-        if(name==='weekTime'){
+        if (name === 'weekTime') {
             weekTime(id);
-        }else{
+        } else {
             dailyTime(id);
         }
         $panel.show();
@@ -149,6 +149,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr','dialogTemplate','io'], f
             }
         });
     }
+
     //请求日设置
     function dailyTime(projectId) {
         var dailyTimeTemp = $('#dailyTime').html(),
@@ -160,13 +161,13 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr','dialogTemplate','io'], f
             dataType: "json",
             data: {projectId: projectId},
             success: function (data) {
-                for(var l=0;l<data.length;l++){
-                    for(var ll=2;ll<6;ll++){
-                        if(data[l]&&data[l]['start_'+ll]==='1-1'&&data[l]['end_'+ll]==='1-1'){
-                            data[l]['start_'+ll]='无';
-                            data[l]['end_'+ll]='无';
-                            data[l]['open_'+ll]='无';
-                            data[l]['close_'+ll]='无';
+                for (var l = 0; l < data.length; l++) {
+                    for (var ll = 2; ll < 6; ll++) {
+                        if (data[l] && data[l]['start_' + ll] === '1-1' && data[l]['end_' + ll] === '1-1') {
+                            data[l]['start_' + ll] = '无';
+                            data[l]['end_' + ll] = '无';
+                            data[l]['open_' + ll] = '无';
+                            data[l]['close_' + ll] = '无';
                         }
                     }
                 }
@@ -176,29 +177,31 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr','dialogTemplate','io'], f
             }
         });
     }
+
     //操作按钮
     $('body').on('click', '.btn-dialog', function () {
         var $this = $(this),
             id = $this.data('id'),
-            relay=$(this).data('relay'),
+            relay = $(this).data('relay'),
             $content = '<div class="input-group"><label>id:</label><span>' + id + '</span></div>' +
-                '<label class="radio-inline"><input type="radio" name="optionsRadios" id="optionWeek" value="0" checked>周模式</label>' +
-                '<label class="radio-inline"><input type="radio" name="optionsRadios" id="optionDay" value="1">日模式</label>' +
-                '<label class="radio-inline"><input type="radio" name="optionsRadios" id="optionSwitch" value="2" data-relay='+relay+'>开关控制</label>' +
+                //'<label class="radio-inline"><input type="radio" name="optionsRadios" id="optionWeek" value="0" checked>周模式</label>' +
+                '<label class="radio-inline"><input type="radio" name="optionsRadios" id="optionWeek" value="0" data-relay=' + relay + ' checked>周模式</label>' +
+                '<label class="radio-inline" id="optionsRadios_label"><input type="radio" name="optionsRadios" id="optionDay" value="1" data-relay=' + relay + '>日模式</label>' +
+                '<label class="radio-inline"><input type="radio" name="optionsRadios" id="optionSwitch" value="2" data-relay=' + relay + '>开关控制</label>' +
                 '<div class="control-content">' +
                 '</div>',
-            isGroupBtn=false;
+            isGroupBtn = false;
         //判断是否是群发按钮
-        if($this.hasClass('btn-project-group')){
-            isGroupBtn=true;
+        if ($this.hasClass('btn-project-group')) {
+            isGroupBtn = true;
         }
         var d = dialog({
             title: '消息',
-            height:400,
-            width:680,
+            height: 600,
+            width: 550,
             content: $content,
             okValue: '配置',
-            cancel:'取消',
+            cancel: '取消',
             ok: function () {
                 var type = $('[type=radio]:checked').val(),
                     timeArr = getTime(),
@@ -207,16 +210,16 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr','dialogTemplate','io'], f
                     closeTime = timeArr.closeTime.toString(),
                     startDay,
                     endDay,
-                    $switch=$('.btn-switch'),
-                    switchStatus='';
-                if(!confirm("是否下发配置？")){
+                    $switch = $('.btn-switch'),
+                    switchStatus = '';
+                if (!confirm("是否下发配置？")) {
                     return false;
                 }
-                isGroupBtn?url=("/nodeControl/group/id/" + id):url=("/nodeControl/id/" + id);
+                isGroupBtn ? url = ("/nodeControl/group/id/" + id) : url = ("/nodeControl/id/" + id);
                 $('.flatpickr-wrapper').remove();
                 if (type === '0') {
-                    sendConfig({id: id, type: type, openTime: openTime, closeTime: closeTime},url);
-                } else if(type === '1'){
+                    sendConfig({id: id, type: type, openTime: openTime, closeTime: closeTime}, url);
+                } else if (type === '1') {
                     dayArr = getDay();
                     startDay = dayArr.startDay.toString();
                     endDay = dayArr.endDay.toString();
@@ -227,43 +230,75 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr','dialogTemplate','io'], f
                         endDay: endDay,
                         openTime: openTime,
                         closeTime: closeTime
-                    },url);
-                }else {
-                    $.each($switch,function (i,v) {
-                        if($(v).hasClass('active')){
-                            switchStatus='0'+switchStatus;
-                        }else{
-                            switchStatus='1'+switchStatus;
+                    }, url);
+                } else {
+                    $.each($switch, function (i, v) {
+                        if ($(v).hasClass('active')) {//判断开关控制的开关状态
+                            switchStatus = '0' + switchStatus;
+                        } else {
+                            switchStatus = '1' + switchStatus;
                         }
                     })
-                    switchStatus=parseInt(switchStatus,2);
-                    switchStatus=switchStatus.toString(16);
+                    switchStatus = parseInt(switchStatus, 2);
+                    switchStatus = switchStatus.toString(16);
                     sendConfig({
                         id: id,
                         type: type,
-                        switchStatus:switchStatus
-                    },url)
+                        switchStatus: switchStatus
+                    }, url)
                 }
 
             },
             onshow: function () {
 
                 $('[name=optionsRadios]').on('click', function () {
-                    var switchArr=[];
+                    var switchArr = [];
                     $('.flatpickr-wrapper').remove();
                     if ($(this).val() === '0') {
-                        getWeekTimeConfigFromServer(id,$('.control-content'),weekPanel);
-                    } else if($(this).val() === '1'){
-                        getDailyTimeConfigFromServer(id,$('.control-content'),dailyPanel);
-                    }else{
-                        $.each($(this).data('relay').split(','),function (i,v) {
-                            if(v==='关'){
+                        /*先获得switchArr*/
+                        $.each($(this).data('relay').split(','), function (i, v) {
+                            if (v === '关') {
                                 switchArr.push(0)
-                            }else{
+                            } else {
                                 switchArr.push(1)
                             }
                         });
+                        //getWeekTimeConfigFromServer(id, $('.control-content'), weekPanel);
+                        getWeekTimeConfigFromServer(id, $('.control-content'), weekPanel,switchArr);
+                    } else if ($(this).val() === '1') {
+                        /*先获得switchArr*/
+                        $.each($(this).data('relay').split(','), function (i, v) {
+                            if (v === '关') {
+                                switchArr.push(0)
+                            } else {
+                                switchArr.push(1)
+                            }
+                        });
+                        getDailyTimeConfigFromServer(id, $('.control-content'), dailyPanel,switchArr);
+                    } else {
+                        /*switchArr初始化*/
+                        switchArr = []
+                        console.log($(this).data())
+
+                        $.each($(this).data('relay').split(','), function (i, v) {
+                            if (v === '关') {
+                                switchArr.push(0)
+                            } else {
+                                switchArr.push(1)
+                            }
+                        });
+
+                        //开关控制
                         $(".control-content").html(switchPanel(switchArr));
+                        var on_off_btn = $(".on_off_btn");
+                        on_off_btn.click(function () {
+                            if($(this).hasClass("active")){
+                                $(this).children('span').html("on");
+                            }else{
+                                $(this).children('span').html("off");
+                            }
+
+                        });
                     }
 
                 });
@@ -275,27 +310,70 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr','dialogTemplate','io'], f
         d.show();
     });
     //日设置添加、删除区间事件
-    $('body').on('click','#addSection',function () {
-        var $hide=$('.control-content .daily-hide'),
-            $delSection=$('.control-content .delSection'),
-            hideNum=$hide.length;
-        if(hideNum===0)return;
+    $('body').on('click', '#addSection', function () {
+        var switchArr = [];
+        /*先获得switchArr*/
+        var data_int = $(this).parent().parent().children('label#optionsRadios_label').children('input');
+        $.each(data_int.data('relay').split(','), function (i, v) {
+            if (v === '关') {
+                switchArr.push(0)
+            } else {
+                switchArr.push(1)
+            }
+        });
+        /*生成继电器开关*/
+        var onOffBtn = "";
+        var Daily_on_off_btn = $(".Daily_on_off_btn");
+        for (var j = 0; j < switchArr.length; j++) {
+            if (switchArr[j] == 0) {
+                onOffBtn +=
+                    '<div style="display: inline-block;text-align: center;margin: 10px 10px 0 0">' +
+                    '<div>' + "继电器" + (j + 1) + '</div>' +
+                    '<div class="ios ios2">' +
+                    '<i class="iosBtn iosBtn2"></i>' +
+                    '</div>' +
+                    '</div>';
+            } else {
+                onOffBtn +=
+                    '<div style="display: inline-block;text-align: center;margin: 10px 10px 0 0">' +
+                    '<div>' + "继电器" + (j + 1) + '</div>' +
+                    '<div class="ios">' +
+                    '<i class="iosBtn"></i>' +
+                    '</div>' +
+                    '</div>';
+            }
+            Daily_on_off_btn.html(onOffBtn);
+        }
+        /*IOS开关控制
+         * ios2 iosbtn2 存在时显示关闭样式
+         * */
+        $(function () {
+            var ios = $(".ios");
+            ios.click(function () {
+                $(this).toggleClass("ios2");
+                $(this).find('i.iosBtn').toggleClass("iosBtn2");
+            });
+        })
 
-        $delSection.hide().eq(5-hideNum/2).show();
+        var $hide = $('.control-content .daily-hide'),
+            $delSection = $('.control-content .delSection'),
+            hideNum = $hide.length;
+        if (hideNum === 0)return;
+
+        $delSection.hide().eq(5 - hideNum / 2).show();
         $hide.eq(0).removeClass('daily-hide');
         $hide.eq(1).removeClass('daily-hide');
-
     });
-    $('body').on('click','.delSection',function () {
-        var $hide=$('.control-content .daily-hide'),
-            $delSection=$('.control-content .delSection'),
-            hideNum=$hide.length;
+    $('body').on('click', '.delSection', function () {
+        var $hide = $('.control-content .daily-hide'),
+            $delSection = $('.control-content .delSection'),
+            hideNum = $hide.length;
         $(this).parent().find('.flatpickr').val('00:00');
         $(this).parents('.input-group').prev().find('select').val(1);
-        if(hideNum===8)return;
+        if (hideNum === 8)return;
         $(this).parents('.input-group').addClass('daily-hide');
         $(this).parents('.input-group').prev().addClass('daily-hide');
-        $delSection.eq(3-hideNum/2).show();
+        $delSection.eq(3 - hideNum / 2).show();
     });
     /**
      * 初始化时间控件
@@ -305,11 +383,12 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr','dialogTemplate','io'], f
             new flatpickr(v, {
                 enableTime: true,
                 noCalendar: true,
-                time_24hr:true,
-                dateFormat:'H:i'
+                time_24hr: true,
+                dateFormat: 'H:i'
             });
         });
     }
+
     //获取页面设置的开关时间并格式化
     function getTime() {
         var timeArr = {};
@@ -333,6 +412,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr','dialogTemplate','io'], f
         });
         return timeArr;
     }
+
     //获取页面的日设置
     function getDay() {
         var dayArr = {};
@@ -346,62 +426,67 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr','dialogTemplate','io'], f
         });
         return dayArr;
     }
+
     /**
      * 从数据库获取周设置信息，方便操作的时候设置
      * @param equipId
      */
-    function getWeekTimeConfigFromServer(equipId,panel,callback) {
+    //function getWeekTimeConfigFromServer(equipId, panel, callback) {
+    function getWeekTimeConfigFromServer(equipId, panel, callback,switchArr) {
         $.ajax({
             method: "GET",
-            url: "/nodeControl/weekTime/"+equipId,
+            url: "/nodeControl/weekTime/" + equipId,
             dataType: "json",
             success: function (data) {
-                callback(panel,data,initTimePlus);
+                //callback(panel, data, initTimePlus);
+                callback(panel, data, initTimePlus,switchArr);
             }
         });
     }
+
     /**
      * 从数据库获取日设置信息，方便操作的时候设置
      * @param equipId
      */
-    function getDailyTimeConfigFromServer(equipId,panel,callback) {
+    function getDailyTimeConfigFromServer(equipId, panel, callback,switchArr) {
         $.ajax({
             method: "GET",
-            url: "/nodeControl/dailyTime/"+equipId,
+            url: "/nodeControl/dailyTime/" + equipId,
             dataType: "json",
             success: function (data) {
-                callback(panel,data,initTimePlus);
+                callback(panel, data, initTimePlus,switchArr);
                 getDay();
             }
         });
     }
+
     // 下发配置
-    function sendConfig(data,url) {
+    function sendConfig(data, url) {
         $.ajax({
             method: "POST",
             url: url,
             dataType: "json",
-            data:data,
+            data: data,
             success: function (data) {
-                if(data.length){
-                    var $content='<div>';
-                    $.each(data,function (i,v) {
-                        $content+='<p>'+v.equip_id+':'+(v.code===1?'下发配置成功':'下发配置失败')+'</p>'
+                if (data.length) {
+                    var $content = '<div>';
+                    $.each(data, function (i, v) {
+                        $content += '<p>' + v.equip_id + ':' + (v.code === 1 ? '下发配置成功' : '下发配置失败') + '</p>'
                     });
                     dialog({
-                        title:'信息',
-                        content:$content
+                        title: '信息',
+                        content: $content
                     }).show();
-                }else{
-                    if(data.code===1){
+                } else {
+                    if (data.code === 1) {
                         dialog({
-                            title:'信息',
-                            content:'下发配置成功'
+                            title: '信息',
+                            content: '下发配置成功'
                         }).show();
-                    }else{
+                    } else {
                         dialog({
-                            title:'信息',
-                            content:'下发配置失败'
+                            title: '信息',
+                            content: '下发配置失败'
                         }).show();
                     }
                 }
@@ -416,18 +501,19 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr','dialogTemplate','io'], f
     function listenOnWebSocekt() {
         var socket = io('120.27.37.212:8082');
         socket.on('onlineList', function (data) {
-            if(!data){
+            if (!data) {
                 return;
             }
-            $.each($('#projectId').find('.list-group-item'),function () {
-                if(data[$(this).data('id')]){
+            $.each($('#projectId').find('.list-group-item'), function () {
+                if (data[$(this).data('id')]) {
                     $(this).find('.equip-online-num-b').html(data[$(this).data('id')])
-                }else{
+                } else {
                     $(this).find('.equip-online-num-b').html(0)
                 }
             });
         });
     }
+
     listenOnWebSocekt();
 
 });

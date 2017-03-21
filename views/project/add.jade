@@ -48,19 +48,19 @@ script(type='text/javascript').
     $("#submitBtn").click(function () {
         var project = new Object();
         if($("#name").val() == ""){
-           return alert("请填写项目名称")
+           return Tip.warning("请填写项目名称")
         }
         if ($("#owner_company").val() == "") {
-            return alert("请填写所属公司名称")
+            return Tip.warning("请填写所属公司名称")
         }
         if ($("#manage_company").val() == "") {
-            return alert("请填写维护公司名称")
+            return Tip.warning("请填写维护公司名称")
         }
         if ($("#manage_id").val() == "") {
-            return alert("请选择一个管理员")
+            return Tip.warning("请选择一个管理员")
         }
         if ($("#comment").val() == "") {
-            return alert("请填写项目详情")
+            return Tip.warning("请填写项目详情")
         }
         project.name = $("#name").val();
         project.create_name = getString("userName");

@@ -49,16 +49,16 @@ script(type='text/javascript').
         //处理时间
         equipment.create_time = getTime();
         if ($("#name").val() == "") {
-            return alert("请输入设备名称")
+            return Tip.warning("请输入设备名称")
         }
         if ($("#equip_id").val() == "") {
-            return alert("请输入设备ID")
+            return Tip.warning("请输入设备ID")
         }
         if ($("#key").val() == "") {
-            return alert("请输入设备KEY")
+            return Tip.warning("请输入设备KEY")
         }
         if ($("#project_id").val() == "") {
-            return alert("请选择一个项目")
+            return Tip.warning("请选择一个项目")
         }
         $.ajax({
             method: "POST",
