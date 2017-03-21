@@ -197,8 +197,8 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
         }
         var d = dialog({
             title: '消息',
-            height: 800,
-            width: 680,
+            height: 600,
+            width: 550,
             content: $content,
             okValue: '配置',
             cancel: '取消',
@@ -327,7 +327,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
         for (var j = 0; j < switchArr.length; j++) {
             if (switchArr[j] == 0) {
                 onOffBtn +=
-                    '<div style="display: inline-block;text-align: center;margin: 10px 0 0 10px">' +
+                    '<div style="display: inline-block;text-align: center;margin: 10px 10px 0 0">' +
                     '<div>' + "继电器" + (j + 1) + '</div>' +
                     '<div class="ios ios2">' +
                     '<i class="iosBtn iosBtn2"></i>' +
@@ -335,7 +335,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
                     '</div>';
             } else {
                 onOffBtn +=
-                    '<div style="display: inline-block;text-align: center;margin: 10px 0 0 10px">' +
+                    '<div style="display: inline-block;text-align: center;margin: 10px 10px 0 0">' +
                     '<div>' + "继电器" + (j + 1) + '</div>' +
                     '<div class="ios">' +
                     '<i class="iosBtn"></i>' +

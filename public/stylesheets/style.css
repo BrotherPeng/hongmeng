@@ -563,3 +563,8 @@ table {
     border-top: solid 1px #e8e8e8;
     margin-top: 10px;
 }
+.ui-dialog-content{
+    overflow-y: scroll;
+    /*font-family: -apple-system, BlinkMacSystemFont, 'Microsoft YaHei', sans-serif;*/
+    /*color: #333333;*/
+}
