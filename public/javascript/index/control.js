@@ -328,7 +328,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
             if (switchArr[j] == 0) {
                 onOffBtn +=
                     '<div style="display: inline-block;text-align: center;margin: 10px 10px 0 0">' +
-                    '<div>' + "继电器" + (j + 1) + '</div>' +
+                    '<div style="font-size: 12px;color: #6f6c6c">' + "继电器" + (j + 1) + '</div>' +
                     '<div class="ios ios2">' +
                     '<i class="iosBtn iosBtn2"></i>' +
                     '</div>' +
@@ -336,7 +336,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
             } else {
                 onOffBtn +=
                     '<div style="display: inline-block;text-align: center;margin: 10px 10px 0 0">' +
-                    '<div>' + "继电器" + (j + 1) + '</div>' +
+                    '<div style="font-size: 12px;color: #6f6c6c">' + "继电器" + (j + 1) + '</div>' +
                     '<div class="ios">' +
                     '<i class="iosBtn"></i>' +
                     '</div>' +

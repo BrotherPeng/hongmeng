@@ -141,7 +141,7 @@ define(function () {
             if (switchArr[j] == 0) {
                 onOffBtn +=
                     '<div style="display: inline-block;text-align: center;margin: 10px 10px 0 0">' +
-                    '<div>' + "继电器" + (j + 1) + '</div>' +
+                    '<div style="font-size: 12px;color: #6f6c6c">' + "继电器" + (j + 1) + '</div>' +
                     '<div class="ios ios2">' +
                     '<i class="iosBtn iosBtn2"></i>' +
                     '</div>' +
@@ -149,7 +149,7 @@ define(function () {
             } else {
                 onOffBtn +=
                     '<div style="display: inline-block;text-align: center;margin: 10px 10px 0 0">' +
-                    '<div>' + "继电器" + (j + 1) + '</div>' +
+                    '<div style="font-size: 12px;color: #6f6c6c">' + "继电器" + (j + 1) + '</div>' +
                     '<div class="ios">' +
                     '<i class="iosBtn"></i>' +
                     '</div>' +
@@ -237,7 +237,7 @@ define(function () {
         if (start_month === end_month && start_day === end_day) {
             display = 'daily-hide'
         }
-        panel += '<div class="input-group ' + display + '">' +
+        panel += '<div class="input-group ' + display + '" style="margin-top: 10px">' +
             '<label>区间' + section + ':</label>' +
             '<div class="row interval-' + i + '">' +
             '<label class="col-sm-2">开始日期:</label>' +
