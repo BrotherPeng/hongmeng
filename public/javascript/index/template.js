@@ -155,7 +155,7 @@ define(function () {
                     '</div>' +
                     '</div>';
             }
-            on_off_box.html(onOffBtn);
+            // on_off_box.html(onOffBtn);
         }
         /*IOS开关控制
          * ios2 iosbtn2 存在时显示关闭样式
@@ -195,7 +195,7 @@ define(function () {
                     open_time = dailyTime[0]['open_' + i];
                     close_time = dailyTime[0]['close_' + i];
                     panel += template.buildDailyPanel(start_month, start_day, end_month, end_day, open_time, close_time, i);
-                    template.addButton(switchArr);
+                    // template.addButton(switchArr);
                 } else {
                     start_month = 0;
                     start_day = 0;
@@ -204,7 +204,7 @@ define(function () {
                     open_time = '00:00';
                     close_time = '00:00';
                     panel += template.buildDailyPanel(start_month, start_day, end_month, end_day, open_time, close_time, i);
-                    template.addButton(switchArr);
+                    // template.addButton(switchArr);
                 }
             }
             panel += '<button type="button" class="btn btn-default" id="addSection">新增区间</button></div>';
