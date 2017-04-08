@@ -342,7 +342,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
                     '</div>' +
                     '</div>';
             }
-            // Daily_on_off_btn.html(onOffBtn);
+            Daily_on_off_btn.html(onOffBtn);
         }
         /*IOS开关控制
          * ios2 iosbtn2 存在时显示关闭样式

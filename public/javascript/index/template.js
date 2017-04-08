@@ -155,7 +155,7 @@ define(function () {
                     '</div>' +
                     '</div>';
             }
-            // on_off_box.html(onOffBtn);
+            on_off_box.html(onOffBtn);
         }
         /*IOS开关控制
          * ios2 iosbtn2 存在时显示关闭样式

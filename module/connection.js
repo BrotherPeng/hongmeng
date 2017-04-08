@@ -11,7 +11,7 @@ function Connection() {
             connectionLimit: 10,
             host: 'localhost',
             user: 'root',
-            password: '123456',
+            password: 'root',
             database: 'relation'
         });
     };
