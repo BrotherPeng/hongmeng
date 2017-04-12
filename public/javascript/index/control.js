@@ -185,9 +185,12 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
             relay = $(this).data('relay'),
             $content = '<div class="input-group"><label>id:</label><span>' + id + '</span></div>' +
                 //'<label class="radio-inline"><input type="radio" name="optionsRadios" id="optionWeek" value="0" checked>周模式</label>' +
-                '<label class="radio-inline"><input type="radio" name="optionsRadios" id="optionWeek" value="0" data-relay=' + relay + ' checked>周模式</label>' +
-                '<label class="radio-inline" id="optionsRadios_label"><input type="radio" name="optionsRadios" id="optionDay" value="1" data-relay=' + relay + '>日模式</label>' +
-                '<label class="radio-inline"><input type="radio" name="optionsRadios" id="optionSwitch" value="2" data-relay=' + relay + '>开关控制</label>' +
+                '<label class="radio-inline">' +
+                '<input type="radio" name="optionsRadios" id="optionWeek" value="0" data-relay=' + relay + ' checked>周模式</label>' +
+                '<label class="radio-inline" id="optionsRadios_label">' +
+                '<input type="radio" name="optionsRadios" id="optionDay" value="1" data-relay=' + relay + '>日模式</label>' +
+                '<label class="radio-inline">' +
+                '<input type="radio" name="optionsRadios" id="optionSwitch" value="2" data-relay=' + relay + '>开关控制</label>' +
                 '<div class="control-content">' +
                 '</div>',
             isGroupBtn = false;
@@ -218,20 +221,119 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
                 isGroupBtn ? url = ("/nodeControl/group/id/" + id) : url = ("/nodeControl/id/" + id);
                 $('.flatpickr-wrapper').remove();
                 if (type === '0') {
-                    sendConfig({id: id, type: type, openTime: openTime, closeTime: closeTime}, url);
+                    // console.log(type)
+                    var socketArr1 = [];
+                    var socketArr2 = [];
+                    var socketArr3 = [];
+                    var socketArr4 = [];
+                    var socketArr5 = [];
+                    var socketArr6 = [];
+                    var socketArr7 = [];
+                    var ios = $(".ios");
+                    var weekNum = document.getElementsByClassName("weekNum");
+                    for (var i = 0; i < weekNum.length; i++) {
+                        if (weekNum[i].innerHTML == i + 1) {
+                            var btns = weekNum[i].parentNode.childNodes[3].childNodes;
+                            for (var j = 0; j < btns.length; j++) {
+                                var btnStatus = btns[j].childNodes[1].childNodes[1].innerHTML;
+                                switch (i) {
+                                    case 0:
+                                        socketArr1.unshift(btnStatus);
+                                        break;
+                                    case 1:
+                                        socketArr2.unshift(btnStatus);
+                                        break;
+                                    case 2:
+                                        socketArr3.unshift(btnStatus);
+                                        break;
+                                    case 3:
+                                        socketArr4.unshift(btnStatus);
+                                        break;
+                                    case 4:
+                                        socketArr5.unshift(btnStatus);
+                                        break;
+                                    case 5:
+                                        socketArr6.unshift(btnStatus);
+                                        break;
+                                    case 6:
+                                        socketArr7.unshift(btnStatus);
+                                        break;
+                                }
+                            }
+                        }
+                    }
+                    var btnState = new Object();
+                    btnState.week1 = socketArr1.join("");
+                    btnState.week2 = socketArr2.join("");
+                    btnState.week3 = socketArr3.join("");
+                    btnState.week4 = socketArr4.join("");
+                    btnState.week5 = socketArr5.join("");
+                    btnState.week6 = socketArr6.join("");
+                    btnState.week7 = socketArr7.join("");
+                    // console.log(btnState);
+                    // console.log(JSON.stringify(btnState));
+                    sendConfig({id: id, type: type, openTime: openTime, closeTime: closeTime,btnState:JSON.stringify(btnState)}, url)
                 } else if (type === '1') {
                     dayArr = getDay();
                     startDay = dayArr.startDay.toString();
                     endDay = dayArr.endDay.toString();
+                    var Daily_on_off_btn = document.getElementsByClassName("Daily_on_off_btn");
+                    var sectionNum = document.getElementsByClassName("sectionNum");
+                    var sectionSocketArr1 = [];
+                    var sectionSocketArr2 = [];
+                    var sectionSocketArr3 = [];
+                    var sectionSocketArr4 = [];
+                    var sectionSocketArr5 = [];
+                    for(var k=0;k<Daily_on_off_btn.length;k++){
+                        if(!Daily_on_off_btn[k].hasChildNodes()){//判断用户是否添加区间
+                            alert("下发失败，请添加区间");
+                            return;
+                        }
+                    }
+                    for(var k1=0;k1<sectionNum.length;k1++){
+                        if (sectionNum[k1].innerHTML == k1 + 1) {
+                            var sectionBtns = sectionNum[k1].parentNode.nextElementSibling.childNodes[1].childNodes;
+                            for (var k2 = 0; k2 < sectionBtns.length; k2++) {
+                                var sectionBtnStatus = sectionBtns[k2].childNodes[1].childNodes[1].innerHTML;
+                                switch (k1) {
+                                    case 0:
+                                        sectionSocketArr1.unshift(sectionBtnStatus);
+                                        break;
+                                    case 1:
+                                        sectionSocketArr2.unshift(sectionBtnStatus);
+                                        break;
+                                    case 2:
+                                        sectionSocketArr3.unshift(sectionBtnStatus);
+                                        break;
+                                    case 3:
+                                        sectionSocketArr4.unshift(sectionBtnStatus);
+                                        break;
+                                    case 4:
+                                        sectionSocketArr5.unshift(sectionBtnStatus);
+                                        break;
+                                }
+                            }
+                        }
+                    }
+                    var sectionBtnState = new Object();
+                    sectionBtnState.section1 = sectionSocketArr1.join("");
+                    sectionBtnState.section2 = sectionSocketArr2.join("");
+                    sectionBtnState.section3 = sectionSocketArr3.join("");
+                    sectionBtnState.section4 = sectionSocketArr4.join("");
+                    sectionBtnState.section5 = sectionSocketArr5.join("");
+                    // console.log(sectionBtnState);
+
+
                     sendConfig({
                         id: id,
                         type: type,
                         startDay: startDay,
                         endDay: endDay,
                         openTime: openTime,
-                        closeTime: closeTime
+                        closeTime: closeTime,
+                        btnState:JSON.stringify(sectionBtnState)
                     }, url);
-                } else {
+                } else {//type==2
                     $.each($switch, function (i, v) {
                         if ($(v).hasClass('active')) {//判断开关控制的开关状态
                             switchStatus = '0' + switchStatus;
@@ -241,6 +343,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
                     })
                     switchStatus = parseInt(switchStatus, 2);
                     switchStatus = switchStatus.toString(16);
+                    // console.log(switchStatus)
                     sendConfig({
                         id: id,
                         type: type,
@@ -254,6 +357,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
                 $('[name=optionsRadios]').on('click', function () {
                     var switchArr = [];
                     $('.flatpickr-wrapper').remove();
+                    // console.log($(this))
                     if ($(this).val() === '0') {
                         /*先获得switchArr*/
                         $.each($(this).data('relay').split(','), function (i, v) {
@@ -264,7 +368,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
                             }
                         });
                         //getWeekTimeConfigFromServer(id, $('.control-content'), weekPanel);
-                        getWeekTimeConfigFromServer(id, $('.control-content'), weekPanel,switchArr);
+                        getWeekTimeConfigFromServer(id, $('.control-content'), weekPanel, switchArr);
                     } else if ($(this).val() === '1') {
                         /*先获得switchArr*/
                         $.each($(this).data('relay').split(','), function (i, v) {
@@ -274,11 +378,11 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
                                 switchArr.push(1)
                             }
                         });
-                        getDailyTimeConfigFromServer(id, $('.control-content'), dailyPanel,switchArr);
+                        getDailyTimeConfigFromServer(id, $('.control-content'), dailyPanel, switchArr);
                     } else {
                         /*switchArr初始化*/
                         switchArr = []
-                        console.log($(this).data())
+                        // console.log($(this).data())
 
                         $.each($(this).data('relay').split(','), function (i, v) {
                             if (v === '关') {
@@ -292,9 +396,9 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
                         $(".control-content").html(switchPanel(switchArr));
                         var on_off_btn = $(".on_off_btn");
                         on_off_btn.click(function () {
-                            if($(this).hasClass("active")){
+                            if ($(this).hasClass("active")) {
                                 $(this).children('span').html("on");
-                            }else{
+                            } else {
                                 $(this).children('span').html("off");
                             }
 
@@ -331,27 +435,34 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
                     '<div style="font-size: 12px;color: #6f6c6c">' + "继电器" + (j + 1) + '</div>' +
                     '<div class="ios ios2">' +
                     '<i class="iosBtn iosBtn2"></i>' +
+                    '<i class="openSta" style="display: none">' + 0 + '</i>' +
                     '</div>' +
                     '</div>';
             } else {
                 onOffBtn +=
                     '<div style="display: inline-block;text-align: center;margin: 10px 10px 0 0">' +
                     '<div style="font-size: 12px;color: #6f6c6c">' + "继电器" + (j + 1) + '</div>' +
-                    '<div class="ios">' +
+                    '<div class="ios iosOpen">' +
                     '<i class="iosBtn"></i>' +
+                    '<i class="openSta" style="display: none">' + 1 + '</i>' +
                     '</div>' +
                     '</div>';
             }
             Daily_on_off_btn.html(onOffBtn);
         }
-        /*IOS开关控制
-         * ios2 iosbtn2 存在时显示关闭样式
+        /*IOS开关控制(日模式)
+         * ios2 iosbtn2 存在时显示关闭样式 iosOpen表示继电器开关：开
          * */
         $(function () {
             var ios = $(".ios");
             ios.click(function () {
-                $(this).toggleClass("ios2");
-                $(this).find('i.iosBtn').toggleClass("iosBtn2");
+                $(this).toggleClass("ios2 iosOpen");
+                $(this).find('i.iosBtn').toggleClass("iosBtn2 iosOpen");
+                if ($(this).find('i.openSta').html() == 0) {
+                    $(this).find('i.openSta').html(1)
+                } else {
+                    $(this).find('i.openSta').html(0)
+                }
             });
         })
 
@@ -432,14 +543,14 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
      * @param equipId
      */
     //function getWeekTimeConfigFromServer(equipId, panel, callback) {
-    function getWeekTimeConfigFromServer(equipId, panel, callback,switchArr) {
+    function getWeekTimeConfigFromServer(equipId, panel, callback, switchArr) {
         $.ajax({
             method: "GET",
             url: "/nodeControl/weekTime/" + equipId,
             dataType: "json",
             success: function (data) {
                 //callback(panel, data, initTimePlus);
-                callback(panel, data, initTimePlus,switchArr);
+                callback(panel, data, initTimePlus, switchArr);
             }
         });
     }
@@ -448,13 +559,13 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
      * 从数据库获取日设置信息，方便操作的时候设置
      * @param equipId
      */
-    function getDailyTimeConfigFromServer(equipId, panel, callback,switchArr) {
+    function getDailyTimeConfigFromServer(equipId, panel, callback, switchArr) {
         $.ajax({
             method: "GET",
             url: "/nodeControl/dailyTime/" + equipId,
             dataType: "json",
             success: function (data) {
-                callback(panel, data, initTimePlus,switchArr);
+                callback(panel, data, initTimePlus, switchArr);
                 getDay();
             }
         });
@@ -462,6 +573,8 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
 
     // 下发配置
     function sendConfig(data, url) {
+        // console.log(data);
+        // console.log(url);
         $.ajax({
             method: "POST",
             url: url,
@@ -495,6 +608,12 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
         });
     }
 
+    //下发配置（周模式控制继电器版）
+    function sendSocketConfig(data, url) {
+        console.log(data);
+        console.log(url);
+    }
+
     /**
      * 监听websocket
      */
@@ -514,7 +633,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
         });
     }
 
-    listenOnWebSocekt();
+    // listenOnWebSocekt();
 
 });
 

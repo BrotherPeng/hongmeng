@@ -101,6 +101,7 @@ router.post('/group/id/:id', (req, res) => {
         type = Number(req.body.type),
         openTime = req.body.openTime,
         closeTime = req.body.closeTime,
+        btnState = req.body.btnState,
         code = 1,
         message = 'success',
         data,
@@ -133,13 +134,15 @@ router.post('/group/id/:id', (req, res) => {
                                 id: v.equip_id,
                                 type: type,
                                 openTime: openTime,
-                                closeTime: closeTime
+                                closeTime: closeTime,
+                                btnState:btnState
                             };
                             data = InitData.initTimeConfigData(config);
                             break;
                         case 1:
                             let startDay = req.body.startDay,
                                 endDay = req.body.endDay;
+                            btnState = req.body.btnState;
                             startDay = startDay.split(',');
                             endDay = endDay.split(',');
                             config = {
@@ -148,7 +151,8 @@ router.post('/group/id/:id', (req, res) => {
                                 startDay: startDay,
                                 endDay: endDay,
                                 openTime: openTime,
-                                closeTime: closeTime
+                                closeTime: closeTime,
+                                btnState:btnState
                             };
                             data = InitData.initDayTimeConfigData(config);
                             break;

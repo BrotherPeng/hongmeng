@@ -34,6 +34,7 @@ define(function () {
             panel =
                 '<div class="input-group week_box">' +
                 '<label>周一:</label>' +
+                '<div class="weekNum" style="display: none">1</div>' +
                 '<div class="disDiv"><label class="col-sm-2" style="padding-right: 0">开启时间:</label><input class="col-sm-1 openTime flatpickr" value="00:00" style="padding: 0">' +
                 '<label class="col-sm-2" style="padding-right: 0">关闭时间:</label><input class="col-sm-1 closeTime flatpickr" value="00:00" style="padding: 0">' +
                 '</div>' +
@@ -42,6 +43,7 @@ define(function () {
                 '</div>' +
                 '<div class="input-group week_box">' +
                 '<label>周二:</label>' +
+                '<div class="weekNum" style="display: none">2</div>' +
                 '<div class="disDiv"><label class="col-sm-2" style="padding-right: 0">开启时间:</label><input class="col-sm-1 openTime flatpickr" value="00:00" style="padding: 0">' +
                 '<label class="col-sm-2" style="padding-right: 0">关闭时间:</label><input class="col-sm-1 closeTime flatpickr" value="00:00" style="padding: 0">' +
                 '</div>' +
@@ -49,7 +51,9 @@ define(function () {
                 '</div>' +
                 '</div>' +
                 '<div class="input-group week_box">' +
-                '<label>周三:</label><div class="disDiv">' +
+                '<label>周三:</label>' +
+                '<div class="weekNum" style="display: none">3</div>' +
+                '<div class="disDiv">' +
                 '<label class="col-sm-2" style="padding-right: 0">开启时间:</label><input class="col-sm-1 openTime flatpickr" value="00:00" style="padding: 0">' +
                 '<label class="col-sm-2" style="padding-right: 0">关闭时间:</label><input class="col-sm-1 closeTime flatpickr" value="00:00" style="padding: 0">' +
                 '</div>' +
@@ -58,6 +62,7 @@ define(function () {
                 '</div>' +
                 '<div class="input-group week_box">' +
                 '<label>周四:</label>' +
+                '<div class="weekNum" style="display: none">4</div>' +
                 '<div class="disDiv"><label class="col-sm-2" style="padding-right: 0">开启时间:</label><input class="col-sm-1 openTime flatpickr" value="00:00" style="padding: 0">' +
                 '<label class="col-sm-2" style="padding-right: 0">关闭时间:</label><input class="col-sm-1 closeTime flatpickr" value="00:00" style="padding: 0">' +
                 '</div>' +
@@ -66,6 +71,7 @@ define(function () {
                 '</div>' +
                 '<div class="input-group week_box">' +
                 '<label>周五:</label>' +
+                '<div class="weekNum" style="display: none">5</div>' +
                 '<div class="disDiv"><label class="col-sm-2" style="padding-right: 0">开启时间:</label><input class="col-sm-1 openTime flatpickr" value="00:00" style="padding: 0">' +
                 '<label class="col-sm-2" style="padding-right: 0">关闭时间:</label><input class="col-sm-1 closeTime flatpickr" value="00:00" style="padding: 0">' +
                 '</div>' +
@@ -74,6 +80,7 @@ define(function () {
                 '</div>' +
                 '<div class="input-group week_box">' +
                 '<label>周六:</label>' +
+                '<div class="weekNum" style="display: none">6</div>' +
                 '<div class="disDiv"><label class="col-sm-2" style="padding-right: 0">开启时间:</label><input class="col-sm-1 openTime flatpickr" value="00:00" style="padding: 0">' +
                 '<label class="col-sm-2" style="padding-right: 0">关闭时间:</label><input class="col-sm-1 closeTime flatpickr" value="00:00" style="padding: 0">' +
                 '</div>' +
@@ -82,6 +89,7 @@ define(function () {
                 '</div>' +
                 '<div class="input-group week_box">' +
                 '<label>周日:</label>' +
+                '<div class="weekNum" style="display: none">7</div>' +
                 '<div class="disDiv"><label class="col-sm-2" style="padding-right: 0">开启时间:</label><input class="col-sm-1 openTime flatpickr" value="00:00" style="padding: 0">' +
                 '<label class="col-sm-2" style="padding-right: 0">关闭时间:</label><input class="col-sm-1 closeTime flatpickr" value="00:00" style="padding: 0">' +
                 '</div>' +
@@ -116,7 +124,8 @@ define(function () {
                 if (weekTime[0]['open_time_' + i] != '00:00' && weekTime[0]['close_time_' + i] != '00:00') {
                     panel +=
                         '<div class="input-group">' +
-                        '<label>周' + day + ':</label><div class="row">' +
+                        '<label>周' + day + ':</label>' +
+                        '<div class="row">' +
                         '<label class="col-sm-2">开启时间:</label><input class="col-sm-3 openTime flatpickr" value="' + weekTime[0]['open_time_' + i] + '" style="padding: 0">' +
                         '<label class="col-sm-2">关闭时间:</label><input class="col-sm-3 closeTime flatpickr" value="' + weekTime[0]['close_time_' + i] + '" style="padding: 0">' +
                         '</div>' +
@@ -125,7 +134,8 @@ define(function () {
                 } else {
                     panel +=
                         '<div class="input-group">' +
-                        '<label>周' + day + ':</label><div class="row">' +
+                        '<label>周' + day + ':</label>' +
+                        '<div class="row">' +
                         '<label class="col-sm-2">开启时间:</label><input class="col-sm-3 openTime flatpickr" value="' + weekTime[0]['open_time_' + i] + '" style="padding: 0">' +
                         '<label class="col-sm-2">关闭时间:</label><input class="col-sm-3 closeTime flatpickr" value="' + weekTime[0]['close_time_' + i] + '" style="padding: 0">' +
                         '</div>' +
@@ -144,27 +154,34 @@ define(function () {
                     '<div style="font-size: 12px;color: #6f6c6c">' + "继电器" + (j + 1) + '</div>' +
                     '<div class="ios ios2">' +
                     '<i class="iosBtn iosBtn2"></i>' +
+                    '<i class="openSta" style="display: none">' + 0 + '</i>' +
                     '</div>' +
                     '</div>';
             } else {
                 onOffBtn +=
                     '<div style="display: inline-block;text-align: center;margin: 10px 10px 0 0">' +
                     '<div style="font-size: 12px;color: #6f6c6c">' + "继电器" + (j + 1) + '</div>' +
-                    '<div class="ios">' +
+                    '<div class="ios iosOpen">' +
                     '<i class="iosBtn"></i>' +
+                    '<i class="openSta" style="display: none">' + 1 + '</i>' +
                     '</div>' +
                     '</div>';
             }
             on_off_box.html(onOffBtn);
         }
-        /*IOS开关控制
-         * ios2 iosbtn2 存在时显示关闭样式
+        /*IOS开关控制(周模式)
+         * ios2 iosbtn2 存在时显示关闭样式 iosOpen表示继电器开关：开
          * */
         $(function () {
             var ios = $(".ios");
             ios.click(function () {
-                $(this).toggleClass("ios2");
-                $(this).find('i.iosBtn').toggleClass("iosBtn2");
+                $(this).toggleClass("ios2 iosOpen");
+                $(this).find('i.iosBtn').toggleClass("iosBtn2 iosOpen");
+                if ($(this).find('i.openSta').html() == 0) {
+                    $(this).find('i.openSta').html(1)
+                } else {
+                    $(this).find('i.openSta').html(0)
+                }
             });
         })
 
@@ -239,6 +256,7 @@ define(function () {
         }
         panel += '<div class="input-group ' + display + '" style="margin-top: 10px">' +
             '<label>区间' + section + ':</label>' +
+            '<div class="sectionNum" style="display: none">'+ i + '</div>'+
             '<div class="row interval-' + i + '">' +
             '<label class="col-sm-2">开始日期:</label>' +
             '<select class="col-sm-1 startMonth daily-start" style="padding: 0">';
@@ -285,7 +303,7 @@ define(function () {
             '</div>' +
             '<div class="input-group ' + display + '">' +
             '<div class="row">' +
-                '<label class="col-sm-2">开启时间:</label><input class="col-sm-1 openTime flatpickr" value="' + open_time + '" style="padding:0">' +
+            '<label class="col-sm-2">开启时间:</label><input class="col-sm-1 openTime flatpickr" value="' + open_time + '" style="padding:0">' +
             '<label class="col-sm-2" style="margin-left: 140px">关闭时间:</label><input class="col-sm-1 closeTime flatpickr" value="' + close_time + '" style="padding:0">' +
             '<button type="button" class="btn btn-default btn-xs delSection" style="margin-left: 47px">删除区间</button>' +
             '</div>' +
