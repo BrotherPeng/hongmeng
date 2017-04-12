@@ -10,13 +10,24 @@ block content
       ul.list-group#projectId
         if(result)
             each item in result
-                li.list-group-item.mb15(data-id='#{item.id}') #{item.name}
-                    .fn-right
-                        button.btn.btn-success.btn-dialog.btn-project-group(style='padding:0 12px;margin-right:10px' data-id='#{item.id}' data-relay="关,关,关,关,关,关,关,关") 操作
-                        span.glyphicon.glyphicon-chevron-down.project-up-down(style='margin-right:10px')
-                    span.label.label-success.equip-online-num 在线设备：
-                        b.equip-online-num-b 0
-                    span.label.label-default.equip-belong-num 所属设备：#{item.count}
+                li.list-group-item.mb15(data-id='#{item.id}')
+                    div.disInline
+                        div.control-tip
+                        div(style='display:inline-block') 项目
+                        div.control-projectName #{item.name}
+                    div.disInline(style='margin-left:10px')
+                        div.control-tip
+                        span 在线设备：
+                            b.equip-online-num-b 0
+                    div.disInline(style='margin-left:10px')
+                        div.control-tip
+                        span 设备数量：
+                            b.equip-online-num-b #{item.count}
+                    div.fn-right
+                        button.btn.btn-success.btn-dialog.btn-project-group(style='padding:0 12px;margin-right:10px' data-id='#{item.id}' data-relay="关,关,关,关,关,关,关,关") 批量操作
+                        button.control-searchBtn 查询设置
+                        div.disInline(style='background-color:#a0a0a0;border-radius:5px')
+                            span.glyphicon.glyphicon-chevron-down.project-up-down(style='margin:5px 5px 0;color:#fff')
                     div(role='tabpanel').fn-hide
                         ul.nav.nav-pills(role='tablist')
                             li.active(role='presentation')
