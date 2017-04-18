@@ -26,6 +26,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
     var switchPanel = dialogTemplate.switchPanel,
         weekPanel = dialogTemplate.weekPanel,
         dailyPanel = dialogTemplate.dailyPanel;
+    // weekSet = dialogTemplate.weekSet;
     var AutoRefresh = function () {
         this.autoArr = [];
         this.autoPanel = {};
@@ -272,8 +273,15 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
                     btnState.week7 = socketArr7.join("");
                     // console.log(btnState);
                     // console.log(JSON.stringify(btnState));
-                    sendConfig({id: id, type: type, openTime: openTime, closeTime: closeTime,btnState:JSON.stringify(btnState)}, url)
-                } else if (type === '1') {
+                    sendConfig({
+                        id: id,
+                        type: type,
+                        openTime: openTime,
+                        closeTime: closeTime,
+                        btnState: JSON.stringify(btnState)
+                    }, url)
+                }
+                else if (type === '1') {
                     dayArr = getDay();
                     startDay = dayArr.startDay.toString();
                     endDay = dayArr.endDay.toString();
@@ -284,13 +292,13 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
                     var sectionSocketArr3 = [];
                     var sectionSocketArr4 = [];
                     var sectionSocketArr5 = [];
-                    for(var k=0;k<Daily_on_off_btn.length;k++){
-                        if(!Daily_on_off_btn[k].hasChildNodes()){//判断用户是否添加区间
+                    for (var k = 0; k < Daily_on_off_btn.length; k++) {
+                        if (!Daily_on_off_btn[k].hasChildNodes()) {//判断用户是否添加区间
                             alert("下发失败，请添加区间");
                             return;
                         }
                     }
-                    for(var k1=0;k1<sectionNum.length;k1++){
+                    for (var k1 = 0; k1 < sectionNum.length; k1++) {
                         if (sectionNum[k1].innerHTML == k1 + 1) {
                             var sectionBtns = sectionNum[k1].parentNode.nextElementSibling.childNodes[1].childNodes;
                             for (var k2 = 0; k2 < sectionBtns.length; k2++) {
@@ -331,9 +339,10 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
                         endDay: endDay,
                         openTime: openTime,
                         closeTime: closeTime,
-                        btnState:JSON.stringify(sectionBtnState)
+                        btnState: JSON.stringify(sectionBtnState)
                     }, url);
-                } else {//type==2
+                }
+                else {//type==2
                     $.each($switch, function (i, v) {
                         if ($(v).hasClass('active')) {//判断开关控制的开关状态
                             switchStatus = '0' + switchStatus;
@@ -411,6 +420,65 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
             cancelValue: '取消'
         });
 
+        d.show();
+    });
+    //查询按钮
+    $('body').on('click', '.search-Btn-dialog', function () {
+        var $this = $(this),
+            id = $this.data('id'),
+            $content =
+                '<div>' +
+                '<label>' +
+                '<div class="control-weekDay-btn control-chosedBtn">周设置</div>' +
+                '<input type=radio name="showModel" checked style="display: none" value="week">' +
+                '</label>' +
+                '<label>' +
+                '<div class="control-weekDay-btn" style="margin-left: 20px">日设置</div>' +
+                '<input type=radio name="showModel" style="display: none" value="day">' +
+                '</label>' +
+                '</div>' +
+                '<div class="control-content">' +
+                '<div id="showWeekSet" style="display: none">周设置展示</div>' +
+                '<div id="showDaySet" style="display: none">日设置展示</div>' +
+                '</div>',
+            d = dialog({
+                // title: '消息',
+                height: 400,
+                width: 550,
+                content: $content,
+                okValue: '配置',
+                cancel: '取消',
+                cancelValue: '取消',
+                // showBtn:function(){
+                //
+                // },
+                onshow: function () {
+                    //todo 展示默认信息
+                    var showModel = $('[name=showModel]');
+                    for (var i = 0; i < showModel.length; i++) {
+                        // console.log(showModel[i])
+                        if (showModel[i].checked) {
+                            // console.log(showModel[i]);
+                            if(showModel[i].value == "week"){
+                                // console.log("week")
+                                $("#showWeekSet").css("display","block");
+                                $("#showDaySet").css("display","none");
+                            }else{
+                                // console.log("day")
+                                $("#showWeekSet").css("display","none");
+                                $("#showDaySet").css("display","block");
+                            }
+                        }
+                    }
+                    //todo 点击事件
+                    showModel.on('click', function () {
+                        $('.flatpickr-wrapper').remove();
+                        if ($(this).val() == 'week') {
+                            // getWeekTimeConfigFromServer(id, $('.control-content'), weekSet);
+                        }
+                    });
+                }
+            });
         d.show();
     });
     //日设置添加、删除区间事件
@@ -549,6 +617,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
             url: "/nodeControl/weekTime/" + equipId,
             dataType: "json",
             success: function (data) {
+                console.log(data)
                 //callback(panel, data, initTimePlus);
                 callback(panel, data, initTimePlus, switchArr);
             }

@@ -638,3 +638,17 @@ table {
     border: none;
     /*height: 50px;*/
 }
+.control-weekDay-btn{
+    color: #fa661e;
+    font-size: 20px;
+    width: 80px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 5px;
+    cursor:pointer;
+}
+.control-chosedBtn{
+    color: #FFFFFF;
+    background-color: #fa661e;
+}

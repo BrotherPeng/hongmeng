@@ -312,6 +312,10 @@ define(function () {
             '</div>';
         return panel;
     };
+    template.weekSet = function(){
+        var week =
+            "<div>week</div>";
+    };
     return template;
 });
 
