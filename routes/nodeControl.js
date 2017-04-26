@@ -33,6 +33,7 @@ router.get('/id', function (req, res) {
         type = Number(req.body.type),
         openTime = req.body.openTime,
         closeTime = req.body.closeTime,
+        btnState = req.body.btnState,
         code = 1,
         message = 'success',
         config;
@@ -48,7 +49,8 @@ router.get('/id', function (req, res) {
                 id: id,
                 type: type,
                 openTime: openTime,
-                closeTime: closeTime
+                closeTime: closeTime,
+                btnState: btnState
             };
             data = InitData.initTimeConfigData(config);
             break;

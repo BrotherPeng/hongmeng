@@ -21,7 +21,7 @@ define(function () {
 
             } else {
                 panel += '<label class="btn btn-success btn-switch on_off_btn"><input type="checkbox" autocomplete="off" checked/>继电器' + (i + 1) + '</label>'
-                //panel+='<label class="ios"><input type="checkbox" autocomplete="off" checked="checked"/><i></i>继电器'+(i+1)+'</label>'
+                // panel+='<label class="ios"><input type="checkbox" autocomplete="off" checked="checked"/><i></i>继电器'+(i+1)+'</label>'
             }
         }
         panel += '</div>';
@@ -101,33 +101,43 @@ define(function () {
                 switch (i) {
                     case 1:
                         day = '一';
+                        dayNum = 1;
                         break;
                     case 2:
                         day = '二';
+                        dayNum = 2;
                         break;
                     case 3:
                         day = '三';
+                        dayNum = 3;
                         break;
                     case 4:
                         day = '四';
+                        dayNum = 4;
                         break;
                     case 5:
                         day = '五';
+                        dayNum = 5;
                         break;
                     case 6:
                         day = '六';
+                        dayNum = 6;
                         break;
                     default:
                         day = '日';
+                        dayNum = 7;
                         break;
                 }
                 if (weekTime[0]['open_time_' + i] != '00:00' && weekTime[0]['close_time_' + i] != '00:00') {
                     panel +=
                         '<div class="input-group">' +
                         '<label>周' + day + ':</label>' +
+                        '<div class="weekNum" style="display: none">'+ dayNum +'</div>' +
                         '<div class="row">' +
                         '<label class="col-sm-2">开启时间:</label><input class="col-sm-3 openTime flatpickr" value="' + weekTime[0]['open_time_' + i] + '" style="padding: 0">' +
                         '<label class="col-sm-2">关闭时间:</label><input class="col-sm-3 closeTime flatpickr" value="' + weekTime[0]['close_time_' + i] + '" style="padding: 0">' +
+                        '</div>' +
+                        '<div class="on_off_box">' +
                         '</div>' +
                         '</div>';
 

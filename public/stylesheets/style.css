@@ -329,7 +329,7 @@ caption {
 
 /*表格边框色*/
 .table-bordered {
-    border: solid 1px #222d32;
+    border: solid 1px rgba(158, 158, 158,.3);
 }
 
 /*所有表格列预留长度*/
@@ -387,7 +387,7 @@ table {
 /*表格内边框颜色*/
 .table-bordered > tbody > tr > td {
     border-bottom: none;
-    border-top-color: #222d32;;
+    border-top-color: rgba(158, 158, 158,.3);
 }
 
 /*项目列表表格圆角*/
@@ -591,7 +591,8 @@ table {
 }
 
 .ui-dialog-content {
-    overflow-y: scroll;
+    /*overflow-y: scroll;*/
+    overflow: auto;
     /*font-family: -apple-system, BlinkMacSystemFont, 'Microsoft YaHei', sans-serif;*/
     /*color: #333333;*/
 }
@@ -651,4 +652,29 @@ table {
 .control-chosedBtn{
     color: #FFFFFF;
     background-color: #fa661e;
+}
+
+.marginTop-20{
+    margin-top: 20px;
+}
+
+.table-50{
+    width:50%;
+}
+
+
+/*状态*/
+.ThisStatu{
+    margin-top: -3px;
+    border-radius: 50%;
+    border: solid 3px #FFF;
+    width: 26px;
+    height: 26px;
+    text-align: center;
+    /*background: #4cae4c;*/
+    background: #FF0000;
+}
+
+.OKStatu{
+    background: #4cae4c;
 }
