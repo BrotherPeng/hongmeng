@@ -145,9 +145,12 @@ define(function () {
                     panel +=
                         '<div class="input-group">' +
                         '<label>周' + day + ':</label>' +
+                        '<div class="weekNum" style="display: none">'+ dayNum +'</div>' +
                         '<div class="row">' +
                         '<label class="col-sm-2">开启时间:</label><input class="col-sm-3 openTime flatpickr" value="' + weekTime[0]['open_time_' + i] + '" style="padding: 0">' +
                         '<label class="col-sm-2">关闭时间:</label><input class="col-sm-3 closeTime flatpickr" value="' + weekTime[0]['close_time_' + i] + '" style="padding: 0">' +
+                        '</div>' +
+                        '<div class="on_off_box">' +
                         '</div>' +
                         '</div>';
                 }
@@ -188,12 +191,12 @@ define(function () {
                 $(this).toggleClass("ios2 iosOpen");
                 $(this).find('i.iosBtn').toggleClass("iosBtn2 iosOpen");
                 if ($(this).find('i.openSta').html() == 0) {
-                    $(this).find('i.openSta').html(1)
+                    $(this).find('i.openSta').html(1);
                 } else {
-                    $(this).find('i.openSta').html(0)
+                    $(this).find('i.openSta').html(0);
                 }
             });
-        })
+        });
 
         initTimePlus();//初始化时间插件
     };
