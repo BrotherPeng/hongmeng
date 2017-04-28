@@ -65,7 +65,8 @@ router.get('/id', function (req, res) {
                 startDay: startDay,
                 endDay: endDay,
                 openTime: openTime,
-                closeTime: closeTime
+                closeTime: closeTime,
+                btnState: btnState
             };
             data = InitData.initDayTimeConfigData(config);
             break;
