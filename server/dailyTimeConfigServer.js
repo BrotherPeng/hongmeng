@@ -14,6 +14,7 @@ function dailyTimeServer() {
 dailyTimeServer.prototype.saveConfig = function (config) {
     let equipId = config.id,
         timeConfig = {};
+    timeConfig.day_conf = config.btnState;
     timeConfig['equip_id'] = config.id;
     for (let i = 0; i < config.startDay.length; i += 2) {
         timeConfig['start_' + (i / 2 + 1)] = config.startDay[i] + '-' + config.startDay[i + 1];
