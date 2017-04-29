@@ -16,7 +16,8 @@ function weekTimeServer() {
 weekTimeServer.prototype.saveConfig = function (config) {
     let equipId = config.id,
         timeConfig = {};
-    timeConfig.week_conf = config.btnState;
+    // timeConfig.week_conf = config.btnState;
+    timeConfig.week_conf = '111111';
     timeConfig['equip_id'] = config.id;
     logger.info("开始保存设备："+config.id+"的周设置");
     for (let i = 0; i < config.openTime.length; i += 2) {
