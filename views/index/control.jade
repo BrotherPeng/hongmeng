@@ -28,7 +28,7 @@ block content
                         button.control-searchBtn.search-Btn-dialog(data-id='#{item.id}') 查询设置
                         div.disInline(style='background-color:#a0a0a0;border-radius:5px')
                             span.glyphicon.glyphicon-chevron-down.project-up-down(style='margin:0 5px;color:#fff')
-                    div(role='tabpanel').fn-hide
+                    div(role='tabpanel').fn-hide(style="white-space:nowrap")
                         ul.nav.nav-pills(role='tablist')
                             //- li.active(role='presentation')
                             //-     a(href='#status' aria-controls='status' role='tab') 状态
@@ -150,38 +150,4 @@ block content
                                 {{/if}}
                                 {{/each}}                 
 
-//-                         .tab-content
-//-                             .tab-pane.status.active(role='tabpanel')
-//-                                 .table-responsive
-//-                                     table.table.table-striped
-//-                                         //- thead
-//-                                         //-     tr
-//-                                         //-         th 设备
-//-                                         //-         th 
-//-                                         //-         th 3路电压
-//-                                         //-         th 震动
-//-                                         //-         th 门磁
-//-                                         //-         th 继电器
-//-                                         //-         th 定时
-//-                                         //-         th 
-//-                                         //-         th
-//-                                         tbody.nodeInfoWrap
-                        
-//- include ../includes/footer
-//- script#nodeInfo(type="text/x-handlebars-template")
-//-     {{#each this}}
-//-     //- - alert(this)
-//-     {{#if id}}
-//-     tr
-//-         td {{id}}
-//-         td {{temperature}}℃
-//-         td {{voltage_1}}v/{{voltage_2}}v/{{voltage_3}}v
-//-         td {{shakeStatus}}
-//-         td {{gateStatus}}
-//-         td {{relay}}
-//-         td {{timeConfig}}
-//-         td {{updateTime}}
-//-         td <button type='button' {{#if offline}}disabled{{/if}} class='btn {{#if offline}}btn-default{{else}}btn-success{{/if}} btn-dialog' data-id='{{id}}' data-relay='{{relay}}' data-timeconfig='{{timeConfig}}'>{{#if offline}}离线{{else}}操作{{/if}}</button>
-//-     {{/if}}
-//-     {{/each}}
 script(src='/requirejs/require.js' data-main="/javascript/index/control")
