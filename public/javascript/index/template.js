@@ -238,6 +238,7 @@ define(function () {
             }
             panel += '<button type="button" class=" addSection" id="addSection">新增区间</button></div>';
         } else {
+            var day_conf  = JSON.parse(dailyTime[0].day_conf);
             for (i; i < 6; i++) {
                 if (dailyTime[0]['start_' + i] !== '00-00') {
                     start_day_arr = dailyTime[0]['start_' + i].split('-');
@@ -248,7 +249,8 @@ define(function () {
                     end_day = end_day_arr[1];
                     open_time = dailyTime[0]['open_' + i];
                     close_time = dailyTime[0]['close_' + i];
-                    panel += template.buildDailyPanel(start_month, start_day, end_month, end_day, open_time, close_time, i);
+                    section1 = day_conf['section' + i];
+                    panel += template.buildDailyPanel(start_month, start_day, end_month, end_day, open_time, close_time,section1, i);
                     // template.addButton(switchArr);
                 } else {
                     start_month = 0;
@@ -266,7 +268,7 @@ define(function () {
         target.html(panel);
         initTimePlus();//初始化时间插件
     };
-    template.buildDailyPanel = function (start_month, start_day, end_month, end_day, open_time, close_time, i) {
+    template.buildDailyPanel = function (start_month, start_day, end_month, end_day, open_time, close_time,section1, i) {
         var panel = '', section, display = '';
         switch (i) {
             case 1:
@@ -344,7 +346,30 @@ define(function () {
             '<label class="col-sm-2" style="margin-left: 140px">关闭时间:</label><input class="col-sm-1 closeTime flatpickr" value="' + close_time + '" style="padding:0">' +
             '<button type="button" class="btn btn-default btn-xs delSection" style="margin-left: 47px">删除区间</button>' +
             '</div>' +
-            '<div class="Daily_on_off_btn">' +
+            '<div class="Daily_on_off_btn">';
+            var jidianqi = 1;
+            for(var n = section1.length;n > 0;n--){
+                if(section1.charAt(n-1) == 0){
+                    panel +=
+                            '<div style="display: inline-block;text-align: center;margin: 10px 10px 0 0">' +
+                            '<div style="font-size: 12px;color: #6f6c6c">' + "继电器" + (jidianqi++) + '</div>' +
+                            '<div class="ios ios2">' +
+                            '<i class="iosBtn iosBtn2"></i>' +
+                            '<i class="openSta" style="display: none">' + 0 + '</i>' +
+                            '</div>' +
+                            '</div>';
+                    }else{
+                        panel +=
+                            '<div style="display: inline-block;text-align: center;margin: 10px 10px 0 0">' +
+                            '<div style="font-size: 12px;color: #6f6c6c">' + "继电器" + (jidianqi++) + '</div>' +
+                            '<div class="ios iosOpen">' +
+                            '<i class="iosBtn"></i>' +
+                            '<i class="openSta" style="display: none">' + 1 + '</i>' +
+                            '</div>' +
+                            '</div>';
+                    }
+                }
+            panel +=
             '</div>' +
             '</div>';
         return panel;
