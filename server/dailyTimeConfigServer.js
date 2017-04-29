@@ -81,10 +81,14 @@ dailyTimeServer.prototype.saveConfig = function (config) {
     }).then(result=> {/*存在则更新，不存在则新增*/
         if (result !== 0) {
             dailyTimeDao.update(timeConfig, function (err, result) {
+                logger.info(result);
+                logger.info(err);
                 return result;
             });
         } else {
             dailyTimeDao.create(timeConfig, function (err, result) {
+                logger.info(result);
+                logger.info(err);
                 return result;
             });
         }
