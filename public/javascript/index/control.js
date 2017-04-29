@@ -517,9 +517,11 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
                         var on_off_btn = $(".on_off_btn");
                         on_off_btn.click(function () {
                             if ($(this).hasClass("active")) {
-                                $(this).children('span').html("on");
+                                // $(this).children('span').html("on");
+                                $(this).removeClass('active');
                             } else {
-                                $(this).children('span').html("off");
+                                // $(this).children('span').html("off");
+                                $(this).addClass('active');
                             }
 
                         });
