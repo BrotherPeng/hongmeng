@@ -137,70 +137,29 @@ define(function () {
                         '<label class="col-sm-2">开启时间:</label><input class="col-sm-3 openTime flatpickr" value="' + weekTime[0]['open_time_' + i] + '" style="padding: 0">' +
                         '<label class="col-sm-2">关闭时间:</label><input class="col-sm-3 closeTime flatpickr" value="' + weekTime[0]['close_time_' + i] + '" style="padding: 0">' +
                         '</div>' +
-                        '<div class="on_off_box">' ;
+                        '<div class="on_offbox">' ;
                         var week_c = weekTime[0].week_conf;
-                            // for(var j = 0;j<8;j++){
-                            //      if (week_c'week' + (j+1)[j] == 0) {
-                            //         panel +=
-                            //             '<div style="display: inline-block;text-align: center;margin: 10px 10px 0 0">' +
-                            //             '<div style="font-size: 12px;color: #6f6c6c">' + "继电器" + (j + 1) + '</div>' +
-                            //             '<div class="ios ios2">' +
-                            //             '<i class="iosBtn iosBtn2"></i>' +
-                            //             '<i class="openSta" style="display: none">' + 0 + '</i>' +
-                            //             '</div>' +
-                            //             '</div>';
-                            //     } else {
-                            //         panel +=
-                            //             '<div style="display: inline-block;text-align: center;margin: 10px 10px 0 0">' +
-                            //             '<div style="font-size: 12px;color: #6f6c6c">' + "继电器" + (j + 1) + '</div>' +
-                            //             '<div class="ios iosOpen">' +
-                            //             '<i class="iosBtn"></i>' +
-                            //             '<i class="openSta" style="display: none">' + 1 + '</i>' +
-                            //             '</div>' +
-                            //             '</div>';
-                            //     }
-                            // }
-                            // for(var j = 0;j<7;j++){
-                                // if(week_c.week1.charAt(j) == 0){
-                                //         panel +=
-                                //                 '<div style="display: inline-block;text-align: center;margin: 10px 10px 0 0">' +
-                                //                 '<div style="font-size: 12px;color: #6f6c6c">' + "继电器" + (j + 1) + '</div>' +
-                                //                 '<div class="ios ios2">' +
-                                //                 '<i class="iosBtn iosBtn2"></i>' +
-                                //                 '<i class="openSta" style="display: none">' + 0 + '</i>' +
-                                //                 '</div>' +
-                                //                 '</div>';
-                                // }else{
-                                //                 panel +=
-                                //                 '<div style="display: inline-block;text-align: center;margin: 10px 10px 0 0">' +
-                                //                 '<div style="font-size: 12px;color: #6f6c6c">' + "继电器" + (j + 1) + '</div>' +
-                                //                 '<div class="ios iosOpen">' +
-                                //                 '<i class="iosBtn"></i>' +
-                                //                 '<i class="openSta" style="display: none">' + 1 + '</i>' +
-                                //                 '</div>' +
-                                //                 '</div>';
-                                // }
-                                for(var n = 0;n<8;n++){
-                                    if(week_c['week'+(i)].charAt(n) == 0){
-                                        panel +=
-                                            '<div style="display: inline-block;text-align: center;margin: 10px 10px 0 0">' +
-                                            '<div style="font-size: 12px;color: #6f6c6c">' + "继电器" + (n + 1) + '</div>' +
-                                            '<div class="ios ios2">' +
-                                            '<i class="iosBtn iosBtn2"></i>' +
-                                            '<i class="openSta" style="display: none">' + 0 + '</i>' +
-                                            '</div>' +
-                                            '</div>';
-                                    }else{
-                                        panel +=
-                                            '<div style="display: inline-block;text-align: center;margin: 10px 10px 0 0">' +
-                                            '<div style="font-size: 12px;color: #6f6c6c">' + "继电器" + (n + 1) + '</div>' +
-                                            '<div class="ios iosOpen">' +
-                                            '<i class="iosBtn"></i>' +
-                                            '<i class="openSta" style="display: none">' + 1 + '</i>' +
-                                            '</div>' +
-                                            '</div>';
-                                    }
-                                // }
+                        var jidianqi = 1;
+                            for(var n = week_c['week'+(i)].length;n > 0;n--){
+                                if(week_c['week'+(i)].charAt(n-1) == 0){
+                                    panel +=
+                                        '<div style="display: inline-block;text-align: center;margin: 10px 10px 0 0">' +
+                                        '<div style="font-size: 12px;color: #6f6c6c">' + "继电器" + (jidianqi++) + '</div>' +
+                                        '<div class="ios ios2">' +
+                                        '<i class="iosBtn iosBtn2"></i>' +
+                                        '<i class="openSta" style="display: none">' + 0 + '</i>' +
+                                        '</div>' +
+                                        '</div>';
+                                }else{
+                                    panel +=
+                                        '<div style="display: inline-block;text-align: center;margin: 10px 10px 0 0">' +
+                                        '<div style="font-size: 12px;color: #6f6c6c">' + "继电器" + (jidianqi++) + '</div>' +
+                                        '<div class="ios iosOpen">' +
+                                        '<i class="iosBtn"></i>' +
+                                        '<i class="openSta" style="display: none">' + 1 + '</i>' +
+                                        '</div>' +
+                                        '</div>';
+                                }
                             }
                     panel +=
                         '</div>' +
@@ -225,28 +184,28 @@ define(function () {
         var on_off_box = $(".on_off_box");
         //开关
         var onOffBtn = "";
-        // for (var j = 0; j < switchArr.length; j++) {
-        //     if (switchArr[j] == 0) {
-        //         onOffBtn +=
-        //             '<div style="display: inline-block;text-align: center;margin: 10px 10px 0 0">' +
-        //             '<div style="font-size: 12px;color: #6f6c6c">' + "继电器" + (j + 1) + '</div>' +
-        //             '<div class="ios ios2">' +
-        //             '<i class="iosBtn iosBtn2"></i>' +
-        //             '<i class="openSta" style="display: none">' + 0 + '</i>' +
-        //             '</div>' +
-        //             '</div>';
-        //     } else {
-        //         onOffBtn +=
-        //             '<div style="display: inline-block;text-align: center;margin: 10px 10px 0 0">' +
-        //             '<div style="font-size: 12px;color: #6f6c6c">' + "继电器" + (j + 1) + '</div>' +
-        //             '<div class="ios iosOpen">' +
-        //             '<i class="iosBtn"></i>' +
-        //             '<i class="openSta" style="display: none">' + 1 + '</i>' +
-        //             '</div>' +
-        //             '</div>';
-        //     }
-        //     on_off_box.html(onOffBtn);
-        // }
+        for (var j = 0; j < switchArr.length; j++) {
+            if (switchArr[j] == 0) {
+                onOffBtn +=
+                    '<div style="display: inline-block;text-align: center;margin: 10px 10px 0 0">' +
+                    '<div style="font-size: 12px;color: #6f6c6c">' + "继电器" + (j + 1) + '</div>' +
+                    '<div class="ios ios2">' +
+                    '<i class="iosBtn iosBtn2"></i>' +
+                    '<i class="openSta" style="display: none">' + 0 + '</i>' +
+                    '</div>' +
+                    '</div>';
+            } else {
+                onOffBtn +=
+                    '<div style="display: inline-block;text-align: center;margin: 10px 10px 0 0">' +
+                    '<div style="font-size: 12px;color: #6f6c6c">' + "继电器" + (j + 1) + '</div>' +
+                    '<div class="ios iosOpen">' +
+                    '<i class="iosBtn"></i>' +
+                    '<i class="openSta" style="display: none">' + 1 + '</i>' +
+                    '</div>' +
+                    '</div>';
+            }
+            on_off_box.html(onOffBtn);
+        }
         /*IOS开关控制(周模式)
          * ios2 iosbtn2 存在时显示关闭样式 iosOpen表示继电器开关：开
          * */
@@ -327,10 +286,10 @@ define(function () {
                 break;
         }
         if (start_month === 0 && i !== 1) {
-            display = 'daily-hide'
+            display = 'daily-hide';
         }
         if (start_month === end_month && start_day === end_day) {
-            display = 'daily-hide'
+            display = 'daily-hide';
         }
         panel += '<div class="input-group ' + display + '" style="margin-top: 10px">' +
             '<label>区间' + section + ':</label>' +
