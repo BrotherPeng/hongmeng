@@ -181,7 +181,7 @@ define(function () {
             }
         }
         target.html(panel);
-        var on_off_box = $(".on_off_box");
+        /*var on_off_box = $(".on_off_box");
         //开关
         var onOffBtn = "";
         for (var j = 0; j < switchArr.length; j++) {
@@ -205,7 +205,7 @@ define(function () {
                     '</div>';
             }
             on_off_box.html(onOffBtn);
-        }
+        }*/
         /*IOS开关控制(周模式)
          * ios2 iosbtn2 存在时显示关闭样式 iosOpen表示继电器开关：开
          * */
