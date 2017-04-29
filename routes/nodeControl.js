@@ -170,7 +170,7 @@ router.post('/group/id/:id', (req, res) => {
                             break;
                     }
                     sendData(v.equip_id, data, function (result) {
-                        resolve(result)
+                        resolve(result);
                     });
                 });
                 sendFun.timeout(10000).then(v=> {
@@ -183,7 +183,7 @@ router.post('/group/id/:id', (req, res) => {
                 }).catch(Promise.TimeoutError, function () {
                     resolve({code: -2, message: "could not get response data within 2000ms",equip_id:v.equip_id});//超时-2
                 });
-            })
+            });
         });
 
         new Promise.all(sendDataFun).then(v=> {
@@ -206,8 +206,8 @@ router.get('/weekTime/id', function (req, res) {
                         } else {
                             resolve(value[0]);
                         }
-                    })
-                })
+                    });
+                });
 
             });
             Promise.all(actions).then(v=>res.send(v));
@@ -222,9 +222,9 @@ router.get('/weekTime/:id',(req,res)=>{
     let equipId=req.params.id;
     weekTime.getByEquipId(equipId, function (err, value) {
         if(!err){
-            res.send(value)
+            res.send(value);
         }
-    })
+    });
 });
 
 
@@ -242,8 +242,8 @@ router.get('/dailyTime/id', function (req, res) {
                         } else {
                             resolve(value[0]);
                         }
-                    })
-                })
+                    });
+                });
 
             });
             Promise.all(actions).then(v=>res.send(v));
@@ -257,8 +257,8 @@ router.get('/dailyTime/:id',(req,res)=>{
     let equipId=req.params.id;
     dailyTime.getByEquipId(equipId, function (err, value) {
         if(!err){
-            res.send(value)
+            res.send(value);
         }
-    })
+    });
 });
 module.exports = router;

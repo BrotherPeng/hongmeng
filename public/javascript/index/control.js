@@ -75,9 +75,66 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
                 dataType: "json",
                 data: {projectId: id},
                 success: function (data) {
+                    for(var i=0;i<data.length;i++){
+                                            if(!data[i]){
+                                                break;
+                                            }else{
+                                                // data[i].relay_0 =  data[i].relay[0];
+                                                // data[i].relay_1 =  data[i].relay[1];
+                                                // data[i].relay_2 =  data[i].relay[2];
+                                                // data[i].relay_3 =  data[i].relay[3];
+                                                // data[i].relay_4 =  data[i].relay[4];
+                                                // data[i].relay_5 =  data[i].relay[5];
+                                                // data[i].relay_6 =  data[i].relay[6];
+                                                // data[i].relay_7 =  data[i].relay[7];
+                                                if(data[i].relay[0] == '关'){
+                                                    data[i].relay_0 = false;
+                                                }else{
+                                                    data[i].relay_0 = true;
+                                                }
+                                                if(data[i].relay[1] == '关'){
+                                                    data[i].relay_1 = false;
+                                                }else{
+                                                    data[i].relay_1 = true;
+                                                }
+                                                if(data[i].relay[2] == '关'){
+                                                    data[i].relay_2 = false;
+                                                }else{
+                                                    data[i].relay_2 = true;
+                                                }
+                                                if(data[i].relay[3] == '关'){
+                                                    data[i].relay_3 = false;
+                                                }else{
+                                                    data[i].relay_3 = true;
+                                                }
+                                                if(data[i].relay[4] == '关'){
+                                                    data[i].relay_4 = false;
+                                                }else{
+                                                    data[i].relay_4 = true;
+                                                }
+                                                if(data[i].relay[5] == '关'){
+                                                    data[i].relay_5 = false;
+                                                }else{
+                                                    data[i].relay_5 = true;
+                                                }
+                                                if(data[i].relay[6] == '关'){
+                                                    data[i].relay_6 = false;
+                                                }else{
+                                                    data[i].relay_6 = true;
+                                                }
+                                                if(data[i].relay[7] == '关'){
+                                                    data[i].relay_7 = false;
+                                                }else{
+                                                    data[i].relay_7 = true;
+                                                }
+                                                // for(var j=0;j<data[i].relay.length;j++){
+                                                //     if(data[i].relay[]){}
+                                                // }
+                                            }
+                                    }
+                    console.log(data);
                     var result = template(data);
                     self.autoPanel[id].html(result);
-                    console.log(data);
                 }
             });
         }
@@ -113,14 +170,6 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
                         if(!data[i]){
                             break;
                         }else{
-                            // data[i].relay_0 =  data[i].relay[0];
-                            // data[i].relay_1 =  data[i].relay[1];
-                            // data[i].relay_2 =  data[i].relay[2];
-                            // data[i].relay_3 =  data[i].relay[3];
-                            // data[i].relay_4 =  data[i].relay[4];
-                            // data[i].relay_5 =  data[i].relay[5];
-                            // data[i].relay_6 =  data[i].relay[6];
-                            // data[i].relay_7 =  data[i].relay[7];
                             if(data[i].relay[0] == '关'){
                                 data[i].relay_0 = false;
                             }else{
@@ -739,8 +788,13 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
             url: "/nodeControl/weekTime/" + equipId,
             dataType: "json",
             success: function (data) {
-                console.log(data);
                 //callback(panel, data, initTimePlus);
+                for(var i=0;i<data.length;i++){
+                    if(data[i]){
+                        data[i].week_conf = JSON.parse(data[i].week_conf);
+                    }
+                }
+                console.log(data);
                 callback(panel, data, initTimePlus, switchArr);
             }
         });
