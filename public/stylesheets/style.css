@@ -678,3 +678,10 @@ table {
 .OKStatu{
     background: #4cae4c;
 }
+
+/*文字媒体查询*/
+@media screen and (max-width: 1400px) {
+    .fontMedia{
+            font-size: 12px;
+    }
+}
