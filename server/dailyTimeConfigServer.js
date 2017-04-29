@@ -3,6 +3,7 @@
  */
 let weekTimeDao = require('../model/weekTimeConfig');
 let dailyTimeDao = require('../model/dailyTimeConfig');
+let logger = require("../log").logger('mysql');
 let Promise = require('bluebird');
 function dailyTimeServer() {
 
