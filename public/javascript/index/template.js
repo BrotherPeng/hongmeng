@@ -234,7 +234,8 @@ define(function () {
                 end_day = 0;
                 open_time = '00:00';
                 close_time = '00:00';
-                panel += template.buildDailyPanel(start_month, start_day, end_month, end_day, open_time, close_time, i);
+                section1 = '00000000';
+                panel += template.buildDailyPanel(start_month, start_day, end_month, end_day, open_time, close_time, i, section1);
             }
             panel += '<button type="button" class=" addSection" id="addSection">新增区间</button></div>';
         } else {
@@ -250,7 +251,7 @@ define(function () {
                     open_time = dailyTime[0]['open_' + i];
                     close_time = dailyTime[0]['close_' + i];
                     section1 = day_conf['section' + i];
-                    panel += template.buildDailyPanel(start_month, start_day, end_month, end_day, open_time, close_time,section1, i);
+                    panel += template.buildDailyPanel(start_month, start_day, end_month, end_day, open_time, close_time,i, section1);
                     // template.addButton(switchArr);
                 } else {
                     start_month = 0;
@@ -259,7 +260,8 @@ define(function () {
                     end_day = 0;
                     open_time = '00:00';
                     close_time = '00:00';
-                    panel += template.buildDailyPanel(start_month, start_day, end_month, end_day, open_time, close_time, i);
+                    section1 = '00000000'
+                    panel += template.buildDailyPanel(start_month, start_day, end_month, end_day, open_time, close_time, i, section1);
                     // template.addButton(switchArr);
                 }
             }
@@ -268,7 +270,7 @@ define(function () {
         target.html(panel);
         initTimePlus();//初始化时间插件
     };
-    template.buildDailyPanel = function (start_month, start_day, end_month, end_day, open_time, close_time,section1, i) {
+    template.buildDailyPanel = function (start_month, start_day, end_month, end_day, open_time, close_time,i, section1) {
         var panel = '', section, display = '';
         switch (i) {
             case 1:
@@ -346,7 +348,7 @@ define(function () {
             '<label class="col-sm-2" style="margin-left: 140px">关闭时间:</label><input class="col-sm-1 closeTime flatpickr" value="' + close_time + '" style="padding:0">' +
             '<button type="button" class="btn btn-default btn-xs delSection" style="margin-left: 47px">删除区间</button>' +
             '</div>' +
-            '<div class="Daily_on_off_btn">';
+            '<div class="Daily_on_offbtn">';
             var jidianqi = 1;
             for(var n = section1.length;n > 0;n--){
                 if(section1.charAt(n-1) == 0){
