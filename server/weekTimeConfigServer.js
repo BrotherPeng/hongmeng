@@ -81,6 +81,9 @@ weekTimeServer.prototype.saveConfig = function (config) {
         if (result !== 0) {
             logger.info("更新设备："+config.id+"的周设置"+timeConfig);
             weekTimeDao.update(timeConfig, function (err, result) {
+                logger.info("更新设备：");
+                logger.info(result);
+                logger.info(err);
                 return result;
             });
         } else {
