@@ -655,8 +655,8 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
     });
     //日设置添加、删除区间事件
     $('body').on('click', '#addSection', function () {
-        var switchArr = [];
-        /*先获得switchArr*/
+        /*var switchArr = [];
+        /!*先获得switchArr*!/
         var data_int = $(this).parent().parent().children('label#optionsRadios_label').children('input');
         $.each(data_int.data('relay').split(','), function (i, v) {
             if (v === '关') {
@@ -665,7 +665,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
                 switchArr.push(1);
             }
         });
-        /*生成继电器开关*/
+        /!*生成继电器开关*!/
         var onOffBtn = "";
         var Daily_on_off_btn = $(".Daily_on_off_btn");
         for (var j = 0; j < switchArr.length; j++) {
@@ -689,12 +689,12 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
                     '</div>';
             }
             Daily_on_off_btn.html(onOffBtn);
-        }
+        }*/
         /*
          * IOS开关控制(日模式)
          * ios2 iosbtn2 存在时显示关闭样式 iosOpen表示继电器开关：开
          * */
-        $(function () {
+        /*$(function () {
             var ios = $(".ios");
             ios.click(function () {
                 $(this).toggleClass("ios2 iosOpen");
@@ -705,7 +705,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
                     $(this).find('i.openSta').html(0);
                 }
             });
-        });
+        });*/
 
         var $hide = $('.control-content .daily-hide'),
             $delSection = $('.control-content .delSection'),
