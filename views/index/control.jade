@@ -52,19 +52,21 @@ block content
                                     td(style="color:#fd661f;font-weight:700;") {{temperature}}℃
                                     td
                                     td.text-right 震动
-                                    td 
+                                    td
+                                        <div class='ThisStatu {{#if shakeStatus}}OKStatu{{/if}}'></div>
                                         //- {{shakeStatus}}
-                                        - if (shakeStatus=='无')
-                                            div.ThisStatu.OKStatu
-                                        - else
-                                            div.ThisStatu
+                                        //- if (shakeStatus=='无')
+                                        //    div.ThisStatu.OKStatu
+                                        //- else
+                                        //    div.ThisStatu
                                     td.text-right 门磁
-                                    td 
+                                    td
+                                        <div class='ThisStatu {{#if gateStatus}}OKStatu{{/if}}'></div>
                                         //- {{gateStatus}}
-                                        - if (gateStatus=='关')
-                                            div.ThisStatu.OKStatu
-                                        - else
-                                            div.ThisStatu
+                                        //- if (gateStatus=='关')
+                                        //    div.ThisStatu.OKStatu
+                                        //- else
+                                        //    div.ThisStatu
                                 tr
                                     td.text-center 电压A
                                     td(style='color: #9e9e9e;') {{voltage_1}}V
@@ -97,55 +99,62 @@ block content
                                 tr.text-center
                                     td 继电器一
                                     td
-                                        
-                                        - if (relay_0)
-                                            div.ThisStatu.OKStatu
-                                        - else
-                                            div.ThisStatu
+                                        <div class='ThisStatu {{#if relay_0}}OKStatu{{/if}}'></div>
+                                        //- if (relay_0)
+                                        //    div.ThisStatu.OKStatu
+                                        //- else
+                                        //    div.ThisStatu
                                     td 继电器二
                                     td
-                                        - if (relay_1)
-                                            div.ThisStatu.OKStatu
-                                        - else
-                                            div.ThisStatu
+                                        <div class='ThisStatu {{#if relay_1}}OKStatu{{/if}}'></div>
+                                        //- if (relay_1)
+                                        //    div.ThisStatu.OKStatu
+                                        //- else
+                                        //    div.ThisStatu
                                     td 继电器三
                                     td
-                                        - if (relay_2)
-                                            div.ThisStatu.OKStatu
-                                        - else
-                                            div.ThisStatu
+                                        <div class='ThisStatu {{#if relay_2}}OKStatu{{/if}}'></div>
+                                        //- if (relay_2)
+                                        //    div.ThisStatu.OKStatu
+                                        //- else
+                                        //    div.ThisStatu
                                     td 继电器四
                                     td
-                                        - if (relay_3)
-                                            div.ThisStatu.OKStatu
-                                        - else
-                                            div.ThisStatu
+                                        <div class='ThisStatu {{#if relay_3}}OKStatu{{/if}}'></div>
+                                        //- if (relay_3)
+                                        //    div.ThisStatu.OKStatu
+                                        //- else
+                                        //    div.ThisStatu
                                 tr.text-center
                                     td 继电器五
                                     td
-                                        - if (relay_4)
-                                            div.ThisStatu.OKStatu
-                                        - else
-                                            div.ThisStatu
+                                        <div class='ThisStatu {{#if relay_4}}OKStatu{{/if}}'></div>
+                                        //- if (relay_4)
+                                        //    div.ThisStatu.OKStatu
+                                        //- else
+                                        //    div.ThisStatu
                                     td 继电器六
                                     td
-                                        - if (relay_5)
-                                            div.ThisStatu.OKStatu
-                                        - else
-                                            div.ThisStatu
+                                        <div class='ThisStatu {{#if relay_5}}OKStatu{{/if}}'></div>
+                                        //- if (relay_5)
+                                        //    div.ThisStatu.OKStatu
+                                        //- else
+                                        //    div.ThisStatu
                                     td 继电器七
                                     td
-                                        - if (relay_6)
-                                            div.ThisStatu.OKStatu
-                                        - else
-                                            div.ThisStatu
+                                        <div class='ThisStatu {{#if relay_6}}OKStatu{{/if}}'></div>
+                                        //- if (relay_6)
+                                        //    div.ThisStatu.OKStatu
+                                        //- else
+                                        //    div.ThisStatu
                                     td 继电器八
-                                    td 
+                                    td
+                                        <div class='ThisStatu {{#if relay_7}}OKStatu{{/if}}'></div>
                                         //- {{#if open_time_8}} 
-                                        - if (relay_7)
-                                            div.ThisStatu.OKStatu
-                                        - else
-                                            div.ThisStatu
+                                        //- if (relay_7)
+                                        //    div.ThisStatu.OKStatu
+                                        //- else
+                                        //    div.ThisStatu
                                                 
                                 {{/if}}
                                 {{/each}}                 

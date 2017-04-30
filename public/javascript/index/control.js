@@ -77,8 +77,10 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
                 success: function (data) {
                     for(var i=0;i<data.length;i++){
                                             if(!data[i]){
-                                                break;
+                                                continue;
                                             }else{
+                                                data[i].shakeStatus = data[i].shakeStatus == '无' ? false : true;
+                                                data[i].gateStatus = data[i].gateStatus == '关' ? false : true;
                                                 // data[i].relay_0 =  data[i].relay[0];
                                                 // data[i].relay_1 =  data[i].relay[1];
                                                 // data[i].relay_2 =  data[i].relay[2];
@@ -132,6 +134,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
                                                 // }
                                             }
                                     }
+
                     console.log(data);
                     var result = template(data);
                     self.autoPanel[id].html(result);
@@ -168,8 +171,12 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
             success: function (data) {
                 for(var i=0;i<data.length;i++){
                         if(!data[i]){
-                            break;
+                            continue;
                         }else{
+
+                            data[i].shakeStatus = data[i].shakeStatus == '无' ? false : true;
+                            data[i].gateStatus = data[i].gateStatus == '关' ? false : true;
+
                             if(data[i].relay[0] == '关'){
                                 data[i].relay_0 = false;
                             }else{
