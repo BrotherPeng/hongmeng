@@ -175,9 +175,19 @@ define(function () {
                         '<label class="col-sm-2">开启时间:</label><input class="col-sm-3 openTime flatpickr" value="' + weekTime[0]['open_time_' + i] + '" style="padding: 0">' +
                         '<label class="col-sm-2">关闭时间:</label><input class="col-sm-3 closeTime flatpickr" value="' + weekTime[0]['close_time_' + i] + '" style="padding: 0">' +
                         '</div>' +
-                        '<div class="on_off_box">' +
+                        '<div class="on_off_box">';
+                    //没有设置的情况下也要加上继电器开关
+                    panel +=
+                        '<div style="display: inline-block;text-align: center;margin: 10px 10px 0 0">' +
+                        '<div style="font-size: 12px;color: #6f6c6c">' + "继电器" + (jidianqi++) + '</div>' +
+                        '<div class="ios ios2">' +
+                        '<i class="iosBtn iosBtn2"></i>' +
+                        '<i class="openSta" style="display: none">' + 0 + '</i>' +
                         '</div>' +
                         '</div>';
+                        panel +=
+                            '</div>' +
+                            '</div>';
                 }
             }
         }
