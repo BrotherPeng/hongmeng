@@ -140,7 +140,8 @@ define(function () {
                         '<div class="on_offbox">' ;
                         var week_c = weekTime[0].week_conf;
                         var jidianqi = 1;
-                            for(var n = week_c['week'+(i)].length;n > 0;n--){
+                            // for(var n = week_c['week'+(i)].length;n > 0;n--){
+                            for(var n = 8;n > 0;n--){
                                 if(week_c['week'+(i)].charAt(n-1) == 0){
                                     panel +=
                                         '<div style="display: inline-block;text-align: center;margin: 10px 10px 0 0">' +
