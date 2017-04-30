@@ -108,7 +108,7 @@ define(function () {
                     '<div style="font-size: 12px;color: #6f6c6c">' + "继电器" + (j + 1) + '</div>' +
                     '<div class="ios iosOpen">' +
                     '<i class="iosBtn"></i>' +
-                    '<i class="openSta" style="display: none">' + 1 + '</i>' +
+                    '<i class="openSta" style="display: none">' + 0 + '</i>' +  //默认关闭状态
                     '</div>' +
                     '</div>';
                 on_off_box.html(onOffBtn);
@@ -145,7 +145,7 @@ define(function () {
                         dayNum = 7;
                         break;
                 }
-                if (weekTime[0]['open_time_' + i] != '00:00' && weekTime[0]['close_time_' + i] != '00:00') {
+                // if (weekTime[0]['open_time_' + i] != '00:00' && weekTime[0]['close_time_' + i] != '00:00') {
                     panel +=
                         '<div class="input-group">' +
                         '<label>周' + day + ':</label>' +
@@ -183,7 +183,7 @@ define(function () {
                         '</div>' +
                         '</div>';
 
-                } else {
+                /*} else {
                     panel +=
                         '<div class="input-group">' +
                         '<label>周' + day + ':</label>' +
@@ -208,7 +208,7 @@ define(function () {
                         panel +=
                             '</div>' +
                             '</div>';
-                }
+                }*/
             }
             target.html(panel); //插入到页面
         }
