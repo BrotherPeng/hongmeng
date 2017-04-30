@@ -102,13 +102,13 @@ define(function () {
             var on_off_box = $(".on_off_box");
             //开关
             var onOffBtn = "";
-            for (var j = 0; j < switchArr.length; j++) {
+            for (var j = 1; j < 9; j++) {
                 onOffBtn +=
                     '<div style="display: inline-block;text-align: center;margin: 10px 10px 0 0">' +
-                    '<div style="font-size: 12px;color: #6f6c6c">' + "继电器" + (j + 1) + '</div>' +
-                    '<div class="ios iosOpen">' +
-                    '<i class="iosBtn"></i>' +
-                    '<i class="openSta" style="display: none">' + 0 + '</i>' +  //默认关闭状态
+                    '<div style="font-size: 12px;color: #6f6c6c">' + "继电器" + j + '</div>' +
+                    '<div class="ios ios2">' +
+                    '<i class="iosBtn iosBtn2"></i>' +
+                    '<i class="openSta" style="display: none">' + 0 + '</i>' + //默认关闭状态
                     '</div>' +
                     '</div>';
                 on_off_box.html(onOffBtn);
@@ -244,7 +244,7 @@ define(function () {
         /*IOS开关控制(周模式)
          * ios2 iosbtn2 存在时显示关闭样式 iosOpen表示继电器开关：开
          * */
-        $(function () {
+        /*$(function () {
             var ios = $(".ios");
             ios.click(function () {
                 $(this).toggleClass("ios2 iosOpen");
@@ -255,10 +255,24 @@ define(function () {
                     $(this).find('i.openSta').html(0);
                 }
             });
-        });
-
+        });*/
+        setToggle(); //开关切换
         initTimePlus();//初始化时间插件
     };
+
+    //设置开关切换
+    function setToggle() {
+        var ios = $(".ios");
+        ios.click(function () {
+            $(this).toggleClass("ios2 iosOpen");
+            $(this).find('i.iosBtn').toggleClass("iosBtn2 iosOpen");
+            if ($(this).find('i.openSta').html() == 0) {
+                $(this).find('i.openSta').html(1);
+            } else {
+                $(this).find('i.openSta').html(0);
+            }
+        });
+    }
     template.dailyPanel = function (target, dailyTime, initTimePlus, switchArr) {
         var panel, start_day_arr, end_day_arr, start_month, start_day, end_month, end_day, open_time, close_time, i = 1, panel = '';
         if (dailyTime.length === 0) {
@@ -303,6 +317,8 @@ define(function () {
             panel += '<button type="button" class="btn btn-default" id="addSection">新增区间</button></div>';
         }
         target.html(panel);
+
+        setToggle(); //开关切换
         initTimePlus();//初始化时间插件
     };
     template.buildDailyPanel = function (start_month, start_day, end_month, end_day, open_time, close_time,i, section1) {
