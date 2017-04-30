@@ -98,10 +98,11 @@ block content
                                     td 继电器一
                                     td
                                         
-                                        - if (relay_0)
+                                        {{#if relay_0}}
                                             div.ThisStatu.OKStatu
-                                        - else
+                                        {{else}}
                                             div.ThisStatu
+                                        {{/if}}
                                     td 继电器二
                                     td
                                         - if (relay_1)
