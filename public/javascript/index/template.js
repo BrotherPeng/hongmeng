@@ -96,6 +96,23 @@ define(function () {
                 '<div class="on_off_box">' +
                 '</div>' +
                 '</div>';
+
+            target.html(panel); //先插入到页面下面再遍历继电器开关
+
+            var on_off_box = $(".on_off_box");
+            //开关
+            var onOffBtn = "";
+            for (var j = 0; j < switchArr.length; j++) {
+                onOffBtn +=
+                    '<div style="display: inline-block;text-align: center;margin: 10px 10px 0 0">' +
+                    '<div style="font-size: 12px;color: #6f6c6c">' + "继电器" + (j + 1) + '</div>' +
+                    '<div class="ios iosOpen">' +
+                    '<i class="iosBtn"></i>' +
+                    '<i class="openSta" style="display: none">' + 1 + '</i>' +
+                    '</div>' +
+                    '</div>';
+                on_off_box.html(onOffBtn);
+            }
         } else {
             for (var i = 1; i < 8; i++) {
                 switch (i) {
@@ -177,46 +194,53 @@ define(function () {
                         '</div>' +
                         '<div class="on_off_box">';
                     //没有设置的情况下也要加上继电器开关
-                    panel +=
-                        '<div style="display: inline-block;text-align: center;margin: 10px 10px 0 0">' +
-                        '<div style="font-size: 12px;color: #6f6c6c">' + "继电器" + (jidianqi++) + '</div>' +
-                        '<div class="ios ios2">' +
-                        '<i class="iosBtn iosBtn2"></i>' +
-                        '<i class="openSta" style="display: none">' + 0 + '</i>' +
-                        '</div>' +
-                        '</div>';
+                    for(var n = 1;n < 9;n++){
+                        panel +=
+                            '<div style="display: inline-block;text-align: center;margin: 10px 10px 0 0">' +
+                            '<div style="font-size: 12px;color: #6f6c6c">' + "继电器" + n + '</div>' +
+                            '<div class="ios ios2">' +
+                            '<i class="iosBtn iosBtn2"></i>' +
+                            '<i class="openSta" style="display: none">' + 0 + '</i>' +
+                            '</div>' +
+                            '</div>';
+                    }
+
                         panel +=
                             '</div>' +
                             '</div>';
                 }
             }
+            target.html(panel); //插入到页面
         }
-        target.html(panel);
-        /*var on_off_box = $(".on_off_box");
-        //开关
-        var onOffBtn = "";
-        for (var j = 0; j < switchArr.length; j++) {
-            if (switchArr[j] == 0) {
-                onOffBtn +=
-                    '<div style="display: inline-block;text-align: center;margin: 10px 10px 0 0">' +
-                    '<div style="font-size: 12px;color: #6f6c6c">' + "继电器" + (j + 1) + '</div>' +
-                    '<div class="ios ios2">' +
-                    '<i class="iosBtn iosBtn2"></i>' +
-                    '<i class="openSta" style="display: none">' + 0 + '</i>' +
-                    '</div>' +
-                    '</div>';
-            } else {
-                onOffBtn +=
-                    '<div style="display: inline-block;text-align: center;margin: 10px 10px 0 0">' +
-                    '<div style="font-size: 12px;color: #6f6c6c">' + "继电器" + (j + 1) + '</div>' +
-                    '<div class="ios iosOpen">' +
-                    '<i class="iosBtn"></i>' +
-                    '<i class="openSta" style="display: none">' + 1 + '</i>' +
-                    '</div>' +
-                    '</div>';
+
+        /*if (weekTime.length === 0) { //批量设置用到
+            var on_off_box = $(".on_off_box");
+            //开关
+            var onOffBtn = "";
+            for (var j = 0; j < switchArr.length; j++) {
+                if (switchArr[j] == 0) {
+                    onOffBtn +=
+                        '<div style="display: inline-block;text-align: center;margin: 10px 10px 0 0">' +
+                        '<div style="font-size: 12px;color: #6f6c6c">' + "继电器" + (j + 1) + '</div>' +
+                        '<div class="ios ios2">' +
+                        '<i class="iosBtn iosBtn2"></i>' +
+                        '<i class="openSta" style="display: none">' + 0 + '</i>' +
+                        '</div>' +
+                        '</div>';
+                } else {
+                    onOffBtn +=
+                        '<div style="display: inline-block;text-align: center;margin: 10px 10px 0 0">' +
+                        '<div style="font-size: 12px;color: #6f6c6c">' + "继电器" + (j + 1) + '</div>' +
+                        '<div class="ios iosOpen">' +
+                        '<i class="iosBtn"></i>' +
+                        '<i class="openSta" style="display: none">' + 1 + '</i>' +
+                        '</div>' +
+                        '</div>';
+                }
+                on_off_box.html(onOffBtn);
             }
-            on_off_box.html(onOffBtn);
         }*/
+
         /*IOS开关控制(周模式)
          * ios2 iosbtn2 存在时显示关闭样式 iosOpen表示继电器开关：开
          * */
