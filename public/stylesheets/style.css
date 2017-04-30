@@ -2,10 +2,13 @@
  * Base structure
  */
 
+
 /* Move down content because we have a fixed navbar that is 50px tall */
+
 body {
     padding-top: 50px;
 }
+
 
 /*
  * Global add-ons
@@ -20,24 +23,31 @@ body {
     display: none;
 }
 
+
 /*
  * Top navigation
  * Hide default border to remove 1px line.
  */
+
 .navbar-fixed-top {
     border: 0;
 }
 
-.nav > li > .fn-hide {
+.nav>li>.fn-hide {
     display: none;
 }
+
 
 /*
  * Sidebar
  */
 
+
 /* Hide for mobile, show later */
-.skin-blue .left-side, .skin-blue .main-sidebar, .skin-blue .wrapper {
+
+.skin-blue .left-side,
+.skin-blue .main-sidebar,
+.skin-blue .wrapper {
     background-color: #222d32;
 }
 
@@ -63,7 +73,7 @@ body {
     overflow: hidden;
 }
 
-.user-panel > .info {
+.user-panel>.info {
     padding: 5px 5px 5px 15px;
     line-height: 1;
     position: absolute;
@@ -71,7 +81,7 @@ body {
     color: #fff;
 }
 
-.user-panel > .info > a {
+.user-panel>.info>a {
     color: #fff;
 }
 
@@ -79,7 +89,9 @@ body {
     content: "\f111";
 }
 
-.user-panel > .info > a > .fa, .user-panel > .info > a > .glyphicon, .user-panel > .info > a > .ion {
+.user-panel>.info>a>.fa,
+.user-panel>.info>a>.glyphicon,
+.user-panel>.info>a>.ion {
     margin-right: 3px;
 }
 
@@ -92,7 +104,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-.user-panel > .image > img {
+.user-panel>.image>img {
     width: 100%;
     max-width: 45px;
     height: auto;
@@ -102,23 +114,26 @@ body {
     display: block;
 }
 
+
 /* Sidebar navigation */
+
 .nav-sidebar {
-    margin-right: -21px; /* 20px padding + 1px border */
+    margin-right: -21px;
+    /* 20px padding + 1px border */
     margin-bottom: 20px;
     margin-left: -20px;
 }
 
-.nav-sidebar > li > a {
+.nav-sidebar>li>a {
     padding-right: 20px;
     padding-left: 20px;
 }
 
-.sidebar-menu li > a {
+.sidebar-menu li>a {
     position: relative;
 }
 
-.sidebar-menu > li > a {
+.sidebar-menu>li>a {
     padding: 12px 5px 12px 15px;
     display: block;
     color: #b8c7ce;
@@ -128,7 +143,7 @@ body {
     color: #b8c7ce;
 }
 
-.sidebar-menu > li > a {
+.sidebar-menu>li>a {
     border-left: 3px solid transparent;
 }
 
@@ -138,7 +153,8 @@ body {
     padding: 0;
 }
 
-.sidebar-menu > li.active > a, .sidebar-menu > li:hover > a {
+.sidebar-menu>li.active>a,
+.sidebar-menu>li:hover>a {
     color: #fff;
     background: #1e282c;
     border-left-color: #3c8dbc;
@@ -148,29 +164,29 @@ body {
     content: "\f104";
 }
 
-.sidebar-menu li > a > .pull-right {
+.sidebar-menu li>a>.pull-right {
     position: absolute;
     right: 10px;
     top: 50%;
     margin-top: -7px;
 }
 
-.sidebar-menu .treeview-menu > li > a {
+.sidebar-menu .treeview-menu>li>a {
     padding: 5px 5px 5px 15px;
     display: block;
     font-size: 14px;
 }
 
-.sidebar-menu li > a > .fa-angle-left {
+.sidebar-menu li>a>.fa-angle-left {
     width: auto;
     height: auto;
     padding: 0;
     margin-right: 10px;
 }
 
-.nav-sidebar > .active > a,
-.nav-sidebar > .active > a:hover,
-.nav-sidebar > .active > a:focus {
+.nav-sidebar>.active>a,
+.nav-sidebar>.active>a:hover,
+.nav-sidebar>.active>a:focus {
     color: #fff;
     background-color: #428bca;
 }
@@ -178,6 +194,7 @@ body {
 .slide-list-group {
     margin-bottom: 0;
 }
+
 
 /*
  * Main content
@@ -197,6 +214,7 @@ body {
 .main .page-header {
     margin-top: 0;
 }
+
 
 /*
  * Placeholder dashboard ideas
@@ -221,14 +239,16 @@ body {
 }
 
 .project-up-down {
-    cursor: pointer;;
+    cursor: pointer;
+    ;
 }
 
 .fn-right {
     float: right;
 }
 
-.btn-switch.active, .btn-switch.active.focus {
+.btn-switch.active,
+.btn-switch.active.focus {
     background-color: #b92c28;
 }
 
@@ -258,9 +278,12 @@ body {
     margin-right: 37%;
 }
 
+
 /*更改后在此处以下覆盖部分原有样式*/
 
+
 /*全局字体微软雅黑*/
+
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Microsoft YaHei', sans-serif;
     /*background-image: url(../images/blue_bg.png);*/
@@ -268,24 +291,26 @@ body {
     background-color: #fafafa;
 }
 
+
 /*作侧导航样式调整*/
+
 .main-sidebar {
     width: 180px;
 }
 
+
 /*中间内容部分向左移动*/
+
 @media (max-width: 768px) {
     .col-md-offset-2 {
         margin-left: 26.666667%;
     }
-
 }
 
 @media screen and (max-width: 767px) {
     .table-responsive {
         border: 1px solid #222d32;
     }
-
     .col-md-offset-2 {
         margin-left: 36.666667%;
     }
@@ -303,12 +328,16 @@ body {
     }
 }
 
+
 /*表格提示字颜色*/
+
 caption {
     color: #222d32;
 }
 
+
 /*操作按钮*/
+
 .delBtn {
     color: #ff0000;
 }
@@ -320,17 +349,19 @@ caption {
 .editBtn {
     color: #337ab7;
     margin-left: 5px;
-
 }
 
 .editBtn:hover {
     color: #ffffff;
 }
 
+
 /*表格边框色*/
+
 .table-bordered {
-    border: solid 1px rgba(158, 158, 158,.3);
+    border: solid 1px rgba(158, 158, 158, .3);
 }
+
 
 /*所有表格列预留长度*/
 
@@ -342,27 +373,35 @@ thead th:nth-child(1) {
     min-width: 50px;
 }
 
+
 /*表单头下地边框1px*/
-.table-bordered > thead > tr > th {
+
+.table-bordered>thead>tr>th {
     border-bottom-width: 1px;
 }
 
+
 /*控制中心项目边框圆角*/
+
 .list-group-item {
     border-radius: 4px;
 }
 
+
 /*表格去除竖边框*/
-.table-bordered > thead > tr > th {
+
+.table-bordered>thead>tr>th {
     border: none;
 }
 
-.table-bordered > tbody > tr > td {
+.table-bordered>tbody>tr>td {
     border-left: none;
     border-right: none;
 }
 
+
 /*表格行鼠标悬停效果*/
+
 .list_tr {
     transition: 0.3s ease-out;
 }
@@ -373,30 +412,40 @@ thead th:nth-child(1) {
     color: #ffffff;
 }
 
+
 /*表格圆角*/
+
 table {
     border-collapse: separate;
     border-radius: 5px;
 }
 
+
 /*表格名底边颜色*/
+
 .page-header {
     border-bottom-color: #222d32;
 }
 
+
 /*表格内边框颜色*/
-.table-bordered > tbody > tr > td {
+
+.table-bordered>tbody>tr>td {
     border-bottom: none;
-    border-top-color: rgba(158, 158, 158,.3);
+    border-top-color: rgba(158, 158, 158, .3);
 }
 
+
 /*项目列表表格圆角*/
-.table > thead > tr > th {
+
+.table>thead>tr>th {
     vertical-align: bottom;
     border-bottom: none;
 }
 
+
 /*添加页面的提交按钮样式*/
+
 .sub_btn {
     transition: 0.5s ease-out;
     background-color: #ffffff;
@@ -427,7 +476,9 @@ table {
     /*margin-left: 60px;*/
 }
 
+
 /*自定义弹框样式*/
+
 .tipBox {
     border: solid 1px #222d32;
     border-radius: 4px;
@@ -464,11 +515,11 @@ table {
     color: #ffffff;
 }
 
-.nav-pills > li > a {
+.nav-pills>li>a {
     padding: 5px 8px;
 }
 
-.nav-pills > li + li {
+.nav-pills>li+li {
     margin-left: 20px;
 }
 
@@ -504,7 +555,8 @@ table {
     margin-top: 20px;
 }
 
-.btn-switch.active, .btn-switch.active.focus {
+.btn-switch.active,
+.btn-switch.active.focus {
     background-color: #e8e8e8;
     color: #222d32;
 }
@@ -513,7 +565,9 @@ table {
     font-weight: 100;
 }
 
+
 /*开关*/
+
 .on_off_btn {
     margin-left: 5px;
 }
@@ -524,7 +578,9 @@ table {
     top: 11px;
 }
 
+
 /*ios开关*/
+
 .ios i {
     cursor: pointer;
 }
@@ -552,7 +608,6 @@ table {
     position: relative;
     top: -1px;
     transition: all 0.2s;
-
 }
 
 .ios2 {
@@ -584,7 +639,9 @@ table {
     padding-bottom: 10px;
 }
 
+
 /*操作弹出框*/
+
 .week_box {
     border-top: solid 1px #e8e8e8;
     margin-top: 10px;
@@ -597,7 +654,9 @@ table {
     /*color: #333333;*/
 }
 
+
 /*控制中心项目标识符号*/
+
 .control-tip {
     display: inline-block;
     width: 3px;
@@ -615,9 +674,12 @@ table {
     /*border: solid 1px black;*/
     width: 150px;
     height: 20px;
-    overflow: hidden; /*自动隐藏文字*/
-    text-overflow: ellipsis; /*文字隐藏后添加省略号*/
-    white-space: nowrap; /*强制不换行*/
+    overflow: hidden;
+    /*自动隐藏文字*/
+    text-overflow: ellipsis;
+    /*文字隐藏后添加省略号*/
+    white-space: nowrap;
+    /*强制不换行*/
     position: relative;
     top: 5px;
 }
@@ -635,11 +697,12 @@ table {
     margin-right: 10px;
     border-radius: 5px;
     color: #FFFFFF;
-    background-color:#fa661e;
+    background-color: #fa661e;
     border: none;
     /*height: 50px;*/
 }
-.control-weekDay-btn{
+
+.control-weekDay-btn {
     color: #fa661e;
     font-size: 20px;
     width: 80px;
@@ -647,24 +710,26 @@ table {
     line-height: 30px;
     text-align: center;
     border-radius: 5px;
-    cursor:pointer;
+    cursor: pointer;
 }
-.control-chosedBtn{
+
+.control-chosedBtn {
     color: #FFFFFF;
     background-color: #fa661e;
 }
 
-.marginTop-20{
+.marginTop-20 {
     margin-top: 20px;
 }
 
-.table-50{
-    width:50%;
+.table-50 {
+    width: 50%;
 }
 
 
 /*状态*/
-.ThisStatu{
+
+.ThisStatu {
     margin-top: -3px;
     border-radius: 50%;
     border: solid 3px #FFF;
@@ -675,13 +740,30 @@ table {
     background: #FF0000;
 }
 
-.OKStatu{
+.OKStatu {
     background: #4cae4c;
 }
 
+
 /*文字媒体查询*/
+
 @media screen and (max-width: 1400px) {
-    .fontMedia{
-            font-size: 12px;
+    .fontMedia {
+        font-size: 12px;
+    }
+}
+
+
+/*滚动条媒体查询*/
+
+@media screen and (max-width: 1400px) {
+    .table-responsive {
+        overflow-x: hidden;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .table-responsive {
+        overflow-x: auto;
     }
 }
