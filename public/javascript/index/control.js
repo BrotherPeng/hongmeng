@@ -8,18 +8,18 @@ requirejs.config({
         handlebars: 'handlebars/handlebars.amd.min',
         dialog: 'artDialog/dist/dialog-min',
         flatpickr: 'flatpickr/dist/flatpickr.min',
-        dialogTemplate: 'javascript/index/template',//弹框模板
+        dialogTemplate: 'javascript/index/template', //弹框模板
         io: 'socket.io-client/dist/socket.io.min'
     },
     shim: {
-        jquery: {exports: 'jquery'},
-        dialog: {exports: 'dialog'},
-        flatpickr: {exports: 'flatpickr'},
-        io: {exports: 'io'}
+        jquery: { exports: 'jquery' },
+        dialog: { exports: 'dialog' },
+        flatpickr: { exports: 'flatpickr' },
+        io: { exports: 'io' }
 
     }
 });
-require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'], function ($, handlebars, dialog, flatpickr, dialogTemplate, io) {
+require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'], function($, handlebars, dialog, flatpickr, dialogTemplate, io) {
     // some code here
     var nodeInfo = $('#nodeInfo').html();
     var template = handlebars.compile(nodeInfo);
@@ -27,21 +27,21 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
         weekPanel = dialogTemplate.weekPanel,
         dailyPanel = dialogTemplate.dailyPanel;
     // weekSet = dialogTemplate.weekSet;
-    var AutoRefresh = function () {
+    var AutoRefresh = function() {
         this.autoArr = [];
         this.autoPanel = {};
         this.run();
     };
     AutoRefresh.prototype = {
-        set: function (id, panel) {
+        set: function(id, panel) {
             var self = this;
             self.autoArr.push(id);
             self.autoPanel[id] = panel;
         },
-        get: function (id) {
+        get: function(id) {
             var self = this,
                 has = false;
-            $.each(self.autoArr, function (i, v) {
+            $.each(self.autoArr, function(i, v) {
                 if (v == id) {
                     has = true;
                     return;
@@ -49,91 +49,91 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
             });
             return has;
         },
-        remove: function (id) {
+        remove: function(id) {
             var self = this;
-            $.each(self.autoArr, function (i, v) {
+            $.each(self.autoArr, function(i, v) {
                 if (v == id) {
                     self.autoArr.splice(i, 1);
                     self.autoPanel[id] = null;
                 }
             })
         },
-        run: function () {
+        run: function() {
             var self = this;
-            $.each(self.autoArr, function (i, v) {
+            $.each(self.autoArr, function(i, v) {
                 self.render(v);
             });
-            setTimeout(function () {
+            setTimeout(function() {
                 self.run();
             }, 20000)
         },
-        render: function (id) {
+        render: function(id) {
             var self = this;
             $.ajax({
                 method: "GET",
                 url: "/nodeControl/id",
                 dataType: "json",
-                data: {projectId: id},
-                success: function (data) {
-                    for(var i=0;i<data.length;i++){
-                                            if(!data[i]){
-                                                continue;
-                                            }else{
-                                                data[i].shakeStatus = data[i].shakeStatus == '无' ? false : true;
-                                                data[i].gateStatus = data[i].gateStatus == '关' ? false : true;
-                                                // data[i].relay_0 =  data[i].relay[0];
-                                                // data[i].relay_1 =  data[i].relay[1];
-                                                // data[i].relay_2 =  data[i].relay[2];
-                                                // data[i].relay_3 =  data[i].relay[3];
-                                                // data[i].relay_4 =  data[i].relay[4];
-                                                // data[i].relay_5 =  data[i].relay[5];
-                                                // data[i].relay_6 =  data[i].relay[6];
-                                                // data[i].relay_7 =  data[i].relay[7];
-                                                if(data[i].relay[0] == '关'){
-                                                    data[i].relay_0 = false;
-                                                }else{
-                                                    data[i].relay_0 = true;
-                                                }
-                                                if(data[i].relay[1] == '关'){
-                                                    data[i].relay_1 = false;
-                                                }else{
-                                                    data[i].relay_1 = true;
-                                                }
-                                                if(data[i].relay[2] == '关'){
-                                                    data[i].relay_2 = false;
-                                                }else{
-                                                    data[i].relay_2 = true;
-                                                }
-                                                if(data[i].relay[3] == '关'){
-                                                    data[i].relay_3 = false;
-                                                }else{
-                                                    data[i].relay_3 = true;
-                                                }
-                                                if(data[i].relay[4] == '关'){
-                                                    data[i].relay_4 = false;
-                                                }else{
-                                                    data[i].relay_4 = true;
-                                                }
-                                                if(data[i].relay[5] == '关'){
-                                                    data[i].relay_5 = false;
-                                                }else{
-                                                    data[i].relay_5 = true;
-                                                }
-                                                if(data[i].relay[6] == '关'){
-                                                    data[i].relay_6 = false;
-                                                }else{
-                                                    data[i].relay_6 = true;
-                                                }
-                                                if(data[i].relay[7] == '关'){
-                                                    data[i].relay_7 = false;
-                                                }else{
-                                                    data[i].relay_7 = true;
-                                                }
-                                                // for(var j=0;j<data[i].relay.length;j++){
-                                                //     if(data[i].relay[]){}
-                                                // }
-                                            }
-                                    }
+                data: { projectId: id },
+                success: function(data) {
+                    for (var i = 0; i < data.length; i++) {
+                        if (!data[i]) {
+                            continue;
+                        } else {
+                            data[i].shakeStatus = data[i].shakeStatus == '无' ? false : true;
+                            data[i].gateStatus = data[i].gateStatus == '关' ? false : true;
+                            // data[i].relay_0 =  data[i].relay[0];
+                            // data[i].relay_1 =  data[i].relay[1];
+                            // data[i].relay_2 =  data[i].relay[2];
+                            // data[i].relay_3 =  data[i].relay[3];
+                            // data[i].relay_4 =  data[i].relay[4];
+                            // data[i].relay_5 =  data[i].relay[5];
+                            // data[i].relay_6 =  data[i].relay[6];
+                            // data[i].relay_7 =  data[i].relay[7];
+                            if (data[i].relay[0] == '关') {
+                                data[i].relay_0 = false;
+                            } else {
+                                data[i].relay_0 = true;
+                            }
+                            if (data[i].relay[1] == '关') {
+                                data[i].relay_1 = false;
+                            } else {
+                                data[i].relay_1 = true;
+                            }
+                            if (data[i].relay[2] == '关') {
+                                data[i].relay_2 = false;
+                            } else {
+                                data[i].relay_2 = true;
+                            }
+                            if (data[i].relay[3] == '关') {
+                                data[i].relay_3 = false;
+                            } else {
+                                data[i].relay_3 = true;
+                            }
+                            if (data[i].relay[4] == '关') {
+                                data[i].relay_4 = false;
+                            } else {
+                                data[i].relay_4 = true;
+                            }
+                            if (data[i].relay[5] == '关') {
+                                data[i].relay_5 = false;
+                            } else {
+                                data[i].relay_5 = true;
+                            }
+                            if (data[i].relay[6] == '关') {
+                                data[i].relay_6 = false;
+                            } else {
+                                data[i].relay_6 = true;
+                            }
+                            if (data[i].relay[7] == '关') {
+                                data[i].relay_7 = false;
+                            } else {
+                                data[i].relay_7 = true;
+                            }
+                            // for(var j=0;j<data[i].relay.length;j++){
+                            //     if(data[i].relay[]){}
+                            // }
+                        }
+                    }
 
                     console.log(data);
                     var result = template(data);
@@ -144,11 +144,11 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
     };
     var autoRefresh = new AutoRefresh();
     //下拉按钮单击事件，请求该项目下的所有设备
-    $('body').on('click', '#projectId .project-up-down', function () {
+    $('body').on('click', '#projectId .project-up-down', function() {
         var $this = $(this),
             $li = $(this).parents('.list-group-item'),
             $tabpanel = $li.find('[role=tabpanel]'),
-            $statusWrap = $li.find('.nodeInfoWrap'),
+            $statusWrap = $li.find('.nodeInfoTable'),
             isShow = !$tabpanel.hasClass('fn-hide'),
             id = $li.data('id');
 
@@ -167,60 +167,60 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
             method: "GET",
             url: "/nodeControl/id",
             dataType: "json",
-            data: {projectId: id},
-            success: function (data) {
-                for(var i=0;i<data.length;i++){
-                        if(!data[i]){
-                            continue;
-                        }else{
+            data: { projectId: id },
+            success: function(data) {
+                for (var i = 0; i < data.length; i++) {
+                    if (!data[i]) {
+                        continue;
+                    } else {
 
-                            data[i].shakeStatus = data[i].shakeStatus == '无' ? false : true;
-                            data[i].gateStatus = data[i].gateStatus == '关' ? false : true;
+                        data[i].shakeStatus = data[i].shakeStatus == '无' ? false : true;
+                        data[i].gateStatus = data[i].gateStatus == '关' ? false : true;
 
-                            if(data[i].relay[0] == '关'){
-                                data[i].relay_0 = false;
-                            }else{
-                                data[i].relay_0 = true;
-                            }
-                            if(data[i].relay[1] == '关'){
-                                data[i].relay_1 = false;
-                            }else{
-                                data[i].relay_1 = true;
-                            }
-                            if(data[i].relay[2] == '关'){
-                                data[i].relay_2 = false;
-                            }else{
-                                data[i].relay_2 = true;
-                            }
-                            if(data[i].relay[3] == '关'){
-                                data[i].relay_3 = false;
-                            }else{
-                                data[i].relay_3 = true;
-                            }
-                            if(data[i].relay[4] == '关'){
-                                data[i].relay_4 = false;
-                            }else{
-                                data[i].relay_4 = true;
-                            }
-                            if(data[i].relay[5] == '关'){
-                                data[i].relay_5 = false;
-                            }else{
-                                data[i].relay_5 = true;
-                            }
-                            if(data[i].relay[6] == '关'){
-                                data[i].relay_6 = false;
-                            }else{
-                                data[i].relay_6 = true;
-                            }
-                            if(data[i].relay[7] == '关'){
-                                data[i].relay_7 = false;
-                            }else{
-                                data[i].relay_7 = true;
-                            }
-                            // for(var j=0;j<data[i].relay.length;j++){
-                            //     if(data[i].relay[]){}
-                            // }
+                        if (data[i].relay[0] == '关') {
+                            data[i].relay_0 = false;
+                        } else {
+                            data[i].relay_0 = true;
                         }
+                        if (data[i].relay[1] == '关') {
+                            data[i].relay_1 = false;
+                        } else {
+                            data[i].relay_1 = true;
+                        }
+                        if (data[i].relay[2] == '关') {
+                            data[i].relay_2 = false;
+                        } else {
+                            data[i].relay_2 = true;
+                        }
+                        if (data[i].relay[3] == '关') {
+                            data[i].relay_3 = false;
+                        } else {
+                            data[i].relay_3 = true;
+                        }
+                        if (data[i].relay[4] == '关') {
+                            data[i].relay_4 = false;
+                        } else {
+                            data[i].relay_4 = true;
+                        }
+                        if (data[i].relay[5] == '关') {
+                            data[i].relay_5 = false;
+                        } else {
+                            data[i].relay_5 = true;
+                        }
+                        if (data[i].relay[6] == '关') {
+                            data[i].relay_6 = false;
+                        } else {
+                            data[i].relay_6 = true;
+                        }
+                        if (data[i].relay[7] == '关') {
+                            data[i].relay_7 = false;
+                        } else {
+                            data[i].relay_7 = true;
+                        }
+                        // for(var j=0;j<data[i].relay.length;j++){
+                        //     if(data[i].relay[]){}
+                        // }
+                    }
                 }
                 console.log(data);
                 var result = template(data);
@@ -230,7 +230,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
         });
     });
     //设备查看tab页切换
-    $('body').on('click', '[role=presentation]', function () {
+    $('body').on('click', '[role=presentation]', function() {
         var $this = $(this),
             $tab = $this.parents('[role=tabpanel]'),
             $presentation = $tab.find('[role=presentation]'),
@@ -258,12 +258,12 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
             method: "GET",
             url: "/nodeControl/weekTime/id",
             dataType: "json",
-            data: {projectId: projectId},
-            success: function (data) {
+            data: { projectId: projectId },
+            success: function(data) {
                 var result = template(data);
                 $weekTimeWrap.html(result);
                 console.log(resule);
-                
+
             }
         });
     }
@@ -277,8 +277,8 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
             method: "GET",
             url: "/nodeControl/dailyTime/id",
             dataType: "json",
-            data: {projectId: projectId},
-            success: function (data) {
+            data: { projectId: projectId },
+            success: function(data) {
                 for (var l = 0; l < data.length; l++) {
                     for (var ll = 2; ll < 6; ll++) {
                         if (data[l] && data[l]['start_' + ll] === '1-1' && data[l]['end_' + ll] === '1-1') {
@@ -298,20 +298,20 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
     }
 
     //操作按钮
-    $('body').on('click', '.btn-dialog', function () {
+    $('body').on('click', '.btn-dialog', function() {
         var $this = $(this),
             id = $this.data('id'),
             relay = $(this).data('relay'),
             $content = '<div class="input-group"><label>id:</label><span>' + id + '</span></div>' +
-                //'<label class="radio-inline"><input type="radio" name="optionsRadios" id="optionWeek" value="0" checked>周模式</label>' +
-                '<label class="radio-inline">' +
-                '<input type="radio" name="optionsRadios" id="optionWeek" value="0" data-relay=' + relay + ' checked>周模式</label>' +
-                '<label class="radio-inline" id="optionsRadios_label">' +
-                '<input type="radio" name="optionsRadios" id="optionDay" value="1" data-relay=' + relay + '>日模式</label>' +
-                '<label class="radio-inline">' +
-                '<input type="radio" name="optionsRadios" id="optionSwitch" value="2" data-relay=' + relay + '>开关控制</label>' +
-                '<div class="control-content">' +
-                '</div>',
+            //'<label class="radio-inline"><input type="radio" name="optionsRadios" id="optionWeek" value="0" checked>周模式</label>' +
+            '<label class="radio-inline">' +
+            '<input type="radio" name="optionsRadios" id="optionWeek" value="0" data-relay=' + relay + ' checked>周模式</label>' +
+            '<label class="radio-inline" id="optionsRadios_label">' +
+            '<input type="radio" name="optionsRadios" id="optionDay" value="1" data-relay=' + relay + '>日模式</label>' +
+            '<label class="radio-inline">' +
+            '<input type="radio" name="optionsRadios" id="optionSwitch" value="2" data-relay=' + relay + '>开关控制</label>' +
+            '<div class="control-content">' +
+            '</div>',
             isGroupBtn = false;
         //判断是否是群发按钮
         if ($this.hasClass('btn-project-group')) {
@@ -324,7 +324,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
             content: $content,
             okValue: '配置',
             cancel: '取消',
-            ok: function () {
+            ok: function() {
                 var type = $('[type=radio]:checked').val(),
                     timeArr = getTime(),
                     dayArr,
@@ -398,8 +398,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
                         closeTime: closeTime,
                         btnState: JSON.stringify(btnState)
                     }, url);
-                }
-                else if (type === '1') {
+                } else if (type === '1') {
                     dayArr = getDay();
                     startDay = dayArr.startDay.toString();
                     endDay = dayArr.endDay.toString();
@@ -411,7 +410,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
                     var sectionSocketArr4 = [];
                     var sectionSocketArr5 = [];
                     for (var k = 0; k < Daily_on_off_btn.length; k++) {
-                        if (!Daily_on_off_btn[k].hasChildNodes()) {//判断用户是否添加区间
+                        if (!Daily_on_off_btn[k].hasChildNodes()) { //判断用户是否添加区间
                             alert("下发失败，请添加区间");
                             return;
                         }
@@ -459,10 +458,9 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
                         closeTime: closeTime,
                         btnState: JSON.stringify(sectionBtnState)
                     }, url);
-                }
-                else {//type==2
-                    $.each($switch, function (i, v) {
-                        if ($(v).hasClass('active')) {//判断开关控制的开关状态
+                } else { //type==2
+                    $.each($switch, function(i, v) {
+                        if ($(v).hasClass('active')) { //判断开关控制的开关状态
                             switchStatus = '0' + switchStatus;
                         } else {
                             switchStatus = '1' + switchStatus;
@@ -479,15 +477,15 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
                 }
 
             },
-            onshow: function () {
+            onshow: function() {
 
-                $('[name=optionsRadios]').on('click', function () {
+                $('[name=optionsRadios]').on('click', function() {
                     var switchArr = [];
                     $('.flatpickr-wrapper').remove();
                     // console.log($(this))
                     if ($(this).val() === '0') {
                         /*先获得switchArr*/
-                        $.each($(this).data('relay').split(','), function (i, v) {
+                        $.each($(this).data('relay').split(','), function(i, v) {
                             if (v === '关') {
                                 switchArr.push(0);
                             } else {
@@ -498,7 +496,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
                         getWeekTimeConfigFromServer(id, $('.control-content'), weekPanel, switchArr);
                     } else if ($(this).val() === '1') {
                         /*先获得switchArr*/
-                        $.each($(this).data('relay').split(','), function (i, v) {
+                        $.each($(this).data('relay').split(','), function(i, v) {
                             if (v === '关') {
                                 switchArr.push(0);
                             } else {
@@ -511,7 +509,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
                         switchArr = [];
                         // console.log($(this).data())
 
-                        $.each($(this).data('relay').split(','), function (i, v) {
+                        $.each($(this).data('relay').split(','), function(i, v) {
                             if (v === '关') {
                                 switchArr.push(0);
                             } else {
@@ -522,7 +520,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
                         //开关控制
                         $(".control-content").html(switchPanel(switchArr));
                         var on_off_btn = $(".on_off_btn");
-                        on_off_btn.click(function () {
+                        on_off_btn.click(function() {
                             if ($(this).hasClass("active")) {
                                 // $(this).children('span').html("on");
                                 $(this).removeClass('active');
@@ -543,125 +541,125 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
         d.show();
     });
     //查询按钮
-    $('body').on('click', '.search-Btn-dialog', function () {
+    $('body').on('click', '.search-Btn-dialog', function() {
 
         var $this = $(this),
             id = $this.data('id'),
             $content =
-                '<div>' +
-                '<label>' +
-                '<div class="control-weekDay-btn control-chosedBtn">周设置</div>' +
-                '<input type=radio name="showModel" checked style="display: none" value="week">' +
-                '</label>' +
-                '<label>' +
-                '<div class="control-weekDay-btn" style="margin-left: 20px">日设置</div>' +
-                '<input type=radio name="showModel" style="display: none" value="day">' +
-                '</label>' +
-                '</div>' +
-                '<div class="control-content">' +
-                '<div id="showWeekSet" style="display: none">'+
-                '<table class="table">'+
-                '<tr class="active"><td>设备</td><td>周一</td><td>周二</td><td>周三</td><td>周四</td><td>周五</td><td>周六</td><td>周日</td></tr>';
-            /**
-             * 注释人：jimmy
-             * 注释模块：查询设置显示
-             * 时间：2017年4月25日17:14:43
-             * QQ：2806446853
-             * 内容： 
-             *      1.将弹框分为3部分，并在方法中分别补充为完整元素
-             *      2.通过ajax请求服务器数据，然后遍历获得数据
-             *      3.将遍历获得数据分别添加入元素内部，并同时完善元素第二部分。
-             *      4.当第一个ajax请求成功后，执行日模式ajax请求。
-             *      5.将遍历获得数据分别添加入元素内部，并同时完善元素第三部分。
-             *      6.当全部内容请求，并且填充完毕后，定义b变量，并为b变量赋值。
-             *      7.通过b.show()显示弹框。完成查询设置显示。
-             */
-            $.ajax({
-                method: "GET",
-                url: "/nodeControl/weekTime/" + 'id?projectId='+id,
-                dataType: "json",
-                success: function (data) {
-                    // console.log(data);
-                    for(var i =0;i<data.length;i++){
-                        if(data[i]){
-                            $content += '<tr class="text-center weekData"><td>'+data[i].equip_id+'</td><td>'+data[i].open_time_1+' - '+data[i].close_time_1+'</td><td>'+data[i].open_time_2+' - '+data[i].close_time_2+'</td><td>'+data[i].open_time_3+' - '+data[i].close_time_3+'</td><td>'+data[i].open_time_4+' - '+data[i].close_time_4+'</td><td>'+data[i].open_time_5+' - '+data[i].close_time_5+'</td><td>'+data[i].open_time_6+' - '+data[i].close_time_6+'</td><td>'+data[i].open_time_7+' - '+data[i].close_time_7+'</td></tr>'
-                        }
+            '<div>' +
+            '<label>' +
+            '<div class="control-weekDay-btn control-chosedBtn">周设置</div>' +
+            '<input type=radio name="showModel" checked style="display: none" value="week">' +
+            '</label>' +
+            '<label>' +
+            '<div class="control-weekDay-btn" style="margin-left: 20px">日设置</div>' +
+            '<input type=radio name="showModel" style="display: none" value="day">' +
+            '</label>' +
+            '</div>' +
+            '<div class="control-content">' +
+            '<div id="showWeekSet" style="display: none">' +
+            '<table class="table">' +
+            '<tr class="active"><td>设备</td><td>周一</td><td>周二</td><td>周三</td><td>周四</td><td>周五</td><td>周六</td><td>周日</td></tr>';
+        /**
+         * 注释人：jimmy
+         * 注释模块：查询设置显示
+         * 时间：2017年4月25日17:14:43
+         * QQ：2806446853
+         * 内容： 
+         *      1.将弹框分为3部分，并在方法中分别补充为完整元素
+         *      2.通过ajax请求服务器数据，然后遍历获得数据
+         *      3.将遍历获得数据分别添加入元素内部，并同时完善元素第二部分。
+         *      4.当第一个ajax请求成功后，执行日模式ajax请求。
+         *      5.将遍历获得数据分别添加入元素内部，并同时完善元素第三部分。
+         *      6.当全部内容请求，并且填充完毕后，定义b变量，并为b变量赋值。
+         *      7.通过b.show()显示弹框。完成查询设置显示。
+         */
+        $.ajax({
+            method: "GET",
+            url: "/nodeControl/weekTime/" + 'id?projectId=' + id,
+            dataType: "json",
+            success: function(data) {
+                // console.log(data);
+                for (var i = 0; i < data.length; i++) {
+                    if (data[i]) {
+                        $content += '<tr class="text-center weekData"><td>' + data[i].equip_id + '</td><td>' + data[i].open_time_1 + ' - ' + data[i].close_time_1 + '</td><td>' + data[i].open_time_2 + ' - ' + data[i].close_time_2 + '</td><td>' + data[i].open_time_3 + ' - ' + data[i].close_time_3 + '</td><td>' + data[i].open_time_4 + ' - ' + data[i].close_time_4 + '</td><td>' + data[i].open_time_5 + ' - ' + data[i].close_time_5 + '</td><td>' + data[i].open_time_6 + ' - ' + data[i].close_time_6 + '</td><td>' + data[i].open_time_7 + ' - ' + data[i].close_time_7 + '</td></tr>'
                     }
-                    $content += '</table>'+
+                }
+                $content += '</table>' +
                     '</div>' +
-                    '<div id="showDaySet" style="display: none">'+
+                    '<div id="showDaySet" style="display: none">' +
                     '<table class="table"><tr class="active"><td>设备</td><td>日期区间</td><td>开关时间</td></tr>';
-                     $.ajax({
-                        method: "GET",
-                        url: "/nodeControl/dailyTime/" + 'id?projectId='+id,
-                        dataType: "json",
-                        success: function (data) {
-                            // console.log(data);
-                            for(var j=0;j<data.length;j++){
-                                if(data[j]){
-                                    $content += '<tr><td>'+data[j].equip_id+'</td><td>'+data[j].start_1+' ~ '+data[j].end_1+'</td><td>'+data[j].open_1+' - '+data[j].close_1+'</td></tr>'+
-                                        '<tr><td><td>'+data[j].start_2+' ~ '+data[j].end_2+'</td><td>'+data[j].open_2+' - '+data[j].close_2+'</td></tr>'+
-                                        '<tr><td><td>'+data[j].start_3+' ~ '+data[j].end_3+'</td><td>'+data[j].open_3+' - '+data[j].close_3+'</td></tr>'+
-                                        '<tr><td><td>'+data[j].start_4+' ~ '+data[j].end_4+'</td><td>'+data[j].open_4+' - '+data[j].close_4+'</td></tr>'+
-                                        '<tr><td><td>'+data[j].start_5+' ~ '+data[j].end_5+'</td><td>'+data[j].open_5+' - '+data[j].close_5+'</td></tr>';
-                                }
+                $.ajax({
+                    method: "GET",
+                    url: "/nodeControl/dailyTime/" + 'id?projectId=' + id,
+                    dataType: "json",
+                    success: function(data) {
+                        // console.log(data);
+                        for (var j = 0; j < data.length; j++) {
+                            if (data[j]) {
+                                $content += '<tr><td>' + data[j].equip_id + '</td><td>' + data[j].start_1 + ' ~ ' + data[j].end_1 + '</td><td>' + data[j].open_1 + ' - ' + data[j].close_1 + '</td></tr>' +
+                                    '<tr><td><td>' + data[j].start_2 + ' ~ ' + data[j].end_2 + '</td><td>' + data[j].open_2 + ' - ' + data[j].close_2 + '</td></tr>' +
+                                    '<tr><td><td>' + data[j].start_3 + ' ~ ' + data[j].end_3 + '</td><td>' + data[j].open_3 + ' - ' + data[j].close_3 + '</td></tr>' +
+                                    '<tr><td><td>' + data[j].start_4 + ' ~ ' + data[j].end_4 + '</td><td>' + data[j].open_4 + ' - ' + data[j].close_4 + '</td></tr>' +
+                                    '<tr><td><td>' + data[j].start_5 + ' ~ ' + data[j].end_5 + '</td><td>' + data[j].open_5 + ' - ' + data[j].close_5 + '</td></tr>';
                             }
-                            $content += '</table></div></div>';
-                            var d = dialog({
-                                    // title: '消息',
-                                    height: 400,
-                                    width: 550,
-                                    content: $content,
-                                    okValue: '配置',
-                                    cancel: '取消',
-                                    cancelValue: '取消',
-                                    onshow: function () {
-                                        //todo 展示默认信息
-                                        var showModel = $('[name=showModel]');
-                                        for (var i = 0; i < showModel.length; i++) {
-                                            // console.log(showModel[i])
-                                            if (showModel[i].checked) {
-                                                // console.log(showModel[i]);
-                                                if(showModel[i].value == "week"){
-                                                    // console.log("week")
-                                                    $("#showWeekSet").css("display","block");
-                                                    $("#showDaySet").css("display","none");
-                                                }else{
-                                                    // console.log("day")
-                                                    $("#showWeekSet").css("display","none");
-                                                    $("#showDaySet").css("display","block");
-                                                }
-                                            }
+                        }
+                        $content += '</table></div></div>';
+                        var d = dialog({
+                            // title: '消息',
+                            height: 400,
+                            width: 550,
+                            content: $content,
+                            okValue: '配置',
+                            cancel: '取消',
+                            cancelValue: '取消',
+                            onshow: function() {
+                                //todo 展示默认信息
+                                var showModel = $('[name=showModel]');
+                                for (var i = 0; i < showModel.length; i++) {
+                                    // console.log(showModel[i])
+                                    if (showModel[i].checked) {
+                                        // console.log(showModel[i]);
+                                        if (showModel[i].value == "week") {
+                                            // console.log("week")
+                                            $("#showWeekSet").css("display", "block");
+                                            $("#showDaySet").css("display", "none");
+                                        } else {
+                                            // console.log("day")
+                                            $("#showWeekSet").css("display", "none");
+                                            $("#showDaySet").css("display", "block");
                                         }
-                                        //todo 点击事件
-                                        showModel.on('click', function () {
-                                            var arr = [1,2,3,4,5];
-                                            for(var i=0;i<arr.length;i++){
+                                    }
+                                }
+                                //todo 点击事件
+                                showModel.on('click', function() {
+                                    var arr = [1, 2, 3, 4, 5];
+                                    for (var i = 0; i < arr.length; i++) {
 
-                                            }
-                                            $('.flatpickr-wrapper').remove();
-                                            $(this).parent().siblings().children("div").removeClass("control-chosedBtn");
-                                            $(this).siblings().addClass("control-chosedBtn");
-                                            if ($(this).val() == 'week') {
-                                                $("#showWeekSet").css("display","block");
-                                                $("#showDaySet").css("display","none");
-                                                // getWeekTimeConfigFromServer(id, $('.control-content'), weekSet);
-                                            }else{
-                                                $("#showWeekSet").css("display","none");
-                                                $("#showDaySet").css("display","block");
-                                                // getWeekTimeConfigFromServer(id, $('.control-content'), weekSet);
-                                            }
-                                        });
+                                    }
+                                    $('.flatpickr-wrapper').remove();
+                                    $(this).parent().siblings().children("div").removeClass("control-chosedBtn");
+                                    $(this).siblings().addClass("control-chosedBtn");
+                                    if ($(this).val() == 'week') {
+                                        $("#showWeekSet").css("display", "block");
+                                        $("#showDaySet").css("display", "none");
+                                        // getWeekTimeConfigFromServer(id, $('.control-content'), weekSet);
+                                    } else {
+                                        $("#showWeekSet").css("display", "none");
+                                        $("#showDaySet").css("display", "block");
+                                        // getWeekTimeConfigFromServer(id, $('.control-content'), weekSet);
                                     }
                                 });
-                            d.show();
-                        }
-                    });
-                }
-            });
+                            }
+                        });
+                        d.show();
+                    }
+                });
+            }
+        });
     });
     //日设置添加、删除区间事件
-    $('body').on('click', '#addSection', function () {
+    $('body').on('click', '#addSection', function() {
         /*var switchArr = [];
         /!*先获得switchArr*!/
         var data_int = $(this).parent().parent().children('label#optionsRadios_label').children('input');
@@ -717,19 +715,19 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
         var $hide = $('.control-content .daily-hide'),
             $delSection = $('.control-content .delSection'),
             hideNum = $hide.length;
-        if (hideNum === 0)return;
+        if (hideNum === 0) return;
 
         $delSection.hide().eq(5 - hideNum / 2).show();
         $hide.eq(0).removeClass('daily-hide');
         $hide.eq(1).removeClass('daily-hide');
     });
-    $('body').on('click', '.delSection', function () {
+    $('body').on('click', '.delSection', function() {
         var $hide = $('.control-content .daily-hide'),
             $delSection = $('.control-content .delSection'),
             hideNum = $hide.length;
         $(this).parent().find('.flatpickr').val('00:00');
         $(this).parents('.input-group').prev().find('select').val(1);
-        if (hideNum === 8)return;
+        if (hideNum === 8) return;
         $(this).parents('.input-group').addClass('daily-hide');
         $(this).parents('.input-group').prev().addClass('daily-hide');
         $delSection.eq(3 - hideNum / 2).show();
@@ -738,7 +736,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
      * 初始化时间控件
      */
     function initTimePlus() {
-        $.each($('.flatpickr'), function (i, v) {
+        $.each($('.flatpickr'), function(i, v) {
             new flatpickr(v, {
                 enableTime: true,
                 noCalendar: true,
@@ -753,7 +751,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
         var timeArr = {};
         timeArr['openTime'] = [];
         timeArr['closeTime'] = [];
-        $.each($('.openTime'), function (i, v) {
+        $.each($('.openTime'), function(i, v) {
             var _selectVal = $(v).val(),
                 _selectArr = _selectVal.split(':'),
                 h = _selectArr[0],
@@ -761,7 +759,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
             timeArr['openTime'].push(h);
             timeArr['openTime'].push(m);
         });
-        $.each($('.closeTime'), function (i, v) {
+        $.each($('.closeTime'), function(i, v) {
             var _selectVal = $(v).val(),
                 _selectArr = _selectVal.split(':'),
                 h = _selectArr[0],
@@ -777,10 +775,10 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
         var dayArr = {};
         dayArr['startDay'] = [];
         dayArr['endDay'] = [];
-        $.each($('.ui-dialog-content .daily-start'), function (i, v) {
+        $.each($('.ui-dialog-content .daily-start'), function(i, v) {
             dayArr['startDay'].push($(v).val());
         });
-        $.each($('.ui-dialog-content .daily-end'), function (i, v) {
+        $.each($('.ui-dialog-content .daily-end'), function(i, v) {
             dayArr['endDay'].push($(v).val());
         });
         return dayArr;
@@ -796,10 +794,10 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
             method: "GET",
             url: "/nodeControl/weekTime/" + equipId,
             dataType: "json",
-            success: function (data) {
+            success: function(data) {
                 //callback(panel, data, initTimePlus);
-                for(var i=0;i<data.length;i++){
-                    if(data[i]){
+                for (var i = 0; i < data.length; i++) {
+                    if (data[i]) {
                         data[i].week_conf = JSON.parse(data[i].week_conf);
                     }
                 }
@@ -818,7 +816,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
             method: "GET",
             url: "/nodeControl/dailyTime/" + equipId,
             dataType: "json",
-            success: function (data) {
+            success: function(data) {
                 console.log(data);
                 callback(panel, data, initTimePlus, switchArr);
                 getDay();
@@ -835,10 +833,10 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
             url: url,
             dataType: "json",
             data: data,
-            success: function (data) {
+            success: function(data) {
                 if (data.length) {
                     var $content = '<div>';
-                    $.each(data, function (i, v) {
+                    $.each(data, function(i, v) {
                         $content += '<p>' + v.equip_id + ':' + (v.code === 1 ? '下发配置成功' : '下发配置失败') + '</p>';
                     });
                     dialog({
@@ -873,13 +871,13 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
      * 监听websocket
      */
     function listenOnWebSocekt() {
-        var socket = io('120.27.37.212:8082');
-        // var socket = io('127.0.0.1:8082');
-        socket.on('onlineList', function (data) {
+        // var socket = io('120.27.37.212:8082');
+        var socket = io('127.0.0.1:8082');
+        socket.on('onlineList', function(data) {
             if (!data) {
                 return;
             }
-            $.each($('#projectId').find('.list-group-item'), function () {
+            $.each($('#projectId').find('.list-group-item'), function() {
                 if (data[$(this).data('id')]) {
                     $(this).find('.equip-online-num-b').html(data[$(this).data('id')]);
                 } else {
@@ -892,4 +890,3 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
     listenOnWebSocekt();
 
 });
-
