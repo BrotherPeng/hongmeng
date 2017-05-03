@@ -35,6 +35,11 @@ function getPath(path) {
             $('.treeview').addClass('active');
             $('.treeview').find('.treeview-menu').show();
             break;
+        case '/control':
+            $('[role=navigation] .navbar-brand').html('摄像机管理');
+            $('.treeview').addClass('active');
+            $('.treeview').find('.treeview-menu').show();
+            break;
         case '/member/list':
             $('[role=navigation] .navbar-brand').html('人员管理');
             $('.member').addClass('active');

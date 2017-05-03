@@ -18,10 +18,13 @@ aside.main-sidebar
           ul.treeview-menu(style='display:none')
             li
               a(href='/monitor')
-                span.glyphicon.glyphicon-facetime-video.slide_glyphicon  监测中心
+                span.glyphicon.glyphicon-stats.slide_glyphicon  数据中心
             li
               a(href='/control')
                 span.glyphicon.glyphicon-wrench.slide_glyphicon  控制中心
+            li
+              a(href='/control')
+                span.glyphicon.glyphicon-facetime-video.slide_glyphicon  监测中心
       li.member
         a(href='/member/list')
           span.glyphicon.glyphicon-user.slide_glyphicon  人员管理
@@ -30,5 +33,16 @@ aside.main-sidebar
         a(href='/project/list')
           span.glyphicon.glyphicon-list-alt.slide_glyphicon  项目管理
       li.equipment
-        a(href='/equipment/list')
+        a(href='javascript:void(0)')
+          //- a(href='/equipment/list')
+          i.fa.fa-hdd-o
+          span
           span.glyphicon.glyphicon-print.slide_glyphicon  设备管理
+          span.glyphicon.glyphicon-chevron-down.pull-right
+          ul.treeview-menu(style='display:none')
+            li
+              a(href='/control')
+                span.glyphicon.glyphicon-wrench.slide_glyphicon  添加控制器
+            li
+              a(href='/control')
+                span.glyphicon.glyphicon-wrench.slide_glyphicon  添加摄像机
