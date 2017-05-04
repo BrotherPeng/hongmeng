@@ -70,4 +70,7 @@ router.get('/control', function(req, res) {
 
 
 });
+router.get('/monitored', function(req, res) {
+        res.render('index/monitored');
+ });
 module.exports = router;

@@ -74,4 +74,11 @@ router.get('/edit/:id', function(req, res, next) {
         };
     Equipment.update(equipment,res);
 });
+
+router.get('/addCamera', function(req, res, next) {
+    // Equipment.getById(req.params.id,function (err,result) {
+    //     res.render('equipment/addCamera',{title: '监控中心',result:result})
+    // });
+        res.render('equipment/addCamera',{title: '设备管理'});
+})
 module.exports = router;
