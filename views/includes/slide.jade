@@ -13,7 +13,7 @@ aside.main-sidebar
         a(href='javascript:void(0)')
           i.fa.fa-hdd-o
           span
-          span.glyphicon.glyphicon-facetime-video.slide_glyphicon  监控中心
+          span.glyphicon.glyphicon-copyright-mark.slide_glyphicon  监控中心
           span.glyphicon.glyphicon-chevron-down.pull-right
           ul.treeview-menu(style='display:none')
             li
@@ -23,7 +23,7 @@ aside.main-sidebar
               a(href='/control')
                 span.glyphicon.glyphicon-wrench.slide_glyphicon  控制中心
             li
-              a(href='/control')
+              a(href='/monitored')
                 span.glyphicon.glyphicon-facetime-video.slide_glyphicon  监测中心
       li.member
         a(href='/member/list')
@@ -32,7 +32,7 @@ aside.main-sidebar
       li.project
         a(href='/project/list')
           span.glyphicon.glyphicon-list-alt.slide_glyphicon  项目管理
-      li.equipment
+      li.equipment.treeview1.device
         a(href='javascript:void(0)')
           //- a(href='/equipment/list')
           i.fa.fa-hdd-o
@@ -41,8 +41,11 @@ aside.main-sidebar
           span.glyphicon.glyphicon-chevron-down.pull-right
           ul.treeview-menu(style='display:none')
             li
-              a(href='/control')
+              a(href='/equipment/list')
+                span.glyphicon.glyphicon-print.slide_glyphicon  设备列表
+            li
+              a(href='/equipment/add')
                 span.glyphicon.glyphicon-wrench.slide_glyphicon  添加控制器
             li
-              a(href='/control')
-                span.glyphicon.glyphicon-wrench.slide_glyphicon  添加摄像机
+              a(href='/equipment/addCamera')
+                span.glyphicon.glyphicon-facetime-video.slide_glyphicon  添加摄像机

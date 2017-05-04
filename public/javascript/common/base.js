@@ -26,7 +26,7 @@ function getPath(path) {
             $('[role=navigation] .navbar-brand').html('登录');
             break;
         case '/monitor':
-            $('[role=navigation] .navbar-brand').html('监测中心');
+            $('[role=navigation] .navbar-brand').html('数据中心');
             $('.treeview').addClass('active');
             $('.treeview').find('.treeview-menu').show();
             break;
@@ -36,7 +36,7 @@ function getPath(path) {
             $('.treeview').find('.treeview-menu').show();
             break;
         case '/control':
-            $('[role=navigation] .navbar-brand').html('摄像机管理');
+            $('[role=navigation] .navbar-brand').html('监测中心');
             $('.treeview').addClass('active');
             $('.treeview').find('.treeview-menu').show();
             break;
@@ -48,9 +48,19 @@ function getPath(path) {
             $('[role=navigation] .navbar-brand').html('项目管理');
             $('.project').addClass('active');
             break;
+            // case '/equipment/list':
+            //     $('[role=navigation] .navbar-brand').html('设备管理');
+            //     $('.equipment').addClass('active');
+            // break;
         case '/equipment/list':
-            $('[role=navigation] .navbar-brand').html('设备管理');
-            $('.equipment').addClass('active');
+            $('[role=navigation] .navbar-brand').html('设备列表');
+            $('.device').addClass('active');
+            $('.device').find('.treeview-menu').show();
+            break;
+        case '/equipment/add':
+            $('[role=navigation] .navbar-brand').html('添加控制器');
+            $('.device').addClass('active');
+            $('.device').find('.treeview-menu').show();
             break;
         default:
             break;
@@ -58,6 +68,7 @@ function getPath(path) {
 }
 $('.treeview a').on('click', function () {
     if ($(this).parent().hasClass('active')) {
+        // console.log($(this));
         $(this).parent().removeClass('active');
         $(this).next().hide();
     } else {
@@ -66,7 +77,17 @@ $('.treeview a').on('click', function () {
     }
 
 });
+$('.treeview1 a').on('click', function () {
+    if ($(this).parent().hasClass('active')) {
+        // console.log($(this));
+        $(this).parent().removeClass('active');
+        $(this).next().hide();
+    } else {
+        $(this).parent().addClass('active');
+        $(this).next().show();
+    }
 
+});
 //localStorage （key，value）存取
 function putString(key, value) {
     var storage = window.localStorage;
