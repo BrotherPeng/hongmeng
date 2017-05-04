@@ -9,117 +9,119 @@ block content
     .col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2.main
       ul.list-group#projectId
         li.list-group-item.mb15(data-id='123423423233')
-                div.disInline
-                    div.control-tip
-                    div(style='display:inline-block') 项目
-                    div.control-projectName 金士百德
-                div.disInline(style='margin-left:10px')
-                    div.control-tip
-                    span 设备数量：
-                        b 111
-                div.disInline(style='margin-left:10px')
-                    div.control-tip
-                    span 在线数量：
-                        b.equip-online-num-b 1
-                div.fn-right
-                    div.disInline(style='background-color:#a0a0a0;border-radius:5px')
-                        span.glyphicon.glyphicon-chevron-down.project-up-down(style='margin:0 5px;color:#fff')
-                div(role='tabpanel').fn-show(style="white-space:nowrap")
-                    ul.nav.nav-pills.nodeInfoTable
-                            div.marginTop-20.col-xs-4.fontMedia.padding_This
-                                div.div_border
-                                    p.margin_p 设备 
-                                        span.margin_span 111111111
-                                    div
-                                        img(src="http://pic2.ooopic.com/11/34/46/78b1OOOPIC4e.jpg",width="100%",height="200")
-                                        div.position_span
-                                            span.glyphicon.glyphicon-zoom-in.icon_css
-                                    div.margin_div
-                                        div.btn.btn-success(style="margin: 0 0 5px 10px;") 更新图片
-                                        p.margin_span(style="float:right;line-height:35px;margin-right:10px;")
-                                            | 2016
-                                            span.margin_time 年
-                                            | 11
-                                            span.margin_time 月
-                                            | 11
-                                            span.margin_time 日
-                                            | 11
-                                            span.margin_time 时
-                                            | 11
-                                            span.margin_time 分
-                            div.marginTop-20.col-xs-4.fontMedia.padding_This
-                                div.div_border
-                                    p.margin_p 设备 
-                                        span.margin_span 111111111
-                                    div
-                                        img(src="http://pic2.ooopic.com/11/34/46/78b1OOOPIC4e.jpg",width="100%",height="200")
-                                        div.position_span
-                                            span.glyphicon.glyphicon-zoom-in.icon_css
-                                    div.margin_div
-                                        div.btn.btn-success(style="margin: 0 0 5px 10px;") 更新图片
-                                        p.margin_span(style="float:right;line-height:35px;margin-right:10px;")
-                                            | 2016
-                                            span.margin_time 年
-                                            | 11
-                                            span.margin_time 月
-                                            | 11
-                                            span.margin_time 日
-                                            | 11
-                                            span.margin_time 时
-                                            | 11
-                                            span.margin_time 分
-                            div.marginTop-20.col-xs-4.fontMedia.padding_This
-                                div.div_border
-                                    p.margin_p 设备 
-                                        span.margin_span 111111111
-                                    div
-                                        img(src="http://pic2.ooopic.com/11/34/46/78b1OOOPIC4e.jpg",width="100%",height="200")
-                                        div.position_span
-                                            span.glyphicon.glyphicon-zoom-in.icon_css
-                                    div.margin_div
-                                        div.btn.btn-success(style="margin: 0 0 5px 10px;") 更新图片
-                                        p.margin_span(style="float:right;line-height:35px;margin-right:10px;")
-                                            | 2016
-                                            span.margin_time 年
-                                            | 11
-                                            span.margin_time 月
-                                            | 11
-                                            span.margin_time 日
-                                            | 11
-                                            span.margin_time 时
-                                            | 11
-                                            span.margin_time 分
-        if(result)
-            each item in result
-                li.list-group-item.mb15(data-id='#{item.id}')
-                    div.disInline
-                        div.control-tip
-                        div(style='display:inline-block') 项目
-                        div.control-projectName #{item.name}
-                    div.disInline(style='margin-left:10px')
-                        div.control-tip
-                        span 设备数量：
-                            b #{item.count}
-                    div.disInline(style='margin-left:10px')
-                        div.control-tip
-                        span 在线数量：
-                            b.equip-online-num-b 
-                    div.fn-right
-                        div.disInline(style='background-color:#a0a0a0;border-radius:5px')
-                            span.glyphicon.glyphicon-chevron-down.project-up-down(style='margin:0 5px;color:#fff')
-                    div(role='tabpanel').fn-hide(style="white-space:nowrap")
-                        ul.nav.nav-pills.nodeInfoTable
-                            include ../includes/footer
-                            script#nodeInfo(type="text/x-handlebars-template")
-                                {{#each this}}
-                                {{#if id}}
-                                div.marginTop-20.col-xs-4.fontMedia
-                                    div
-                                        p
-                                        div
-                                            img
-                                        div
-                                            div.btn
-                                            p
-                                {{/if}}
-                                {{/each}}                 
+            div.disInline
+                div.control-tip
+                div(style='display:inline-block') 项目
+                div.control-projectName 金士百德
+            div.disInline(style='margin-left:10px')
+                div.control-tip
+                span 设备数量：
+                    b 111
+            div.disInline(style='margin-left:10px')
+                div.control-tip
+                span 在线数量：
+                    b.equip-online-num-b 1
+            div.fn-right
+                div.disInline(style='background-color:#a0a0a0;border-radius:5px')
+                    span.glyphicon.glyphicon-chevron-down.project-up-down(style='margin:0 5px;color:#fff')
+            div(role='tabpanel').fn-show(style="white-space:nowrap")
+                ul.nav.nav-pills.nodeInfoTable
+                        div.marginTop-20.col-xs-4.fontMedia.padding_This
+                            div.div_border
+                                p.margin_p 设备 
+                                    span.margin_span 111111111
+                                div
+                                    img(src="http://pic2.ooopic.com/11/34/46/78b1OOOPIC4e.jpg",width="100%",height="200")
+                                    div.position_span
+                                        span.glyphicon.glyphicon-zoom-in.icon_css
+                                div.margin_div
+                                    div.btn.btn-success(style="margin: 0 0 5px 10px;") 更新图片
+                                    p.margin_span(style="float:right;line-height:35px;margin-right:10px;")
+                                        | 2016
+                                        span.margin_time 年
+                                        | 11
+                                        span.margin_time 月
+                                        | 11
+                                        span.margin_time 日
+                                        | 11
+                                        span.margin_time 时
+                                        | 11
+                                        span.margin_time 分
+                        div.marginTop-20.col-xs-4.fontMedia.padding_This
+                            div.div_border
+                                p.margin_p 设备 
+                                    span.margin_span 111111111
+                                div
+                                    img(src="http://pic2.ooopic.com/11/34/46/78b1OOOPIC4e.jpg",width="100%",height="200")
+                                    div.position_span
+                                        span.glyphicon.glyphicon-zoom-in.icon_css
+                                div.margin_div
+                                    div.btn.btn-success(style="margin: 0 0 5px 10px;") 更新图片
+                                    p.margin_span(style="float:right;line-height:35px;margin-right:10px;")
+                                        | 2016
+                                        span.margin_time 年
+                                        | 11
+                                        span.margin_time 月
+                                        | 11
+                                        span.margin_time 日
+                                        | 11
+                                        span.margin_time 时
+                                        | 11
+                                        span.margin_time 分
+                        div.marginTop-20.col-xs-4.fontMedia.padding_This
+                            div.div_border
+                                p.margin_p 设备 
+                                    span.margin_span 111111111
+                                div
+                                    img(src="http://pic2.ooopic.com/11/34/46/78b1OOOPIC4e.jpg",width="100%",height="200")
+                                    div.position_span
+                                        span.glyphicon.glyphicon-zoom-in.icon_css
+                                div.margin_div
+                                    div.btn.btn-success(style="margin: 0 0 5px 10px;") 更新图片
+                                    p.margin_span(style="float:right;line-height:35px;margin-right:10px;")
+                                        | 2016
+                                        span.margin_time 年
+                                        | 11
+                                        span.margin_time 月
+                                        | 11
+                                        span.margin_time 日
+                                        | 11
+                                        span.margin_time 时
+                                        | 11
+                                        span.margin_time 分
+        //- if(result)
+        //-     each item in result
+        //-         li.list-group-item.mb15(data-id='#{item.id}')
+        //-             div.disInline
+        //-                 div.control-tip
+        //-                 div(style='display:inline-block') 项目
+        //-                 div.control-projectName #{item.name}
+        //-             div.disInline(style='margin-left:10px')
+        //-                 div.control-tip
+        //-                 span 设备数量：
+        //-                     b #{item.count}
+        //-             div.disInline(style='margin-left:10px')
+        //-                 div.control-tip
+        //-                 span 在线数量：
+        //-                     b.equip-online-num-b 
+        //-             div.fn-right
+        //-                 div.disInline(style='background-color:#a0a0a0;border-radius:5px')
+        //-                     span.glyphicon.glyphicon-chevron-down.project-up-down(style='margin:0 5px;color:#fff')
+        //-             div(role='tabpanel').fn-hide(style="white-space:nowrap")
+        //-                 ul.nav.nav-pills.nodeInfoTable
+        //-                     include ../includes/footer
+        //-                     script#nodeInfo(type="text/x-handlebars-template")
+        //-                         {{#each this}}
+        //-                         {{#if id}}
+        //-                         div.marginTop-20.col-xs-4.fontMedia
+        //-                             div
+        //-                                 p
+        //-                                 div
+        //-                                     img
+        //-                                 div
+        //-                                     div.btn
+        //-                                     p
+        //-                         {{/if}}
+        //-                         {{/each}}                 
+script(src='/requirejs/require.js' data-main="/javascript/index/monitored")
+//- script(src='/requirejs/require.js' data-main="/javascript/index/control")
