@@ -35,7 +35,8 @@ function getPath(path) {
             $('.treeview').addClass('active');
             $('.treeview').find('.treeview-menu').show();
             break;
-        case '/control':
+        case '/monitored':
+            // alert(111);
             $('[role=navigation] .navbar-brand').html('监测中心');
             $('.treeview').addClass('active');
             $('.treeview').find('.treeview-menu').show();
@@ -59,6 +60,11 @@ function getPath(path) {
             break;
         case '/equipment/add':
             $('[role=navigation] .navbar-brand').html('添加控制器');
+            $('.device').addClass('active');
+            $('.device').find('.treeview-menu').show();
+            break;
+        case '/equipment/addCamera':
+            $('[role=navigation] .navbar-brand').html('添加摄像机');
             $('.device').addClass('active');
             $('.device').find('.treeview-menu').show();
             break;
