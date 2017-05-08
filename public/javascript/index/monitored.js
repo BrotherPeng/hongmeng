@@ -127,12 +127,12 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
             '</div>';
             console.log($this);
         var d = dialog({
-            // title: '消息',
+            title: ' ',
             height: 400,
             width: 550,
             content: $content,
-            cancel: '确定',
-            cancelValue: '确定'
+            // cancel: '确定',
+            // cancelValue: '确111定'
         });
 
         d.show();

@@ -825,3 +825,8 @@ table {
     left: 4px;
     color:#ababab
 }
+
+/*去除下边框线*/
+.ui-dialog-header{
+    border-bottom: 0px !important;
+}
