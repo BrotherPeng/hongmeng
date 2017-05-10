@@ -6,9 +6,12 @@ var logger = require('../log').logger('mysql');
 function Equipment() {
     this.get = function(res) {
         connection.acquire(function(err, con) {
-            con.query('select * from equipment', function(err, result) {
+            // con.query('select * from equipment', function(err, result) {
+            con.query('SELECT e.id, e.name as ename,e.equip_id,e.key,p.name as pname FROM	equipment e LEFT JOIN project p ON p.id = e.project_id', function(err, result) {
+
                 con.release();
                 logger.info(result);
+                console.log('+++++++++++++++++++++++++++++++++++++++++++++++');
                 res.render('equipment/list',{title:'监控中心',result:result});
             });
         });
@@ -49,7 +52,8 @@ function Equipment() {
     };
     this.getById = function (id,callback) {
         connection.acquire(function(err, con) {
-            con.query('select * from equipment where id = "'+id+'"', function(err, result) {
+            // con.query('select * from equipment where id = "'+id+'"', function(err, result) {
+            con.query('SELECT e.id, e.name as ename,e.equip_id,e.key,p.name as pname FROM	equipment e LEFT JOIN project p ON p.id = e.project_id where e.id = "'+id+'"', function(err, result) {
                 con.release();
                 logger.info(result);
                 callback(err,result);
