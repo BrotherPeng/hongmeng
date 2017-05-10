@@ -78,16 +78,26 @@ function Equipment() {
     this.update = function(equipment, res) {
         console.log(equipment)
         connection.acquire(function(err, con) {
-            con.query('update equipment set ? where id = ?', [equipment, equipment.id], function(err, result) {
-                con.release();
-                if (err) {
-                    //res.render('equipment/error');
+            con.query('SELECT id FROM project WHERE project.name = ?', [equipment.project_id.toString()], function(err, result) {
+                console.log(result);
+                if(err){
                     res.send({success:false})
-                } else {
-                    //res.render('equipment/success',{title:'监控中心'});
-                    res.send({success:true})
+                }else{
+                    equipment.project_id = result[0].id;
+                    console.log(equipment.project_id);
+                    con.query('update equipment set ? where id = ?', [equipment, equipment.id], function(err, result) {
+                        con.release();
+                        if (err) {
+                            //res.render('equipment/error');
+                            res.send({success:false})
+                        } else {
+                            //res.render('equipment/success',{title:'监控中心'});
+                            res.send({success:true})
+                        }
+                    });
                 }
-            });
+            })
+
         });
     };
     this.delete = function(id, res) {
