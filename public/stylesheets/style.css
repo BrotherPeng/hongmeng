@@ -747,7 +747,7 @@ table {
 
 /*文字媒体查询*/
 
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 1480px) {
     .fontMedia {
         font-size: 12px;
     }
@@ -756,7 +756,7 @@ table {
 
 /*滚动条媒体查询*/
 
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 1500px) {
     .table-responsive {
         overflow-x: hidden;
     }

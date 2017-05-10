@@ -21,6 +21,42 @@ requirejs.config({
 });
 require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'], function($, handlebars, dialog, flatpickr, dialogTemplate, io) {
     // some code here
+
+
+    //监控当前浏览器窗口
+    var winWidth = 0;
+    var winHeight = 0;
+     //函数：获取尺寸
+    function findDimensions(){
+        //获取窗口宽度
+        var divData = document.getElementsByTagName("div_data");
+        if (window.innerWidth)
+            winWidth = window.innerWidth;
+        else if ((document.body) && (document.body.clientWidth))
+            winWidth = document.body.clientWidth;
+        //获取窗口高度
+        if (window.innerHeight)
+            winHeight = window.innerHeight;
+        else if ((document.body) && (document.body.clientHeight))
+            winHeight = document.body.clientHeight;
+        //通过深入Document内部对body进行检测，获取窗口大小
+        if (document.documentElement  && document.documentElement.clientHeight && document.documentElement.clientWidth)
+        {
+            winHeight = document.documentElement.clientHeight;
+            winWidth = document.documentElement.clientWidth;
+        }
+        //通过判断屏幕可显区域更改页面布局
+        if(winWidth < 1300){
+                $('.div_data').removeClass('col-xs-6').addClass('col-xs-12');
+        }else{
+                $('.div_data').removeClass('col-xs-12').addClass('col-xs-6');
+        }
+        // console.log('执行函数');
+    }
+    findDimensions();
+    //调用函数，获取数值
+    window.onresize = findDimensions;
+
     var nodeInfo = $('#nodeInfo').html();
     var template = handlebars.compile(nodeInfo);
     var switchPanel = dialogTemplate.switchPanel,
@@ -65,7 +101,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
             });
             setTimeout(function() {
                 self.run();
-            }, 20000)
+            }, 20000);
         },
         render: function(id) {
             var self = this;
@@ -138,6 +174,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
                     console.log(data);
                     var result = template(data);
                     self.autoPanel[id].html(result);
+                    findDimensions();
                 }
             });
         }
@@ -226,6 +263,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
                 var result = template(data);
                 $statusWrap.html(result);
                 autoRefresh.set(id, $statusWrap);
+                findDimensions();
             }
         });
     });
