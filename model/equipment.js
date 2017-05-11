@@ -33,7 +33,7 @@ function Equipment() {
             });
         });
     };
-    /*按设备id获取设备所属项目号*/
+    /*按设备id获取设备所属项目名称*/
     this.getInfoByEquipId=function (equipId,callback) {
         connection.acquire(function(err, con) {
             con.query('select equip_id,project_id from equipment where equip_id = ?',[equipId], function(err, result) {
@@ -42,6 +42,16 @@ function Equipment() {
             });
         });
     };
+    /*编辑事查看所有项目号及名称*/
+    // this.getNameAndId = function (callback) {
+    //     connection.acquire(function(err, con) {
+    //         con.query('select id,name from project', function(err, result) {
+    //             con.release();
+    //             callback(err,result);
+    //         });
+    //     });
+    // };
+
     this.getByName = function (name,callback) {
         connection.acquire(function(err, con) {
             con.query('select * from equipment where name = "'+name+'"', function(err, result) {
@@ -54,9 +64,21 @@ function Equipment() {
         connection.acquire(function(err, con) {
             // con.query('select * from equipment where id = "'+id+'"', function(err, result) {
             con.query('SELECT e.id, e.name as ename,e.equip_id,e.key,p.name as pname FROM	equipment e LEFT JOIN project p ON p.id = e.project_id where e.id = "'+id+'"', function(err, result) {
-                con.release();
-                logger.info(result);
-                callback(err,result);
+                let Eresult = result;
+                con.query('select id,name from project',function (err,result) {
+                    con.release();
+                    logger.info(result);
+                    // let Aresult = Eresult.push(result);
+                    let res = {
+                        Eresult:Eresult,
+                        Presult:result
+                    };
+                    console.log('+++++++++++++++++++');
+
+                    console.log(res);
+                    callback(err,res);
+                })
+
             });
         });
     }
