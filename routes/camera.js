@@ -1,20 +1,23 @@
 /**
+ * Created by Administrator on 2017/5/11.
+ */
+/**
  * Created by iqianjin-luming on 16/8/15.
  */
 var express = require('express');
 var router = express.Router();
 var logger = require('../log').logger('member');
 var moment = require('moment');
-var Equipment = require('../model/equipment');
+var Camera = require('../model/camera');
 var Project = require('../model/project');
-/* 项目列表. */
+/* 摄像机列表. */
 router.get('/list', function(req, res, next) {
     switch(req.user[0].role_id){
         case 1:
-            Equipment.get(res);
+            Camera.get(res);
             break;
         case 2:
-            Equipment.get(res);
+            Camera.get(res);
             break;
         case 3:
             res.send('权限不足');
@@ -27,16 +30,16 @@ router.get('/list', function(req, res, next) {
             break;
     };
 });
-/* 删除项目. */
+/* 删除摄像机. */
 router.get('/del', function(req, res, next) {
     let id=req.query.id;
-    Equipment.delete(id,res);
+    Camera.delete(id,res);
 });
-/* 添加项目*/
+/* 添加摄像机*/
 router.get('/add', function (req, res, next) {
     Project.getNameAndId((err,result)=>{
         console.log(result)
-        res.render('equipment/add',{result:result});
+        res.render('camera/add',{result:result});
     })
 }).post('/add', function (req, res, next) {
     let name=req.body.name,
@@ -45,20 +48,21 @@ router.get('/add', function (req, res, next) {
         key=req.body.key,
         project_id=req.body.project_id,
         time=moment().format('YYYY-MM-DD HH:mm:ss'),
-        equipment={
+        camera={
             name:name,
             equip_id:equip_id,
             key:key,
             user_id:user_id,
             project_id:project_id,
+            del:1,
             create_time:time
         };
-    Equipment.create(equipment,res);
+    Camera.create(camera,res);
 });
-/* 编辑设备信息 */
+/* 编辑摄像机 */
 router.get('/edit/:id', function(req, res, next) {
-    Equipment.getById(req.params.id,function (err,result) {
-        res.render('equipment/edit',{title: '编辑设备信息',result:result})
+    Camera.getById(req.params.id,function (err,result) {
+        res.render('camera/edit',{title: '摄像机管理',result:result})
     });
 }).post('/edit/:id',function (req,res,next) {
     console.log(req.body)
@@ -66,19 +70,19 @@ router.get('/edit/:id', function(req, res, next) {
         name=req.body.name,
         project_id=req.body.project_id,
         equip_id=req.body.equip_id,
-        equipment={
+        camera={
             id:id,
             project_id:project_id,
             name:name,
             equip_id:equip_id,
         };
-    Equipment.update(equipment,res);
+    Camera.update(camera,res);
 });
 
-router.get('/addCamera', function(req, res, next) {
-    // Equipment.getById(req.params.id,function (err,result) {
-    //     res.render('equipment/addCamera',{title: '监控中心',result:result})
-    // });
-        res.render('equipment/addCamera',{title: '设备管理'});
-})
+// router.get('/addCamera', function(req, res, next) {
+//     // Equipment.getById(req.params.id,function (err,result) {
+//     //     res.render('equipment/addCamera',{title: '监控中心',result:result})
+//     // });
+//     res.render('camera/add',{title: '摄像机管理'});
+// })
 module.exports = router;

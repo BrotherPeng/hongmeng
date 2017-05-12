@@ -55,6 +55,7 @@ app.use('/nodeControl',require('./routes/nodeControl'));
 app.use('/member',authority.isAuthenticated,roles.can('access user page'),require('./routes/member'));
 app.use('/project',authority.isAuthenticated,require('./routes/project'));
 app.use('/equipment',authority.isAuthenticated,require('./routes/equipment'));
+app.use('/camera',authority.isAuthenticated,require('./routes/camera'));
 
 
 // catch 404 and forward to error handler

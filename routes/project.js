@@ -15,7 +15,7 @@ router.get('/list', function(req, res, next) {
             break;
         case 2:
             Project.getByCreateName(req.user[0].username,(err,result)=>{
-                res.render('project/list',{title:'监控中心',result:result});
+                res.render('project/list',{title:'项目列表',result:result});
             });
             break;
         case 3:
@@ -39,8 +39,9 @@ router.get('/del', function(req, res, next) {
 router.get('/add', function (req, res, next) {
     let id = req.user[0].id;
     Member.getIdAndNameByOwnerIdLimitRole(id,function (err,result) {
-        res.render('project/add', {title: '监控中心',result:result});
+        res.render('project/add', {title: '添加项目',result:result});
     })
+    //post 新增项目
 }).post('/add', function (req, res, next) {
     let name=req.body.name,
         owner_company=req.body.owner_company,
@@ -78,7 +79,7 @@ router.get('/edit/:id', function(req, res, next) {
         // success
         Member.getIdAndNameByOwnerIdLimitRole(id,function (err,result) {
             data.manager=result;
-            res.render('project/edit', {title: '监控中心',result:data});
+            res.render('project/edit', {title: '编辑项目',result:data});
         })
     }, function(value) {
         // failure

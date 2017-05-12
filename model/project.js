@@ -10,7 +10,7 @@ function Project() {
                 'a.`id`,a.`name`,a.`owner_company`,a.`manage_company`,a.`create_name`,b.`email`,a.`create_time`,a.`comment`,b.`username` as `manage_name` ' +
                 'from `project` a,`users` b where a.`manage_id`=b.`id`', function(err, result) {
                 con.release();
-                res.render('project/list',{title:'监控中心',result:result});
+                res.render('project/list',{title:'项目管理',result:result});
             });
         });
     };
@@ -55,6 +55,7 @@ function Project() {
             });
         });
     };
+    //新增项目
     this.create = function(project, res) {
         connection.acquire(function(err, con) {
             con.query('insert into project set ?', project, function(err, result) {

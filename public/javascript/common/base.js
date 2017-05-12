@@ -58,12 +58,17 @@ function getPath(path) {
             $('.device').addClass('active');
             $('.device').find('.treeview-menu').show();
             break;
+        case '/camera/list':
+            $('[role=navigation] .navbar-brand').html('摄像机列表');
+            $('.device').addClass('active');
+            $('.device').find('.treeview-menu').show();
+            break;
         case '/equipment/add':
             $('[role=navigation] .navbar-brand').html('添加控制器');
             $('.device').addClass('active');
             $('.device').find('.treeview-menu').show();
             break;
-        case '/equipment/addCamera':
+        case '/camera/add':
             $('[role=navigation] .navbar-brand').html('添加摄像机');
             $('.device').addClass('active');
             $('.device').find('.treeview-menu').show();
@@ -159,11 +164,13 @@ var Tip = {
     confirm: function (type, id) {
         var t = "";
         if (type == 'equipment') {
-            t = "设备"
+            t = "设备";
         } else if (type == 'member') {
-            t = "人员"
+            t = "人员";
         } else if (type == 'project') {
-            t = "项目"
+            t = "项目";
+        } else if (type == 'camera') {
+            t = "摄像机";
         }
         var tip = "";
         tip =
@@ -209,6 +216,19 @@ var Tip = {
                     data: {id: id},
                     success: function (data) {
                         if (data.status === 1) {
+                            location.reload();
+                        }
+                    }
+                })
+            } else if (type == 'camera') {
+                $.ajax({
+                    method: "GET",
+                    url: "/camera/del",
+                    dataType: "json",
+                    data: {id: id},
+                    success: function (data) {
+                        alert(JSON.stringify(data));
+                        if (data.success) {
                             location.reload();
                         }
                     }

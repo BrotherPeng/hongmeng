@@ -34,13 +34,13 @@ router.get('/list',function(req, res, next) {
                 });
                 return v;
             }).then(result=>{
-                res.render('member/list',{title:'监控中心',result:result});
+                res.render('member/list',{title:'人员列表',result:result});
             });
         })
 
     }else if(roleId===4){//管理员可以获取自己创建的内容
         Member.getByOwnerId(ownerId,function (err,result) {
-            res.render('member/list',{title:'监控中心',result:result});
+            res.render('member/list',{title:'人员列表',result:result});
         });
     }else{
         res.send('权限不足');
@@ -53,7 +53,7 @@ router.get('/del', function(req, res, next) {
 });
 /* 添加人员*/
 router.get('/add', function (req, res, next) {
-    res.render('member/add', {title: '监控中心'});
+    res.render('member/add', {title: '添加人员'});
 }).post('/add', function (req, res, next) {
     let username=req.body.username,
         password=req.body.password,
@@ -76,7 +76,7 @@ router.get('/add', function (req, res, next) {
 /* 编辑人员. */
 router.get('/edit/:id', function(req, res, next) {
     Member.getById(req.params.id,function (err,result) {
-        res.render('member/edit',{title: '监控中心',result:result})
+        res.render('member/edit',{title: '编辑人员',result:result})
     });
 }).post('/edit/:id',function (req,res,next) {
     let id=req.params.id,

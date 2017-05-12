@@ -1,0 +1,72 @@
+include ../includes/head
+
+block content
+    include ../includes/header
+.container-fluid
+    .row
+        include ../includes/slide
+        .col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2.main
+            h1.page-header 编辑摄像机
+            .row.placeholders
+                if(result)
+                    //form.form-horizontal(role='form' action='/equipment/edit/#{result[0].id}' method='post')
+                    form.form-horizontal(role='form')
+                        div.form-group
+                            label.col-sm-5.control-label(for='name') 摄像机名称
+                            div.col-sm-3
+                                input.form-control(id='name' name='name' type='text' placeholder='摄像机名称' required value='#{result.Eresult[0].cname}')
+                                input(style='display:none').form-control(id='id' name='id' type='text' placeholder='摄像机名称' required value='#{result.Eresult[0].id}')
+                        div.form-group
+                            label.col-sm-5.control-label(for='equip_id') 摄像机ID
+                            div.col-sm-3
+                                input.form-control(id='equip_id' name='equip_id' type='text' placeholder='摄像机ID' required value='#{result.Eresult[0].equip_id}')
+                        div.form-group
+                            label.col-sm-5.control-label(for='key') 摄像机key
+                            div.col-sm-3
+                                input.form-control(id='key' name='key' type='text' placeholder='摄像机ID' required value='#{result.Eresult[0].key}')
+                        //- div.form-group
+                        //-     label.col-sm-5.control-label(for='project_id') 所属项目
+                        //-     div.col-sm-3
+                        //-         input.form-control(id='project_id' name='project_id' type='text' placeholder='所属项目' required value='#{result.Eresult[0].pname}')
+                        div.form-group
+                            label.col-sm-5.control-label(for='cname') 所属项目
+                            div.col-sm-3
+                                select.form-control(id='project_id' name='project_id' type='text' placeholder='所属项目' required)
+                                    if(result)
+                                        option(value='#{result.Eresult[0].pname}')  #{result.Eresult[0].pname}
+                                        each item in result.Presult
+                                            option(value='#{item.name}') #{item.name}
+                        div.form-group
+                            label.col-sm-5.control-label
+                            div.col-sm-1
+                                button.sub_btn.sub_left_btn#submitBtn(type='button') 提交
+                            div.col-sm-1
+                                a(href='/camera/list')
+                                    button.sub_btn.sun_right_btn(type='button') 取消
+include ../includes/footer
+    //AJAX调用编辑接口
+script(type='text/javascript').
+    $("#submitBtn").click(function () {
+        var id = $("#id").val();
+        var camera = new Object();
+        camera.id = id;
+        camera.project_id = $("#project_id").val();
+        camera.name = $("#name").val();
+        camera.equip_id = $("#equip_id").val();
+        $.ajax({
+            method: "POST",
+            url: '/camera/edit/' + id,
+            data: camera,
+            dataType: "json",
+            success: function (data) {
+                if(data.success == true){
+                    Tip.alert("edit","camera","success");
+                }else{
+                    Tip.alert("edit", "camera", "error");
+                }
+            },
+            error: function (data) {
+                Tip.alert("edit", "camera", "error");
+            }
+        });
+    });

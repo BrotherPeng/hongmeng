@@ -11,7 +11,7 @@ function Users() {
                 "from users a,users b where a.`owner_id`=b.`id`", function(err, result) {
                 con.release();
                 logger.info(result);
-                res.render('member/list',{title:'监控中心',result:result});
+                res.render('member/list',{title:'人员管理',result:result});
             });
         });
     };

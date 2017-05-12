@@ -5,6 +5,7 @@ var logger = require("../log").logger('socket');
 var node = require("../module/db").node;
 var ParseData = require("../lib/socket/parseData");
 var equipment = require("../model/equipment");
+var camera = require("../model/camera");
 var Promise = require('bluebird');
 var clientList=require('../lib/socket/socketHandle').clientList;
 function Node() {
