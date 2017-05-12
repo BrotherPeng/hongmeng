@@ -19,7 +19,8 @@ function Project() {
     };
     this.getByCreateName = function (name,callback) {
         connection.acquire(function(err, con) {
-            con.query('select * from project where create_name = "'+name+'"', function(err, result) {
+            // con.query('select * from project where create_name = "'+name+'"', function(err, result) {
+            con.query('select p.id,p.name,p.owner_company,p.manage_company,p.create_name,p.manage_id,u.username,p.comment from  project p left join users u on p.manage_id = u.id where p.create_name = "'+name+'"', function(err, result) {
                 con.release();
                 callback(err,result);
             });
