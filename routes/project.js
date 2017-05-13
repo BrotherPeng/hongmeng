@@ -35,6 +35,12 @@ router.get('/del', function(req, res, next) {
     let id=req.query.id;
     Project.delete(id,res);
 });
+
+/* 查询项目数量. */
+router.get('/count', function(req, res, next) {
+    let id=req.query.id;
+    Project.getCount(res);
+});
 /* 添加项目*/
 router.get('/add', function (req, res, next) {
     let id = req.user[0].id;

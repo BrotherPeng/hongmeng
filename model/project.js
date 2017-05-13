@@ -50,6 +50,20 @@ function Project() {
             });
         });
     };
+
+    this.getCount = function (res) {
+        connection.acquire(function(err, con) {
+            con.query('select  count(*) as Count from  project', function(err, result) {
+                con.release();
+                // callback(err,result);
+                if(err){
+
+                }else{
+                    res.send(result);
+                }
+            });
+        });
+    };
     this.getById = function (id,callback) {
         connection.acquire(function(err, con) {
             con.query('select * from project where id = "'+id+'"', function(err, result) {
