@@ -119,13 +119,15 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
     });
     //操作按钮
     $('body').on('click', '.btn-dialog', function() {
+        // alert(111);
+        // console.log($(this).siblings()[0].src);
         var $this = $(this),
             id = $this.data('id'),
             relay = $(this).data('relay'),
             $content = '<div class="input-group">' + 
-                '<img width="100%" height="400" src="http://pic2.ooopic.com/11/34/46/78b1OOOPIC4e.jpg">'+
+                '<img width="100%" height="400" src="'+ $(this).siblings()[0].src +'">'+
             '</div>';
-            console.log($this);
+            // console.log($this);
         var d = dialog({
             title: ' ',
             height: 400,
