@@ -19,7 +19,7 @@ function Node() {
 
     this.getAllLastOneInProject = function (projectId, res) {
         equipment.getAllIdByProject(projectId, function (err, result) {
-            if (!err) {
+             if (!err) {
                 var actions = result.map(v => {
                     return new Promise(resolve=> {
                         _this.getLastOneNodeById(v.equip_id, function (err, value) {
@@ -35,7 +35,9 @@ function Node() {
                     })
 
                 });
-                Promise.all(actions).then(v=>res.send(v));
+                Promise.all(actions).then(v=>
+                    res.send(v)
+                );
             } else {
                 throw err;
             }

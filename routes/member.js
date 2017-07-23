@@ -82,12 +82,12 @@ router.get('/edit/:id', function(req, res, next) {
     let id=req.params.id,
         username=req.body.username,
         password=req.body.password,
-        role=req.body.role,
+        // role=req.body.role, //genice 20170723角色不可编辑
         users={
             id:id,
             username:username,
             password:password,
-            role_id:role,
+            // role_id:role,
         };
     Member.update(users,res);
 });
