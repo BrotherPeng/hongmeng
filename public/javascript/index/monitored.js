@@ -161,8 +161,8 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
 
     var socket;
     function listenOnWebSocekt() {
-        // var socket = io('120.27.37.212:8082');
-        socket = io('127.0.0.1:8082');
+        var socket = io('120.27.37.212:8082');
+        // socket = io('127.0.0.1:8082');
         socket.on('socketIds', function(data) {
             if (!data) {
                 return;
