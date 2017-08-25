@@ -44,11 +44,11 @@ module.exports = function(passport) {
                     if (err)
                         return done(err);
                     if (!rows.length) {
-                        return done(null, false, req.flash('loginMessage', 'No user found.')); // req.flash is the way to set flashdata using connect-flash
+                        return done(null, false, req.flash('loginMessage', '找不到此用户！')); // req.flash is the way to set flashdata using connect-flash
                     }
                     // if the user is found but the password is wrong
                     if (!bcrypt.compareSync(password, bcrypt.hashSync(rows[0].password)))
-                        return done(null, false, req.flash('loginMessage', 'Oops! Wrong password.')); // create the loginMessage and save it to session as flashdata
+                        return done(null, false, req.flash('loginMessage', '密码错误！')); // create the loginMessage and save it to session as flashdata
 
                     // all is well, return successful user
                     return done(null, rows[0]);

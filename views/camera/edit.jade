@@ -53,6 +53,7 @@ script(type='text/javascript').
         camera.project_id = $("#project_id").val();
         camera.name = $("#name").val();
         camera.equip_id = $("#equip_id").val();
+        camera.key = $("#key").val();
         $.ajax({
             method: "POST",
             url: '/camera/edit/' + id,

@@ -53,6 +53,7 @@ script(type='text/javascript').
         equipment.project_id = $("#project_id").val();
         equipment.name = $("#name").val();
         equipment.equip_id = $("#equip_id").val();
+        equipment.key = $("#key").val();
         $.ajax({
             method: "POST",
             url: '/equipment/edit/' + id,

@@ -8,7 +8,8 @@ block content
     include ../includes/slide
     .col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2.main
       ul.list-group#projectId
-        if(result)
+        if(result.length > 0)
+            <input id="hasProject" value="0" style="display: none;"/>
             each item in result
                 li.list-group-item.mb15(data-id='#{item.id}')
                     div.disInline
@@ -30,7 +31,7 @@ block content
                             span.glyphicon.glyphicon-chevron-down.project-up-down(style='margin:0 5px;color:#fff')
                     div(role='tabpanel').fn-hide(style="white-space:nowrap")
                         ul.nav.nav-pills.nodeInfoTable
-                            include ../includes/footer
+
                             script#nodeInfo(type="text/x-handlebars-template")
                                 {{#each this}}
                                 {{#if id}}
@@ -151,6 +152,10 @@ block content
                                                                 //    div.ThisStatu
                                                     
                                 {{/if}}
-                                {{/each}}                 
+                                {{/each}}
+        else
+            h2 未分配项目
+            <input id="hasProject" value="1" style="display: none;"/>
 
+include ../includes/footer
 script(src='/requirejs/require.js' data-main="/javascript/index/control")

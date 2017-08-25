@@ -10,9 +10,11 @@ function Project() {
         // select p.id,p.name,p.owner_company,p.manage_company,p.create_name,u.username,p.comment from  project p left join users u on p.manage_id = u.id
             con.query('select ' +
                 'a.`id`,a.`name`,a.`owner_company`,a.`manage_company`,a.`create_name`,b.`email`,a.`create_time`,a.`comment`,b.`username` as `manage_name` ' +
+                // 'from `project` a,`users` b where a.`manage_id`=b.`id`', function(err, result) {
                 'from `project` a,`users` b where a.`manage_id`=b.`id`', function(err, result) {
             // con.query('select p.id,p.name,p.owner_company,p.manage_company,p.create_name,b.manage_id,u.username,p.comment from  project p left join users u on p.manage_id = u.id', function(err, result) {
                 con.release();
+                // logger.info(result);
                 res.render('project/list',{title:'项目管理',result:result});
             });
         });

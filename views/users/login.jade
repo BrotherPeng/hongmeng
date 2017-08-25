@@ -3,6 +3,7 @@ link(rel='stylesheet', href='/stylesheets/users/login.css')
 block content
     //include ../includes/header
     .container
+
         form.form-signin(action="login",method='post' role='form').form-horizontal
             .row.mb30
                 img(src='images/logo1.png').col-xs-6
@@ -15,6 +16,10 @@ block content
                 label.col-sm-2.control-label(for="inputName") 密码
                 .col-sm-10
                     input#inputPassword.form-control(type="password" placeholder="请输入密码" name="password" required)
+            .col-sm-12(style="text-align: center; color: red; margin-bottom: 10px;")
+                - if (messages.loginMessage)
+                    .message.info
+                        span= messages.loginMessage
             button(class="login_btn" type="submit") 登录
 include ../includes/footer
 script(src='requirejs/require.js' data-main="javascript/users/login")

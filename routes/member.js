@@ -39,9 +39,10 @@ router.get('/list',function(req, res, next) {
         })
 
     }else if(roleId===4){//管理员可以获取自己创建的内容
-        Member.getByOwnerId(ownerId,function (err,result) {
+        /*Member.getByOwnerId(ownerId,function (err,result) {
             res.render('member/list',{title:'人员列表',result:result});
-        });
+        });*/
+        res.render('member/list',{title:'人员列表', denied: true});
     }else{
         res.send('权限不足');
     }
@@ -53,7 +54,7 @@ router.get('/del', function(req, res, next) {
 });
 /* 添加人员*/
 router.get('/add', function (req, res, next) {
-    res.render('member/add', {title: '添加人员'});
+    res.render('member/add', {title: '添加人员', role_id: req.user[0].role_id}); //返回用户角色到前端
 }).post('/add', function (req, res, next) {
     let username=req.body.username,
         password=req.body.password,

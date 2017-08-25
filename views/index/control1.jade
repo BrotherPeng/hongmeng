@@ -1,0 +1,153 @@
+include ../includes/head
+link(rel='stylesheet', href='/flatpickr/dist/flatpickr.confetti.min.css')
+block content
+  include ../includes/header
+  link(rel='stylesheet', href='/artDialog/css/ui-dialog.css')
+.container-fluid
+  .row
+    include ../includes/slide
+    .col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2.main
+      ul.list-group#projectId
+        if(result)
+            each item in result
+                li.list-group-item.mb15(data-id='#{item.id}')
+                    div.disInline
+                        div.control-tip
+                        div(style='display:inline-block') 项目
+                        div.control-projectName #{item.name}
+                    div.disInline(style='margin-left:10px')
+                        div.control-tip
+                        span 设备数量：
+                            b #{item.count}
+                    div.disInline(style='margin-left:10px')
+                        div.control-tip
+                        span 在线数量：
+                            b.equip-online-num-b 
+                    div.fn-right
+                        button.btn.btn-success.btn-dialog.btn-project-group(style='padding:0 12px;margin-right:10px' data-id='#{item.id}' data-relay="关,关,关,关,关,关,关,关") 批量操作
+                        button.control-searchBtn.search-Btn-dialog(data-id='#{item.id}') 查询设置
+                        div.disInline(style='background-color:#a0a0a0;border-radius:5px')
+                            span.glyphicon.glyphicon-chevron-down.project-up-down(style='margin:0 5px;color:#fff')
+                    div(role='tabpanel').fn-hide(style="white-space:nowrap")
+                        ul.nav.nav-pills
+                            //- li.active(role='presentation')
+                            //-     a(href='#status' aria-controls='status' role='tab') 状态
+                            //- li(role='presentation')
+                            //-     a(href='#weekTime' aria-controls='weekTime' role='tab') 周设置
+                            //- li(role='presentation')
+                            //-     a(href='#dailyTime' aria-controls='dailyTime' role='tab') 日设置
+                            div.marginTop-20.col-xs-6.fontMedia
+                                .tab-content
+                                    .tab-pane.status.active(role='tabpanel')
+                                        .table-responsive
+                                            table.table.table-striped
+                                                tbody.nodeInfoWrap
+                            include ../includes/footer
+                            script#nodeInfo(type="text/x-handlebars-template")
+                                {{#each this}}
+                                {{#if id}}
+                                tr.active
+                                    td(colspan="2") 设备
+                                        span(style='color: #9e9e9e;') {{id}}
+                                    td(style="color:#fd661f;font-weight:700;") {{temperature}}℃
+                                    td
+                                    td.text-right 震动
+                                    td 
+                                        //- {{shakeStatus}}
+                                        - if (shakeStatus=='无')
+                                            div.ThisStatu.OKStatu
+                                        - else
+                                            div.ThisStatu
+                                    td.text-right 门磁
+                                    td 
+                                        //- {{gateStatus}}
+                                        - if (gateStatus=='关')
+                                            div.ThisStatu.OKStatu
+                                        - else
+                                            div.ThisStatu
+                                tr
+                                    td.text-center 电压A
+                                    td(style='color: #9e9e9e;') {{voltage_1}}V
+                                    td.text-center 电压B
+                                    td(style='color: #9e9e9e;') {{voltage_2}}V
+                                    td
+                                    td.text-center 电压C
+                                    td(style='color: #9e9e9e;') {{voltage_3}}V
+                                    td
+                                tr
+                                    td.text-center 电流A
+                                    td(style='color: #9e9e9e;') {{electric_1}}A
+                                    td.text-center 电流B
+                                    td(style='color: #9e9e9e;') {{electric_2}}A
+                                    td
+                                    td.text-center 电流C
+                                    td(style='color: #9e9e9e;') {{electric_3}}A
+                                    td
+                                tr
+                                    td 当前模式
+                                    td(style='color: #9e9e9e;') {{timeConfig}}
+                                    td 
+                                    td
+                                    td
+                                    td
+                                    td
+                                    td 
+                                        <button type='button' {{#if offline}}disabled{{/if}} class='btn {{#if offline}}btn-default{{else}}btn-success{{/if}} btn-dialog' data-id='{{id}}' data-relay='{{relay}}' data-timeconfig='{{timeConfig}}'>{{#if offline}}离线{{else}}操作{{/if}}</button>
+                                        //- button.btn.btn-sm.btn-success 操作
+                                tr.text-center
+                                    td 继电器一
+                                    td
+                                        
+                                        - if (relay_0)
+                                            div.ThisStatu.OKStatu
+                                        - else
+                                            div.ThisStatu
+                                    td 继电器二
+                                    td
+                                        - if (relay_1)
+                                            div.ThisStatu.OKStatu
+                                        - else
+                                            div.ThisStatu
+                                    td 继电器三
+                                    td
+                                        - if (relay_2)
+                                            div.ThisStatu.OKStatu
+                                        - else
+                                            div.ThisStatu
+                                    td 继电器四
+                                    td
+                                        - if (relay_3)
+                                            div.ThisStatu.OKStatu
+                                        - else
+                                            div.ThisStatu
+                                tr.text-center
+                                    td 继电器五
+                                    td
+                                        - if (relay_4)
+                                            div.ThisStatu.OKStatu
+                                        - else
+                                            div.ThisStatu
+                                    td 继电器六
+                                    td
+                                        - if (relay_5)
+                                            div.ThisStatu.OKStatu
+                                        - else
+                                            div.ThisStatu
+                                    td 继电器七
+                                    td
+                                        - if (relay_6)
+                                            div.ThisStatu.OKStatu
+                                        - else
+                                            div.ThisStatu
+                                    td 继电器八
+                                    td 
+                                        //- {{#if open_time_8}} 
+                                        - if (relay_7)
+                                            div.ThisStatu.OKStatu
+                                        - else
+                                            div.ThisStatu
+                                                
+                                {{/if}}
+                                {{/each}}                 
+
+script(src='/requirejs/require.js' data-main="/javascript/index/control")

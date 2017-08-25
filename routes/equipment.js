@@ -9,6 +9,8 @@ var Equipment = require('../model/equipment');
 var Project = require('../model/project');
 /* 项目列表. */
 router.get('/list', function(req, res, next) {
+    logger.info('角色...');
+    logger.info(req.user[0].role_id);
     switch(req.user[0].role_id){
         case 1:
             Equipment.get(res);
@@ -20,7 +22,7 @@ router.get('/list', function(req, res, next) {
             res.send('权限不足');
             break;
         case 4:
-            res.send('权限不足');
+            res.render('equipment/list',{title:'设备管理', denied: true});
             break;
         case 5:
             res.send('权限不足');
@@ -34,6 +36,11 @@ router.get('/del', function(req, res, next) {
 });
 /* 添加项目*/
 router.get('/add', function (req, res, next) {
+    logger.info(req.user[0].role_id);
+    if(req.user[0].role_id != 1 && req.user[0].role_id !=2){
+        logger.info('没有添加权限');
+        return res.render('equipment/add',{ denied: true });
+    }
     Project.getNameAndId((err,result)=>{
         console.log(result)
         res.render('equipment/add',{result:result});
@@ -66,11 +73,13 @@ router.get('/edit/:id', function(req, res, next) {
         name=req.body.name,
         project_id=req.body.project_id,
         equip_id=req.body.equip_id,
+        key=req.body.key,
         equipment={
             id:id,
             project_id:project_id,
             name:name,
             equip_id:equip_id,
+            key: key
         };
     Equipment.update(equipment,res);
 });

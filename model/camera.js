@@ -148,5 +148,24 @@ function Carmera() {
             });
         });
     };
+
+    this.getAllCameraInProject = function (pid, res) {
+      connection.acquire(function (err, con) {
+         con.query('select c.*, date_format(c.pic_update_time, \'%Y.%m.%d %T\') as pic_time from project p, camera c where c.project_id = p.id', pid, function (err, result) {
+            con.release();
+             res.send({success: true, result: result});
+         });
+      });
+    };
+
+    this.updateCameraPic = function (id, callback) {
+      connection.acquire(function (err, con) {
+         con.query('update camera set pic_update_time = ?, picture = ? where id = ?', [id], function (err, result) {
+             con.release();
+             callback(result);
+             // res.send({success: true, result: result});
+         });
+      });
+    };
 }
 module.exports = new Carmera();

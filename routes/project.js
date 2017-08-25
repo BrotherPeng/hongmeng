@@ -14,15 +14,17 @@ router.get('/list', function(req, res, next) {
             Project.get(res);
             break;
         case 2:
-            Project.getByCreateName(req.user[0].username,(err,result)=>{
+            /*Project.getByCreateName(req.user[0].username,(err,result)=>{
                 res.render('project/list',{title:'项目列表',result:result});
-            });
+            });*/
+            Project.get(res);
             break;
         case 3:
             res.send('权限不足');
             break;
         case 4:
-            res.send('权限不足');
+            res.render('project/list',{title:'项目列表', denied: true});
+            // res.send('权限不足');
             break;
         case 5:
             res.send('权限不足');
@@ -43,6 +45,9 @@ router.get('/count', function(req, res, next) {
 });
 /* 添加项目*/
 router.get('/add', function (req, res, next) {
+    if(req.user[0].role_id != 1 && req.user[0].role_id !=2){
+        return res.render('project/add',{ denied: true });
+    }
     let id = req.user[0].id;
     Member.getIdAndNameByOwnerIdLimitRole(id,function (err,result) {
         res.render('project/add', {title: '添加项目',result:result});

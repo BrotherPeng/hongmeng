@@ -6,6 +6,7 @@ block content
     .row
         include ../includes/slide
         .col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2.main
+          - if (!denied)
             h1.page-header 添加人员
             .row.placeholders
                 //form.form-horizontal(role='form' action='/member/add' method='post')
@@ -33,11 +34,15 @@ block content
                     div.form-group
                         label.col-sm-5.control-label(for='role') 角色
                         div.col-sm-3
-                            select.form-control(id='role' name='role' type='text' placeholder='角色')
-                                option(value=2) 超级管理员
-                                option(value=3) 超级用户
-                                option(value=4) 管理员
-                                option(value=5) 用户
+                            - if(role_id == 1)
+                                select.form-control(id='role' name='role' type='text' placeholder='角色')
+                                    option(value=2) 超级管理员
+                                    //option(value=3) 超级用户
+                                    option(value=4) 项目管理员
+                                //option(value=5) 用户
+                            -else
+                                select.form-control(id='role' name='role' type='text' placeholder='角色')
+                                    option(value=4) 项目管理员
                     div.form-group
                         label.col-sm-5.control-label
                         div.col-sm-1
@@ -46,6 +51,9 @@ block content
                         div.col-sm-1
                             a(href='/member/list')
                                 button.sub_btn.sun_right_btn(type='button') 取消
+
+          - else
+             h2.page-header 没有权限
 include ../includes/footer
     //AJAX调用添加接口
 script(type='text/javascript').

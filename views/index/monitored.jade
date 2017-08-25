@@ -1,131 +1,108 @@
 include ../includes/head
 link(rel='stylesheet', href='/flatpickr/dist/flatpickr.confetti.min.css')
 block content
-  include ../includes/header
-  link(rel='stylesheet', href='/artDialog/css/ui-dialog.css')
+    include ../includes/header
+    link(rel='stylesheet', href='/artDialog/css/ui-dialog.css')
 .container-fluid
-  .row
-    include ../includes/slide
-    .col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2.main
-      ul.list-group#projectId
-        li.list-group-item.mb15(data-id='123423423233')
-            div.disInline
-                div.control-tip
-                div(style='display:inline-block') 项目
-                div.control-projectName 金士百德
-            div.disInline(style='margin-left:10px')
-                div.control-tip
-                span 设备数量：
-                    b 111
-            div.disInline(style='margin-left:10px')
-                div.control-tip
-                span 在线数量：
-                    b.equip-online-num-b 1
-            div.fn-right
-                div.disInline(style='background-color:#a0a0a0;border-radius:5px')
-                    span.glyphicon.glyphicon-chevron-down.project-up-down(style='margin:0 5px;color:#fff')
-            div(role='tabpanel').fn-hide(style="white-space:nowrap")
-                ul.nav.nav-pills.nodeInfoTable
-                    include ../includes/footer
-                    script#nodeInfo(type="text/x-handlebars-template")
-                        //- {{#each this}}
-                        //- {{#if id}}
-                        div.marginTop-20.col-xs-4.fontMedia.padding_This
-                            div.div_border
-                                p.margin_p 设备 
-                                    span.margin_span 111111111
-                                div
-                                    img(src="http://pic1.win4000.com/wallpaper/2/53bf4fd33891a.jpg",width="100%",height="200")
-                                    div.position_span.btn-dialog
-                                        span.glyphicon.glyphicon-zoom-in.icon_css
-                                div.margin_div
-                                    div.btn.btn-success.search-Btn-dialog(style="margin: 0 0 5px 10px;") 更新图片
-                                    p.margin_span(style="float:right;line-height:35px;margin-right:10px;")
-                                        | 2016
-                                        span.margin_time 年
-                                        | 11
-                                        span.margin_time 月
-                                        | 11
-                                        span.margin_time 日
-                                        | 11
-                                        span.margin_time 时
-                                        | 11
-                                        span.margin_time 分
-                        div.marginTop-20.col-xs-4.fontMedia.padding_This
-                            div.div_border
-                                p.margin_p 设备 
-                                    span.margin_span 111111112
-                                div
-                                    img(src="http://img2.3lian.com/2014/f4/122/d/78.jpg",width="100%",height="200")
-                                    div.position_span.btn-dialog
-                                        span.glyphicon.glyphicon-zoom-in.icon_css
-                                div.margin_div
-                                    div.btn.btn-success.search-Btn-dialog(style="margin: 0 0 5px 10px;") 更新图片
-                                    p.margin_span(style="float:right;line-height:35px;margin-right:10px;")
-                                        | 2016
-                                        span.margin_time 年
-                                        | 11
-                                        span.margin_time 月
-                                        | 11
-                                        span.margin_time 日
-                                        | 11
-                                        span.margin_time 时
-                                        | 11
-                                        span.margin_time 分
-                        div.marginTop-20.col-xs-4.fontMedia.padding_This
-                            div.div_border
-                                p.margin_p 设备 
-                                    span.margin_span 111111113
-                                div
-                                    img(src="http://img4q.duitang.com/uploads/item/201501/04/20150104105408_ZRAKM.jpeg",width="100%",height="200")
-                                    div.position_span.btn-dialog
-                                        span.glyphicon.glyphicon-zoom-in.icon_css
-                                div.margin_div
-                                    div.btn.btn-success.search-Btn-dialog(style="margin: 0 0 5px 10px;") 更新图片
-                                    p.margin_span(style="float:right;line-height:35px;margin-right:10px;")
-                                        | 2016
-                                        span.margin_time 年
-                                        | 11
-                                        span.margin_time 月
-                                        | 11
-                                        span.margin_time 日
-                                        | 11
-                                        span.margin_time 时
-                                        | 11
-                                        span.margin_time 分
-        //- if(result)
-        //-     each item in result
-        //-         li.list-group-item.mb15(data-id='#{item.id}')
-        //-             div.disInline
-        //-                 div.control-tip
-        //-                 div(style='display:inline-block') 项目
-        //-                 div.control-projectName #{item.name}
-        //-             div.disInline(style='margin-left:10px')
-        //-                 div.control-tip
-        //-                 span 设备数量：
-        //-                     b #{item.count}
-        //-             div.disInline(style='margin-left:10px')
-        //-                 div.control-tip
-        //-                 span 在线数量：
-        //-                     b.equip-online-num-b 
-        //-             div.fn-right
-        //-                 div.disInline(style='background-color:#a0a0a0;border-radius:5px')
-        //-                     span.glyphicon.glyphicon-chevron-down.project-up-down(style='margin:0 5px;color:#fff')
-        //-             div(role='tabpanel').fn-hide(style="white-space:nowrap")
-        //-                 ul.nav.nav-pills.nodeInfoTable
-        //-                     include ../includes/footer
-        //-                     script#nodeInfo(type="text/x-handlebars-template")
-        //-                         {{#each this}}
-        //-                         {{#if id}}
-        //-                         div.marginTop-20.col-xs-4.fontMedia
-        //-                             div
-        //-                                 p
-        //-                                 div
-        //-                                     img
-        //-                                 div
-        //-                                     div.btn
-        //-                                     p
-        //-                         {{/if}}
-        //-                         {{/each}}                 
+    .row
+        include ../includes/slide
+        .col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2.main
+            ul.list-group#projectId
+                if(result.length > 0)
+                    each item in result
+                        li.list-group-item.mb15(data-id='#{item.id}')
+                            div.disInline
+                                div.control-tip
+                                div(style='display:inline-block') 项目
+                                div.control-projectName #{item.name}
+                            div.disInline(style='margin-left:10px')
+                                div.control-tip
+                                span 设备数量：
+                                    b #{item.count}
+                            div.disInline(style='margin-left:10px')
+                                div.control-tip
+                                span 在线数量：
+                                    b.equip-online-num-b 0
+                            div.fn-right
+                                div.disInline(style='background-color:#a0a0a0;border-radius:5px')
+                                    span.glyphicon.glyphicon-chevron-down.project-up-down(style='margin:0 5px;color:#fff')
+                            div(role='tabpanel').fn-hide(style="white-space:nowrap")
+                                ul.nav.nav-pills.nodeInfoTable
+                                    //include ../includes/footer
+                                    script#nodeInfo(type="text/x-handlebars-template")
+                                        {{#each this}}
+                                        {{#if id}}
+                                        div.marginTop-20.col-xs-4.fontMedia.padding_This
+                                            div.div_border
+                                                p.margin_p 设备
+                                                    span.margin_span(id='{{equip_id}}') {{equip_id}}
+                                                div
+                                                    img(id='cameraImg{{equip_id}}')(src="{{picture}}",width="100%",height="200")
+                                                    div.position_span.btn-dialog
+                                                        span.glyphicon.glyphicon-zoom-in.icon_css
+                                                div.margin_div
+                                                    div.btn.btn-success.search-Btn-dialog(equip-id='{{equip_id}}')(data-id='{{id}}')(style="margin: 0 0 5px 10px;") 更新图片
+                                                    p.margin_span(style="float:right;line-height:35px;margin-right:10px;")
+                                                        span.margin_time(id='pic{{equip_id}}') {{pic_time}}
+                                                        //| 2016
+                                                        //span.margin_time 年
+                                                        //| 11
+                                                        //span.margin_time 月
+                                                        //| 11
+                                                        //span.margin_time 日
+                                                        //| 11
+                                                        //span.margin_time 时
+                                                        //| 11
+                                                        //span.margin_time 分
+                                        //div.marginTop-20.col-xs-4.fontMedia.padding_This
+                                        //    div.div_border
+                                        //        p.margin_p 设备
+                                        //            span.margin_span 111111112
+                                        //        div
+                                        //            img(src="http://img2.3lian.com/2014/f4/122/d/78.jpg",width="100%",height="200")
+                                        //            div.position_span.btn-dialog
+                                        //                span.glyphicon.glyphicon-zoom-in.icon_css
+                                        //        div.margin_div
+                                        //            div.btn.btn-success.search-Btn-dialog(style="margin: 0 0 5px 10px;") 更新图片
+                                        //            p.margin_span(style="float:right;line-height:35px;margin-right:10px;")
+                                        //                span.margin_time 2016年1月10日12时56分
+                                        //                //| 2016
+                                        //                //span.margin_time 年
+                                        //                //| 11
+                                        //                //span.margin_time 月
+                                        //                //| 11
+                                        //                //span.margin_time 日
+                                        //                //| 11
+                                        //                //span.margin_time 时
+                                        //                //| 11
+                                        //                //span.margin_time 分
+                                        //div.marginTop-20.col-xs-4.fontMedia.padding_This
+                                        //    div.div_border
+                                        //        p.margin_p 设备
+                                        //            span.margin_span 111111113
+                                        //        div
+                                        //            img(src="http://img4q.duitang.com/uploads/item/201501/04/20150104105408_ZRAKM.jpeg",width="100%",height="200")
+                                        //            div.position_span.btn-dialog
+                                        //                span.glyphicon.glyphicon-zoom-in.icon_css
+                                        //        div.margin_div
+                                        //            div.btn.btn-success.search-Btn-dialog(style="margin: 0 0 5px 10px;") 更新图片
+                                        //            p.margin_span(style="float:right;line-height:35px;margin-right:10px;")
+                                        //                span.margin_time 2016年1月10日12时56分
+                                        //                //| 2016
+                                        //                //span.margin_time 年
+                                        //                //| 11
+                                        //                //span.margin_time 月
+                                        //                //| 11
+                                        //                //span.margin_time 日
+                                        //                //| 11
+                                        //                //span.margin_time 时
+                                        //                //| 11
+                                        //                //span.margin_time 分
+                                        {{/if}}
+                                        {{/each}}
+                else
+                    h2 未分配项目
+
+include ../includes/footer
 script(src='/requirejs/require.js' data-main="/javascript/index/monitored")
 //- script(src='/requirejs/require.js' data-main="/javascript/index/control")

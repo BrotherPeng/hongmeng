@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var log4js = require("./log");
 var roles = require('./module/roles');
-
+global.dirname = __dirname;
 var app = express();
 
 //mysql

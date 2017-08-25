@@ -33,10 +33,31 @@ function Equipment() {
             });
         });
     };
+
+    //查询项目下的所有摄像头
+    this.getCountCameraByProject=function (projectId,callback) {
+        connection.acquire(function(err, con) {
+            con.query('select count(*) from camera where project_id = ?',[projectId], function(err, result) {
+                con.release();
+                callback(err,result);
+            });
+        });
+    };
+
     /*按设备id获取设备所属项目名称*/
     this.getInfoByEquipId=function (equipId,callback) {
         connection.acquire(function(err, con) {
             con.query('select equip_id,project_id from equipment where equip_id = ?',[equipId], function(err, result) {
+                con.release();
+                callback(err,result);
+            });
+        });
+    };
+
+    this.getProjectOfCamera = function (cameraid, callback) {
+        let sql = 'SELECT project_id, equip_id, count(project_id) as count FROM camera WHERE equip_id in (' + cameraid + ') GROUP BY project_id;';
+        connection.acquire(function(err, con) {
+            con.query(sql, [], function(err, result) {
                 con.release();
                 callback(err,result);
             });

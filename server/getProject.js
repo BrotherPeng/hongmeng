@@ -38,6 +38,37 @@ getProject.prototype.getAllProject=function (callback) {
         })
     })
 };
+
+//获取摄像头关联的项目
+getProject.prototype.getAllCameraProject=function (callback) {
+    let promise = new Promise(function (resolve, reject) {
+        Project.getNameAndId(function (err,result) { //获取项目名
+            if (!err){
+                resolve(result);
+            } else {
+                reject(err);
+            }
+        });
+    });
+    promise.then(function(result) {
+        // success
+        var getCount=result.map(function (v) {
+            return new Promise(function (resolve) {
+                Equipment.getCountCameraByProject(v.id,function (err,value) {
+                    if(!err){
+                        resolve(value);
+                    }
+                })
+            })
+        });
+        Promise.all(getCount).then(count=>{
+            count.map(function (v,i) {
+                result[i].count=v[0]['count(*)']
+            });
+            callback&&callback({title: '监控中心',result:result});
+        })
+    })
+};
 //超级管理员
 getProject.prototype.getSuperAdminProject=function (user_id,callback) {
     var getAdminUserIdList=function () {

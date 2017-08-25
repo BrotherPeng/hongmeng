@@ -46,7 +46,8 @@ function Users() {
         connection.acquire(function(err, con) {
             con.query("select " +
                 "a.`id`,a.`username` " +
-                "from users a where a.`role_id` in (2,4) and a.`owner_id`= ?", [ownerId],function(err, result) {
+                // "from users a where a.`role_id` in (2,4) and a.`owner_id`= ?", [ownerId],function(err, result) {
+                "from users a where a.`role_id` in (4)", [ownerId],function(err, result) {
                 con.release();
                 logger.info(result);
                 callback(err,result);

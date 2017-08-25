@@ -7,11 +7,15 @@ block content
         include ../includes/slide
         .col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2.main
             .row
-                .col-sm-11
+                - if (!denied)
+                  .col-sm-11
                     h1.page-header 人员列表
-                .col-sm-1
+                  .col-sm-1
                     a.btn.btn-success(href='/member/add') 添加人员
-            .row
+                - else
+                    h2.page-header 没有权限
+            - if (!denied)
+              .row
                 .table-responsive
                     table.table.table-bordered
                         caption 下表为所有人员列表
@@ -26,10 +30,10 @@ block content
                                 th  角色
                                 th  操作
                         if (result)
-                            each item in result
+                            each item, index in result
                                 if(item)
                                     tr.list_tr
-                                        td #{item.id}
+                                        td #{index + 1}
                                         td #{item.username}
                                         td #{item.ownername}
                                         td #{item.password}
