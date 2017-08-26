@@ -247,10 +247,10 @@ body {
     float: right;
 }
 
-.btn-switch.active,
+/*.btn-switch.active,
 .btn-switch.active.focus {
     background-color: #b92c28;
-}
+}*/
 
 .mb15 {
     margin-bottom: 15px;
@@ -555,10 +555,13 @@ table {
     margin-top: 20px;
 }
 
+.btn-default {
+    font-size: 12px;
+}
 .btn-switch.active,
 .btn-switch.active.focus {
-    background-color: #e8e8e8;
-    color: #222d32;
+    background-color: #f3f0f0;
+    color: #060000;
 }
 
 .ui-dialog-content label {

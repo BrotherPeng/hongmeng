@@ -565,7 +565,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
                             var on_off_btn = $(".on_off_btn");
                             on_off_btn.click(function() {
                                 var $this = $(this);
-                                $.ajax({
+                                /*$.ajax({  //yunpengl 不明白这个地方和项目个数有什么直接关系
                                     method: "GET",
                                     url: "/Project/count",
                                     dataType: "json",
@@ -573,17 +573,20 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
                                     success: function(data) {
                                         //    alert(data);
                                         //    alert(data[0].Count % 2 == 0);
-                                        if(data[0].Count % 2 == 0){
-                                            if (!$this.hasClass("active")) {
-                                                // $(this).children('span').html("on");
-                                                $this.addClass('active');
-                                            } else {
-                                                $this.removeClass('active');
-                                                // $(this).children('span').html("off");
-                                            }
-                                        }
+                                        if(data[0].Count % 2 == 0){*/
+                                /*setTimeout(function () {
+                                    if (!$this.hasClass("active")) {
+                                        // $(this).children('span').html("on");
+                                        $this.addClass('active');
+                                    } else {
+                                        $this.removeClass('active');
+                                        // $(this).children('span').html("off");
                                     }
-                                });
+                                }, 500);*/
+
+                                    /*    }
+                                    }
+                                });*/
                                 // if(){
 
                                 // }
