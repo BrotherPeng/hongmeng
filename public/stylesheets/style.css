@@ -555,8 +555,8 @@ table {
     margin-top: 20px;
 }
 
-.btn-default {
-    font-size: 12px;
+.btn-success {
+    font-size: 12px !important;
 }
 .btn-switch.active,
 .btn-switch.active.focus {
