@@ -20,8 +20,8 @@ weekTimeServer.prototype.saveConfig = function (config) {
     timeConfig['equip_id'] = config.id;
     logger.info("开始保存设备："+config.id+"的周设置");
     for (let i = 0; i < config.openTime.length; i += 2) {
-        let h=parseInt(config.openTime[i],16),
-            m=parseInt(config.openTime[i + 1],16);
+        let h=parseInt(config.openTime[i]),
+            m=parseInt(config.openTime[i + 1]);
         if(h<10){
             h='0'+h;
         }
@@ -31,8 +31,8 @@ weekTimeServer.prototype.saveConfig = function (config) {
         timeConfig['open_time_' + (i / 2 + 1)] = h + ':' + m;
     }
     for (let i = 0; i < config.closeTime.length; i += 2) {
-        let h=parseInt(config.closeTime[i],16),
-            m=parseInt(config.closeTime[i + 1],16);
+        let h=parseInt(config.closeTime[i]),
+            m=parseInt(config.closeTime[i + 1]);
         if(h<10){
             h='0'+h;
         }
@@ -80,9 +80,10 @@ weekTimeServer.prototype.saveConfig = function (config) {
     }).then(result=> {/*存在则更新，不存在则新增*/
         if (result !== 0) {
             logger.info("更新设备："+config.id+"的周设置"+timeConfig);
+            logger.info(timeConfig);
             weekTimeDao.update(timeConfig, function (err, result) {
                 logger.info("更新设备：");
-                logger.info(result);
+                // logger.info(result);
                 logger.info(err);
                 return result;
             });

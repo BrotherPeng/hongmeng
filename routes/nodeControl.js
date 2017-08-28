@@ -36,7 +36,8 @@ router.get('/id', function (req, res) {
         btnState = req.body.btnState,
         code = 1,
         message = 'success',
-        config;
+        config,
+        config1;
     if (openTime && closeTime) {
         openTime = openTime.split(',');
         closeTime = closeTime.split(',');
@@ -52,6 +53,13 @@ router.get('/id', function (req, res) {
                 closeTime: closeTime,
                 btnState: btnState
             };
+            config1 = {
+                id: id,
+                type: type,
+                openTime: openTime,
+                closeTime: closeTime,
+                btnState: btnState
+            };
             data = InitData.initTimeConfigData(config);
             break;
         case 1:
@@ -60,6 +68,15 @@ router.get('/id', function (req, res) {
             startDay = startDay.split(',');
             endDay = endDay.split(',');
             config = {
+                id: id,
+                type: type,
+                startDay: startDay,
+                endDay: endDay,
+                openTime: openTime,
+                closeTime: closeTime,
+                btnState: btnState
+            };
+            config1 = {
                 id: id,
                 type: type,
                 startDay: startDay,
@@ -89,9 +106,9 @@ router.get('/id', function (req, res) {
     });
     sendFun.timeout(10000).then(v=> {
         if(type===0){
-            weekTimeServer.saveConfig(config);
+            weekTimeServer.saveConfig(config1);
         }else if(type===1){
-            dailyTimeServer.saveConfig(config);
+            dailyTimeServer.saveConfig(config1);
         }
         res.send(v);
     }).catch(Promise.TimeoutError, function () {
@@ -108,6 +125,7 @@ router.post('/group/id/:id', (req, res) => {
         code = 1,
         message = 'success',
         data,
+        config1,
         config;
     if (openTime && closeTime) {
         openTime = openTime.split(',');
@@ -136,9 +154,16 @@ router.post('/group/id/:id', (req, res) => {
                             config = {
                                 id: v.equip_id,
                                 type: type,
-                                openTime: openTime,
-                                closeTime: closeTime,
-                                btnState:btnState
+                                openTime: req.body.openTime.split(','),  //在这个地方处理 不然config有引用传值的问题，数据在initdata被改变
+                                closeTime: req.body.closeTime.split(','),
+                                btnState:req.body.btnState
+                            };
+                            config1 = {
+                                id: v.equip_id,
+                                type: type,
+                                openTime: req.body.openTime.split(','),
+                                closeTime: req.body.closeTime.split(','),
+                                btnState:req.body.btnState
                             };
                             data = InitData.initTimeConfigData(config);
                             break;
@@ -153,9 +178,18 @@ router.post('/group/id/:id', (req, res) => {
                                 type: type,
                                 startDay: startDay,
                                 endDay: endDay,
-                                openTime: openTime,
-                                closeTime: closeTime,
-                                btnState:btnState
+                                openTime: req.body.openTime.split(','),
+                                closeTime: req.body.closeTime.split(','),
+                                btnState:req.body.btnState
+                            };
+                            config1 = {
+                                id: v.equip_id,
+                                type: type,
+                                startDay: startDay,
+                                endDay: endDay,
+                                openTime: req.body.openTime.split(','),
+                                closeTime: req.body.closeTime.split(','),
+                                btnState:req.body.btnState
                             };
                             data = InitData.initDayTimeConfigData(config);
                             break;
@@ -174,10 +208,11 @@ router.post('/group/id/:id', (req, res) => {
                     });
                 });
                 sendFun.timeout(10000).then(v=> {
+                    config1.id = v.equip_id;
                     if(type===0){
-                        weekTimeServer.saveConfig(config);
+                        weekTimeServer.saveConfig(config1);
                     }else if(type===1){
-                        dailyTimeServer.saveConfig(config);
+                        dailyTimeServer.saveConfig(config1);
                     }
                     resolve(v);
                 }).catch(Promise.TimeoutError, function () {
