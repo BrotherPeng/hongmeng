@@ -56,8 +56,8 @@ router.get('/id', function (req, res) {
             config1 = {
                 id: id,
                 type: type,
-                openTime: openTime,
-                closeTime: closeTime,
+                openTime: req.body.openTime.split(','),
+                closeTime: req.body.closeTime.split(','),
                 btnState: btnState
             };
             data = InitData.initTimeConfigData(config);
@@ -81,8 +81,8 @@ router.get('/id', function (req, res) {
                 type: type,
                 startDay: startDay,
                 endDay: endDay,
-                openTime: openTime,
-                closeTime: closeTime,
+                openTime: req.body.openTime.split(','),
+                closeTime: req.body.closeTime.split(','),
                 btnState: btnState
             };
             data = InitData.initDayTimeConfigData(config);
@@ -105,6 +105,8 @@ router.get('/id', function (req, res) {
         });
     });
     sendFun.timeout(10000).then(v=> {
+        logger.info('config1::::::::::::::::::::::::::');
+        logger.info(config1);
         if(type===0){
             weekTimeServer.saveConfig(config1);
         }else if(type===1){
