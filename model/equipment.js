@@ -47,7 +47,7 @@ function Equipment() {
     /*按设备id获取设备所属项目名称*/
     this.getInfoByEquipId=function (equipId,callback) {
         connection.acquire(function(err, con) {
-            con.query('select equip_id,project_id from equipment where equip_id = ?',[equipId], function(err, result) {
+            con.query('select name, equip_id, project_id from equipment where equip_id = ?',[equipId], function(err, result) {
                 con.release();
                 callback(err,result);
             });

@@ -558,6 +558,10 @@ table {
 .btn-success {
     font-size: 12px !important;
 }
+
+.btn-default {
+    font-size: 12px !important;
+}
 .btn-switch.active,
 .btn-switch.active.focus {
     background-color: #f3f0f0;

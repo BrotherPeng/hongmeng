@@ -104,9 +104,9 @@ router.get('/id', function (req, res) {
             resolve(result)
         });
     });
-    sendFun.timeout(10000).then(v=> {
-        logger.info('config1::::::::::::::::::::::::::');
-        logger.info(config1);
+    sendFun.timeout(12000).then(v=> {
+        // logger.info('config1::::::::::::::::::::::::::');
+        // logger.info(config1);
         if(type===0){
             weekTimeServer.saveConfig(config1);
         }else if(type===1){
@@ -209,11 +209,13 @@ router.post('/group/id/:id', (req, res) => {
                         resolve(result);
                     });
                 });
-                sendFun.timeout(10000).then(v=> {
-                    config1.id = v.equip_id;
+                sendFun.timeout(12000).then(v=> {
+
                     if(type===0){
+                        config1.id = v.equip_id;
                         weekTimeServer.saveConfig(config1);
                     }else if(type===1){
+                        config1.id = v.equip_id;
                         dailyTimeServer.saveConfig(config1);
                     }
                     resolve(v);
