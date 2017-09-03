@@ -104,7 +104,7 @@ router.get('/id', function (req, res) {
             resolve(result)
         });
     });
-    sendFun.timeout(12000).then(v=> {
+    sendFun.timeout(15000).then(v=> {
         // logger.info('config1::::::::::::::::::::::::::');
         // logger.info(config1);
         if(type===0){
@@ -209,7 +209,7 @@ router.post('/group/id/:id', (req, res) => {
                         resolve(result);
                     });
                 });
-                sendFun.timeout(12000).then(v=> {
+                sendFun.timeout(15000).then(v=> {
 
                     if(type===0){
                         config1.id = v.equip_id;
