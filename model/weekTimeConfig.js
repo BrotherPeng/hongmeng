@@ -7,8 +7,8 @@ function weekTimeConfig() {
     this.getByEquipId = function (equipId,callback) {
         connection.acquire(function(err, con) {
             con.query('select * from weekTimeConfig where equip_id =?',equipId, function(err, result) {
-                logger.info('weekTimeConfig...');
-                logger.info(err);
+                logger.debug('weekTimeConfig...');
+                logger.debug(err);
                 con.release();
                 callback(err,result);
             });

@@ -10,7 +10,7 @@ function Equipment() {
             con.query('SELECT e.id, e.name as ename,e.equip_id,e.key,p.name as pname FROM	equipment e LEFT JOIN project p ON p.id = e.project_id', function(err, result) {
 
                 con.release();
-                logger.info(result);
+                logger.debug(result);
                 console.log('+++++++++++++++++++++++++++++++++++++++++++++++');
                 res.render('equipment/list',{title:'设备管理',result:result});
             });
@@ -88,7 +88,7 @@ function Equipment() {
                 let Eresult = result;
                 con.query('select id,name from project',function (err,result) {
                     con.release();
-                    logger.info(result);
+                    logger.debug(result);
                     // let Aresult = Eresult.push(result);
                     let res = {
                         Eresult:Eresult,
