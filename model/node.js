@@ -8,6 +8,8 @@ var equipment = require("../model/equipment");
 var camera = require("../model/camera");
 var Promise = require('bluebird');
 var clientList=require('../lib/socket/socketHandle').clientList;
+var redisClient = require("../module/redisClient");
+
 function Node() {
     let _this=this;
     this.getAll=function (res) {
@@ -18,11 +20,13 @@ function Node() {
     /*按项目获取所有节点的最后一条数据*/
 
     this.getAllLastOneInProject = function (projectId, res) {
+        logger.debug('查询开始：' + new Date().toLocaleTimeString());
         equipment.getAllIdByProject(projectId, function (err, result) {
              if (!err) {
                 var actions = result.map(v => {
                     return new Promise(resolve=> {
                         _this.getLastOneNodeById(v.equip_id, function (err, value) {
+                            // logger.info('查询一次：' + new Date().toLocaleTimeString());
                             if (err) {
                                 return err;
                             } else {
@@ -35,9 +39,10 @@ function Node() {
                     })
 
                 });
-                Promise.all(actions).then(v=>
-                    res.send(v)
-                );
+                Promise.all(actions).then(v=>{
+                    logger.debug('查询结束：' + new Date().toLocaleTimeString());
+                    res.send(v);
+                });
             } else {
                 throw err;
             }
@@ -51,15 +56,28 @@ function Node() {
     };
 
     this.getLastOneNodeById=function (id,callback) {
-        node.find({equip_id:id}).sort({'time':-1}).limit(1).exec(function (err,nodes) {
+        redisClient.get(id, function (err, node) {
+            if(!err && node){
+                node = JSON.parse(node);
+                //redis存的时候把socket上传的data序列化成了{type:'Buffer',data[]} 在此处重新new Buffer()
+                node.buffer = new Buffer(node.buffer.data);
+                // logger.info(node);
+                // logger.info('sss' + node);
+                let json = ParseData.mongoParse(node);
+                callback&&callback(err, json);
+            }else{
+                callback&&callback(err,null);
+            }
+        });
+
+        /*node.find({equip_id:id}).sort({'time':-1}).limit(1).exec(function (err,nodes) {
             if(nodes[0]){
                 let json = ParseData.mongoParse(nodes[0]);
                 callback&&callback(err,json);
             }else{
                 callback&&callback(err,null);
             }
-
-        })
+        })*/
     }
 }
 module.exports = new Node();

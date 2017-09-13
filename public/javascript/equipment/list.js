@@ -15,9 +15,10 @@ require(['jquery'], function ($) {
     /* 删除*/
     $(document).on('click', '.delBtn', function (event) {
         var id = $(this).data('id');
+        var equip_id = $(this).data('equip_id');
         // 这里改成自定义样式的确认删除
         var type = $(this).data('type');
-        Tip.confirm(type,id);
+        Tip.confirm(type,id,equip_id);
         // if(!confirm('确认删除？')){
         //     return;
         // }

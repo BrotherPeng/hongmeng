@@ -35,7 +35,8 @@ block content
                                     if(result)
                                         option(value='#{result.Eresult[0].pname}')  #{result.Eresult[0].pname}
                                         each item in result.Presult
-                                            option(value='#{item.name}') #{item.name}
+                                            - if (result.Eresult[0].pname != item.name)
+                                                option(value='#{item.name}') #{item.name}
                         div.form-group
                             label.col-sm-5.control-label
                             div.col-sm-1

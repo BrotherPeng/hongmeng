@@ -5,6 +5,7 @@ var express = require('express');
 var router = express.Router();
 var logger = require('../log').logger('member');
 var moment = require('moment');
+var datastore = require('../lib/socket/datastore');
 var Equipment = require('../model/equipment');
 var Project = require('../model/project');
 /* 项目列表. */
@@ -32,7 +33,11 @@ router.get('/list', function(req, res, next) {
 /* 删除项目. */
 router.get('/del', function(req, res, next) {
     let id=req.query.id;
+    let equip_id=req.query.equip_id;
+    delete datastore.equipmentsMap[equip_id];
     Equipment.delete(id,res);
+    logger.info('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
+    logger.info(datastore.equipmentsMap);
 });
 /* 添加项目*/
 router.get('/add', function (req, res, next) {
@@ -60,6 +65,13 @@ router.get('/add', function (req, res, next) {
             project_id:project_id,
             create_time:time
         };
+    datastore.equipmentsMap[equip_id] = {
+        name: name,
+        equip_id: equip_id,
+        project_id: project_id
+    };
+    logger.info('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
+    logger.info(datastore.equipmentsMap);
     Equipment.create(equipment,res);
 });
 /* 编辑设备信息 */

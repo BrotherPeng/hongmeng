@@ -161,7 +161,7 @@ var Tip = {
             });
         }
     },
-    confirm: function (type, id) {
+    confirm: function (type, id, equip_id) {
         var t = "";
         if (type == 'equipment') {
             t = "设备";
@@ -189,7 +189,7 @@ var Tip = {
                     method: "GET",
                     url: "/equipment/del",
                     dataType: "json",
-                    data: {id: id},
+                    data: {id: id, equip_id: equip_id},
                     success: function (data) {
                         if (data.status === 1) {
                             location.reload();
