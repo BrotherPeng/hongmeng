@@ -41,7 +41,7 @@ weekTimeServer.prototype.saveConfig = function (config) {
         }
         timeConfig['close_time_' + (i / 2 + 1)] = h + ':' + m;
     }
-    console.log(timeConfig);
+    // console.log(timeConfig);
     timeConfig.update_time=moment().format('YYYY-MM-DD HH:mm:ss');
     /*查询dailyTime表是否存在该id*/
     var saveFellow = new Promise((resolve)=> {

@@ -7,7 +7,7 @@ var ParseData = require("../lib/socket/parseData");
 var equipment = require("../model/equipment");
 var camera = require("../model/camera");
 var Promise = require('bluebird');
-var clientList=require('../lib/socket/socketHandle').clientList;
+var socketHandle=require('../lib/socket/socketHandle');
 var redisClient = require("../module/redisClient");
 
 function Node() {
@@ -20,6 +20,7 @@ function Node() {
     /*按项目获取所有节点的最后一条数据*/
 
     this.getAllLastOneInProject = function (projectId, res) {
+        // let clientList=require('../lib/socket/socketHandle').clientList;
         logger.debug('查询开始：' + new Date().toLocaleTimeString());
         equipment.getAllIdByProject(projectId, function (err, result) {
              if (!err) {
@@ -31,7 +32,12 @@ function Node() {
                                 return err;
                             } else {
                                 if(value){
-                                    clientList[v.equip_id]?value.offline=false:value.offline=true;
+                                    /*if(v.equip_id == '10010707d1100033'){
+                                        logger.info('循环到问题设备了');
+                                        logger.info(clientList[v.equip_id]);
+                                    }*/
+                                    // clientList[v.equip_id]?value.offline=false:value.offline=true;
+                                    socketHandle.getEquipmentsStatus(v.equip_id)?value.offline=false:value.offline=true;
                                 }
                                 resolve(value);
                             }

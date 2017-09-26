@@ -6,6 +6,8 @@ var router = express.Router();
 var logger = require('../log').logger('member');
 var moment = require('moment');
 var datastore = require('../lib/socket/datastore');
+
+// let clientList = require('../lib/socket/socketHandle').clientList;
 var Equipment = require('../model/equipment');
 var Project = require('../model/project');
 /* 项目列表. */
@@ -36,8 +38,10 @@ router.get('/del', function(req, res, next) {
     let equip_id=req.query.equip_id;
     delete datastore.equipmentsMap[equip_id];
     Equipment.delete(id,res);
-    logger.info('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
-    logger.info(datastore.equipmentsMap);
+    let socketHandle = require('../lib/socket/socketHandle');
+    socketHandle.clear();
+    logger.info('socketHandle.clear() >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
+    // logger.info(datastore.equipmentsMap);
 });
 /* 添加项目*/
 router.get('/add', function (req, res, next) {
@@ -65,13 +69,15 @@ router.get('/add', function (req, res, next) {
             project_id:project_id,
             create_time:time
         };
-    datastore.equipmentsMap[equip_id] = {
+    /*datastore.equipmentsMap[equip_id] = {
         name: name,
         equip_id: equip_id,
         project_id: project_id
-    };
-    logger.info('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
-    logger.info(datastore.equipmentsMap);
+    };*/
+    let socketHandle = require('../lib/socket/socketHandle');
+    socketHandle.clear();
+    logger.info('socketHandle.clear() >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
+    // logger.info(datastore.equipmentsMap);
     Equipment.create(equipment,res);
 });
 /* 编辑设备信息 */
@@ -80,7 +86,7 @@ router.get('/edit/:id', function(req, res, next) {
         res.render('equipment/edit',{title: '编辑设备信息',result:result})
     });
 }).post('/edit/:id',function (req,res,next) {
-    console.log(req.body)
+    logger.info(req.body);
     let id=req.params.id,
         name=req.body.name,
         project_id=req.body.project_id,
@@ -93,6 +99,16 @@ router.get('/edit/:id', function(req, res, next) {
             equip_id:equip_id,
             key: key
         };
+
+    //修改了设备之后有可能项目id不同了，重新统计所有数据
+    // datastore.equipmentsMap = {};
+    // datastore.equipments = {};
+    // socketHandle.clientList = {};
+    // socketHandle.onlineList = {};
+    // socketHandle.socketTotle = 0;
+    let socketHandle = require('../lib/socket/socketHandle');
+    socketHandle.clear();
+
     Equipment.update(equipment,res);
 });
 

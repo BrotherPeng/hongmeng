@@ -107,9 +107,10 @@ router.get('/id', function (req, res) {
     sendFun.timeout(15000).then(v=> {
         // logger.info('config1::::::::::::::::::::::::::');
         // logger.info(config1);
-        if(type===0){
+        logger.info(v.code == -1 ? 'equip_id:' + v.equip_id + ' 失败，不保存配置' : '');
+        if(v.code > -1 &&  type===0){
             weekTimeServer.saveConfig(config1);
-        }else if(type===1){
+        }else if(v.code > -1 && type===1){
             dailyTimeServer.saveConfig(config1);
         }
         res.send(v);
@@ -210,11 +211,11 @@ router.post('/group/id/:id', (req, res) => {
                     });
                 });
                 sendFun.timeout(15000).then(v=> {
-
-                    if(type===0){
+                    logger.info(v.code == -1 ? 'equip_id:' + v.equip_id + ' 失败，不保存配置' : '');
+                    if(v.code > -1 && type === 0){
                         config1.id = v.equip_id;
                         weekTimeServer.saveConfig(config1);
-                    }else if(type===1){
+                    }else if(v.code > -1 && type === 1){
                         config1.id = v.equip_id;
                         dailyTimeServer.saveConfig(config1);
                     }

@@ -109,6 +109,7 @@ function Equipment() {
             con.query('insert into equipment set ?', equipment, function(err, result) {
                 con.release();
                 if (err) {
+                    logger.error(err);
                     //res.render('equipment/error');
                     res.send({success:false})
                 } else {
