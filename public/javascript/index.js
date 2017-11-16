@@ -113,6 +113,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'chart', 'dialogTemplate
         console.log($(this));
         var $this = $(this),
             id = $this.data('id'),
+            project_name = $this.data('name'),
             $content = '<div class="input-group"><label>id:</label><span>' + id + '</span></div>' +
                 '<label class="radio-inline"><input type="radio" name="optionsRadios" id="optionWeek" value="0" checked>周模式</label>' +
                 '<label class="radio-inline"><input type="radio" name="optionsRadios" id="optionDay" value="1">日模式</label>' +
@@ -126,7 +127,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'chart', 'dialogTemplate
             isGroupBtn = true;
         }
         var d = dialog({
-            title: '消息',
+            title: project_name,
             content: $content,
             okValue: '确 定',
             ok: function () {
@@ -142,7 +143,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'chart', 'dialogTemplate
                 isGroupBtn ? url = ("/nodeControl/group/id/" + id) : url = ("/nodeControl/id/" + id);
                 $('.flatpickr-wrapper').remove();
                 if (type === '0') {
-                    sendConfig({id: id, type: type, openTime: openTime, closeTime: closeTime}, url);
+                    sendConfig({id: id, type: type, openTime: openTime, closeTime: closeTime}, url, project_name);
                 } else if (type === '1') {
                     dayArr = getDay();
                     startDay = dayArr.startDay.toString();
@@ -154,7 +155,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'chart', 'dialogTemplate
                         endDay: endDay,
                         openTime: openTime,
                         closeTime: closeTime
-                    }, url);
+                    }, url, project_name);
                 } else {
                     $.each($switch, function (i, v) {
                         if ($(v).hasClass('active')) {
@@ -169,7 +170,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'chart', 'dialogTemplate
                         id: id,
                         type: type,
                         switchStatus: switchStatus
-                    }, url)
+                    }, url, project_name)
                 }
 
             },
@@ -265,7 +266,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'chart', 'dialogTemplate
     }
 
     // 下发配置
-    function sendConfig(data, url) {
+    function sendConfig(data, url, project_name) {
         $.ajax({
             method: "POST",
             url: url,
@@ -275,21 +276,22 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'chart', 'dialogTemplate
                 if (data.length) {
                     var $content = '<div>';
                     $.each(data, function (i, v) {
-                        $content += '<p>' + v.equip_id + ':' + (v.code === 1 ? '下发配置成功' : '下发配置失败') + '</p>'
+                        // $content += '<p>' + v.equip_id + ':' + (v.code === 1 ? '下发配置成功' : '下发配置失败') + '</p>'
+                        $content += (v.code === 1 ? '<p>' + v.equip_id + ':' + '下发配置成功' : '<p style="color:red;">' + v.equip_id + ':' + '下发配置失败') + '</p>';
                     });
                     dialog({
-                        title: '信息',
+                        title: project_name,
                         content: $content
                     }).show();
                 } else {
                     if (data.code === 1) {
                         dialog({
-                            title: '信息',
+                            title: project_name,
                             content: '下发配置成功'
                         }).show();
                     } else {
                         dialog({
-                            title: '信息',
+                            title: project_name,
                             content: '下发配置失败'
                         }).show();
                     }
