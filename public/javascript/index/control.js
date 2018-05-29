@@ -6,7 +6,8 @@ requirejs.config({
     paths: {
         jquery: 'jquery/dist/jquery',
         handlebars: 'handlebars/handlebars.amd.min',
-        dialog: 'artDialog/dist/dialog-min',
+        // dialog: 'artDialog/dist/dialog-min',
+        dialog: 'artDialog/dist/dialog',
         flatpickr: 'flatpickr/dist/flatpickr.min',
         dialogTemplate: 'javascript/index/template', //弹框模板
         io: 'socket.io-client/dist/socket.io.min'

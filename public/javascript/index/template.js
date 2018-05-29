@@ -343,7 +343,7 @@ define(function () {
         if (start_month === 0 && i !== 1) {
             display = 'daily-hide';
         }
-        if (start_month === end_month && start_day === end_day) {
+        if (start_month === end_month && start_day === end_day && (start_month == 1 && end_month==1 && start_day==1 && end_day==1)) {
             display = 'daily-hide';
         }
         panel += '<div class="input-group ' + display + '" style="margin-top: 10px">' +
