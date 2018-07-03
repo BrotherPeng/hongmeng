@@ -936,7 +936,8 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
          * 监听websocket
          */
         function listenOnWebSocekt() {
-            var socket = io('120.27.37.212:8082');
+            var socket = io('47.104.254.127:8082');
+            // var socket = io('120.27.37.212:8082');
             // var socket = io('127.0.0.1:8082');
             socket.on('onlineList', function(data) {
                 if (!data) {

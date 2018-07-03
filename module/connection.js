@@ -12,7 +12,8 @@ function Connection() {
             host: 'localhost',
             user: 'root',
             // password: '12345678',
-            password: 'root',
+            // password: 'root',
+            password: 'infoadmin',
             database: 'relation'
         });
     };
