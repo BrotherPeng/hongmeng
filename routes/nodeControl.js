@@ -119,6 +119,11 @@ router.get('/id', function (req, res) {
     });
 
 });
+var sleep = async (duration) => {
+    return new Promise((resolve, reject) => {
+        setTimeout(resolve, duration);
+    });
+};
 router.post('/group/id/:id', (req, res) => {
     let program_id = req.params.id,
         type = Number(req.body.type),
@@ -134,7 +139,8 @@ router.post('/group/id/:id', (req, res) => {
         openTime = openTime.split(',');
         closeTime = closeTime.split(',');
     }
-    let sendData = require("../lib/socket/socketHandle").send;
+    // let sendData = require("../lib/socket/socketHandle").send;
+    let sendGroup = require("../lib/socket/socketHandle").sendGroup;
 
     let getEquipId = ()=> {
         return new Promise((resolve)=> {
@@ -142,6 +148,8 @@ router.post('/group/id/:id', (req, res) => {
                 if (err) {
                     res.send({code: -1, message: err})
                 } else {
+                    logger.info('需要处理的设备');
+                    logger.info(result);
                     resolve(result);
                 }
             })
@@ -149,8 +157,10 @@ router.post('/group/id/:id', (req, res) => {
     };
 
     getEquipId().then(result=> {
-        let sendDataFun = result.map((v)=> {
-            return new Promise(resolve=> {
+        var count = 0;
+        let sendDataFun = result.map((v, index)=> {
+            // (async () => {
+            return new Promise(resolve => {
                 let sendFun = new Promise(resolve => {
                     switch (type) {
                         case 0:
@@ -159,14 +169,14 @@ router.post('/group/id/:id', (req, res) => {
                                 type: type,
                                 openTime: req.body.openTime.split(','),  //在这个地方处理 不然config有引用传值的问题，数据在initdata被改变
                                 closeTime: req.body.closeTime.split(','),
-                                btnState:req.body.btnState
+                                btnState: req.body.btnState
                             };
                             config1 = {
                                 id: v.equip_id,
                                 type: type,
                                 openTime: req.body.openTime.split(','),
                                 closeTime: req.body.closeTime.split(','),
-                                btnState:req.body.btnState
+                                btnState: req.body.btnState
                             };
                             data = InitData.initTimeConfigData(config);
                             break;
@@ -183,7 +193,7 @@ router.post('/group/id/:id', (req, res) => {
                                 endDay: endDay,
                                 openTime: req.body.openTime.split(','),
                                 closeTime: req.body.closeTime.split(','),
-                                btnState:req.body.btnState
+                                btnState: req.body.btnState
                             };
                             config1 = {
                                 id: v.equip_id,
@@ -192,7 +202,7 @@ router.post('/group/id/:id', (req, res) => {
                                 endDay: endDay,
                                 openTime: req.body.openTime.split(','),
                                 closeTime: req.body.closeTime.split(','),
-                                btnState:req.body.btnState
+                                btnState: req.body.btnState
                             };
                             data = InitData.initDayTimeConfigData(config);
                             break;
@@ -206,27 +216,45 @@ router.post('/group/id/:id', (req, res) => {
                             data = InitData.initSwitchControlData(config);
                             break;
                     }
-                    sendData(v.equip_id, data, function (result) {
+
+                    (async () => {
+                        await sleep(index * 5000);
+                        logger.info(new Date().toLocaleString() + ' ' + v.equip_id + ': ' + count);
+                        sendGroup(v.equip_id, data, index, (result) => {
+                            resolve(result);
+                        });
+
+                    })();
+
+                    // setTimeout(() => {
+                    /*logger.info(new Date().toLocaleString() + ' ' + v.equip_id + ': ' + count);
+                sendGroup(v.equip_id, data, index, (result) => {
                         resolve(result);
-                    });
+                });*/
+                    // }, /*(index + 1) + */2000);
+                    // count ++;
                 });
-                sendFun.timeout(15000).then(v=> {
+                sendFun.timeout(40000).then(v => {
                     logger.info(v.code == -1 ? 'equip_id:' + v.equip_id + ' 失败，不保存配置' : '');
-                    if(v.code > -1 && type === 0){
+                    if (v.code > -1 && type === 0) {
                         config1.id = v.equip_id;
                         weekTimeServer.saveConfig(config1);
-                    }else if(v.code > -1 && type === 1){
+                    } else if (v.code > -1 && type === 1) {
                         config1.id = v.equip_id;
                         dailyTimeServer.saveConfig(config1);
                     }
                     resolve(v);
                 }).catch(Promise.TimeoutError, function () {
-                    resolve({code: -2, message: "could not get response data within 2000ms",equip_id:v.equip_id});//超时-2
+                    resolve({code: -2, message: "could not get response data within 2000ms", equip_id: v.equip_id});//超时-2
                 });
             });
+
+        // })();
         });
 
         new Promise.all(sendDataFun).then(v=> {
+            console.log('v>>>>>>>>>>>>>>>v:')
+            console.log(v)
             res.send(v);
         })
     })
