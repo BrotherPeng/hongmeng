@@ -340,7 +340,9 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
         }
 
         //操作按钮
+        var projectName = '';
         $('body').on('click', '.btn-dialog', function() {
+            
             var $this = $(this),
                 id = $this.data('id'),
                 project_name = $this.data('name'),
@@ -356,9 +358,12 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
                     '<div class="control-content">' +
                     '</div>',
                 isGroupBtn = false;
+
+                projectName = $this.data('name');
             //判断是否是群发按钮
             if ($this.hasClass('btn-project-group')) {
                 isGroupBtn = true;
+                controlGroup = ''; // 可能多次批量下发 清空弹框内容
             }
             var d = dialog({
                 title: project_name,
@@ -935,6 +940,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
         /**
          * 监听websocket
          */
+        var controlGroup = '';
         function listenOnWebSocekt() {
             var socket = io('47.104.254.127:8082');
             // var socket = io('120.27.37.212:8082');
@@ -950,6 +956,24 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
                         $(this).find('.equip-online-num-b').html(0);
                     }
                 });
+            });
+
+            socket.on('controlGroup', function(data){
+                console.info(data);
+                if(data){
+                    if(!controlGroup){
+                        controlGroup = '<div class="control-group">';
+                        controlGroup += (data.code === 1 ? '<p>' + data.equip_id + ':' + '下发配置成功' : '<p style="color:red;">' + data.equip_id + ':' + '下发配置失败') + '</p>';
+                        dialog({
+                            title: projectName,
+                            content: controlGroup
+                        }).show();
+                    }else {
+                        // controlGroup = '<div class="control-group">';
+                        controlGroup = (data.code === 1 ? '<p>' + data.equip_id + ':' + '下发配置成功' : '<p style="color:red;">' + data.equip_id + ':' + '下发配置失败') + '</p>';
+                        $('.control-group').append(controlGroup);
+                    }
+                }
             });
         }
 

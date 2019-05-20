@@ -13,6 +13,12 @@ var dailyTime = require("../model/dailyTimeConfig");
 var Promise = require('bluebird');
 let weekTimeServer = require('../server/weekTimeConfigServer');
 let dailyTimeServer = require('../server/dailyTimeConfigServer');
+
+
+var io=require('../lib/websocket/websocketServer').io; // 用于批量下发通知
+
+let sendGroup = require("../lib/socket/socketHandle").sendGroup;
+
 /* GET home page. */
 router.get('/', function (req, res) {
     var clientList = require("../lib/socket/socketHandle").clientList;
@@ -140,7 +146,7 @@ router.post('/group/id/:id', async(req, res) => {
         closeTime = closeTime.split(',');
     }
     // let sendData = require("../lib/socket/socketHandle").send;
-    let sendGroup = require("../lib/socket/socketHandle").sendGroup;
+    // let sendGroup = require("../lib/socket/socketHandle").sendGroup;
 
     let getEquipId = ()=> {
         return new Promise((resolve)=> {
@@ -232,12 +238,15 @@ router.post('/group/id/:id', async(req, res) => {
 
             logger.info(new Date().toLocaleString() + ' ' + result.equip_id);
             logger.info(result);
+            io.emit('controlGroup', result);
         }catch(error){
             logger.info(new Date().toLocaleString() + ' ' + v.equip_id);
             logger.info(error);
+            io.emit('controlGroup', {code:-1, message:'fail', equip_id: v.equip_id})
         }
-
     }
+
+    res.send('ok');
 
     return;
 
