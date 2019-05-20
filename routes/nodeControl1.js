@@ -124,7 +124,7 @@ var sleep = async (duration) => {
         setTimeout(resolve, duration);
     });
 };
-router.post('/group/id/:id', async(req, res) => {
+router.post('/group/id/:id', (req, res) => {
     let program_id = req.params.id,
         type = Number(req.body.type),
         openTime = req.body.openTime,
@@ -155,91 +155,6 @@ router.post('/group/id/:id', async(req, res) => {
             })
         })
     };
-
-    const equipIdList = await getEquipId();
-    for(let i=0; i<equipIdList.length; i++) {
-        const v = equipIdList[i];
-
-        switch (type) {
-            case 0:
-                config = {
-                    id: v.equip_id,
-                    type: type,
-                    openTime: req.body.openTime.split(','),  //在这个地方处理 不然config有引用传值的问题，数据在initdata被改变
-                    closeTime: req.body.closeTime.split(','),
-                    btnState: req.body.btnState
-                };
-                config1 = {
-                    id: v.equip_id,
-                    type: type,
-                    openTime: req.body.openTime.split(','),
-                    closeTime: req.body.closeTime.split(','),
-                    btnState: req.body.btnState
-                };
-                data = InitData.initTimeConfigData(config);
-                break;
-            case 1:
-                let startDay = req.body.startDay,
-                    endDay = req.body.endDay;
-                btnState = req.body.btnState;
-                startDay = startDay.split(',');
-                endDay = endDay.split(',');
-                config = {
-                    id: v.equip_id,
-                    type: type,
-                    startDay: startDay,
-                    endDay: endDay,
-                    openTime: req.body.openTime.split(','),
-                    closeTime: req.body.closeTime.split(','),
-                    btnState: req.body.btnState
-                };
-                config1 = {
-                    id: v.equip_id,
-                    type: type,
-                    startDay: startDay,
-                    endDay: endDay,
-                    openTime: req.body.openTime.split(','),
-                    closeTime: req.body.closeTime.split(','),
-                    btnState: req.body.btnState
-                };
-                data = InitData.initDayTimeConfigData(config);
-                break;
-            case 2:
-                let switchStatus = req.body.switchStatus;
-                config = {
-                    id: v.equip_id,
-                    type: type,
-                    switchStatus: switchStatus
-                };
-                data = InitData.initSwitchControlData(config);
-                break;
-        }
-
-
-        logger.info(new Date().toLocaleString() + ' ' + v.equip_id);
-
-        try {
-            const result = await sendGroup(v.equip_id, data);
-
-            logger.info(result.code == -1 ? 'equip_id:' + result.equip_id + ' 失败，不保存配置' : '');
-            if (result.code > -1 && type === 0) {
-                config1.id = result.equip_id;
-                weekTimeServer.saveConfig(config1);
-            } else if (result.code > -1 && type === 1) {
-                config1.id = result.equip_id;
-                dailyTimeServer.saveConfig(config1);
-            }
-
-            logger.info(new Date().toLocaleString() + ' ' + result.equip_id);
-            logger.info(result);
-        }catch(error){
-            logger.info(new Date().toLocaleString() + ' ' + v.equip_id);
-            logger.info(error);
-        }
-
-    }
-
-    return;
 
     getEquipId().then(result=> {
         var count = 0;
