@@ -960,17 +960,35 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
 
             socket.on('controlGroup', function(data){
                 console.info(data);
+                debugger;
                 if(data){
                     if(!controlGroup){
                         controlGroup = '<div class="control-group">';
-                        controlGroup += (data.code === 1 ? '<p>' + data.equip_id + ':' + '下发配置成功' : '<p style="color:red;">' + data.equip_id + ':' + '下发配置失败') + '</p>';
+                        //controlGroup += (data.code === 1 ? '<p>' + data.equip_id + ':' + '下发配置成功' : '<p style="color:red;">' + data.equip_id + ':' + '下发配置失败') + '</p>';
+                        
+                        if(data.code === 1){
+                            controlGroup += '<p>' + data.equip_id + ' 下发配置成功' + '</p>';
+                        }else if(data.code === 2) {
+                            controlGroup += '<span style="color: #F0F8FF;">————————————————</span>';
+                            controlGroup += '<p style="color:green;">' + data.equip_id + ' 发送中' + '</p>';
+                        }else {
+                            controlGroup += '<p style="color:red;">' + data.equip_id + ' 下发配置失败' + '</p>';
+                        }
                         dialog({
                             title: projectName,
                             content: controlGroup
                         }).show();
                     }else {
                         // controlGroup = '<div class="control-group">';
-                        controlGroup = (data.code === 1 ? '<p>' + data.equip_id + ':' + '下发配置成功' : '<p style="color:red;">' + data.equip_id + ':' + '下发配置失败') + '</p>';
+                        if(data.code === 1){
+                            controlGroup = '<p>' + data.equip_id + ' 下发配置成功' + '</p>';
+                        }else if(data.code === 2) {
+                            controlGroup = '<span style="color: #F0F8FF;">————————————————</span>';
+                            controlGroup += '<p style="color:green;">' + data.equip_id + ' 发送中' + '</p>';
+                        }else {
+                            controlGroup = '<p style="color:red;">' + data.equip_id + ' 下发配置失败' + '</p>';
+                        }
+                        // controlGroup = (data.code === 1 ? '<p>' + data.equip_id + ':' + '下发配置成功' : '<p style="color:red;">' + data.equip_id + ':' + '下发配置失败') + '</p>';
                         $('.control-group').append(controlGroup);
                     }
                 }

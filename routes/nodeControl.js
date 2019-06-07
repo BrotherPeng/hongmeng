@@ -221,6 +221,7 @@ router.post('/group/id/:id', async(req, res) => {
                 break;
         }
 
+        io.emit('controlGroup', {code:2, message:'success', equip_id: v.equip_id})
 
         logger.info(new Date().toLocaleString() + ' ' + v.equip_id);
 
