@@ -1,0 +1,47 @@
+include ../includes/head
+link(rel='stylesheet', href='/flatpickr/dist/flatpickr.confetti.min.css')
+block content
+    include ../includes/header
+  link(rel='stylesheet', href='/artDialog/css/ui-dialog.css')
+.container-fluid
+    .row
+        include ../includes/slide
+        .col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2.main
+            .row
+                - if (!denied)
+                  .col-sm-11
+                    h1.page-header 预置列表
+                  .col-sm-1
+                    button.btn.btn-success.btn-dialog.btn-project-group(style='padding:6px 12px;margin-right:10px' data-relay="关,关,关,关,关,关,关,关") 添加预置
+                - else
+                    h2.page-header 没有权限
+            - if (!denied)
+              .row
+                .table-responsive
+                    table.table.table-bordered
+                        caption 下表为所有预置信息
+                        thead
+                            tr
+                                th  序号
+                                th  名称
+                                th  描述
+                                th  操作
+                        if (result)
+                            each item, index in result
+                                if(item)
+                                    tr.list_tr
+                                        td #{index + 1}
+                                        td #{item.name}
+                                        td #{item.describe}
+                                        td
+                                            a.delBtn(href='javascript:void(0);' data-id='#{item.id}' data-type='member')  删除
+                                                span.glyphicon.glyphicon-remove
+                                            a.editBtn(href='/preset/edit/#{item.id}' data-id='#{item.id}') 编辑
+                                                span.glyphicon.glyphicon-edit
+
+
+
+include ../includes/footer
+
+script(src='/requirejs/require.js' data-main="/javascript/preset/control")
+script(src='/requirejs/require.js' data-main="/javascript/preset/list")

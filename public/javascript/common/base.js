@@ -73,6 +73,10 @@ function getPath(path) {
             $('.device').addClass('active');
             $('.device').find('.treeview-menu').show();
             break;
+        case '/preset/list':
+            $('[role=navigation] .navbar-brand').html('预置管理');
+            $('.preset').addClass('active');
+            break;
         default:
             break;
     }

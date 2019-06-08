@@ -1,0 +1,102 @@
+include ../includes/head
+
+block content
+    include ../includes/header
+.container-fluid
+    .row
+        include ../includes/slide
+        .col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2.main
+            h1.page-header 编辑人员
+            .row.placeholders
+                if(result)
+                    //form.form-horizontal(role='form' action='/member/edit/#{result[0].id}' method='post')
+                    form.form-horizontal(role='form')
+                        div.form-group
+                            label.col-sm-5.control-label(for='username') 用户名
+                            div.col-sm-3
+                                input.form-control(id='username' name='username' type='text' placeholder='用户名' required value='#{result[0].username}')
+                                input(style="display:none").form-control(id='id' required value='#{result[0].id}')
+                        div.form-group
+                            label.col-sm-5.control-label(for='mobile') 手机号
+                            div.col-sm-3
+                                input.form-control(id='mobile' name='mobile' type='mobile' placeholder='手机号' required value='#{result[0].mobile}')
+                        div.form-group
+                            label.col-sm-5.control-label(for='email') 邮箱
+                            div.col-sm-3
+                                input.form-control(id='email' name='email' type='email' placeholder='邮箱' required value='#{result[0].email}')
+                        div.form-group
+                            label.col-sm-5.control-label(for='password') 密码
+                            div.col-sm-3
+                                input.form-control(id='password' name='password' type='password' placeholder='密码' required value='#{result[0].password}')
+                        div.form-group
+                            label.col-sm-5.control-label(for='rePassword') 确认密码
+                            div.col-sm-3
+                                input.form-control(id='rePassword' name='rePassword' type='password' placeholder='密码' required value='#{result[0].password}')
+                        //div.form-group  //genice 20170723角色不可编辑
+                        //    label.col-sm-5.control-label(for='role') 角色
+                        //    div.col-sm-3
+                        //        select.form-control(id='role' name='role' type='text' placeholder='角色')
+                        //            if(result[0].role_id == 2)
+                        //                option(value=2 selected) 超级管理员
+                        //            else
+                        //                option(value=2) 超级管理员
+                        //            if(result[0].role_id == 3)
+                        //                option(value=3 selected) 超级用户
+                        //            else
+                        //                option(value=3) 超级用户
+                        //            if(result[0].role_id == 4)
+                        //                option(value=4 selected) 管理员
+                        //            else
+                        //                option(value=4) 管理员
+                        //            if(result[0].role_id == 5)
+                        //                option(value=5 selected) 用户
+                        //            else
+                        //                option(value=5) 用户
+                        div.form-group
+                            label.col-sm-5.control-label
+                            div.col-sm-1
+                                //button.sub_btn.sub_left_btn#submitBtn(type='submit') 提交
+                                button.sub_btn.sub_left_btn#submitBtn(type='button') 提交
+                            div.col-sm-1
+                                a(href='/member/list')
+                                    button.sub_btn.sun_right_btn(type='button') 取消
+include ../includes/footer
+//script(src='../../public/javascript/common/alert.js')
+    //AJAX调用编辑接口
+script(type='text/javascript').
+    $("#submitBtn").click(function () {
+
+        var password = $("#password").val();
+        var rePassword = $("#rePassword").val();
+        if (!password) {
+            return Tip.warning("请填写密码")
+        }
+        if (!rePassword) {
+            return Tip.warning("请填写确认密码")
+        }
+        if (password != rePassword) {
+            return Tip.warning("密码和确认密码不一致")
+        }
+        var users = new Object();
+        var usersId = $("#id").val();
+        users.id = usersId;
+        users.username = $("#username").val();
+        users.password = password;
+        users.role = $("#role").val();
+        $.ajax({
+            method: "POST",
+            url: '/member/edit/' + usersId,
+            data: users,
+            dataType: "json",
+            success: function (data) {
+                if(data.success == true){
+                    Tip.alert("edit","member","success");
+                }else{
+                    Tip.alert("edit","member","error");
+                }
+            },
+            error: function (data) {
+                Tip.alert("edit", "member", "error");
+            }
+        });
+    });

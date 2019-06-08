@@ -1,0 +1,108 @@
+include ../includes/head
+
+block content
+    include ../includes/header
+.container-fluid
+    .row
+        include ../includes/slide
+        .col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2.main
+          - if (!denied)
+            h1.page-header 添加人员
+            .row.placeholders
+                //form.form-horizontal(role='form' action='/member/add' method='post')
+                form.form-horizontal(role='form')
+                    div.form-group
+                        label.col-sm-5.control-label(for='username') 用户名
+                        div.col-sm-3
+                            input.form-control(id='username' name='username' type='text' placeholder='用户名' required)
+                    div.form-group
+                        label.col-sm-5.control-label(for='mobile') 手机号
+                        div.col-sm-3
+                            input.form-control(id='mobile' name='mobile' type='mobile' placeholder='手机号' required)
+                    div.form-group
+                        label.col-sm-5.control-label(for='email') 邮箱
+                        div.col-sm-3
+                            input.form-control(id='email' name='email' type='email' placeholder='邮箱' required)
+                    div.form-group
+                        label.col-sm-5.control-label(for='password') 密码
+                        div.col-sm-3
+                            input.form-control(id='password' name='password' type='password' placeholder='密码' required)
+                    div.form-group
+                        label.col-sm-5.control-label(for='rePassword') 确认密码
+                        div.col-sm-3
+                            input.form-control(id='rePassword' name='rePassword' type='password' placeholder='确认密码' required)
+                    div.form-group
+                        label.col-sm-5.control-label(for='role') 角色
+                        div.col-sm-3
+                            - if(role_id == 1)
+                                select.form-control(id='role' name='role' type='text' placeholder='角色')
+                                    option(value=2) 超级管理员
+                                    //option(value=3) 超级用户
+                                    option(value=4) 项目管理员
+                                //option(value=5) 用户
+                            -else
+                                select.form-control(id='role' name='role' type='text' placeholder='角色')
+                                    option(value=4) 项目管理员
+                    div.form-group
+                        label.col-sm-5.control-label
+                        div.col-sm-1
+                            //button.sub_btn.sub_left_btn#submitBtn(type='submit') 提交
+                            button.sub_btn.sub_left_btn#submitBtn(type='button') 提交
+                        div.col-sm-1
+                            a(href='/member/list')
+                                button.sub_btn.sun_right_btn(type='button') 取消
+
+          - else
+             h2.page-header 没有权限
+include ../includes/footer
+    //AJAX调用添加接口
+script(type='text/javascript').
+    $("#submitBtn").click(function () {
+        var member = new Object();
+        member.username = $("#username").val();
+        if($("#username").val() == ""){
+           return Tip.warning("请输入用户名")
+        }
+        if ($("#role").val() == "") {
+            return Tip.warning("请选择一个身份")
+        }
+        if ($("#mobile").val() == "") {
+            return Tip.warning("请输入手机号")
+        }
+        if ($("#email").val() == "") {
+            return Tip.warning("请输入邮箱")
+        }
+        if ($("#password").val() == "") {
+            return Tip.warning("请输入密码")
+        }
+        if ($("#rePassword").val() == "") {
+            return Tip.warning("请输入确认密码")
+        }
+        if($("#password").val() != $("#rePassword").val()){
+            return Tip.warning("密码不一致")
+        }else{
+            member.password = $("#password").val();
+        }
+        member.role = $("#role").val();
+        member.mobile = $("#mobile").val();
+        member.email = $("#email").val();
+        member.owner_id = getString("userId");
+        member.create_time = getTime();
+        $.ajax({
+            method: "POST",
+            url: '/member/add',
+            data: member,
+            dataType: "json",
+            success: function (data) {
+                if(data.success == true){
+                    Tip.alert("add", "member","success");
+                }else{
+                    Tip.alert("add", "member","error");
+                }
+
+            },
+            error: function (data) {
+                Tip.alert("add", "member","error");
+            }
+        });
+    });

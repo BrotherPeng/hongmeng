@@ -56,6 +56,7 @@ app.use('/member',authority.isAuthenticated,roles.can('access user page'),requir
 app.use('/project',authority.isAuthenticated,require('./routes/project'));
 app.use('/equipment',authority.isAuthenticated,require('./routes/equipment'));
 app.use('/camera',authority.isAuthenticated,require('./routes/camera'));
+app.use('/preset',authority.isAuthenticated,require('./routes/preset'));
 
 
 // catch 404 and forward to error handler
