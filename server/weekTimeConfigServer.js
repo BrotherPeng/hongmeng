@@ -3,6 +3,7 @@
  */
 let weekTimeDao = require('../model/weekTimeConfig');
 let dailyTimeDao = require('../model/dailyTimeConfig');
+let preset = require('../model/preset');
 let logger = require("../log").logger('mysql');
 let Promise = require('bluebird');
 let moment=require('moment');
@@ -98,5 +99,39 @@ weekTimeServer.prototype.saveConfig = function (config) {
             });
         }
     });
+}
+
+weekTimeServer.prototype.savePresetConfig = function (config, res) {
+    let timeConfig = {name: config.name, describe: config.describe};
+    timeConfig.week_conf = config.btnState;
+    // timeConfig['equip_id'] = config.id;
+    logger.info("开始保存预设值周设置");
+    for (let i = 0; i < config.openTime.length; i += 2) {
+        let h=parseInt(config.openTime[i]),
+            m=parseInt(config.openTime[i + 1]);
+        if(h<10){
+            h='0'+h;
+        }
+        if(m<10){
+            m='0'+m;
+        }
+        timeConfig['open_time_' + (i / 2 + 1)] = h + ':' + m;
+    }
+    for (let i = 0; i < config.closeTime.length; i += 2) {
+        let h=parseInt(config.closeTime[i]),
+            m=parseInt(config.closeTime[i + 1]);
+        if(h<10){
+            h='0'+h;
+        }
+        if(m<10){
+            m='0'+m;
+        }
+        timeConfig['close_time_' + (i / 2 + 1)] = h + ':' + m;
+    }
+    // console.log(timeConfig);
+    timeConfig.update_time=moment().format('YYYY-MM-DD HH:mm:ss');
+    /*查询dailyTime表是否存在该id*/
+    
+    preset.createWeekPreset(timeConfig, res);
 }
 module.exports = new weekTimeServer();

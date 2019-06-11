@@ -55,9 +55,9 @@ function Preset() {
             });
         });
     };
-    this.create = function(users, res) {
+    this.createWeekPreset = function(weekTimeConfig, res) {
         connection.acquire(function(err, con) {
-            con.query('insert into users set ?', users, function(err, result) {
+            con.query('insert into weekpresetconfig set ?', weekTimeConfig, function(err, result) {
                 con.release();
                 if (err) {
                     //res.render('member/error');

@@ -108,28 +108,42 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
                 relay = $(this).data('relay'),
                 $content = '' +
                     //'<label class="radio-inline"><input type="radio" name="optionsRadios" id="optionWeek" value="0" checked>周模式</label>' +
+                    '<div class="form-group">' +
+                    // '<label for="name" class="col-sm-2">名称</label>' +
+                    '<div class="col-sm-8" style="margin: 0 0 10px 0; padding:0;">' +
+                    '<input type="text" class="form-control" id="presetName" placeholder="请输入名称">' +
+                    '</div></div><br>' +
+                    // '<div class="row"></div>' +
+                    '<div class="form-group">' +
+                    // '<label for="name" class="col-sm-2">详情</label>' +
+                    '<div class="col-sm-12" style="margin: 0 0 10px 0; padding:0;">' +
+                    '<textarea class="form-control" rows="3" id="presetDescribe"  placeholder="请输入详情"></textarea>' +
+                    '</div></div><p></p>' +
+                    // '<div class="row"></div>' +
+
                     '<label class="radio-inline">' +
                     '<input type="radio" name="optionsRadios" id="optionWeek" value="0" data-relay=' + relay + ' checked>周模式</label>' +
                     '<label class="radio-inline" id="optionsRadios_label">' +
                     '<input type="radio" name="optionsRadios" id="optionDay" value="1" data-relay=' + relay + '>日模式</label>' +
                     '<label class="radio-inline">' +
                     '<input type="radio" name="optionsRadios" id="optionSwitch" value="2" data-relay=' + relay + '>开关控制</label>' +
+                    
                     '<div class="control-content">' +
                     '</div>',
                 isGroupBtn = false;
 
                 projectName = '添加预置';
             //判断是否是群发按钮
-            if ($this.hasClass('btn-project-group')) {
+            /* if ($this.hasClass('btn-project-group')) {
                 isGroupBtn = true;
                 controlGroup = ''; // 可能多次批量下发 清空弹框内容
-            }
+            } */
             var d = dialog({
                 title: project_name,
                 height: 400,
                 width: 550,
                 content: $content,
-                okValue: '配置',
+                okValue: '提交',
                 cancel: '取消',
                 ok: function() {
                     var type = $('[type=radio]:checked').val(),
@@ -140,11 +154,16 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
                         startDay,
                         endDay,
                         $switch = $('.btn-switch'),
-                        switchStatus = '';
-                    if (!confirm("是否下发配置？")) {
-                        return false;
-                    }
-                    isGroupBtn ? url = ("/nodeControl/group/id/" + id) : url = ("/nodeControl/id/" + id);
+                        switchStatus = '',
+                        presetName = $('#presetName').val(),
+                        presetDescribe = $('#presetDescribe').val();
+                    // if (!confirm("是否下发配置？")) {
+                    //     return false;
+                    // }
+                    // isGroupBtn ? url = ("/nodeControl/group/id/" + id) : url = ("/nodeControl/id/" + id);
+                    console.info(presetName);
+                    console.info(presetDescribe);
+                    url = '/preset/add';
                     $('.flatpickr-wrapper').remove();
                     if (type === '0') {
                         // console.log(type)
@@ -203,7 +222,9 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
                             type: type,
                             openTime: openTime,
                             closeTime: closeTime,
-                            btnState: JSON.stringify(btnState)
+                            btnState: JSON.stringify(btnState),
+                            name: presetName,
+                            describe: presetDescribe,
                         }, url, project_name);
                     } else if (type === '1') {
                         dayArr = getDay();
@@ -263,7 +284,9 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
                             endDay: endDay,
                             openTime: openTime,
                             closeTime: closeTime,
-                            btnState: JSON.stringify(sectionBtnState)
+                            btnState: JSON.stringify(sectionBtnState),
+                            name: presetName,
+                            nescribe: presetDescribe,
                         }, url, project_name);
                     } else { //type==2
                         $.each($switch, function(i, v) {
