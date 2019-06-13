@@ -3,6 +3,7 @@
  */
 let weekTimeDao = require('../model/weekTimeConfig');
 let dailyTimeDao = require('../model/dailyTimeConfig');
+let preset = require('../model/preset');
 let logger = require("../log").logger('mysql');
 let Promise = require('bluebird');
 function dailyTimeServer() {
@@ -95,4 +96,43 @@ dailyTimeServer.prototype.saveConfig = function (config) {
         }
     });
 }
+
+
+dailyTimeServer.prototype.savePresetConfig = function (config, res) {
+    // let equipId = config.id,
+    let timeConfig = {name: config.name, describe: config.describe};
+    timeConfig.day_conf = config.btnState;
+    // timeConfig['equip_id'] = config.id;
+    for (let i = 0; i < config.startDay.length; i += 2) {
+        timeConfig['start_' + (i / 2 + 1)] = config.startDay[i] + '-' + config.startDay[i + 1];
+    }
+    for (let i = 0; i < config.endDay.length; i += 2) {
+        timeConfig['end_' + (i / 2 + 1)] = config.endDay[i] + '-' + config.endDay[i + 1];
+    }
+    for (let i = 0; i < config.openTime.length; i += 2) {
+        let h=parseInt(config.openTime[i]),
+            m=parseInt(config.openTime[i + 1]);
+        if(h<10){
+            h='0'+h;
+        }
+        if(m<10){
+            m='0'+m;
+        }
+        timeConfig['open_' + (i / 2 + 1)] = h + ':' + m;
+    }
+    for (let i = 0; i < config.closeTime.length; i += 2) {
+        let h=parseInt(config.closeTime[i]),
+            m=parseInt(config.closeTime[i + 1]);
+        if(h<10){
+            h='0'+h;
+        }
+        if(m<10){
+            m='0'+m;
+        }
+        timeConfig['close_' + (i / 2 + 1)] = h + ':' + m;
+    }
+
+    preset.createDailyPreset(timeConfig, res);
+}
+
 module.exports = new dailyTimeServer();

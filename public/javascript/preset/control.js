@@ -24,7 +24,28 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
     // some code here
 
 
-  
+   /* 删除*/
+   $(document).on('click', '.delBtn', function(event){
+    var id=$(this).data('id');
+    debugger
+    // 这里改成自定义样式的确认删除
+    var type = $(this).data('type');
+    // Tip.confirm(type,id);
+    if(!confirm('确认删除？')){
+        return;
+    }
+    $.ajax({
+        method: "GET",
+        url: "/preset/del",
+        dataType: "json",
+        data:{id: id, type: type},
+        success:function (data) {
+            if(data.success){
+                location.reload();
+            }
+        }
+    })
+});
         
         //设备查看tab页切换
         $('body').on('click', '[role=presentation]', function() {
@@ -125,8 +146,8 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
                     '<input type="radio" name="optionsRadios" id="optionWeek" value="0" data-relay=' + relay + ' checked>周模式</label>' +
                     '<label class="radio-inline" id="optionsRadios_label">' +
                     '<input type="radio" name="optionsRadios" id="optionDay" value="1" data-relay=' + relay + '>日模式</label>' +
-                    '<label class="radio-inline">' +
-                    '<input type="radio" name="optionsRadios" id="optionSwitch" value="2" data-relay=' + relay + '>开关控制</label>' +
+                    // '<label class="radio-inline">' +
+                    // '<input type="radio" name="optionsRadios" id="optionSwitch" value="2" data-relay=' + relay + '>开关控制</label>' +
                     
                     '<div class="control-content">' +
                     '</div>',
@@ -157,6 +178,12 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
                         switchStatus = '',
                         presetName = $('#presetName').val(),
                         presetDescribe = $('#presetDescribe').val();
+                        if(!presetName){
+                            return
+                        }
+                        if(!presetDescribe){
+                            return
+                        }
                     // if (!confirm("是否下发配置？")) {
                     //     return false;
                     // }
@@ -286,7 +313,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
                             closeTime: closeTime,
                             btnState: JSON.stringify(sectionBtnState),
                             name: presetName,
-                            nescribe: presetDescribe,
+                            describe: presetDescribe,
                         }, url, project_name);
                     } else { //type==2
                         $.each($switch, function(i, v) {
@@ -685,31 +712,22 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
                 dataType: "json",
                 data: data,
                 success: function(data) {
-                    if (data.length) {
-                        var $content = '<div>';
-                        $.each(data, function(i, v) {
-                            // $content += '<p>' + v.equip_id + ':' + (v.code === 1 ? '下发配置成功' : '下发配置失败') + '</p>';
-                            $content += (v.code === 1 ? '<p>' + v.equip_id + ':' + '下发配置成功' : '<p style="color:red;">' + v.equip_id + ':' + '下发配置失败') + '</p>';
-                        });
+                    if (data.success) {
                         dialog({
                             title: project_name,
-                            content: $content
+                            content: '添加预置成功'
                         }).show();
-                    } else {
-                        if (data.code === 1) {
-                            dialog({
-                                title: project_name,
-                                content: '下发配置成功'
-                            }).show();
-                        } else {
-                            dialog({
-                                title: project_name,
-                                content: '下发配置失败'
-                            }).show();
-                        }
-                    }
 
-                }
+                        setTimeout(function () {
+                            location.reload();
+                        }, 2000);
+                    } else {
+                        dialog({
+                            title: project_name,
+                            content: '添加预置成功'
+                        }).show();
+                    }                
+                }                
             });
         }
 

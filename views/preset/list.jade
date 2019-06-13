@@ -23,6 +23,7 @@ block content
                         thead
                             tr
                                 th  序号
+                                th  模式
                                 th  名称
                                 th  描述
                                 th  操作
@@ -31,13 +32,14 @@ block content
                                 if(item)
                                     tr.list_tr
                                         td #{index + 1}
+                                        td #{item.type === 'daily'? '日': '周'}
                                         td #{item.name}
                                         td #{item.describe}
                                         td
-                                            a.delBtn(href='javascript:void(0);' data-id='#{item.id}' data-type='member')  删除
+                                            a.delBtn(href='javascript:void(0);' data-id='#{item.id}' data-type='#{item.type}')  删除
                                                 span.glyphicon.glyphicon-remove
-                                            a.editBtn(href='/preset/edit/#{item.id}' data-id='#{item.id}') 编辑
-                                                span.glyphicon.glyphicon-edit
+                                            // a.editBtn(href='/preset/edit/#{item.id}' data-id='#{item.id}') 编辑
+                                               // span.glyphicon.glyphicon-edit
 
 
 

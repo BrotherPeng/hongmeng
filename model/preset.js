@@ -7,9 +7,15 @@ function Preset() {
     this.getAll = function(res) {
         connection.acquire(function(err, con) {
             con.query('select * from dailypresetconfig', function(err, daily) {
+                for(let i=0; i<daily.length; i++){
+                    daily[i].type = 'daily'
+                }
                 con.query('select * from weekpresetconfig', function(err, week) {
                     con.release();
                     // logger.info(result);
+                    for(let i=0; i<week.length; i++){
+                        week[i].type = 'week'
+                    }
                     daily = daily.concat(week)
                     res.render('preset/list',{title:'预置管理',result:daily});
                 });
@@ -55,9 +61,26 @@ function Preset() {
             });
         });
     };
+    // 创建预置周设置
     this.createWeekPreset = function(weekTimeConfig, res) {
         connection.acquire(function(err, con) {
             con.query('insert into weekpresetconfig set ?', weekTimeConfig, function(err, result) {
+                con.release();
+                if (err) {
+                    //res.render('member/error');
+                    res.send({success:false})
+                } else {
+
+                    //res.render('member/success',{title:'监控中心'});
+                    res.send({success:true})
+                }
+            });
+        });
+    };
+    // 创建预置日设置
+    this.createDailyPreset = function(dailyTimeConfig, res) {
+        connection.acquire(function(err, con) {
+            con.query('insert into dailypresetconfig set ?', dailyTimeConfig, function(err, result) {
                 con.release();
                 if (err) {
                     //res.render('member/error');
@@ -84,14 +107,15 @@ function Preset() {
             });
         });
     };
-    this.delete = function(id, res) {
+    this.delete = function(id, type, res) {
         connection.acquire(function(err, con) {
-            con.query('delete from users where id = ?', [id], function(err, result) {
+            const sql = type === 'week'? 'delete from weekpresetconfig where id = ?': 'delete from dailypresetconfig where id = ?'
+            con.query(sql, [id], function(err, result) {
                 con.release();
                 if (err) {
-                    res.send({status: -1, message: 'Failed to delete'});
+                    res.send({success: -1, message: 'Failed to delete'});
                 } else {
-                    res.send({status: 1, message: 'Deleted successfully'});
+                    res.send({success: 1, message: 'Deleted successfully'});
                 }
             });
         });

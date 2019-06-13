@@ -21,7 +21,8 @@ router.get('/list',function(req, res, next) {
 /* 删除人员. */
 router.get('/del', function(req, res, next) {
     let id=req.query.id;
-    Member.delete(id,res);
+    let type=req.query.type;
+    Preset.delete(id, type, res);
 });
 /* 添加人员*/
 router.get('/add', function (req, res, next) {
@@ -100,7 +101,7 @@ router.get('/add', function (req, res, next) {
     if(type===0){
         weekTimeServer.savePresetConfig(config1, res);
     }else if(type===1){
-        dailyTimeServer.saveConfig(config1, res);
+        dailyTimeServer.savePresetConfig(config1, res);
     }
 
 });
