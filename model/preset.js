@@ -4,7 +4,7 @@
 var connection = require('../module/connection');
 var logger = require('../log').logger('mysql');
 function Preset() {
-    this.getAll = function(res) {
+    this.getAll = function(callback) {
         connection.acquire(function(err, con) {
             con.query('select * from dailypresetconfig', function(err, daily) {
                 for(let i=0; i<daily.length; i++){
@@ -17,7 +17,8 @@ function Preset() {
                         week[i].type = 'week'
                     }
                     daily = daily.concat(week)
-                    res.render('preset/list',{title:'预置管理',result:daily});
+                    // res.render('preset/list',{title:'预置管理',result:daily});
+                    callback(err, daily);
                 });
             });
         });

@@ -293,6 +293,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
         });
         //请求周设置
         function weekTime(projectId) {
+            debugger;
             var weekTimeTemp = $('#weekTime').html(),
                 $weekTimeWrap = $('.weekTimeWrap'),
                 template = handlebars.compile(weekTimeTemp);
@@ -342,7 +343,10 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
         //操作按钮
         var projectName = '';
         $('body').on('click', '.btn-dialog', function() {
-            
+            var options = '';
+            for(var i=0; i<presetWeek.length;i++){
+                options += '<option value="'+i+'">'+presetWeek[i].name+'</option>';
+            }
             var $this = $(this),
                 id = $this.data('id'),
                 project_name = $this.data('name'),
@@ -355,6 +359,11 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
                     '<input type="radio" name="optionsRadios" id="optionDay" value="1" data-relay=' + relay + '>日模式</label>' +
                     '<label class="radio-inline">' +
                     '<input type="radio" name="optionsRadios" id="optionSwitch" value="2" data-relay=' + relay + '>开关控制</label>' +
+                    '<div></div>' +
+                    '<select id="presetSelect" class="form-control">' +
+                    ' <option value="-1">选择预置</option>' +
+                    options +
+                    '</select>' +
                     '<div class="control-content">' +
                     '</div>',
                 isGroupBtn = false;
@@ -526,7 +535,6 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
 
                 },
                 onshow: function() {
-
                     $('[name=optionsRadios]').on('click', function() {
                         var switchArr = [];
                         $('.flatpickr-wrapper').remove();
@@ -542,6 +550,24 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
                             });
                             //getWeekTimeConfigFromServer(id, $('.control-content'), weekPanel);
                             getWeekTimeConfigFromServer(id, $('.control-content'), weekPanel, switchArr);
+                            
+                            $('#presetSelect').empty();
+                            options = '<option value="-1">选择预置</option>';
+                            for(var i=0; i<presetWeek.length; i++){
+                                options += '<option value="'+i+'">'+presetWeek[i].name+'</option>';
+                            }
+                            $('#presetSelect').append(options);
+                            $('#presetSelect').unbind().on('change', function(){
+                                var value = $(this).val();
+                                var data = presetWeek[value];
+                                debugger;
+                                if(value == '-1'){
+                                    weekPanel($('.control-content'), [], initTimePlus, []);
+                                }else {
+                                    weekPanel($('.control-content'), [data], initTimePlus, []);
+                                }
+                            });
+
                         } else if ($(this).val() === '1') {
                             /*先获得switchArr*/
                             $.each($(this).data('relay').split(','), function(i, v) {
@@ -552,11 +578,33 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
                                 }
                             });
                             getDailyTimeConfigFromServer(id, $('.control-content'), dailyPanel, switchArr);
+
+                            $('#presetSelect').empty();
+                            options = '<option value="-1">选择预置</option>';
+                            for(var i=0; i<presetDaily.length; i++){
+                                options += '<option value="'+i+'">'+presetDaily[i].name+'</option>';
+                            }
+                            $('#presetSelect').append(options);
+                            $('#presetSelect').unbind().on('change', function(){
+                                var value = $(this).val();
+                                var data = presetDaily[value];
+                                debugger;
+                                if(value == '-1'){
+                                    dailyPanel($('.control-content'), [], initTimePlus, []);
+                                    getDay();
+                                }else {
+                                    // setTimeout(function(){
+                                        dailyPanel($('.control-content'), [data], initTimePlus, []);
+                                        getDay();
+                                    // }, 1000);
+                                    // callback(panel, data, initTimePlus, switchArr);
+                                }
+                            });
                         } else {
                             /*switchArr初始化*/
                             switchArr = [];
                             // console.log($(this).data())
-
+                            var _this = this;
                             $.each($(this).data('relay').split(','), function(i, v) {
                                 if (v === '关') {
                                     switchArr.push(0);
@@ -599,6 +647,41 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
                                 // }
 
                             });
+
+                            $('#presetSelect').empty();
+                            options = '<option value="-1">选择预置</option>';
+                            options += '<option value="0">全开</option>';
+                            options += '<option value="1">全关</option>';
+                            $('#presetSelect').append(options);
+                            $('#presetSelect').unbind().on('change', function(){
+                                var value = $(this).val();
+                                debugger;
+                                switchArr = [];
+                                if(value == '-1'){
+                                    $.each($(_this).data('relay').split(','), function(i, v) {
+                                        if (v === '关') {
+                                            switchArr.push(0);
+                                        } else {
+                                            switchArr.push(1);
+                                        }
+                                    });
+                                    $(".control-content").html(switchPanel(switchArr));
+                                }else if(value == '0'){
+                                    $.each($(_this).data('relay').split(','), function(i, v) {
+                                        switchArr.push(1);
+                                    });
+        
+                                    //开关控制
+                                    $(".control-content").html(switchPanel(switchArr));
+                                }else {
+                                    $.each($(_this).data('relay').split(','), function(i, v) {
+                                        switchArr.push(0);
+                                    });
+        
+                                    //开关控制
+                                    $(".control-content").html(switchPanel(switchArr));
+                                }
+                            });
                         }
 
                     });
@@ -611,7 +694,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
         });
         //查询按钮
         $('body').on('click', '.search-Btn-dialog', function() {
-
+            debugger;
             var $this = $(this),
                 id = $this.data('id'),
                 $content =
@@ -859,6 +942,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
          */
         //function getWeekTimeConfigFromServer(equipId, panel, callback) {
         function getWeekTimeConfigFromServer(equipId, panel, callback, switchArr) {
+            debugger;
             $.ajax({
                 method: "GET",
                 url: "/nodeControl/weekTime/" + equipId,
@@ -875,6 +959,31 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
                 }
             });
         }
+        // 获取周预置信息
+        var presetWeek = [];
+        var presetDaily = [];
+        function getWeekTimePresetConfig() {
+            debugger;
+            $.ajax({
+                method: "GET",
+                url: "/preset/all",
+                dataType: "json",
+                success: function(data) {
+                    //callback(panel, data, initTimePlus);
+                    for (var i = 0; i < data.length; i++) {
+                        if (data[i] && data[i].type === 'week') {
+                            data[i].week_conf = JSON.parse(data[i].week_conf);
+                            presetWeek.push(data[i]);
+                        }else {
+                            presetDaily.push(data[i]);
+                        }
+                    }
+                    console.log(presetWeek);
+                    // callback(panel, data, initTimePlus, switchArr);
+                }
+            });
+        }
+        getWeekTimePresetConfig();
 
         /**
          * 从数据库获取日设置信息，方便操作的时候设置

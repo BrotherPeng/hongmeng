@@ -15,8 +15,9 @@ let dailyTimeServer = require('../server/dailyTimeConfigServer');
 router.get('/list',function(req, res, next) {
     let ownerId = req.user[0].id,
         roleId = req.user[0].role_id;
-        Preset.getAll(res);
-    
+        Preset.getAll(function(err, daily){
+            res.render('preset/list',{title:'预置管理',result:daily});
+        });
 });
 /* 删除人员. */
 router.get('/del', function(req, res, next) {
@@ -123,4 +124,14 @@ router.get('/edit/:id', function(req, res, next) {
         };
     Member.update(users,res);
 });
+
+//按设备id单个周模式查询
+router.get('/all',(req,res)=>{
+    Preset.getAll(function (err, value) {
+        if(!err){
+            res.send(value);
+        }
+    });
+});
+
 module.exports = router;
