@@ -11,23 +11,23 @@ var Promise = require('bluebird');
 var InitData = require('../lib/socket/initData');
 let weekTimeServer = require('../server/weekTimeConfigServer');
 let dailyTimeServer = require('../server/dailyTimeConfigServer');
-/* 人员列表. */
-router.get('/list',function(req, res, next) {
+/* 预置列表. */
+router.get('/list', function (req, res, next) {
     let ownerId = req.user[0].id,
         roleId = req.user[0].role_id;
-        Preset.getAll(function(err, daily){
-            res.render('preset/list',{title:'预置管理',result:daily});
-        });
+    Preset.getAll(function (err, daily) {
+        res.render('preset/list', { title: '预置管理', result: daily });
+    });
 });
-/* 删除人员. */
-router.get('/del', function(req, res, next) {
-    let id=req.query.id;
-    let type=req.query.type;
+/* 删除预置. */
+router.get('/del', function (req, res, next) {
+    let id = req.query.id;
+    let type = req.query.type;
     Preset.delete(id, type, res);
 });
-/* 添加人员*/
+/* 添加预置*/
 router.get('/add', function (req, res, next) {
-    res.render('preset/add', {title: '添加人员', role_id: req.user[0].role_id}); //返回用户角色到前端
+    res.render('preset/add', { title: '添加预置', role_id: req.user[0].role_id }); //返回用户角色到前端
 }).post('/add', function (req, res, next) {
     let data,
         // id = req.params.id,
@@ -44,7 +44,7 @@ router.get('/add', function (req, res, next) {
         closeTime = closeTime.split(',');
     }
 
-    switch (type){
+    switch (type) {
         case 0:
             config = {
                 // id: id,
@@ -59,7 +59,7 @@ router.get('/add', function (req, res, next) {
                 openTime: req.body.openTime.split(','),
                 closeTime: req.body.closeTime.split(','),
                 btnState: btnState,
-                name: req.body.name, 
+                name: req.body.name,
                 describe: req.body.describe
             };
             break;
@@ -85,7 +85,7 @@ router.get('/add', function (req, res, next) {
                 openTime: req.body.openTime.split(','),
                 closeTime: req.body.closeTime.split(','),
                 btnState: btnState,
-                name: req.body.name, 
+                name: req.body.name,
                 describe: req.body.describe
             };
             break;
@@ -99,36 +99,98 @@ router.get('/add', function (req, res, next) {
             break;
     }
 
-    if(type===0){
+    if (type === 0) {
         weekTimeServer.savePresetConfig(config1, res);
-    }else if(type===1){
+    } else if (type === 1) {
         dailyTimeServer.savePresetConfig(config1, res);
     }
 
 });
-/* 编辑人员. */
-router.get('/edit/:id', function(req, res, next) {
-    Member.getById(req.params.id,function (err,result) {
-        res.render('member/edit',{title: '编辑人员',result:result})
-    });
-}).post('/edit/:id',function (req,res,next) {
-    let id=req.params.id,
-        username=req.body.username,
-        password=req.body.password,
-        // role=req.body.role, //genice 20170723角色不可编辑
-        users={
-            id:id,
-            username:username,
-            password:password,
-            // role_id:role,
-        };
-    Member.update(users,res);
+
+router.post('/update', function (req, res, next) {
+    let data,
+        // id = req.params.id,
+        id = Number(req.body.id),
+        type = Number(req.body.type),
+        openTime = req.body.openTime,
+        closeTime = req.body.closeTime,
+        btnState = req.body.btnState,
+        code = 1,
+        message = 'success',
+        config,
+        config1;
+    if (openTime && closeTime) {
+        openTime = openTime.split(',');
+        closeTime = closeTime.split(',');
+    }
+
+    switch (type) {
+        case 0:
+            config = {
+                // id: id,
+                type: type,
+                openTime: openTime,
+                closeTime: closeTime,
+                btnState: btnState
+            };
+            config1 = {
+                id: id,
+                type: type,
+                openTime: req.body.openTime.split(','),
+                closeTime: req.body.closeTime.split(','),
+                btnState: btnState,
+                name: req.body.name,
+                describe: req.body.describe
+            };
+            break;
+        case 1:
+            let startDay = req.body.startDay,
+                endDay = req.body.endDay;
+            startDay = startDay.split(',');
+            endDay = endDay.split(',');
+            config = {
+                // id: id,
+                type: type,
+                startDay: startDay,
+                endDay: endDay,
+                openTime: openTime,
+                closeTime: closeTime,
+                btnState: btnState
+            };
+            config1 = {
+                id: id,
+                type: type,
+                startDay: startDay,
+                endDay: endDay,
+                openTime: req.body.openTime.split(','),
+                closeTime: req.body.closeTime.split(','),
+                btnState: btnState,
+                name: req.body.name,
+                describe: req.body.describe
+            };
+            break;
+        case 2:
+            let switchStatus = req.body.switchStatus;
+            config = {
+                id: id,
+                type: type,
+                switchStatus: switchStatus
+            };
+            break;
+    }
+
+    if (type === 0) {
+        weekTimeServer.savePresetConfig(config1, res);
+    } else if (type === 1) {
+        dailyTimeServer.savePresetConfig(config1, res);
+    }
+
 });
 
 //按设备id单个周模式查询
-router.get('/all',(req,res)=>{
+router.get('/all', (req, res) => {
     Preset.getAll(function (err, value) {
-        if(!err){
+        if (!err) {
             res.send(value);
         }
     });

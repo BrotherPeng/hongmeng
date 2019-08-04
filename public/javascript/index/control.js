@@ -20,15 +20,15 @@ requirejs.config({
 
     }
 });
-require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'], function($, handlebars, dialog, flatpickr, dialogTemplate, io) {
+require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'], function ($, handlebars, dialog, flatpickr, dialogTemplate, io) {
     // some code here
 
 
     //监控当前浏览器窗口
     var winWidth = 0;
     var winHeight = 0;
-     //函数：获取尺寸
-    function findDimensions(){
+    //函数：获取尺寸
+    function findDimensions() {
         //获取窗口宽度
         var divData = document.getElementsByTagName("div_data");
         if (window.innerWidth)
@@ -41,22 +41,21 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
         else if ((document.body) && (document.body.clientHeight))
             winHeight = document.body.clientHeight;
         //通过深入Document内部对body进行检测，获取窗口大小
-        if (document.documentElement  && document.documentElement.clientHeight && document.documentElement.clientWidth)
-        {
+        if (document.documentElement && document.documentElement.clientHeight && document.documentElement.clientWidth) {
             winHeight = document.documentElement.clientHeight;
             winWidth = document.documentElement.clientWidth;
         }
         //通过判断屏幕可显区域更改页面布局
-        if(winWidth < 1300){
-                $('.div_data').removeClass('col-xs-6').addClass('col-xs-12');
-        }else{
-                $('.div_data').removeClass('col-xs-12').addClass('col-xs-6');
+        if (winWidth < 1300) {
+            $('.div_data').removeClass('col-xs-6').addClass('col-xs-12');
+        } else {
+            $('.div_data').removeClass('col-xs-12').addClass('col-xs-6');
         }
         // console.log('执行函数');
     }
 
 
-    if($('#hasProject').val() == 0){
+    if ($('#hasProject').val() == 0) {
         findDimensions();
         //调用函数，获取数值
         window.onresize = findDimensions;
@@ -67,21 +66,21 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
             weekPanel = dialogTemplate.weekPanel,
             dailyPanel = dialogTemplate.dailyPanel;
         // weekSet = dialogTemplate.weekSet;
-        var AutoRefresh = function() {
+        var AutoRefresh = function () {
             this.autoArr = [];
             this.autoPanel = {};
             this.run();
         };
         AutoRefresh.prototype = {
-            set: function(id, panel) {
+            set: function (id, panel) {
                 var self = this;
                 self.autoArr.push(id);
                 self.autoPanel[id] = panel;
             },
-            get: function(id) {
+            get: function (id) {
                 var self = this,
                     has = false;
-                $.each(self.autoArr, function(i, v) {
+                $.each(self.autoArr, function (i, v) {
                     if (v == id) {
                         has = true;
                         return;
@@ -89,32 +88,32 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
                 });
                 return has;
             },
-            remove: function(id) {
+            remove: function (id) {
                 var self = this;
-                $.each(self.autoArr, function(i, v) {
+                $.each(self.autoArr, function (i, v) {
                     if (v == id) {
                         self.autoArr.splice(i, 1);
                         self.autoPanel[id] = null;
                     }
                 })
             },
-            run: function() {
+            run: function () {
                 var self = this;
-                $.each(self.autoArr, function(i, v) {
+                $.each(self.autoArr, function (i, v) {
                     self.render(v);
                 });
-                setTimeout(function() {
+                setTimeout(function () {
                     self.run();
                 }, 20000);
             },
-            render: function(id) {
+            render: function (id) {
                 var self = this;
                 $.ajax({
                     method: "GET",
                     url: "/nodeControl/id",
                     dataType: "json",
                     data: { projectId: id },
-                    success: function(data) {
+                    success: function (data) {
                         for (var i = 0; i < data.length; i++) {
                             if (!data[i]) {
                                 continue;
@@ -185,7 +184,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
         };
         var autoRefresh = new AutoRefresh();
         //下拉按钮单击事件，请求该项目下的所有设备
-        $('body').on('click', '#projectId .project-up-down', function() {
+        $('body').on('click', '#projectId .project-up-down', function () {
             var $this = $(this),
                 $li = $(this).parents('.list-group-item'),
                 $tabpanel = $li.find('[role=tabpanel]'),
@@ -209,7 +208,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
                 url: "/nodeControl/id",
                 dataType: "json",
                 data: { projectId: id },
-                success: function(data) {
+                success: function (data) {
                     for (var i = 0; i < data.length; i++) {
                         if (!data[i]) {
                             continue;
@@ -272,7 +271,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
             });
         });
         //设备查看tab页切换
-        $('body').on('click', '[role=presentation]', function() {
+        $('body').on('click', '[role=presentation]', function () {
             var $this = $(this),
                 $tab = $this.parents('[role=tabpanel]'),
                 $presentation = $tab.find('[role=presentation]'),
@@ -302,7 +301,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
                 url: "/nodeControl/weekTime/id",
                 dataType: "json",
                 data: { projectId: projectId },
-                success: function(data) {
+                success: function (data) {
                     var result = template(data);
                     $weekTimeWrap.html(result);
                     console.log(resule);
@@ -321,7 +320,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
                 url: "/nodeControl/dailyTime/id",
                 dataType: "json",
                 data: { projectId: projectId },
-                success: function(data) {
+                success: function (data) {
                     for (var l = 0; l < data.length; l++) {
                         for (var ll = 2; ll < 6; ll++) {
                             if (data[l] && data[l]['start_' + ll] === '1-1' && data[l]['end_' + ll] === '1-1') {
@@ -342,10 +341,10 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
 
         //操作按钮
         var projectName = '';
-        $('body').on('click', '.btn-dialog', function() {
+        $('body').on('click', '.btn-dialog', function () {
             var options = '';
-            for(var i=0; i<presetWeek.length;i++){
-                options += '<option value="'+i+'">'+presetWeek[i].name+'</option>';
+            for (var i = 0; i < presetWeek.length; i++) {
+                options += '<option value="' + i + '">' + presetWeek[i].name + '</option>';
             }
             var $this = $(this),
                 id = $this.data('id'),
@@ -359,8 +358,8 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
                     '<input type="radio" name="optionsRadios" id="optionDay" value="1" data-relay=' + relay + '>日模式</label>' +
                     '<label class="radio-inline">' +
                     '<input type="radio" name="optionsRadios" id="optionSwitch" value="2" data-relay=' + relay + '>开关控制</label>' +
-                    '<div></div>' +
-                    '<select id="presetSelect" class="form-control">' +
+                    // '<div></div>' +
+                    '<select id="presetSelect" class="form-control" style="display: inline-block; width:auto; margin-left:10px;">' +
                     ' <option value="-1">选择预置</option>' +
                     options +
                     '</select>' +
@@ -368,7 +367,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
                     '</div>',
                 isGroupBtn = false;
 
-                projectName = $this.data('name');
+            projectName = $this.data('name');
             //判断是否是群发按钮
             if ($this.hasClass('btn-project-group')) {
                 isGroupBtn = true;
@@ -381,7 +380,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
                 content: $content,
                 okValue: '配置',
                 cancel: '取消',
-                ok: function() {
+                ok: function () {
                     var type = $('[type=radio]:checked').val(),
                         timeArr = getTime(),
                         dayArr,
@@ -516,7 +515,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
                             btnState: JSON.stringify(sectionBtnState)
                         }, url, project_name);
                     } else { //type==2
-                        $.each($switch, function(i, v) {
+                        $.each($switch, function (i, v) {
                             if ($(v).hasClass('active')) { //判断开关控制的开关状态
                                 switchStatus = '0' + switchStatus;
                             } else {
@@ -534,14 +533,14 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
                     }
 
                 },
-                onshow: function() {
-                    $('[name=optionsRadios]').on('click', function() {
+                onshow: function () {
+                    $('[name=optionsRadios]').on('click', function () {
                         var switchArr = [];
                         $('.flatpickr-wrapper').remove();
                         // console.log($(this))
                         if ($(this).val() === '0') {
                             /*先获得switchArr*/
-                            $.each($(this).data('relay').split(','), function(i, v) {
+                            $.each($(this).data('relay').split(','), function (i, v) {
                                 if (v === '关') {
                                     switchArr.push(0);
                                 } else {
@@ -550,27 +549,27 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
                             });
                             //getWeekTimeConfigFromServer(id, $('.control-content'), weekPanel);
                             getWeekTimeConfigFromServer(id, $('.control-content'), weekPanel, switchArr);
-                            
+
                             $('#presetSelect').empty();
                             options = '<option value="-1">选择预置</option>';
-                            for(var i=0; i<presetWeek.length; i++){
-                                options += '<option value="'+i+'">'+presetWeek[i].name+'</option>';
+                            for (var i = 0; i < presetWeek.length; i++) {
+                                options += '<option value="' + i + '">' + presetWeek[i].name + '</option>';
                             }
                             $('#presetSelect').append(options);
-                            $('#presetSelect').unbind().on('change', function(){
+                            $('#presetSelect').unbind().on('change', function () {
                                 var value = $(this).val();
                                 var data = presetWeek[value];
                                 debugger;
-                                if(value == '-1'){
+                                if (value == '-1') {
                                     weekPanel($('.control-content'), [], initTimePlus, []);
-                                }else {
+                                } else {
                                     weekPanel($('.control-content'), [data], initTimePlus, []);
                                 }
                             });
 
                         } else if ($(this).val() === '1') {
                             /*先获得switchArr*/
-                            $.each($(this).data('relay').split(','), function(i, v) {
+                            $.each($(this).data('relay').split(','), function (i, v) {
                                 if (v === '关') {
                                     switchArr.push(0);
                                 } else {
@@ -581,21 +580,21 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
 
                             $('#presetSelect').empty();
                             options = '<option value="-1">选择预置</option>';
-                            for(var i=0; i<presetDaily.length; i++){
-                                options += '<option value="'+i+'">'+presetDaily[i].name+'</option>';
+                            for (var i = 0; i < presetDaily.length; i++) {
+                                options += '<option value="' + i + '">' + presetDaily[i].name + '</option>';
                             }
                             $('#presetSelect').append(options);
-                            $('#presetSelect').unbind().on('change', function(){
+                            $('#presetSelect').unbind().on('change', function () {
                                 var value = $(this).val();
                                 var data = presetDaily[value];
                                 debugger;
-                                if(value == '-1'){
+                                if (value == '-1') {
                                     dailyPanel($('.control-content'), [], initTimePlus, []);
                                     getDay();
-                                }else {
+                                } else {
                                     // setTimeout(function(){
-                                        dailyPanel($('.control-content'), [data], initTimePlus, []);
-                                        getDay();
+                                    dailyPanel($('.control-content'), [data], initTimePlus, []);
+                                    getDay();
                                     // }, 1000);
                                     // callback(panel, data, initTimePlus, switchArr);
                                 }
@@ -605,7 +604,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
                             switchArr = [];
                             // console.log($(this).data())
                             var _this = this;
-                            $.each($(this).data('relay').split(','), function(i, v) {
+                            $.each($(this).data('relay').split(','), function (i, v) {
                                 if (v === '关') {
                                     switchArr.push(0);
                                 } else {
@@ -618,7 +617,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
                             console.log(switchArr);
                             console.log(switchPanel(switchArr));
                             var on_off_btn = $(".on_off_btn");
-                            on_off_btn.click(function() {
+                            on_off_btn.click(function () {
                                 var $this = $(this);
                                 /*$.ajax({  //yunpengl 不明白这个地方和项目个数有什么直接关系
                                     method: "GET",
@@ -639,9 +638,9 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
                                     }
                                 }, 500);*/
 
-                                    /*    }
-                                    }
-                                });*/
+                                /*    }
+                                }
+                            });*/
                                 // if(){
 
                                 // }
@@ -653,12 +652,12 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
                             options += '<option value="0">全开</option>';
                             options += '<option value="1">全关</option>';
                             $('#presetSelect').append(options);
-                            $('#presetSelect').unbind().on('change', function(){
+                            $('#presetSelect').unbind().on('change', function () {
                                 var value = $(this).val();
                                 debugger;
                                 switchArr = [];
-                                if(value == '-1'){
-                                    $.each($(_this).data('relay').split(','), function(i, v) {
+                                if (value == '-1') {
+                                    $.each($(_this).data('relay').split(','), function (i, v) {
                                         if (v === '关') {
                                             switchArr.push(0);
                                         } else {
@@ -666,18 +665,18 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
                                         }
                                     });
                                     $(".control-content").html(switchPanel(switchArr));
-                                }else if(value == '0'){
-                                    $.each($(_this).data('relay').split(','), function(i, v) {
+                                } else if (value == '0') {
+                                    $.each($(_this).data('relay').split(','), function (i, v) {
                                         switchArr.push(1);
                                     });
-        
+
                                     //开关控制
                                     $(".control-content").html(switchPanel(switchArr));
-                                }else {
-                                    $.each($(_this).data('relay').split(','), function(i, v) {
+                                } else {
+                                    $.each($(_this).data('relay').split(','), function (i, v) {
                                         switchArr.push(0);
                                     });
-        
+
                                     //开关控制
                                     $(".control-content").html(switchPanel(switchArr));
                                 }
@@ -693,7 +692,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
             d.show();
         });
         //查询按钮
-        $('body').on('click', '.search-Btn-dialog', function() {
+        $('body').on('click', '.search-Btn-dialog', function () {
             debugger;
             var $this = $(this),
                 id = $this.data('id'),
@@ -730,7 +729,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
                 method: "GET",
                 url: "/nodeControl/weekTime/" + 'id?projectId=' + id,
                 dataType: "json",
-                success: function(data) {
+                success: function (data) {
                     // console.log(data);
                     for (var i = 0; i < data.length; i++) {
                         if (data[i]) {
@@ -745,7 +744,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
                         method: "GET",
                         url: "/nodeControl/dailyTime/" + 'id?projectId=' + id,
                         dataType: "json",
-                        success: function(data) {
+                        success: function (data) {
                             // console.log(data);
                             for (var j = 0; j < data.length; j++) {
                                 if (data[j]) {
@@ -765,7 +764,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
                                 okValue: '配置',
                                 cancel: '取消',
                                 cancelValue: '取消',
-                                onshow: function() {
+                                onshow: function () {
                                     //todo 展示默认信息
                                     var showModel = $('[name=showModel]');
                                     for (var i = 0; i < showModel.length; i++) {
@@ -784,7 +783,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
                                         }
                                     }
                                     //todo 点击事件
-                                    showModel.on('click', function() {
+                                    showModel.on('click', function () {
                                         var arr = [1, 2, 3, 4, 5];
                                         for (var i = 0; i < arr.length; i++) {
 
@@ -811,7 +810,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
             });
         });
         //日设置添加、删除区间事件
-        $('body').on('click', '#addSection', function() {
+        $('body').on('click', '#addSection', function () {
             /*var switchArr = [];
             /!*先获得switchArr*!/
             var data_int = $(this).parent().parent().children('label#optionsRadios_label').children('input');
@@ -873,7 +872,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
             $hide.eq(0).removeClass('daily-hide');
             $hide.eq(1).removeClass('daily-hide');
         });
-        $('body').on('click', '.delSection', function() {
+        $('body').on('click', '.delSection', function () {
             var $hide = $('.control-content .daily-hide'),
                 $delSection = $('.control-content .delSection'),
                 hideNum = $hide.length;
@@ -888,7 +887,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
          * 初始化时间控件
          */
         function initTimePlus() {
-            $.each($('.flatpickr'), function(i, v) {
+            $.each($('.flatpickr'), function (i, v) {
                 new flatpickr(v, {
                     enableTime: true,
                     noCalendar: true,
@@ -903,7 +902,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
             var timeArr = {};
             timeArr['openTime'] = [];
             timeArr['closeTime'] = [];
-            $.each($('.openTime'), function(i, v) {
+            $.each($('.openTime'), function (i, v) {
                 var _selectVal = $(v).val(),
                     _selectArr = _selectVal.split(':'),
                     h = _selectArr[0],
@@ -911,7 +910,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
                 timeArr['openTime'].push(h);
                 timeArr['openTime'].push(m);
             });
-            $.each($('.closeTime'), function(i, v) {
+            $.each($('.closeTime'), function (i, v) {
                 var _selectVal = $(v).val(),
                     _selectArr = _selectVal.split(':'),
                     h = _selectArr[0],
@@ -927,10 +926,10 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
             var dayArr = {};
             dayArr['startDay'] = [];
             dayArr['endDay'] = [];
-            $.each($('.ui-dialog-content .daily-start'), function(i, v) {
+            $.each($('.ui-dialog-content .daily-start'), function (i, v) {
                 dayArr['startDay'].push($(v).val());
             });
-            $.each($('.ui-dialog-content .daily-end'), function(i, v) {
+            $.each($('.ui-dialog-content .daily-end'), function (i, v) {
                 dayArr['endDay'].push($(v).val());
             });
             return dayArr;
@@ -947,7 +946,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
                 method: "GET",
                 url: "/nodeControl/weekTime/" + equipId,
                 dataType: "json",
-                success: function(data) {
+                success: function (data) {
                     //callback(panel, data, initTimePlus);
                     for (var i = 0; i < data.length; i++) {
                         if (data[i]) {
@@ -968,13 +967,13 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
                 method: "GET",
                 url: "/preset/all",
                 dataType: "json",
-                success: function(data) {
+                success: function (data) {
                     //callback(panel, data, initTimePlus);
                     for (var i = 0; i < data.length; i++) {
                         if (data[i] && data[i].type === 'week') {
                             data[i].week_conf = JSON.parse(data[i].week_conf);
                             presetWeek.push(data[i]);
-                        }else {
+                        } else {
                             presetDaily.push(data[i]);
                         }
                     }
@@ -994,7 +993,7 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
                 method: "GET",
                 url: "/nodeControl/dailyTime/" + equipId,
                 dataType: "json",
-                success: function(data) {
+                success: function (data) {
                     console.log(data);
                     callback(panel, data, initTimePlus, switchArr);
                     getDay();
@@ -1011,10 +1010,10 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
                 url: url,
                 dataType: "json",
                 data: data,
-                success: function(data) {
+                success: function (data) {
                     if (data.length) {
                         var $content = '<div>';
-                        $.each(data, function(i, v) {
+                        $.each(data, function (i, v) {
                             // $content += '<p>' + v.equip_id + ':' + (v.code === 1 ? '下发配置成功' : '下发配置失败') + '</p>';
                             $content += (v.code === 1 ? '<p>' + v.equip_id + ':' + '下发配置成功' : '<p style="color:red;">' + v.equip_id + ':' + '下发配置失败') + '</p>';
                         });
@@ -1054,11 +1053,11 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
             var socket = io('47.104.254.127:8082');
             // var socket = io('120.27.37.212:8082');
             // var socket = io('127.0.0.1:8082');
-            socket.on('onlineList', function(data) {
+            socket.on('onlineList', function (data) {
                 if (!data) {
                     return;
                 }
-                $.each($('#projectId').find('.list-group-item'), function() {
+                $.each($('#projectId').find('.list-group-item'), function () {
                     if (data[$(this).data('id')]) {
                         $(this).find('.equip-online-num-b').html(data[$(this).data('id')]);
                     } else {
@@ -1067,34 +1066,34 @@ require(['jquery', 'handlebars', 'dialog', 'flatpickr', 'dialogTemplate', 'io'],
                 });
             });
 
-            socket.on('controlGroup', function(data){
+            socket.on('controlGroup', function (data) {
                 console.info(data);
                 debugger;
-                if(data){
-                    if(!controlGroup){
+                if (data) {
+                    if (!controlGroup) {
                         controlGroup = '<div class="control-group">';
                         //controlGroup += (data.code === 1 ? '<p>' + data.equip_id + ':' + '下发配置成功' : '<p style="color:red;">' + data.equip_id + ':' + '下发配置失败') + '</p>';
-                        
-                        if(data.code === 1){
+
+                        if (data.code === 1) {
                             controlGroup += '<p>' + data.equip_id + ' 下发配置成功' + '</p>';
-                        }else if(data.code === 2) {
+                        } else if (data.code === 2) {
                             controlGroup += '<span style="color: #F0F8FF;">————————————————</span>';
                             controlGroup += '<p style="color:green;">' + data.equip_id + ' 发送中' + '</p>';
-                        }else {
+                        } else {
                             controlGroup += '<p style="color:red;">' + data.equip_id + ' 下发配置失败' + '</p>';
                         }
                         dialog({
                             title: projectName,
                             content: controlGroup
                         }).show();
-                    }else {
+                    } else {
                         // controlGroup = '<div class="control-group">';
-                        if(data.code === 1){
+                        if (data.code === 1) {
                             controlGroup = '<p>' + data.equip_id + ' 下发配置成功' + '</p>';
-                        }else if(data.code === 2) {
+                        } else if (data.code === 2) {
                             controlGroup = '<span style="color: #F0F8FF;">————————————————</span>';
                             controlGroup += '<p style="color:green;">' + data.equip_id + ' 发送中' + '</p>';
-                        }else {
+                        } else {
                             controlGroup = '<p style="color:red;">' + data.equip_id + ' 下发配置失败' + '</p>';
                         }
                         // controlGroup = (data.code === 1 ? '<p>' + data.equip_id + ':' + '下发配置成功' : '<p style="color:red;">' + data.equip_id + ':' + '下发配置失败') + '</p>';
